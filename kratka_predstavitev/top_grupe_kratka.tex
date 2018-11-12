@@ -1,0 +1,88 @@
+\documentclass[a4paper, 12pt]{beamer}
+
+\usetheme{CambridgeUS}
+\usecolortheme{beaver}
+\usefonttheme{structuresmallcapsserif}
+
+
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{units}
+\usepackage{eurosym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{color}
+%\usepackage{url}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{pifont}
+
+\definecolor{bostonuniversityred}{rgb}{0.8, 0.0, 0.0}
+
+\newenvironment{matematika}[1]{
+\textcolor{bostonuniversityred}{\underline{\textsc{#1:}}}
+}{
+}
+
+\title{Topološke grupe}
+\author{Benjamin Benčina}
+\institute[FMF]{Fakulteta za matematiko in fiziko}
+\date{\today}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%TEST AREA%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\titlepage
+
+\begin{frame}
+\begin{matematika}{Definicija}
+Neprazna množica $G$ z binarno operacijo $*$ je \emph{grupa}, če:
+\begin{itemize}[label=\ding{227}]
+\item je množica $G$ zaprta za operacijo $*$,
+\item je operacija $*$ asociativna v množici $G$,
+\item obstaja tak element $e \in G$, da za vsak element $x \in G$ velja enakost 
+\[ x*e = e*x = x, \]
+\item za vsak element $x \in G$ obstaja element $y \in G$, da velja enakost
+\[ x*y = y*x = e. \]
+\end{itemize}
+Označimo: $(G, *)$ ali včasih samo $G$.
+\end{matematika}
+\end{frame}
+
+\begin{frame}
+\begin{matematika}{Definicija}
+\emph{Topologija} na množici $X$ je družina $\tau \subseteq 2^{X}$ z lastnostmi:
+\begin{itemize}[label=\ding{227}]
+\item $X \in \tau$, $\emptyset \in \tau$,
+\item $U \in \tau \wedge V \in \tau \implies U \cap V \in \tau$,
+\item $\lbrace U_{\lambda} \rbrace_{\lambda \in \Lambda} \subseteq \tau \implies \bigcup\limits_{\lambda \in \Lambda}^{} U_{\lambda} \in \tau$.
+\end{itemize}
+\end{matematika}
+\end{frame}
+
+\begin{frame}
+\begin{matematika}{Definicija}
+\emph{Topološka grupa} je grupa $(G, *)$ s topologijo $\tau$, glede na katero sta strukturni operaciji zvezni.
+\end{matematika}
+\newline
+\newline
+Strukturni operaciji:
+\begin{itemize}[label=\ding{227}]
+\item Množenje: $\mu : G \times G \to G$, $(x, y) \mapsto xy$.
+\item Invertiranje: $\iota : G \to G$, $x \mapsto x^{-1}$.
+\end{itemize}
+
+\end{frame}
+
+\end{document}
