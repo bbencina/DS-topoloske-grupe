@@ -62,7 +62,7 @@ Označimo: $(G, *)$ ali včasih samo $G$.
 
 \begin{frame}
 \begin{matematika}{Definicija}
-\emph{Topologija} na množici $X$ je družina $\tau \subseteq 2^{X}$ z lastnostmi:
+\emph{Topologija} na neprazni množici $X$ je družina $\tau \subseteq 2^{X}$ z lastnostmi:
 \begin{itemize}[label=\ding{227}]
 \item $X \in \tau$, $\emptyset \in \tau$,
 \item $U \in \tau \wedge V \in \tau \implies U \cap V \in \tau$,
@@ -84,5 +84,132 @@ Strukturni operaciji:
 \end{itemize}
 
 \end{frame}
+
+\begin{frame}
+\frametitle{Primeri}
+\begin{itemize}[label=\ding{227}]
+\item<1-> poljubna grupa z diskretno ali trivialno topologijo,
+\item<2-> aditivna grupa realnih števil z običajno topologijo $\tau_e$,
+\item<3-> enotska krožnica v $\mathbb{R}^n$ s podedovanim množenjem in relativno topologijo,
+\item<4-> grupa linarnih izomorfizmov $\mathbb{GL}(n,\mathbb{R})$ z matričnim množenjem, gledana kot podprostor $n^2$-razsežnega Evklidskega prostora
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Separacijski aksiomi}
+\begin{itemize}[label=\ding{227}]
+\item $T_0$, $T_1$, $T_2$, $T_3$, $T_4$,
+\end{itemize}
+
+\pause
+
+\begin{matematika}{Definicija}
+Naj bo $X$ topološki prostor in $A,B \subset X$ njegovi disjunktni podmnožici. \emph{Urisonova funkcija} za množici $A$ in $B$ je zvezna funkcija $\varphi : X \to [0,1]$, za katero velja $\varphi |_A \equiv 0$ in $\varphi |_B \equiv 1$.
+\end{matematika}
+\newline
+
+\pause
+
+\begin{matematika}{Definicija}
+Naj bo $X$ topološki prostor. $X$ zadošča separacijskemu aksiomu $T_{3 \frac{1}{2}}$ natanko tedaj, ko za vsako zaprto podmnožico $A \subset X$ in vsako točko $y \notin A$ obstaja Urisonova funkcija. \\
+Če $X \in T_1$ in $X \in T_{3 \frac{1}{2}}$, rečemo, da je X \emph{kompletno regularen} topološki prostor.
+\end{matematika}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Separacijski aksiomi}
+\begin{itemize}[label=\ding{227}]
+\item Vemo: $X \in T_2 \implies X \in T_1 \implies X \in T_0$.
+\end{itemize}
+
+\pause
+
+\begin{matematika}{Izrek}
+Naj bo $G$ topološka grupa, $a \in G$ in $F \subset G$ zaprta podmnožica množice $G$ taka, da ne vsebuje $a$. Naj bo $G \in T_0$. Tedaj za $F$ in $a$ obstaja Urisonova funkcija in $G \in T_{3 \frac{1}{2}}$.
+\end{matematika}
+\newline
+
+\pause
+
+Z drugimi besedami, $T_0$ zadošča za kompletno regularnost.
+\newline
+
+\pause
+
+Nas topološko grupna struktura lahko pripelje še dlje (do $T_4$)?
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Metrizabilnost}
+\begin{matematika}{Izrek}
+Naj bo $\{ U_k \}_{k=1}^{\infty}$ družina simetričnih okolic enote $e$ topoliške grupe $G$ z lastnostjo $U_{k+1}^2 \subset U_k$ za vsak $k\in\mathbb{N}$. Potem obstaja levoinvariantna pseudo-metrika $\sigma$ taka, da velja:
+\begin{itemize}[label=\ding{227}]
+\item $\sigma$ je enakomerno zvezna na levi uniformni strukturi na $G \times G$,
+\item $\sigma (x, y) = 0 \iff y^{-1}x \in \bigcap_{k=1}^{\infty}U_k$,
+\item $\sigma (x, y) \leq 2^{-k+2}$, če je $y^{-1}x \in U_k$,
+\item $2^{-k} \leq \sigma (x, y)$, če $y^{-1}x \notin U_k$.
+\end{itemize}
+Če poleg tega velja še, da $x U_k x^{-1} = U_k$ za vse $x \in G$ in $k\in\mathbb{N}$, je $\sigma$ tudi desnoinvariantna in velja:
+\begin{itemize}[label=\ding{227}]
+\item $\sigma (x^{-1}, y^{-1}) = \sigma (x, y)$ za vsaka $x, y \in G$.
+\end{itemize}
+\end{matematika}
+\end{frame}
+
+\begin{frame}
+\frametitle{Metrizabilnost}
+\begin{matematika}{Izrek}
+Naj bo $G \in T_0$ topološka grupa. Tedaj je $G$ metrizabilna natanko tedaj, ko obstaja števna, odprta baza okolic za enoto $e$. V tem primeru lahko za metriko vzamemo kar levoinvariantno pseudo-metriko iz prejšnjega izreka. 
+\end{matematika}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kvocientni prostori}
+\begin{matematika}{Definicija}
+Naj bo $G$ topološka grupa in $H$ njena podgrupa. Kot podprostor $H$ prostora $G$ z relativno topologijo je $H$ topološka grupa.
+\end{matematika}
+
+\pause
+
+\begin{matematika}{Definicija}
+Naj bo $G$ topološka grupa in $H$ njena podgrupa. Naj bo $\varphi$ naravni homomorfizem $x \mapsto xH$. Definiramo topologijo $\tau (G/H)$ na $G/H$ tako: $\{ xH | x \in X \}$ je v $G/H$ odprta natanko tedaj, ko je $\varphi^{-1}(\{ xH | x \in X \})$ odprta v $G$.
+\end{matematika} \newline
+
+\pause
+
+\begin{matematika}{Izrek}
+Naj bo $G$ topološka grupa in $N$ njena podgrupa edinka. Grupa $G/H$ z zgoraj definirano topologijo je topološka grupa.
+\end{matematika}
+\end{frame}
+
+\begin{frame}
+\frametitle{Izreki o izomorfizmih}
+napiši tri izreke o izomorfizmih
+\end{frame}
+
+\begin{frame}
+\frametitle{Izreki o izomorfizmih na kvocientnih prostorih}
+napiši analogne izreke za topološke grupe, da se vidi, da je spremenjenih le par besed.
+\end{frame}
+
+\begin{frame}
+\frametitle{Motivacija}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Cilji:}
+\begin{itemize}[label=\ding{227}]
+\item<1-> študirati separacijske aksiome na topoloških grupah in dokazati, da lahko iz $T_0$ pridemo do $T_{3 \frac{1}{2}}$;
+\item<2-> najti protiprimer za $T_0 \implies T_4$;
+\item<3-> karakterizirati metrizabilnost na topoloških grupah;
+\item<4-> pokazati, da na kvocientnih topoloških grupah veljajo analogni izreki o izomorfizmih (homeomorfizmih);
+\item<4-> študirati separacijske aksiome in metrizabilnost na kvocientnih topoloških grupah (izreki tipa "2 od 3").
+\end{itemize}
+\end{frame}
+
+
 
 \end{document}
