@@ -69,7 +69,44 @@
 Tukaj bom napisal kratek uvod o uporabi združene topološke in algebraične strukture, zgodovinske primere uporabe topoloških grup in nato na kratko opisal strukturo dela.
 
 \section{Kaj je topološka grupa}
-Tukaj bom navedel definicijo topološke grupe in formuliral ter dokazal nekaj osnovnih trditev oz. lem, ki pokažejo, da ima definicija smisel (topološka podgrupa, odprtost in zaprtost).
+%Tukaj bom navedel definicijo topološke grupe in formuliral ter dokazal nekaj osnovnih trditev oz. lem, ki pokažejo, da ima definicija smisel (topološka podgrupa, odprtost in zaprtost).
+\begin{definicija}
+Neprazna množica $G$ z binarno operacijo $*$ je \emph{grupa}, če:
+\begin{enumerate}
+\item je množica $G$ zaprta za (ponavadi binarno) operacijo $*$,
+\item je operacija $*$ asociativna v množici $G$,
+\item v $G$ obstaja tak element $e$ (imenujemo ga \emph{enota}), da za vsak element $x$ množice $G$ veljajo enakosti \[ x*e = e*x = x, \]
+\item za vsak element $x$ množice $G$ obstaja element $y$ tudi iz množice $G$, da veljajo enakosti \[ x*y = y*x = e. \]
+\end{enumerate}
+Oznaka za grupo je ($G$, $*$) ali samo $G$, če je operacija znana ali drugače očitna.
+\end{definicija}
+
+Iz zgornje definicije je takoj razvidno, da nam grupna struktura na množici porodi dve strukturni preslikavi:
+\begin{itemize}
+\item \emph{množenje} $\mu: G \times G \to G$, $(x, y) \mapsto x*y$,
+\item \emph{invertiranje} $\iota: G \to G$, $x \mapsto x^{-1}$.
+\end{itemize}
+
+\begin{definicija}
+\emph{Topologija} na neprazni množici $X$ je družina podmnožic $\tau \subseteq 2^X$ z lastnostmi:
+\begin{enumerate}
+\item $X \in \tau$, $\emptyset \in \tau$,
+\item za poljubni dve množici $U,V \in \tau$ je tudi presek $U \cap V \in \tau$,
+\item za poljubno poddružino $\lbrace U_{\lambda} \rbrace_{\lambda \in \Lambda} \subseteq \tau$ je tudi unija $\bigcup\limits_{\lambda \in \Lambda}^{} U_{\lambda} \in \tau$.
+\end{enumerate}
+Množici $X$, opremljeni s topologijo $\tau$, rečemo \emph{topološki} prostor $(X, \tau)$ in množice v družini $\tau$ označimo za \emph{odprte} množice v topološkem prostoru $X$. \emph{Zaprte} množice definiramo kot komplemente odprtih množic glede na množico $X$.
+\end{definicija}
+
+S pomočjo odprtih in zaprtih množic topološkega prostora $X$ lahko sedaj definiramo zveznost preslikave med dvema topološkima prostoroma.
+
+\begin{definicija}
+Preslikava $f: (X, \tau_1) \to (Y, \tau_2)$ je \emph{zvezna}, kadar je praslika preslikave $f$ vsake odprte množice v topološkem prostoru $(Y, \tau_2)$ oprta tudi v topološkem prostoru $(X, \tau_1)$.
+\end{definicija}
+
+Končno lahko strukturi združimo in povežemo ter definiramo pojem topološke grupe.
+\begin{definicija}
+\emph{Topološka grupa} je grupa $(G, *)$ opremljena s tako topologijo $\tau$ na množici $G$, da sta za $\tau$ strukturni operaciji množenja in invertiranja zvezni. 
+\end{definicija}
 
 \subsection{Primeri topoloških grup}
 Tukaj bom sistematično opisal nekaj osnovnih ali očitnih primerov topoloških grup in za nekaj primerov tudi dokazal, da ustrezajo definiciji.
