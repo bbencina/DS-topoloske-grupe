@@ -49,6 +49,7 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{mathtools}
+\usepackage{enumitem}
 
 % za številske množice uporabite naslednje simbole
 \newcommand{\R}{\mathbb R}
@@ -56,6 +57,8 @@
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\C}{\mathbb C}
 \newcommand{\Q}{\mathbb Q}
+
+\newcommand{\Ucurl}{\mathcal{U}}
 
 % matematične operatorje deklarirajte kot take, da jih bo Latex pravilno stavil
 % \DeclareMathOperator{\conv}{conv}
@@ -69,8 +72,8 @@
 Tukaj bom napisal kratek uvod o uporabi združene topološke in algebraične strukture, zgodovinske primere uporabe topoloških grup in nato na kratko opisal strukturo dela.
 
 \section{Kaj je topološka grupa}
-%Tukaj bom navedel definicijo topološke grupe in formuliral ter dokazal nekaj osnovnih trditev oz. lem, ki pokažejo, da ima definicija smisel (topološka podgrupa, odprtost in zaprtost).
-\begin{definicija}
+
+\begin{definicija}\label{def:grupa}
 Neprazna množica $G$ z binarno operacijo $*$ je \emph{grupa}, če:
 \begin{enumerate}
 \item je množica $G$ zaprta za (ponavadi binarno) operacijo $*$,
@@ -89,7 +92,7 @@ Iz zgornje definicije je takoj razvidno, da nam grupna struktura na množici por
 
 \begin{definicija}
 \emph{Topologija} na neprazni množici $X$ je družina podmnožic $\tau \subseteq 2^X$ z lastnostmi:
-\begin{enumerate}
+\begin{enumerate}\label{def:topologija}
 \item $X \in \tau$, $\emptyset \in \tau$,
 \item za poljubni dve množici $U,V \in \tau$ je tudi presek $U \cap V \in \tau$,
 \item za poljubno poddružino $\lbrace U_{\lambda} \rbrace_{\lambda \in \Lambda} \subseteq \tau$ je tudi unija $\bigcup\limits_{\lambda \in \Lambda}^{} U_{\lambda} \in \tau$.
@@ -99,30 +102,92 @@ Množici $X$, opremljeni s topologijo $\tau$, rečemo \emph{topološki} prostor 
 
 S pomočjo odprtih in zaprtih množic topološkega prostora $X$ lahko sedaj definiramo zveznost preslikave med dvema topološkima prostoroma.
 
-\begin{definicija}
-Preslikava $f: (X, \tau_1) \to (Y, \tau_2)$ je \emph{zvezna}, kadar je praslika preslikave $f$ vsake odprte množice v topološkem prostoru $(Y, \tau_2)$ oprta tudi v topološkem prostoru $(X, \tau_1)$.
+\begin{definicija}\label{def:zveznost}
+Preslikava $f: (X, \tau_1) \to (Y, \tau_2)$ je \emph{zvezna}, kadar je praslika preslikave $f$ vsake odprte množice v topološkem prostoru $(Y, \tau_2)$ odprta tudi v topološkem prostoru $(X, \tau_1)$.
 \end{definicija}
 
 Končno lahko strukturi združimo in povežemo ter definiramo pojem topološke grupe.
-\begin{definicija}
+\begin{definicija}\label{def:topgrupa}
 \emph{Topološka grupa} je grupa $(G, *)$ opremljena s tako topologijo $\tau$ na množici $G$, da sta za $\tau$ strukturni operaciji množenja in invertiranja zvezni. 
 \end{definicija}
+
+Nekaj osnovnih trditev, ki jih bom potreboval kasneje pri dokazovanju.
+
+\begin{trditev}\label{trd:trans}
+Naj bo $G$ topološka grupa in $a \in G$. Leva translacija $x \mapsto ax$ in desna translacija $x \mapsto xa$ za $a$ sta homeomorfizma iz $G$ v $G$. Prav tako je preslikava invertiranja homeomorfizem iz $G$ v $G$.
+\end{trditev}
+
+\begin{trditev}\label{trd:okolice}
+Naj bo $G$ topološka grupa in $\Ucurl$ odprta baza okolic enote $e$. Tedaj veljajo naslednje trditve:
+\begin{enumerate}
+\item za vsako množico $U \in \Ucurl$ obstaja množica $V \in \Ucurl$, da velja $V^{2} \subset U$;
+\item za vsako množico $U \in \Ucurl$ obstaja množica $V \in \Ucurl$, da velja $V^{-1} \subset U$;
+\item za vsako množico $U \in \Ucurl$ in vsak element $x \in U$ obstaja množica $V \in \Ucurl$, da velja $xV \subset U$;
+\item za vsako množico $U \in \Ucurl$ in vsak element $x \in G$ obstaja množica $V \in \Ucurl$, da velja $xVx^{-1} \subset U$.
+\end{enumerate}
+
+Naj bo $G$ sedaj grupa (ne topološka) in $\Ucurl$ družina podmnožic množice $G$, za katero veljajo zgornje štiri lastnosti. Naj bodo poljubni končni preseki množic iz $\Ucurl$ neprazni. Tedaj je družina $\lbrace xU \rbrace$, kjer $U \in \Ucurl$ in $x \in G$ odprta podbaza za neko topologijo na $G$. S to topologijo je $G$ topološka grupa. Družina $\lbrace Ux \rbrace$ je odprta podbaza za isto topologijo.
+
+Če velja še, da za vsaki množici $U,V \in \Ucurl$ obstaja množica $W \in \Ucurl$, da velja $W \subset U \cap V$, potem sta družini $\lbrace xU \rbrace$ in $\lbrace Ux \rbrace$ tudi odprti bazi za to topologijo.
+\end{trditev}
+
+\begin{trditev}
+Vsaka topološka grupa $G$ ima odprto bazo okolic $\Ucurl$ enote $e$, da za vsako okolico $U$ velja $U = U^{-1}$. Tej lastnosti množic pravimo simetričnost.
+\end{trditev}
+
+\begin{posledica}\label{pos:sim}
+Naj bo $G$ topološka grupa. Za vsako okolico $U$ enote $e$ obstaja okolica $V$ enote $e$, da velja $V^{-1} \subset U$.
+\end{posledica}
+
 
 \subsection{Primeri topoloških grup}
 Tukaj bom sistematično opisal nekaj osnovnih ali očitnih primerov topoloških grup in za nekaj primerov tudi dokazal, da ustrezajo definiciji.
 
-\section{Separacijsi aksiomi in metrizabilnost}
+\section{Separacijski aksiomi in metrizabilnost}
 Opis poglavja, kaj me bo zanimalo in pomožne trditve, ki jih nisem navedel že v prejšnjem poglavju.
-Definicije aksiomov in metrizabilnosti.
+Definicije aksiomov in metrizabilnosti ter nekaj privzetkov. Izrek za T3.
+
+\begin{izrek}\label{izr:t3}
+Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $G$ regularna kot topološki prostor.
+\end{izrek}
 
 \subsection{Metrizabilnost}
-Izrek o pseudo-metriki, karakterizacija metrizabilnosti top. grup.
+
+\begin{izrek}\label{izr:pseudometrika}
+Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Označimo $H = \bigcap_{k=1}^{\infty} U_k$. Potem obstaja taka levoinvariantna pseudo-metrika $\sigma$ na $G$ z naslednjimi lastnostmi:
+\begin{enumerate}
+\item $\sigma$ je enakomerno zvezna na levi uniformni strukturi od $G \times G$;
+\item $\sigma (x, y) = 0$ natanko tedaj, ko velja $y^{-1}x \in H$;
+\item $\sigma (x, y) \leq 2^{-k+2}$, če velja $y^{-1}x \in U_k$;
+\item $2^{-k} \leq \sigma (x, y)$, če velja $y^{-1}x \notin U_k$.
+\end{enumerate}
+
+Če velja še $x U_k x^{-1} = U_k$ za vsak $x \in G$ in $k \in \N$, potem je $\sigma$ tudi desnoinvariantna in velja
+\begin{enumerate}[resume]
+\item $\sigma (x^{-1}, y^{-1}) = \sigma (x, y)$ za vsaka dva elementa $x, y \in G$.
+\end{enumerate}
+\end{izrek}
+
+\begin{izrek}\label{izr:metrizabilnost}
+Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Potem je $G$ metrizabilna kot topološki prostor natanko tedaj, ko obstaja števna odprta baza okolic enote $e$.
+\end{izrek}
 
 \subsection{Separacijski aksiomi do T$_{3 \frac{1}{2}}$}
-Še dokaz izreka t0 -> t31/2.
+
+\begin{izrek}\label{izr:t3pol}
+Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Naj bo $a \in G$ in $F$ zaprta podmnožica v $G$, ki ne vsebuje $a$. Potem obstaja taka zvezna realna funkcija $\psi$ definirana na $G$, da je $\psi (a) = 0$ in $\psi (x) = 1$ za vsak $x \in F$.
+
+Drugače: vsaka $T_0$ topološka grupa je popolnoma regularna.
+\end{izrek}
 
 \subsection{Separacijski aksiom T$_4$}
-Protiprimer za t0 -> t4. Kaj nam še manjka + dokaz.
+\begin{izrek}\label{izr:t4protiprimer}
+Če je $m$ katerokoli neštevno kardinalno število, potem je $\Z^{m}$ nenormalna popolnoma regularna topološka grupa.
+\end{izrek}
+
+\begin{izrek}\label{izr:t4}
+Vsaka lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je parakompaktna in zato normalna.
+\end{izrek}
 
 \section{Kvocienti topoloških grup}
 Opis poglavja, definicija top. kvocienta in rel. topologije ter dokaz, da teorija deluje tudi za kvociente.
