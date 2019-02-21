@@ -59,7 +59,7 @@
 \newcommand{\Q}{\mathbb Q}
 
 \newcommand{\Ucurl}{\mathcal{U}}
-
+\newcommand{\closure}[1]{\overline{#1}}
 % matematične operatorje deklarirajte kot take, da jih bo Latex pravilno stavil
 % \DeclareMathOperator{\conv}{conv}
 
@@ -69,7 +69,7 @@
 \begin{document}
 
 \section{Uvod}
-Tukaj bom napisal kratek uvod o uporabi združene topološke in algebraične strukture, zgodovinske primere uporabe topoloških grup in nato na kratko opisal strukturo dela.
+
 
 \section{Kaj je topološka grupa}
 
@@ -84,15 +84,25 @@ Neprazna množica $G$ z binarno operacijo $*$ je \emph{grupa}, če:
 Oznaka za grupo je ($G$, $*$) ali samo $G$, če je operacija znana ali drugače očitna.
 \end{definicija}
 
-Iz zgornje definicije je takoj razvidno, da nam grupna struktura na množici porodi dve strukturni preslikavi:
+Iz zgornje definicije je razvidno, da nam grupna struktura na množici porodi dve strukturni preslikavi:
 \begin{itemize}
 \item \emph{množenje} $\mu: G \times G \to G$, $(x, y) \mapsto x*y$,
 \item \emph{invertiranje} $\iota: G \to G$, $x \mapsto x^{-1}$.
 \end{itemize}
 
-\begin{definicija}
+Definiramo lahko nekaj tipov preslikav med grupami.
+
+\begin{definicija}\label{def:algpreslikave}
+Naj bo $f: (G, *) \to (\widetilde{G}, \star)$ preslikava med dvema grupama.
+\begin{enumerate}
+\item Preslikava $f$ je \emph{homomorfizem}, če za vsaka dva elementa $a, b \in G$ velja $f(a*b) = f(a) \star f(b)$.
+\item Preslikava $f$ je \emph{izomorfizem}, če je bijektivni homomorfizem.
+\end{enumerate}
+\end{definicija}
+
+\begin{definicija}\label{def:topologija}
 \emph{Topologija} na neprazni množici $X$ je družina podmnožic $\tau \subseteq 2^X$ z lastnostmi:
-\begin{enumerate}\label{def:topologija}
+\begin{enumerate}
 \item $X \in \tau$, $\emptyset \in \tau$,
 \item za poljubni dve množici $U,V \in \tau$ je tudi presek $U \cap V \in \tau$,
 \item za poljubno poddružino $\lbrace U_{\lambda} \rbrace_{\lambda \in \Lambda} \subseteq \tau$ je tudi unija $\bigcup\limits_{\lambda \in \Lambda}^{} U_{\lambda} \in \tau$.
@@ -100,10 +110,15 @@ Iz zgornje definicije je takoj razvidno, da nam grupna struktura na množici por
 Množici $X$, opremljeni s topologijo $\tau$, rečemo \emph{topološki} prostor $(X, \tau)$ in množice v družini $\tau$ označimo za \emph{odprte} množice v topološkem prostoru $X$. \emph{Zaprte} množice definiramo kot komplemente odprtih množic glede na množico $X$.
 \end{definicija}
 
-S pomočjo odprtih in zaprtih množic topološkega prostora $X$ lahko sedaj definiramo zveznost preslikave med dvema topološkima prostoroma.
+S pomočjo odprtih in zaprtih množic topološkega prostora $X$ lahko sedaj definiramo zveznost in odprtost preslikave med dvema topološkima prostoroma ter pojem homeomorfizma.
 
-\begin{definicija}\label{def:zveznost}
-Preslikava $f: (X, \tau_1) \to (Y, \tau_2)$ je \emph{zvezna}, kadar je praslika preslikave $f$ vsake odprte množice v topološkem prostoru $(Y, \tau_2)$ odprta tudi v topološkem prostoru $(X, \tau_1)$.
+\begin{definicija}\label{def:toppreslikave}
+Naj bo $f: (X, \tau_1) \to (Y, \tau_2)$ preslikava med topološkima prostoroma.
+\begin{enumerate}
+\item Preslikava $f$ je \emph{zvezna}, kadar je praslika preslikave $f$ vsake odprte množice v topološkem prostoru $(Y, \tau_2)$ odprta tudi v topološkem prostoru $(X, \tau_1)$.
+\item Preslikava $f$ je \emph{odprta}, kadar je slika vsake odprte množice v topološkem prostoru $(X, \tau_1)$ odprta tudi v topološkem prostoru $(Y, \tau_2)$.
+\item Preslikava $f$ je \emph{homeomorfizem}, če je bijektivna, zvezna in ima zvezen inverz.
+\end{enumerate}
 \end{definicija}
 
 Končno lahko strukturi združimo in povežemo ter definiramo pojem topološke grupe.
@@ -111,7 +126,11 @@ Končno lahko strukturi združimo in povežemo ter definiramo pojem topološke g
 \emph{Topološka grupa} je grupa $(G, *)$ opremljena s tako topologijo $\tau$ na množici $G$, da sta za $\tau$ strukturni operaciji množenja in invertiranja zvezni. 
 \end{definicija}
 
-Nekaj osnovnih trditev, ki jih bom potreboval kasneje pri dokazovanju.
+Potrebujemo le še tip preslikave med topološkimi grupami, ki bo ohranjal tako algebraično kot topološko strukturo.
+\begin{definicija}\label{def:topizo}
+Preslikava med dvema topološkima grupama je \emph{topološki izomorfizem}, če je izomorfizem in homeomorfizem.
+\end{definicija}
+
 
 \begin{trditev}\label{trd:trans}
 Naj bo $G$ topološka grupa in $a \in G$. Leva translacija $x \mapsto ax$ in desna translacija $x \mapsto xa$ za $a$ sta homeomorfizma iz $G$ v $G$. Prav tako je preslikava invertiranja homeomorfizem iz $G$ v $G$.
@@ -141,11 +160,10 @@ Naj bo $G$ topološka grupa. Za vsako okolico $U$ enote $e$ obstaja okolica $V$ 
 
 
 \subsection{Primeri topoloških grup}
-Tukaj bom sistematično opisal nekaj osnovnih ali očitnih primerov topoloških grup in za nekaj primerov tudi dokazal, da ustrezajo definiciji.
+
 
 \section{Separacijski aksiomi in metrizabilnost}
-Opis poglavja, kaj me bo zanimalo in pomožne trditve, ki jih nisem navedel že v prejšnjem poglavju.
-Definicije aksiomov in metrizabilnosti ter nekaj privzetkov. Izrek za T3.
+
 
 \begin{izrek}\label{izr:t3}
 Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $G$ regularna kot topološki prostor.
@@ -190,18 +208,115 @@ Vsaka lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T
 \end{izrek}
 
 \section{Kvocienti topoloških grup}
-Opis poglavja, definicija top. kvocienta in rel. topologije ter dokaz, da teorija deluje tudi za kvociente.
-Nekaj osnovnih trditev oz. lem.
-Pomožne trditve za glavni izrek, ki povzame kvociente.
-Izrek + dokaz.
+
+\begin{trditev}\label{trd:toppodgrupa}
+Naj bo $G$ topološka grupa in $H$ njena podgrupa. Z relativno topologijo podprostora $H$ topološkega prostora $G$ je tudi $H$ topološka grupa.
+\end{trditev}
+
+\begin{trditev}\label{trd:zaprtost}
+Naj bo sta $A$ in $B$ podmnožici topološke grupa $G$. Veljajo naslednje trditve:
+\begin{enumerate}
+\item $\closure{A}\ \closure{B} \subset \closure{A B}$,
+\item $(\closure{A})^{-1} = \closure{A^{-1}}$,
+\item $x \closure{A} y = \closure{x A y}$ za vsaka dva $x, y \in G$.
+\end{enumerate}
+
+Če $G$ ustreza še separacijskemu aksiomu $T_0$, velja tudi:
+\begin{enumerate}[resume]
+\item če za vsaka dva elementa $a \in A$ in $b \in B$ velja enakost $ab = ba$, potem velja enakost $ab = ba$ tudi za vsaka dva elementa $a \in \closure{A}$ in $b \in \closure{B}$.
+\end{enumerate}
+\end{trditev}
+
+\begin{trditev}\label{trd:odpzap}
+Naj bo $G$ topološka grupa in $H$ njena podgrupa. $H$ je odprta natanko tedaj, ko ima neprazno notranjost. Vsaka odprta podgrupa $H$ topološke grupa $G$ je tudi zaprta.
+\end{trditev}
+
+\begin{trditev}\label{trd:podgrupaunija}
+Naj bo $U$ simetrična okolica enote $e$ v topološki grupi $G$. Potem je $L = \bigcup_{n=1}^{\infty} U^n$ odprta in zaprta podgrupa topološke grupe $G$.
+\end{trditev}
+
+\begin{definicija}\label{def:kvocientnatop}
+Naj bo $G$ topološka grupa in $H$ njena podgrupa.Naj bo $\varphi$ naravni homomorfizem $x \mapsto xH$ iz $G$ v kvocient $G/H = \lbrace xH$; $x \in G \rbrace$. Na kvocientu $G/H$ lahko definiramo \emph{kvocientno topologijo} $\theta$ s pomočjo naravnega homomorfizma: podmnožica kvocienta $\lbrace aH$; $a \in A$, $A \subseteq G \rbrace$ je v kvocientu odprta natanko tedaj, ko je $\varphi^{-1}(\lbrace aH$; $a \in A$, $A \subseteq G \rbrace)$ odprta množica v $G$.
+\end{definicija}
+
+\begin{opomba}
+Z drugimi besedami to pomeni, da je $\lbrace aH$; $a \in A$, $A \subseteq G \rbrace$ v kvocientu odprta natanko tedaj, ko je $AH$ odprta v $G$. Ker je $H$ podgrupa grupe $G$, velja enakost $\lbrace aH$; $a \in A \rbrace = \lbrace aH$; $a \in AH$. Torej so odprte množice v kvocientu $G/H$ oblike $\lbrace uH$; $u \in U \rbrace$, kjer je $U$ odprta podmnožica v $G$.
+\end{opomba}
+
+\begin{izrek}\label{izr:topkvocienta}
+Kvocientna topologija $\theta$ je res topologija na množici $G/H$. Glede topologijo $\theta$ je naravni homomorfizem $\varphi$ zvezen in $\theta$ je najmočnejša topologija na kvocientu $G/H$, glede na katero je naravni homomorfizem $\varphi$ zvezen.
+\end{izrek}
+
+Kvocientu $G/H$ s kvocientno topologijo $\theta$ rečemo \emph{kvocientni prostor}.
+
+\begin{trditev}\label{trd:homoodprt}
+Naravni homomorfizem $\varphi$ iz $G$ v kvocient $G/H$ je odprta preslikava.
+\end{trditev}
+
+\begin{trditev}\label{trd:okolicevkvoc}
+Naj bo $G$ topološka grupa, $H$ njena podgrupa in $U, V$ tako okolici enote $e$ v $G$, da velja $V^{-1}V \subset U$. Naj bo $\varphi$ naravni homomorfizem iz grupe $G$ v kvocient $G/H$. Potem velja $\closure{\varphi(V)} \subset \varphi(U)$.
+\end{trditev}
+
+\begin{izrek}
+Naj bo $G$ topološka grupa in $H$ njena podgrupa. Veljajo naslednje trditve:
+\begin{enumerate}
+\item kvocientni prostor $G/H$ je diskreten natanko tedaj, ko je $H$ odprta v $G$,
+\item če je $H$ zaprta v $G$, potem je kvocient $G/H$ regularen topološki prostor,
+\item če kvocientni prostor $G/H$ zadošča separacijskemu aksiomu $T_0$, potem je $H$ zaprta v $G$ in velja, da je kvocient $G/H$ regularen topološki prostor.
+\end{enumerate}
+\end{izrek}
+
+\begin{izrek}\label{izr:kvocpovzetek}
+Naj bo $G$ topološka grupa in naj bo $H$ njena podgrupa edinka. Naj bo kvocient $G/H$ opremljen s kvocientno topologijo $\theta$. Veljajo naslednje trditve:
+\begin{enumerate}
+\item kvocient $G/H$ je topološka grupa s topologijo $\theta$,
+\item naravni homomorfizem $\varphi$ iz $G$ v $G/H$ je odprt in zvezen homomorfizem,
+\item kvocient $G/H$ je diskreten natanko tedaj, ko je podgrupa $H$ odprta v $G$,
+\item kvocient $G/H$ zadošča separacijskemu aksiomu $T_0$ (in je zato tudi regularen) natanko tedaj, ko je podgrupa $H$ zaprta v $G$.
+\end{enumerate}
+\end{izrek}
 
 \section{Izreki o izomorfizmih}
-Opis poglavja in naše želje o obliki analognih izrekov.
-Algebraični izreki o izomorfizmih (brez dokaza).
-Vsak analogen izrek posebej s pomožnimi trditvami v svojem podrazdelku.
+
+\begin{trditev}\label{trd:homogenkvoc}
+	Naj bo $G$ topološka grupa in $H$ njena podgrupa. Naj bo za vsak element $a \in G$ na kvocientu $G/H$ definirana preslikava $\psi_a$ s predpisom $\psi_a(xH) = (ax)H$.
+	Za vsak element $a \in G$ je $\psi_a$ homeomorfizem na prostoru $G/H$.
+\end{trditev}
+
+\begin{opomba}\label{opo:homogenkvoc}
+	Če za vsaki dve točki $x, y$ topološkega prostora $X$ velja, da na prostoru $X$ obstaja homeomorfizem, ki preslika točko $x$ v točko $y$, rečemo, da je $X$ kot topološki prostor \emph{homogen}. Zgornja trditev pravi, da je kvocientni prostor $G/H$ homogen topološki prostor.
+\end{opomba}
+
+\begin{trditev}\label{trd:kvockompakt}
+	Naj bo $G$ (lokalno) kompaktna topološka grupa in naj bo $H$ njena podgrupa. Potem je tudi kvocietni prostor $G/H$ (lokalno) kompakten.
+\end{trditev}
+
+\subsection{Prvi izrek o izomorfizmih}
+\begin{izrek}[Prvi izrek o izomorfizmih za topološke grupe]\label{izr:prvitopizrek}
+Naj bo $G$ topološka grupa z enoto $e$ in $\widetilde{G}$ topološka grupa z enoto $\tilde{e}$. Naj bo preslikava $f$ odprt, zvezen homomorfizem iz $G$ v $\widetilde{G}$. Potem je jedro preslikave $f$ ker$f = f^{-1}(\tilde{e}) = H$ podgrupa edinka v topološki grupi $G$ in množice $f^{-1}(\tilde{x})$, kjer je $\tilde{x} \in \widetilde{G}$ so disjunktni odseki podgrupe $H$ v grupi $G$. Preslikava $\Phi$ iz $\widetilde{G}$ v $G$ s predpisom $\tilde{x} \mapsto f^{-1}(\tilde{x})$ je homeomorfizem in izomorfizem iz $\widetilde{G}$ v topološko grupo $G/H$ s kvocientno topologijo $\theta (G/H)$.
+\end{izrek}
+
+\subsection{Drugi izrek o izomorfizmih}
+\begin{izrek}\label{izr:preddrugi}
+Naj bo $G$ topološka grupa, $A$ njena podgrupa in $H$ podgrupa edinka grupe $G$. Naj bo $\tau$ izomorfizem iz kvocienta $(AH)/H$ v kvocient $A/(A \cap H)$ s predpisom $\tau (aH) = a(A \cap H)$, kjer je $a \in A$. Potem $\tau$ slika odprte množice iz $(AH)/H$ v odprte množice iz $A/(A \cap H)$.
+\end{izrek}
+
+\begin{izrek}[Drugi izrek o izomorfizmih za topološke grupe]\label{izr:drugitopizrek}
+Naj bodo objekti $G$, $A$, $H$ in $\tau$ isti kakor v izreku \ref{izr:preddrugi}. Naj bo podgrupa $A$ še lokalno kompaktna in $\sigma$-kompaktna, naj bo $H$ zaprta v $G$ in $AH$ lokalno kompaktna. Tedaj je $\tau$ homeomorfizem ter topološki grupi $(AH)/H$ in $A/(A \cap H)$ sta topološko izomorfni.
+\end{izrek}
+
+
+\subsection{Tretji izrek o izomorfizmih}
+\begin{izrek}\label{izr:predtretji}
+Naj bo $G$ topološka grupa z enoto $e$ in naj bo $\widetilde{G}$ topološka grupa z enoto $\tilde{e}$. Naj bo $f$ odprt, zvezen homomorfizem iz grupe $G$ v grupo $\widetilde{G}$. Naj bo $\widetilde{H}$ podgrupa edinka grupe $\widetilde{G}$. Označimo $H = f^{-1}(\widetilde{H})$ in $N = f^{-1}(\tilde{e})$ ($N$ je jedro homomorfizma $f$). Potem so grupe $G/H$, $\widetilde{G}/\widetilde{H}$ in $(G/N)/(H/N)$ topološko izomorfne.
+\end{izrek}
+
+Izrek lahko preoblikujemo v obliko, ki je bolj podobna algebraični različici in ne vsebuje posredne topološke grupe $\widetilde{G}$.
+\begin{izrek}[Tretji izrek o izomorfizmih za topološke grupe]\label{izr:tretjitopizrek}
+Naj bo $G$ topološka grupa in $H,N$ taki njeni podgrupi edinki, da velja $N \subset H$. Potem sta kvocientni topološki grupi $G/H$ in $(G/N)/(H/N)$ topološko izomorfni.
+\end{izrek}
 
 \section{Izreki tipa ``2 od 3''}
-Kasneje.
 
 
 
@@ -213,7 +328,8 @@ Kasneje.
 % seznam uporabljene literature
 \begin{thebibliography}{99}
 
-%\bibitem{}
+\bibitem{bib:aha1}
+E.~Hewitt in K.~A.~Ross, \emph{Abstact Harmonic Analysis I}, Springer-Verlag, New York, 1979.
 
 \end{thebibliography}
 
