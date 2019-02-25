@@ -110,6 +110,33 @@ Naj bo $f: (G, *) \to (\widetilde{G}, \star)$ preslikava med dvema grupama.
 Množici $X$, opremljeni s topologijo $\tau$, rečemo \emph{topološki} prostor $(X, \tau)$ in množice v družini $\tau$ označimo za \emph{odprte} množice v topološkem prostoru $X$. \emph{Zaprte} množice definiramo kot komplemente odprtih množic glede na množico $X$.
 \end{definicija}
 
+\begin{definicija}\label{def:baza}
+Naj bo $(X, \tau)$ topološki prostor.
+\begin{enumerate}
+\item Podmnožica $B \subset \tau$ je \emph{baza} za topologijo $\tau$, če je vsaka množica iz topologije $\tau$ unija nekaterih množic iz $B$.
+\item Podmnožica $P$ je \emph{podbaza} za topologijo $\tau$, če je družina vseh presekov končno mnogo množic iz $P$ neka baza za topologijo $\tau$.
+\end{enumerate}
+\end{definicija}
+
+\begin{definicija}\label{def:okolica}
+Naj bo $(X, \tau)$ topološki prostor.
+\begin{enumerate}
+\item Množica $U \subseteq X$ je \emph{okolica za točko} $x \in X$, če obstaja odprta množica $V \in \tau$, da velja $V \subseteq U$ in $x \in V$.
+\item Množica $U \subseteq X$ je \emph{okolica za množico} $A \subseteq X$, če obstaja odprta množica $V \in \tau$, da velja $V \subseteq U$ in $A \subseteq V$.
+\item Če je okolica $U$ iz zgornjih dveh primerov tudi sama odprta množica, jo imenujemo \emph{odprta okolica}.
+\item Družina okolic $\Ucurl_x = \lbrace U_\lambda$; $\lambda \in \Lambda \rbrace$ za točko $x \in X$ se imenuje \emph{baza okolic} za $x$, če za poljubno okolico $V$ za točko $x$ velja, da obstaja $\lambda \in \Lambda$, da je $U_\lambda \subseteq V$.
+\end{enumerate}
+\end{definicija}
+
+\begin{definicija}\label{def:notranjost}
+Naj bo $(X, \tau)$ topološki prostor in $A \subseteq X$.
+\begin{enumerate}
+\item Točka $a \in A$ je \emph{notranja točka} množice $A$, če je $A$ okolica za točko $a$.
+\item \emph{Notranjost} množice $A$ je množica vseh njenih notranjih točk. Notranjost množice označimo z $int(A)$. Očitno velja $int(A) \subseteq A$ in tudi $int(A) = A \iff A \in \tau$.
+\item \emph{Zaprtje} množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Zaprtje množice označimo z $\closure{A}$. Očitno velja $A \subseteq \closure{A}$ in tudi $\closure{A} = A \iff A$ je zaprta množica.
+\end{enumerate}
+\end{definicija}
+
 S pomočjo odprtih in zaprtih množic topološkega prostora $X$ lahko sedaj definiramo zveznost in odprtost preslikave med dvema topološkima prostoroma ter pojem homeomorfizma.
 
 \begin{definicija}\label{def:toppreslikave}
@@ -137,7 +164,7 @@ Naj bo $G$ topološka grupa in $a \in G$. Leva translacija $x \mapsto ax$ in des
 \end{trditev}
 
 \begin{trditev}\label{trd:okolice}
-Naj bo $G$ topološka grupa in $\Ucurl$ odprta baza okolic enote $e$. Tedaj veljajo naslednje trditve:
+Naj bo $G$ topološka grupa in $\Ucurl$ baza odprtih okolic enote $e$. Tedaj veljajo naslednje trditve:
 \begin{enumerate}
 \item za vsako množico $U \in \Ucurl$ obstaja množica $V \in \Ucurl$, da velja $V^{2} \subset U$;
 \item za vsako množico $U \in \Ucurl$ obstaja množica $V \in \Ucurl$, da velja $V^{-1} \subset U$;
@@ -145,14 +172,18 @@ Naj bo $G$ topološka grupa in $\Ucurl$ odprta baza okolic enote $e$. Tedaj velj
 \item za vsako množico $U \in \Ucurl$ in vsak element $x \in G$ obstaja množica $V \in \Ucurl$, da velja $xVx^{-1} \subset U$.
 \end{enumerate}
 
-Naj bo $G$ sedaj grupa (ne topološka) in $\Ucurl$ družina podmnožic množice $G$, za katero veljajo zgornje štiri lastnosti. Naj bodo poljubni končni preseki množic iz $\Ucurl$ neprazni. Tedaj je družina $\lbrace xU \rbrace$, kjer $U \in \Ucurl$ in $x \in G$ odprta podbaza za neko topologijo na $G$. S to topologijo je $G$ topološka grupa. Družina $\lbrace Ux \rbrace$ je odprta podbaza za isto topologijo.
+Naj bo $G$ sedaj grupa (ne topološka) in $\Ucurl$ družina podmnožic množice $G$, za katero veljajo zgornje štiri lastnosti. Naj bodo poljubni končni preseki množic iz $\Ucurl$ neprazni. Tedaj je družina $\lbrace xU \rbrace$, kjer $U \in \Ucurl$ in $x \in G$ odprta podbaza za neko topologijo na $G$. S to topologijo je $G$ topološka grupa. Družina $\lbrace Ux \rbrace$ je podbaza za isto topologijo.
 
-Če velja še, da za vsaki množici $U,V \in \Ucurl$ obstaja množica $W \in \Ucurl$, da velja $W \subset U \cap V$, potem sta družini $\lbrace xU \rbrace$ in $\lbrace Ux \rbrace$ tudi odprti bazi za to topologijo.
+Če velja še, da za vsaki množici $U,V \in \Ucurl$ obstaja množica $W \in \Ucurl$, da velja $W \subset U \cap V$, potem sta družini $\lbrace xU \rbrace$ in $\lbrace Ux \rbrace$ tudi bazi za to topologijo.
 \end{trditev}
 
-\begin{trditev}
-Vsaka topološka grupa $G$ ima odprto bazo okolic $\Ucurl$ enote $e$, da za vsako okolico $U$ velja $U = U^{-1}$. Tej lastnosti množic pravimo simetričnost.
+\begin{trditev}\label{trd:sim}
+Vsaka topološka grupa $G$ ima bazo odprtih okolic $\Ucurl$ enote $e$, da za vsako okolico $U$ velja $U = U^{-1}$.
 \end{trditev}
+
+\begin{opomba}
+Lastnosti množic iz trditve \ref{trd:sim} pravimo simetričnost.
+\end{opomba}
 
 \begin{posledica}\label{pos:sim}
 Naj bo $G$ topološka grupa. Za vsako okolico $U$ enote $e$ obstaja okolica $V$ enote $e$, da velja $V^{-1} \subset U$.
@@ -164,6 +195,17 @@ Naj bo $G$ topološka grupa. Za vsako okolico $U$ enote $e$ obstaja okolica $V$ 
 
 \section{Separacijski aksiomi in metrizabilnost}
 
+\begin{definicija}\label{def:sepaks}
+Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu
+\begin{enumerate}
+\item $T_0$, če za poljubni različni točki $a, b \in X$ obstaja okolica $V$ za eno od točk $a, b$, ki ne vsebuje druge od točk $a, b$;
+\item $T_1$, če za poljubno točko $a \in X$ in različno točko $b \in X$ obstaja okolica $V$ za točko $a$, ki ne vsebuje točke $b$;
+\item $T_2$, če za poljubni različni točki $a, b \in X$ obstajata disjunktni okolici za točki $a$ in $b$;
+\item $T_3$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstajata disjunktni okolici za množico $A$ in točko $b$;
+\item $T_{3 \frac{1}{2}}$, če za poljubno zaprto množoco $A \subseteq X$ in točko $b \in X\backslash A$ obstaja zvezna realna funkcija $\psi$ definirana na $G$, da je $\psi (b) = 0$ in $\psi (x) = 1$ za vsak $x \in A$;
+\item $T_4$, če za poljubni disjunktni zaprti množici $A, B \subseteq X$ obstajata disjunktni okolici za množici $A$ in $B$.
+\end{enumerate}
+\end{definicija}
 
 \begin{izrek}\label{izr:t3}
 Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $G$ regularna kot topološki prostor.
@@ -187,13 +229,13 @@ Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic
 \end{izrek}
 
 \begin{izrek}\label{izr:metrizabilnost}
-Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Potem je $G$ metrizabilna kot topološki prostor natanko tedaj, ko obstaja števna odprta baza okolic enote $e$.
+Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Potem je $G$ metrizabilna kot topološki prostor natanko tedaj, ko obstaja števna baza odprtih okolic enote $e$.
 \end{izrek}
 
 \subsection{Separacijski aksiomi do T$_{3 \frac{1}{2}}$}
 
 \begin{izrek}\label{izr:t3pol}
-Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Naj bo $a \in G$ in $F$ zaprta podmnožica v $G$, ki ne vsebuje $a$. Potem obstaja taka zvezna realna funkcija $\psi$ definirana na $G$, da je $\psi (a) = 0$ in $\psi (x) = 1$ za vsak $x \in F$.
+Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Naj bo $a \in G$ točka in $F$ zaprta podmnožica v $G$, ki ne vsebuje $a$. Potem obstaja taka zvezna realna funkcija $\psi$ definirana na $G$, da je $\psi (a) = 0$ in $\psi (x) = 1$ za vsak $x \in F$.
 
 Drugače: vsaka $T_0$ topološka grupa je popolnoma regularna.
 \end{izrek}
