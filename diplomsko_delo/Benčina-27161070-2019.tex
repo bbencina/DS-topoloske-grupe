@@ -202,16 +202,60 @@ Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu
 \item $T_1$, če za poljubno točko $a \in X$ in različno točko $b \in X$ obstaja okolica $V$ za točko $a$, ki ne vsebuje točke $b$;
 \item $T_2$, če za poljubni različni točki $a, b \in X$ obstajata disjunktni okolici za točki $a$ in $b$;
 \item $T_3$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstajata disjunktni okolici za množico $A$ in točko $b$;
-\item $T_{3 \frac{1}{2}}$, če za poljubno zaprto množoco $A \subseteq X$ in točko $b \in X\backslash A$ obstaja zvezna realna funkcija $\psi$ definirana na $G$, da je $\psi (b) = 0$ in $\psi (x) = 1$ za vsak $x \in A$;
+\item $T_{3 \frac{1}{2}}$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstaja zvezna realna funkcija $\psi$ definirana na $G$, da je $\psi (b) = 0$ in $\psi (x) = 1$ za vsak $x \in A$;
 \item $T_4$, če za poljubni disjunktni zaprti množici $A, B \subseteq X$ obstajata disjunktni okolici za množici $A$ in $B$.
 \end{enumerate}
 \end{definicija}
+
+\begin{opomba}
+\begin{enumerate}
+\item Iz definicije je razvidno, da separacijski aksiom $T_2$ implicira $T_1$ in da separacijski aksiom $T_1$ implicira $T_0$.
+\item Topološkemu prostoru $X$, ki zadošča separacijskemu aksiomu $T_2$, pravimo tudi \emph{Hausdorffov} topološki prostor.
+\item Topološku prostoru $X$, ki zadoška separacijskima aksiomoma $T_1$ in $T_3$, pravimo \emph{regularen} topološki prostor.
+\item Topološku prostoru $X$, ki zadoška separacijskima aksiomoma $T_1$ in $T_{3 \frac{1}{2}}$, pravimo \emph{popolnoma regularen} topološki prostor.
+\item Topološku prostoru $X$, ki zadoška separacijskima aksiomoma $T_1$ in $T_4$, pravimo \emph{normalen} topološki prostor.
+\end{enumerate}
+\end{opomba}
+
+\begin{trditev}[Karakterizacija separacijskega aksioma $T_1$]\label{def:kart1}
+Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu $T_1$ natanko tedaj, ko za vsako točko $x \in X$ velja, da je množica $\lbrace x \rbrace$ zaprta v $X$ glede na topologijo $\tau$.
+\end{trditev}
+
+\begin{posledica}\label{pos:reghaus}
+\begin{enumerate}
+\item Vsak regularen topološki prostor je Hausdorffov.
+\item Vsak popolnoma regularen topološki prostor je regularen in zato Hausdorffov.
+\item Vsak normalen topološki prostor je regularen in zato Hausdorffov.
+\end{enumerate}
+\end{posledica}
+
+\begin{trditev}[Karakterizacija separacijskega aksioma $T_3$]\label{def:kart3}
+Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu $T_3$ natanko tedaj, ko za vsako točko $x \in X$ in vsako okolico $W$ za točko $x$ obstaja odprta okolica $V$ za točko $x$, za katero velja $\closure{V} \subseteq W$.
+\end{trditev}
 
 \begin{izrek}\label{izr:t3}
 Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $G$ regularna kot topološki prostor.
 \end{izrek}
 
 \subsection{Metrizabilnost}
+
+\begin{definicija}\label{def:metrika}
+Naj bo $X$ neprazna množica.
+\begin{enumerate}
+\item \emph{Metrika} na množici $X$ je nenegativna preslikava $d: X \times X \to [0,\infty)$, ki zadošča naslednjim pogojem:
+\begin{itemize}
+\item za vsaki dve točki $x, y \in X$ velja $d(x, y) \geq 0$ in $d(x, y) = 0 \iff x = y$;
+\item za vsaki dve točki $x, y \in X$ velja $d(x, y) = d(y, x)$;
+\item za vsake tri točke $x, y, z \in X$ velja $d(x, z) \leq d(x, y) + d(y, z)$.
+\end{itemize}
+\item \emph{Pseudo-metrika} na množici $X$ je nenegativna funkcija $\rho: X \times X \to [0,\infty)$, ki zadošča naslednjim pogojem:
+\begin{itemize}
+\item za vsaki dve točki $x, y \in X$ velja $\rho (x, y) \geq 0$ in $\rho (x, x) = 0$;
+\item za vsaki dve točki $x, y \in X$ velja $\rho (x, y) = \rho (y, x)$;
+\item za vsake tri točke $x, y, z \in X$ velja $\rho (x, z) \leq \rho (x, y) + \rho (y, z)$.
+\end{itemize}
+\end{enumerate}
+\end{definicija}
 
 \begin{izrek}\label{izr:pseudometrika}
 Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Označimo $H = \bigcap_{k=1}^{\infty} U_k$. Potem obstaja taka levoinvariantna pseudo-metrika $\sigma$ na $G$ z naslednjimi lastnostmi:
