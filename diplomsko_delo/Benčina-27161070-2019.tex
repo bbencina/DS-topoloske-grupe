@@ -14,7 +14,7 @@
 % navedite ime mentorja s polnim nazivom: doc.~dr.~Ime Priimek,
 % izr.~prof.~dr.~Ime Priimek, prof.~dr.~Ime Priimek
 % uporabite le tisti ukaz/ukaze, ki je/so za vas ustrezni
-\mentor{doc.~dr.~Marko Kandič}
+\mentor{doc.~dr.~Marko Kandić}
 % \mentorica{}
 % \somentor{}
 % \somentorica{}
@@ -164,12 +164,12 @@ Naj bo $G$ topološka grupa in $a \in G$. Leva translacija $x \mapsto ax$ in des
 \end{trditev}
 
 \begin{trditev}\label{trd:okolice}
-Naj bo $G$ topološka grupa in $\Ucurl$ baza odprtih okolic enote $e$. Tedaj veljajo naslednje trditve:
+Za topološko grupo $G$ in odprto bazo okolic $\Ucurl$ enote $e$ veljajo naslednje trditve:
 \begin{enumerate}
-\item za vsako množico $U \in \Ucurl$ obstaja množica $V \in \Ucurl$, da velja $V^{2} \subset U$;
-\item za vsako množico $U \in \Ucurl$ obstaja množica $V \in \Ucurl$, da velja $V^{-1} \subset U$;
-\item za vsako množico $U \in \Ucurl$ in vsak element $x \in U$ obstaja množica $V \in \Ucurl$, da velja $xV \subset U$;
-\item za vsako množico $U \in \Ucurl$ in vsak element $x \in G$ obstaja množica $V \in \Ucurl$, da velja $xVx^{-1} \subset U$.
+\item za vsako množico $U \in \Ucurl$ obstaja taka množica $V \in \Ucurl$, da velja $V^{2} \subset U$;
+\item za vsako množico $U \in \Ucurl$ obstaja taka množica $V \in \Ucurl$, da velja $V^{-1} \subset U$;
+\item za vsako množico $U \in \Ucurl$ in vsak element $x \in U$ obstaja taka množica $V \in \Ucurl$, da velja $xV \subset U$;
+\item za vsako množico $U \in \Ucurl$ in vsak element $x \in G$ obstaja taka množica $V \in \Ucurl$, da velja $xVx^{-1} \subset U$.
 \end{enumerate}
 
 Naj bo $G$ sedaj grupa (ne topološka) in $\Ucurl$ družina podmnožic množice $G$, za katero veljajo zgornje štiri lastnosti. Naj bodo poljubni končni preseki množic iz $\Ucurl$ neprazni. Tedaj je družina $\lbrace xU \rbrace$, kjer $U \in \Ucurl$ in $x \in G$ odprta podbaza za neko topologijo na $G$. S to topologijo je $G$ topološka grupa. Družina $\lbrace Ux \rbrace$ je podbaza za isto topologijo.
@@ -186,117 +186,19 @@ Lastnosti množic iz trditve \ref{trd:sim} pravimo simetričnost.
 \end{opomba}
 
 \begin{posledica}\label{pos:sim}
-Naj bo $G$ topološka grupa. Za vsako okolico $U$ enote $e$ obstaja okolica $V$ enote $e$, da velja $V^{-1} \subset U$.
+Za vsako okolico $U$ enote $e$ topološke grupe $G$ obstaja taka okolica $V$ enote $e$, da velja $V^{-1} \subset U$.
 \end{posledica}
 
 
 \subsection{Primeri topoloških grup}
 
 
-\section{Separacijski aksiomi in metrizabilnost}
 
-\begin{definicija}\label{def:sepaks}
-Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu
-\begin{enumerate}
-\item $T_0$, če za poljubni različni točki $a, b \in X$ obstaja okolica $V$ za eno od točk $a, b$, ki ne vsebuje druge od točk $a, b$;
-\item $T_1$, če za poljubno točko $a \in X$ in različno točko $b \in X$ obstaja okolica $V$ za točko $a$, ki ne vsebuje točke $b$;
-\item $T_2$, če za poljubni različni točki $a, b \in X$ obstajata disjunktni okolici za točki $a$ in $b$;
-\item $T_3$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstajata disjunktni okolici za množico $A$ in točko $b$;
-\item $T_{3 \frac{1}{2}}$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstaja zvezna realna funkcija $\psi$ definirana na $G$, da je $\psi (b) = 0$ in $\psi (x) = 1$ za vsak $x \in A$;
-\item $T_4$, če za poljubni disjunktni zaprti množici $A, B \subseteq X$ obstajata disjunktni okolici za množici $A$ in $B$.
-\end{enumerate}
-\end{definicija}
-
-\begin{opomba}
-\begin{enumerate}
-\item Iz definicije je razvidno, da separacijski aksiom $T_2$ implicira $T_1$ in da separacijski aksiom $T_1$ implicira $T_0$.
-\item Topološkemu prostoru $X$, ki zadošča separacijskemu aksiomu $T_2$, pravimo tudi \emph{Hausdorffov} topološki prostor.
-\item Topološku prostoru $X$, ki zadoška separacijskima aksiomoma $T_1$ in $T_3$, pravimo \emph{regularen} topološki prostor.
-\item Topološku prostoru $X$, ki zadoška separacijskima aksiomoma $T_1$ in $T_{3 \frac{1}{2}}$, pravimo \emph{popolnoma regularen} topološki prostor.
-\item Topološku prostoru $X$, ki zadoška separacijskima aksiomoma $T_1$ in $T_4$, pravimo \emph{normalen} topološki prostor.
-\end{enumerate}
-\end{opomba}
-
-\begin{trditev}[Karakterizacija separacijskega aksioma $T_1$]\label{def:kart1}
-Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu $T_1$ natanko tedaj, ko za vsako točko $x \in X$ velja, da je množica $\lbrace x \rbrace$ zaprta v $X$ glede na topologijo $\tau$.
-\end{trditev}
-
-\begin{posledica}\label{pos:reghaus}
-\begin{enumerate}
-\item Vsak regularen topološki prostor je Hausdorffov.
-\item Vsak popolnoma regularen topološki prostor je regularen in zato Hausdorffov.
-\item Vsak normalen topološki prostor je regularen in zato Hausdorffov.
-\end{enumerate}
-\end{posledica}
-
-\begin{trditev}[Karakterizacija separacijskega aksioma $T_3$]\label{def:kart3}
-Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu $T_3$ natanko tedaj, ko za vsako točko $x \in X$ in vsako okolico $W$ za točko $x$ obstaja odprta okolica $V$ za točko $x$, za katero velja $\closure{V} \subseteq W$.
-\end{trditev}
-
-\begin{izrek}\label{izr:t3}
-Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $G$ regularna kot topološki prostor.
-\end{izrek}
-
-\subsection{Metrizabilnost}
-
-\begin{definicija}\label{def:metrika}
-Naj bo $X$ neprazna množica.
-\begin{enumerate}
-\item \emph{Metrika} na množici $X$ je nenegativna preslikava $d: X \times X \to [0,\infty)$, ki zadošča naslednjim pogojem:
-\begin{itemize}
-\item za vsaki dve točki $x, y \in X$ velja $d(x, y) \geq 0$ in $d(x, y) = 0 \iff x = y$;
-\item za vsaki dve točki $x, y \in X$ velja $d(x, y) = d(y, x)$;
-\item za vsake tri točke $x, y, z \in X$ velja $d(x, z) \leq d(x, y) + d(y, z)$.
-\end{itemize}
-\item \emph{Pseudo-metrika} na množici $X$ je nenegativna funkcija $\rho: X \times X \to [0,\infty)$, ki zadošča naslednjim pogojem:
-\begin{itemize}
-\item za vsaki dve točki $x, y \in X$ velja $\rho (x, y) \geq 0$ in $\rho (x, x) = 0$;
-\item za vsaki dve točki $x, y \in X$ velja $\rho (x, y) = \rho (y, x)$;
-\item za vsake tri točke $x, y, z \in X$ velja $\rho (x, z) \leq \rho (x, y) + \rho (y, z)$.
-\end{itemize}
-\end{enumerate}
-\end{definicija}
-
-\begin{izrek}\label{izr:pseudometrika}
-Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Označimo $H = \bigcap_{k=1}^{\infty} U_k$. Potem obstaja taka levoinvariantna pseudo-metrika $\sigma$ na $G$ z naslednjimi lastnostmi:
-\begin{enumerate}
-\item $\sigma$ je enakomerno zvezna na levi uniformni strukturi od $G \times G$;
-\item $\sigma (x, y) = 0$ natanko tedaj, ko velja $y^{-1}x \in H$;
-\item $\sigma (x, y) \leq 2^{-k+2}$, če velja $y^{-1}x \in U_k$;
-\item $2^{-k} \leq \sigma (x, y)$, če velja $y^{-1}x \notin U_k$.
-\end{enumerate}
-
-Če velja še $x U_k x^{-1} = U_k$ za vsak $x \in G$ in $k \in \N$, potem je $\sigma$ tudi desnoinvariantna in velja
-\begin{enumerate}[resume]
-\item $\sigma (x^{-1}, y^{-1}) = \sigma (x, y)$ za vsaka dva elementa $x, y \in G$.
-\end{enumerate}
-\end{izrek}
-
-\begin{izrek}\label{izr:metrizabilnost}
-Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Potem je $G$ metrizabilna kot topološki prostor natanko tedaj, ko obstaja števna baza odprtih okolic enote $e$.
-\end{izrek}
-
-\subsection{Separacijski aksiomi do T$_{3 \frac{1}{2}}$}
-
-\begin{izrek}\label{izr:t3pol}
-Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Naj bo $a \in G$ točka in $F$ zaprta podmnožica v $G$, ki ne vsebuje $a$. Potem obstaja taka zvezna realna funkcija $\psi$ definirana na $G$, da je $\psi (a) = 0$ in $\psi (x) = 1$ za vsak $x \in F$.
-
-Drugače: vsaka $T_0$ topološka grupa je popolnoma regularna.
-\end{izrek}
-
-\subsection{Separacijski aksiom T$_4$}
-\begin{izrek}\label{izr:t4protiprimer}
-Če je $m$ katerokoli neštevno kardinalno število, potem je $\Z^{m}$ nenormalna popolnoma regularna topološka grupa.
-\end{izrek}
-
-\begin{izrek}\label{izr:t4}
-Vsaka lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je parakompaktna in zato normalna.
-\end{izrek}
 
 \section{Kvocienti topoloških grup}
 
 \begin{trditev}\label{trd:toppodgrupa}
-Naj bo $G$ topološka grupa in $H$ njena podgrupa. Z relativno topologijo podprostora $H$ topološkega prostora $G$ je tudi $H$ topološka grupa.
+Naj bo $G$ topološka grupa in $H$ njena podgrupa. Če $H$ opremimo z relativno topologijo, potem je tudi $H$ topološka grupa.
 \end{trditev}
 
 \begin{trditev}\label{trd:zaprtost}
@@ -321,30 +223,27 @@ Naj bo $G$ topološka grupa in $H$ njena podgrupa. $H$ je odprta natanko tedaj, 
 Naj bo $U$ simetrična okolica enote $e$ v topološki grupi $G$. Potem je $L = \bigcup_{n=1}^{\infty} U^n$ odprta in zaprta podgrupa topološke grupe $G$.
 \end{trditev}
 
-\begin{definicija}\label{def:kvocientnatop}
-Naj bo $G$ topološka grupa in $H$ njena podgrupa.Naj bo $\varphi$ naravni homomorfizem $x \mapsto xH$ iz $G$ v kvocient $G/H = \lbrace xH$; $x \in G \rbrace$. Na kvocientu $G/H$ lahko definiramo \emph{kvocientno topologijo} $\theta$ s pomočjo naravnega homomorfizma: podmnožica kvocienta $\lbrace aH$; $a \in A$, $A \subseteq G \rbrace$ je v kvocientu odprta natanko tedaj, ko je $\varphi^{-1}(\lbrace aH$; $a \in A$, $A \subseteq G \rbrace)$ odprta množica v $G$.
-\end{definicija}
-
-\begin{opomba}
-Z drugimi besedami to pomeni, da je $\lbrace aH$; $a \in A$, $A \subseteq G \rbrace$ v kvocientu odprta natanko tedaj, ko je $AH$ odprta v $G$. Ker je $H$ podgrupa grupe $G$, velja enakost $\lbrace aH$; $a \in A \rbrace = \lbrace aH$; $a \in AH$. Torej so odprte množice v kvocientu $G/H$ oblike $\lbrace uH$; $u \in U \rbrace$, kjer je $U$ odprta podmnožica v $G$.
-\end{opomba}
 
 \begin{izrek}\label{izr:topkvocienta}
-Kvocientna topologija $\theta$ je res topologija na množici $G/H$. Glede topologijo $\theta$ je naravni homomorfizem $\varphi$ zvezen in $\theta$ je najmočnejša topologija na kvocientu $G/H$, glede na katero je naravni homomorfizem $\varphi$ zvezen.
+Naj bo $G$ topološka grupa, $H$ njena podgrupa in $\varphi: G \to G/H$ naravna preslikava. Definiramo $\theta(G/H) = \lbrace U ; \varphi^{-1}(U)$ odprta v $G \rbrace$.
+Veljajo naslednje trditve:
+\begin{enumerate}
+\item družina $\theta(G/H)$ je topologija na kvocientu $G/H$,
+\item glede na topologijo $\theta(G/H)$ je $\varphi$ zvezna preslikava,
+\item družina $\theta(G/H)$ je najmočnejša topologija na kvocientu $G/H$, glede na katero je $\varphi$ zvezna preslikava,
+\item $\varphi: G \to G/H$ je odprta preslikava.
+\end{enumerate}
 \end{izrek}
 
-Kvocientu $G/H$ s kvocientno topologijo $\theta$ rečemo \emph{kvocientni prostor}.
+Družini $\theta(G/H)$ pravimo \emph{kvocientna topologija}, kvocientu $G/H$ pa \emph{kvocientni prostor}.
 
-\begin{trditev}\label{trd:homoodprt}
-Naravni homomorfizem $\varphi$ iz $G$ v kvocient $G/H$ je odprta preslikava.
-\end{trditev}
 
 \begin{trditev}\label{trd:okolicevkvoc}
-Naj bo $G$ topološka grupa, $H$ njena podgrupa in $U, V$ tako okolici enote $e$ v $G$, da velja $V^{-1}V \subset U$. Naj bo $\varphi$ naravni homomorfizem iz grupe $G$ v kvocient $G/H$. Potem velja $\closure{\varphi(V)} \subset \varphi(U)$.
+Naj bo $G$ topološka grupa, $H$ njena podgrupa in $U, V$ tako okolici enote $e$ v $G$, da velja $V^{-1}V \subset U$. Naj bo $\varphi: G \to G/H$ naravna preslikava. Potem velja $\closure{\varphi(V)} \subset \varphi(U)$.
 \end{trditev}
 
 \begin{izrek}
-Naj bo $G$ topološka grupa in $H$ njena podgrupa. Veljajo naslednje trditve:
+Za topološko grupo $G$ in njeno podgrupo $H$ veljajo naslednje trditve:
 \begin{enumerate}
 \item kvocientni prostor $G/H$ je diskreten natanko tedaj, ko je $H$ odprta v $G$,
 \item če je $H$ zaprta v $G$, potem je kvocient $G/H$ regularen topološki prostor,
@@ -353,7 +252,7 @@ Naj bo $G$ topološka grupa in $H$ njena podgrupa. Veljajo naslednje trditve:
 \end{izrek}
 
 \begin{izrek}\label{izr:kvocpovzetek}
-Naj bo $G$ topološka grupa in naj bo $H$ njena podgrupa edinka. Naj bo kvocient $G/H$ opremljen s kvocientno topologijo $\theta$. Veljajo naslednje trditve:
+Naj bo $H$ podgrupa edinka topološke grupe $G$. Naj bo kvocient $G/H$ opremljen s kvocientno topologijo $\theta$. Veljajo naslednje trditve:
 \begin{enumerate}
 \item kvocient $G/H$ je topološka grupa s topologijo $\theta$,
 \item naravni homomorfizem $\varphi$ iz $G$ v $G/H$ je odprt in zvezen homomorfizem,
@@ -379,7 +278,7 @@ Naj bo $G$ topološka grupa in naj bo $H$ njena podgrupa edinka. Naj bo kvocient
 
 \subsection{Prvi izrek o izomorfizmih}
 \begin{izrek}[Prvi izrek o izomorfizmih za topološke grupe]\label{izr:prvitopizrek}
-Naj bo $G$ topološka grupa z enoto $e$ in $\widetilde{G}$ topološka grupa z enoto $\tilde{e}$. Naj bo preslikava $f$ odprt, zvezen homomorfizem iz $G$ v $\widetilde{G}$. Potem je jedro preslikave $f$ ker$f = f^{-1}(\tilde{e}) = H$ podgrupa edinka v topološki grupi $G$ in množice $f^{-1}(\tilde{x})$, kjer je $\tilde{x} \in \widetilde{G}$ so disjunktni odseki podgrupe $H$ v grupi $G$. Preslikava $\Phi$ iz $\widetilde{G}$ v $G$ s predpisom $\tilde{x} \mapsto f^{-1}(\tilde{x})$ je homeomorfizem in izomorfizem iz $\widetilde{G}$ v topološko grupo $G/H$ s kvocientno topologijo $\theta (G/H)$.
+Naj bosta $G$ in $\widetilde{G}$ topološki grupi. Naj bo $f: G \to \widetilde{G}$ odprt, zvezen homomorfizem. Potem je $H :=$ ker$f$ podgrupa edinka v grupi $G$ in množice $f^{-1}(\tilde{x})$, kjer je $\tilde{x} \in \widetilde{G}$, so disjunktni odseki podgrupe $H$ v grupi $G$. Preslikava $\Phi:\widetilde{G} \to G/H$ s predpisom $\tilde{x} \mapsto f^{-1}(\tilde{x})$ je topološki izomorfizem.
 \end{izrek}
 
 \subsection{Drugi izrek o izomorfizmih}
@@ -404,7 +303,101 @@ Naj bo $G$ topološka grupa in $H,N$ taki njeni podgrupi edinki, da velja $N \su
 
 \section{Izreki tipa ``2 od 3''}
 
+\section{Separacijski aksiomi in metrizabilnost}
 
+\begin{definicija}\label{def:sepaks}
+	Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu
+	\begin{enumerate}
+		\item $T_0$, če za poljubni različni točki $a, b \in X$ obstaja okolica $V$ za eno od točk $a, b$, ki ne vsebuje druge od točk $a, b$;
+		\item $T_1$, če za poljubno točko $a \in X$ in različno točko $b \in X$ obstaja okolica $V$ za točko $a$, ki ne vsebuje točke $b$;
+		\item $T_2$, če za poljubni različni točki $a, b \in X$ obstajata disjunktni okolici za točki $a$ in $b$;
+		\item $T_3$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstajata disjunktni okolici za množico $A$ in točko $b$;
+		\item $T_{3 \frac{1}{2}}$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstaja zvezna realna funkcija $\psi$ definirana na $G$, da je $\psi (b) = 0$ in $\psi (x) = 1$ za vsak $x \in A$;
+		\item $T_4$, če za poljubni disjunktni zaprti množici $A, B \subseteq X$ obstajata disjunktni okolici za množici $A$ in $B$.
+	\end{enumerate}
+\end{definicija}
+
+\begin{opomba}
+	\begin{enumerate}
+		\item Iz definicije je razvidno, da separacijski aksiom $T_2$ implicira $T_1$ in da separacijski aksiom $T_1$ implicira $T_0$.
+		\item Topološkemu prostoru $X$, ki zadošča separacijskemu aksiomu $T_2$, pravimo tudi \emph{Hausdorffov} topološki prostor.
+		\item Topološku prostoru $X$, ki zadoška separacijskima aksiomoma $T_1$ in $T_3$, pravimo \emph{regularen} topološki prostor.
+		\item Topološku prostoru $X$, ki zadoška separacijskima aksiomoma $T_1$ in $T_{3 \frac{1}{2}}$, pravimo \emph{povsem regularen} topološki prostor.
+		\item Topološku prostoru $X$, ki zadoška separacijskima aksiomoma $T_1$ in $T_4$, pravimo \emph{normalen} topološki prostor.
+	\end{enumerate}
+\end{opomba}
+
+\begin{trditev}[Karakterizacija separacijskega aksioma $T_1$]\label{def:kart1}
+	Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu $T_1$ natanko tedaj, ko za vsako točko $x \in X$ velja, da je množica $\lbrace x \rbrace$ zaprta v $X$ glede na topologijo $\tau$.
+\end{trditev}
+
+\begin{posledica}\label{pos:reghaus}
+	\begin{enumerate}
+		\item Vsak regularen topološki prostor je Hausdorffov.
+		\item Vsak povsem regularen topološki prostor je regularen in zato Hausdorffov.
+		\item Vsak normalen topološki prostor je regularen in zato Hausdorffov.
+	\end{enumerate}
+\end{posledica}
+
+\begin{trditev}[Karakterizacija separacijskega aksioma $T_3$]\label{def:kart3}
+	Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu $T_3$ natanko tedaj, ko za vsako točko $x \in X$ in vsako okolico $W$ za točko $x$ obstaja taka odprta okolica $V$ za točko $x$, za katero velja $\closure{V} \subseteq W$.
+\end{trditev}
+
+\begin{izrek}\label{izr:t3}
+	Vsaka topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$ je regularen topološki prostor.
+\end{izrek}
+
+\subsection{Metrizabilnost}
+
+\begin{definicija}\label{def:metrika}
+	\emph{Pseudometrika} na neprazni množici $X$ je preslikava $d: X \times X \to  [0, \infty)$, ki zadošča naslednjim pogojem:
+	\begin{enumerate}
+		\item za vsaki dve točki $x, y \in X$ velja $\rho (x, y) \geq 0$ in $\rho (x, x) = 0$;
+		\item za vsaki dve točki $x, y \in X$ velja $\rho (x, y) = \rho (y, x)$;
+		\item za vsake tri točke $x, y, z \in X$ velja $\rho (x, z) \leq \rho (x, y) + \rho (y, z)$.
+	\end{enumerate}
+	Če za preslikavo $d$ velja še
+	\begin{enumerate}[resume]
+		\item $d(x,y) = 0 \iff x = y$,
+	\end{enumerate}
+	potem ji rečemo \emph{metrika}.
+\end{definicija}
+
+\begin{izrek}\label{izr:pseudometrika}
+	Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Označimo $H = \bigcap_{k=1}^{\infty} U_k$. Potem obstaja taka levoinvariantna pseudometrika $\sigma$ na $G$ z naslednjimi lastnostmi:
+	\begin{enumerate}
+		\item $\sigma$ je enakomerno zvezna na levi uniformni strukturi od $G \times G$;
+		\item $\sigma (x, y) = 0$ natanko tedaj, ko $y^{-1}x \in H$;
+		\item $\sigma (x, y) \leq 2^{-k+2}$, če $y^{-1}x \in U_k$;
+		\item $2^{-k} \leq \sigma (x, y)$, če $y^{-1}x \notin U_k$.
+	\end{enumerate}
+	
+	Če velja še $x U_k x^{-1} = U_k$ za vsak $x \in G$ in $k \in \N$, potem je $\sigma$ tudi desnoinvariantna in velja
+	\begin{enumerate}[resume]
+		\item $\sigma (x^{-1}, y^{-1}) = \sigma (x, y)$ za vsaka dva elementa $x, y \in G$.
+	\end{enumerate}
+\end{izrek}
+
+\begin{izrek}\label{izr:metrizabilnost}
+	Topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je metrizabilen topološki prostor natanko tedaj, ko obstaja števna baza odprtih okolic enote $e$.
+\end{izrek}
+
+\subsection{Separacijski aksiomi do T$_{3 \frac{1}{2}}$}
+
+\begin{izrek}\label{izr:t3pol}
+	Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Naj bo $a \in G$ točka in $F$ zaprta podmnožica v $G$, ki ne vsebuje $a$. Potem obstaja taka zvezna realna funkcija $\psi$ definirana na $G$, da je $\psi (a) = 0$ in $\psi (x) = 1$ za vsak $x \in F$.
+	
+	Drugače: vsaka $T_0$ topološka grupa je povsem regularna.
+\end{izrek}
+
+\subsection{Separacijski aksiom T$_4$}
+\begin{izrek}\label{izr:t4protiprimer}
+	Če je $m$ katerokoli neštevno kardinalno število, potem je $\Z^{m}$ nenormalna popolnoma regularna topološka grupa.
+\end{izrek}
+
+\begin{izrek}\label{izr:t4}
+	Vsaka lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je parakompaktna in zato normalna.
+\end{izrek}
 
 \section*{Slovar strokovnih izrazov}
 
