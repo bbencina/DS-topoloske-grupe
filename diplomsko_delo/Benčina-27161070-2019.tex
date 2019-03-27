@@ -72,7 +72,7 @@
 
 \section{Preliminarna poglavja}
 
-\subsection{Grupe}
+\subsection{Teorija grup}
 \begin{definicija}\label{def:grupa}
 Neprazna množica $G$ z binarno operacijo $*$ je \emph{grupa}, če:
 \begin{enumerate}
@@ -100,7 +100,7 @@ Naj bo $f: (G, *) \to (\widetilde{G}, \star)$ preslikava med dvema grupama.
 \end{enumerate}
 \end{definicija}
 
-\subsection{Topologija}
+\subsection{Topološki prostori}
 \begin{definicija}\label{def:topologija}
 \emph{Topologija} na neprazni množici $X$ je družina podmnožic $\tau \subseteq 2^X$ z lastnostmi:
 \begin{enumerate}
@@ -146,6 +146,23 @@ Naj bo $f: (X, \tau_1) \to (Y, \tau_2)$ preslikava med topološkima prostoroma.
 \item Preslikava $f$ je \emph{zvezna}, kadar je praslika preslikave $f$ vsake odprte množice v topološkem prostoru $(Y, \tau_2)$ odprta tudi v topološkem prostoru $(X, \tau_1)$.
 \item Preslikava $f$ je \emph{odprta}, kadar je slika vsake odprte množice v topološkem prostoru $(X, \tau_1)$ odprta tudi v topološkem prostoru $(Y, \tau_2)$.
 \item Preslikava $f$ je \emph{homeomorfizem}, če je bijektivna, zvezna in ima zvezen inverz.
+\end{enumerate}
+\end{definicija}
+
+\begin{definicija}\label{def:kompakt}
+Naj bo $X$ topološki prostor.
+\begin{enumerate}
+\item Družini $\mathcal{A}$ množic rečemo \emph{pokritje} topološkega prostora $X$, če je $X \subseteq \bigcup \mathcal{A}$.
+\item Družini $\mathcal{B} \subseteq \mathcal{A}$ rečemo \emph{podpokritje} topološkega prostora $X$, če je $\mathcal{B}$ tudi sama pokritje za $X$.
+\item Topološki prostor je \emph{kompakten}, če vsako njegovo odprto pokritje, tj. pokritje z odprtimi množicami, vsebuje kakšno končno podpokritje.
+\item Topološki prostor je \emph{lokalno kompakten}, če ima vsaka točka $x \in X$ kakšno kompaktno okolico.
+\end{enumerate}
+\end{definicija}
+
+\begin{definicija}\label{def:parakompakt}
+\begin{enumerate}
+\item Naj bosta $\mathcal{U}$ in $\mathcal{V}$ družini podmnožic topološkega prostora $X$. Družina $\mathcal{V}$ je \emph{pofinitev} družine $\mathcal{U}$, če za vsako množico $V \in \mathcal{V}$ obstaja takšna množica $U \in \mathcal{U}$, da je $V \subset U$.
+\item Topološki prostor $X$ je \emph{parakompakten}, če ima vsako njegovo odprto pokritje kakšno pofinitev, ki je lokalno končno odprto pokritje prostora $X$.
 \end{enumerate}
 \end{definicija}
 
@@ -413,6 +430,8 @@ Naj bo $G$ topološka grupa in $H,N$ taki njeni podgrupi edinki, da velja $N \su
 
 \bibitem{bib:aha1}
 E.~Hewitt in K.~A.~Ross, \emph{Abstact Harmonic Analysis I}, Springer-Verlag, New York, 1979.
+\bibitem{bib:top}
+J.~Mrčun, \emph{Topologija}, DMFA-založništvo, Ljubljana, 2008
 
 \end{thebibliography}
 
