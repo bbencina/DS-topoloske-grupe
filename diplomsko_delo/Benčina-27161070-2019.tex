@@ -149,6 +149,7 @@ Naj bo $f: (X, \tau_1) \to (Y, \tau_2)$ preslikava med topološkima prostoroma.
 \end{enumerate}
 \end{definicija}
 
+
 \begin{definicija}\label{def:kompakt}
 Naj bo $X$ topološki prostor.
 \begin{enumerate}
@@ -317,7 +318,7 @@ Naj bodo objekti $G$, $A$, $H$ in $\tau$ isti kakor v izreku \ref{izr:preddrugi}
 Naj bo $G$ topološka grupa z enoto $e$ in naj bo $\widetilde{G}$ topološka grupa z enoto $\tilde{e}$. Naj bo $f$ odprt, zvezen homomorfizem iz grupe $G$ v grupo $\widetilde{G}$. Naj bo $\widetilde{H}$ podgrupa edinka grupe $\widetilde{G}$. Označimo $H = f^{-1}(\widetilde{H})$ in $N = f^{-1}(\tilde{e})$ ($N$ je jedro homomorfizma $f$). Potem so grupe $G/H$, $\widetilde{G}/\widetilde{H}$ in $(G/N)/(H/N)$ topološko izomorfne.
 \end{izrek}
 
-Izrek lahko preoblikujemo v obliko, ki je bolj podobna algebraični različici in ne vsebuje posredne topološke grupe $\widetilde{G}$.
+Izrek lahko preoblikujemo v obliko, ki je bolj podobna algebraični različici in ne vsebuje pomožne topološke grupe $\widetilde{G}$.
 \begin{izrek}[Tretji izrek o izomorfizmih za topološke grupe]\label{izr:tretjitopizrek}
 Naj bo $G$ topološka grupa in $H,N$ taki njeni podgrupi edinki, da velja $N \subset H$. Potem sta kvocientni topološki grupi $G/H$ in $(G/N)/(H/N)$ topološko izomorfni.
 \end{izrek}
@@ -340,11 +341,11 @@ Naj bo $G$ topološka grupa in $H,N$ taki njeni podgrupi edinki, da velja $N \su
 
 \begin{opomba}
 	\begin{enumerate}
-		\item Iz definicije je razvidno, da separacijski aksiom $T_2$ implicira $T_1$ in da separacijski aksiom $T_1$ implicira $T_0$.
-		\item Topološkemu prostoru $X$, ki zadošča separacijskemu aksiomu $T_2$, pravimo tudi \emph{Hausdorffov} topološki prostor.
-		\item Topološku prostoru $X$, ki zadoška separacijskima aksiomoma $T_1$ in $T_3$, pravimo \emph{regularen} topološki prostor.
-		\item Topološku prostoru $X$, ki zadoška separacijskima aksiomoma $T_1$ in $T_{3 \frac{1}{2}}$, pravimo \emph{povsem regularen} topološki prostor.
-		\item Topološku prostoru $X$, ki zadoška separacijskima aksiomoma $T_1$ in $T_4$, pravimo \emph{normalen} topološki prostor.
+		\item Iz definicije je razvidno, da $T_2 \implies T_1 \implies T_0$.
+		\item Topološkemu prostoru, ki zadošča separacijskemu aksiomu $T_2$, pravimo \emph{Hausdorffov} topološki prostor.
+		\item Topološku prostoru, ki zadošča $T_1+T_3$ pravimo \emph{regularen} topološki prostor.
+		\item Topološku prostoru, ki zadošča $T_1+T_{3 \frac{1}{2}}$, pravimo \emph{povsem regularen} topološki prostor.
+		\item Topološku prostoru, ki zadošča $T_1+T_4$, pravimo \emph{normalen} topološki prostor.
 	\end{enumerate}
 \end{opomba}
 
@@ -399,6 +400,10 @@ Naj bo $G$ topološka grupa in $H,N$ taki njeni podgrupi edinki, da velja $N \su
 	\end{enumerate}
 \end{izrek}
 
+\begin{definicija}\label{def:metrizabilnost}
+Topološki prostor $X$ je \emph{metrizabilen}, če njegova topologija $\tau$ izhaja iz kakšne metrike $d$ na množici $X$, tj. baza topologije $\tau$ je družina odprtih krogel $\lbrace K(x, \epsilon); x \in X, \epsilon \in \R \rbrace$.
+\end{definicija}
+
 \begin{izrek}\label{izr:metrizabilnost}
 	Topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je metrizabilen topološki prostor natanko tedaj, ko obstaja števna baza odprtih okolic enote $e$.
 \end{izrek}
@@ -413,11 +418,15 @@ Naj bo $G$ topološka grupa in $H,N$ taki njeni podgrupi edinki, da velja $N \su
 
 \subsection{Separacijski aksiom T$_4$}
 \begin{izrek}\label{izr:t4protiprimer}
-	Če je $m$ katerokoli neštevno kardinalno število, potem je $\Z^{m}$ nenormalna popolnoma regularna topološka grupa.
+	Če je $m$ katerokoli neštevno kardinalno število, potem je $\Z^{m}$ nenormalna povsem regularna topološka grupa.
 \end{izrek}
 
+\begin{trditev}\label{trd:parkompnorm} % Mrčun, Topologija, Trditev 4.21
+Vsak parakompakten Hausdorffov topološki prostor je normalen.
+\end{trditev}
+
 \begin{izrek}\label{izr:t4}
-	Vsaka lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je parakompaktna in zato normalna.
+	Vsaka lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je normalen topološki prostor.
 \end{izrek}
 
 \section*{Slovar strokovnih izrazov}
