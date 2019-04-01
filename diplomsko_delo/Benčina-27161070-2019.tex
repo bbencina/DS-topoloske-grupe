@@ -72,6 +72,13 @@
 
 \section{Preliminarna poglavja}
 
+\subsection{Operacije na množicah}\label{sec:opnamnozicah}
+Vse operacije na množicah, če ne bo drugače zaznamovano, delujejo na elementih. Tako je na primer produkt množic $U$ in $V$ enak \[U * V = \lbrace u * v ; u \in U, v \in V \rbrace, \] inverz množice $U$ pa je \[ U^{-1} = \lbrace u^{-1} ; u \in G \rbrace. \] Tukaj se v obeh primerih predpostavlja, da so množice vložene v neki grupi, kjer so operacije na elementih smiselno definirane. Grupno strukturo bom bolj podrobno opisal v naslednjem podrazdelku.
+
+Pomembnejša izjema temu pravilu so operacije na množicah v smislu relacij. Predpostavimo torej, da imamo množico $X$ in nas zanimajo podmnožice kartezičnega produkta $X \times X$. Inverz take množice $U$ je potem \[ U^{-1} = \lbrace (y, x) ; (x, y) \in U \rbrace, \]
+analogna operacija množenju pa je tukaj kompozitum množic \[ V \circ U = \lbrace (x, z) ; \text{ obstaja element } y \in X, \text{ da je } (x, y) \in V \text{ in } (y, z) \in U \rbrace. \]
+Takšno dojemanje operacij bo vedno posebej označeno.
+
 \subsection{Teorija grup}
 \begin{definicija}\label{def:grupa}
 Neprazna množica $G$ z binarno operacijo $*$ je \emph{grupa}, če:
@@ -112,7 +119,7 @@ Naj bo $G$ grupa za operacijo $*$.
 \end{definicija}
 
 \begin{trditev}
-Če je podgrupa $N$ grupe $G$ podgrupa edinka, je kvocient $G/N$ grupa za operacijo $*$, kjer je $aH*bH = (a*b)H$.
+Če je podgrupa $N$ grupe $G$ podgrupa edinka, je kvocient $G/N$ grupa za operacijo $*$, kjer je $aH*bH = (a*b)H$, naravna preslikava $\varphi$ pa je homomorfizem grup.
 \end{trditev}
 
 \subsection{Topološki prostori}
@@ -164,7 +171,6 @@ Naj bo $f: (X, \tau_1) \to (Y, \tau_2)$ preslikava med topološkima prostoroma.
 \end{enumerate}
 \end{definicija}
 
-
 \begin{definicija}\label{def:kompakt}
 Naj bo $X$ topološki prostor.
 \begin{enumerate}
@@ -182,6 +188,26 @@ Naj bo $X$ topološki prostor.
 \item Topološki prostor $X$ je \emph{parakompakten}, če ima vsako njegovo odprto pokritje kakšno pofinitev, ki je lokalno končno odprto pokritje prostora $X$.
 \end{enumerate}
 \end{definicija}
+
+\begin{definicija}\label{def:sepaks}
+	Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu
+	\begin{enumerate}
+		\item $T_0$, če za poljubni različni točki $a, b \in X$ obstaja okolica $V$ za eno od točk $a, b$, ki ne vsebuje druge od točk $a, b$;
+		\item $T_1$, če za poljubno točko $a \in X$ in različno točko $b \in X$ obstaja okolica $V$ za točko $a$, ki ne vsebuje točke $b$;
+		\item $T_2$, če za poljubni različni točki $a, b \in X$ obstajata disjunktni okolici za točki $a$ in $b$;
+		\item $T_3$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstajata disjunktni okolici za množico $A$ in točko $b$;
+		\item $T_4$, če za poljubni disjunktni zaprti množici $A, B \subseteq X$ obstajata disjunktni okolici za množici $A$ in $B$.
+	\end{enumerate}
+\end{definicija}
+
+\begin{opomba}
+	\begin{enumerate}
+		\item Iz definicije je razvidno, da $T_2 \implies T_1 \implies T_0$.
+		\item Topološkemu prostoru, ki zadošča separacijskemu aksiomu $T_2$, pravimo \emph{Hausdorffov} topološki prostor.
+		\item Topološku prostoru, ki zadošča $T_1+T_3$ pravimo \emph{regularen} topološki prostor.
+		\item Topološku prostoru, ki zadošča $T_1+T_4$, pravimo \emph{normalen} topološki prostor.
+	\end{enumerate}
+\end{opomba}
 
 \section{Kaj je topološka grupa}
 
@@ -293,9 +319,9 @@ Za topološko grupo $G$ in njeno podgrupo $H$ veljajo naslednje trditve:
 Naj bo $H$ podgrupa edinka topološke grupe $G$. Naj bo kvocient $G/H$ opremljen s kvocientno topologijo $\theta$. Veljajo naslednje trditve:
 \begin{enumerate}
 \item kvocient $G/H$ je topološka grupa s topologijo $\theta$,
-\item naravni homomorfizem $\varphi$ iz $G$ v $G/H$ je odprt in zvezen homomorfizem,
+\item naravni homomorfizem je odprta in zvezena preslikava,
 \item kvocient $G/H$ je diskreten natanko tedaj, ko je podgrupa $H$ odprta v $G$,
-\item kvocient $G/H$ zadošča separacijskemu aksiomu $T_0$ (in je zato tudi regularen) natanko tedaj, ko je podgrupa $H$ zaprta v $G$.
+\item kvocient $G/H$ zadošča separacijskemu aksiomu $T_0$ natanko tedaj, ko je podgrupa $H$ zaprta v $G$.
 \end{enumerate}
 \end{izrek}
 
@@ -343,43 +369,22 @@ Naj bo $G$ topološka grupa in $H,N$ taki njeni podgrupi edinki, da velja $N \su
 
 \section{Separacijski aksiomi in metrizabilnost}
 
-\begin{definicija}\label{def:sepaks}
-	Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu
-	\begin{enumerate}
-		\item $T_0$, če za poljubni različni točki $a, b \in X$ obstaja okolica $V$ za eno od točk $a, b$, ki ne vsebuje druge od točk $a, b$;
-		\item $T_1$, če za poljubno točko $a \in X$ in različno točko $b \in X$ obstaja okolica $V$ za točko $a$, ki ne vsebuje točke $b$;
-		\item $T_2$, če za poljubni različni točki $a, b \in X$ obstajata disjunktni okolici za točki $a$ in $b$;
-		\item $T_3$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstajata disjunktni okolici za množico $A$ in točko $b$;
-		\item $T_{3 \frac{1}{2}}$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstaja zvezna realna funkcija $\psi$ definirana na $G$, da je $\psi (b) = 0$ in $\psi (x) = 1$ za vsak $x \in A$;
-		\item $T_4$, če za poljubni disjunktni zaprti množici $A, B \subseteq X$ obstajata disjunktni okolici za množici $A$ in $B$.
-	\end{enumerate}
+\begin{definicija}
+Topološki prostor $X$ zadošča separacijskemu aksiomu $T_{3 \frac{1}{2}}$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstaja zvezna realna funkcija $\psi$ definirana na $G$, da je $\psi (b) = 0$ in $\psi (x) = 1$ za vsak $x \in A$.
 \end{definicija}
 
 \begin{opomba}
-	\begin{enumerate}
-		\item Iz definicije je razvidno, da $T_2 \implies T_1 \implies T_0$.
-		\item Topološkemu prostoru, ki zadošča separacijskemu aksiomu $T_2$, pravimo \emph{Hausdorffov} topološki prostor.
-		\item Topološku prostoru, ki zadošča $T_1+T_3$ pravimo \emph{regularen} topološki prostor.
-		\item Topološku prostoru, ki zadošča $T_1+T_{3 \frac{1}{2}}$, pravimo \emph{povsem regularen} topološki prostor.
-		\item Topološku prostoru, ki zadošča $T_1+T_4$, pravimo \emph{normalen} topološki prostor.
-	\end{enumerate}
+Topološku prostoru, ki zadošča $T_1+T_{3 \frac{1}{2}}$, pravimo \emph{povsem regularen} topološki prostor.
 \end{opomba}
 
-\begin{trditev}[Karakterizacija separacijskega aksioma $T_1$]\label{def:kart1}
-	Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu $T_1$ natanko tedaj, ko za vsako točko $x \in X$ velja, da je množica $\lbrace x \rbrace$ zaprta v $X$ glede na topologijo $\tau$.
-\end{trditev}
 
-\begin{posledica}\label{pos:reghaus}
+\begin{trditev}\label{pos:reghaus}
 	\begin{enumerate}
-		\item Vsak regularen topološki prostor je Hausdorffov.
-		\item Vsak povsem regularen topološki prostor je regularen in zato Hausdorffov.
-		\item Vsak normalen topološki prostor je regularen in zato Hausdorffov.
+		\item Vsak povsem regularen topološki prostor je regularen.
+		\item Vsak normalen topološki prostor je povsem regularen.
 	\end{enumerate}
-\end{posledica}
-
-\begin{trditev}[Karakterizacija separacijskega aksioma $T_3$]\label{def:kart3}
-	Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu $T_3$ natanko tedaj, ko za vsako točko $x \in X$ in vsako okolico $W$ za točko $x$ obstaja taka odprta okolica $V$ za točko $x$, za katero velja $\closure{V} \subseteq W$.
 \end{trditev}
+
 
 \begin{izrek}\label{izr:t3}
 	Vsaka topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$ je regularen topološki prostor.
@@ -400,6 +405,33 @@ Naj bo $G$ topološka grupa in $H,N$ taki njeni podgrupi edinki, da velja $N \su
 	\end{enumerate}
 	potem ji rečemo \emph{metrika}.
 \end{definicija}
+
+\begin{definicija}\label{def:uniform}
+Naj bo $X$ neprazna množica.
+\begin{enumerate}
+\item Neprazna poddružina $\mathcal{F} \subset \mathcal{P}(X)$ je \emph{filter} množice $X$, če ima naslednje lastnosti:
+\begin{enumerate}
+\item družina $\mathcal{F}$ ne vsebuje prazne množice,
+\item za vsako množico $F \in \mathcal{F}$ je vsaka taka množica $E \in X$, za katero velja $F \subseteq E$, tudi v družini $\mathcal{F}$,
+\item če sta množici $E$ in $F$ v družini $\mathcal{F}$, je tudi množica $E \cap F$ v družini $\mathcal{F}$.
+\end{enumerate}
+\item Filter $\mathcal{U}$ na množici $X \times X$ definira \emph{uniformno strukturo} na množici $X$, če ima naslednje lastnosti:
+\begin{enumerate}
+\item vsaka množica $U \in \mathcal{U}$ ima diagonalo množice $X$ $\Delta = \lbrace (x, x) ; x \in X \rbrace$ za svojo podmnožico,
+\item za vsako množico $U \in \mathcal{U}$ je tudi množica $U^{-1} \in \mathcal{U}$,
+\item za vsako množico $U \in \mathcal{U}$ obstaja taka množica $V \in \mathcal{U}$, da velja $V \circ V \subseteq U$.
+\end{enumerate}
+Množici z uniformno stukturo rečemo tudi \emph{uniformni prostor}.
+\end{enumerate}
+\end{definicija}
+
+\begin{opomba}
+V zgornji definiciji so operacije na množicah mišljene v smislu relacij (glej podrazdelek \ref{sec:opnamnozicah}).
+\end{opomba}
+
+\begin{trditev}\label{trd:topguniform}
+Vsaka topološka grupa je uniformni prostor.
+\end{trditev}
 
 \begin{izrek}\label{izr:pseudometrika}
 	Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Označimo $H = \bigcap_{k=1}^{\infty} U_k$. Potem obstaja taka levoinvariantna pseudometrika $\sigma$ na $G$ z naslednjimi lastnostmi:
@@ -453,10 +485,12 @@ Vsak parakompakten Hausdorffov topološki prostor je normalen.
 % seznam uporabljene literature
 \begin{thebibliography}{99}
 
+\bibitem{bib:uniform}
+S.~Bhowmik, \emph{Introduction to Uniform Spaces}, 10.13140/RG.2.1.3743.8967, junij 2014, [ogled 1.~4.~2019], dostopno na \url{https://www.researchgate.net/publication/305196408_INTRODUCTION_TO_UNIFORM_SPACES}.
 \bibitem{bib:aha1}
 E.~Hewitt in K.~A.~Ross, \emph{Abstact Harmonic Analysis I}, Springer-Verlag, New York, 1979.
 \bibitem{bib:top}
-J.~Mrčun, \emph{Topologija}, DMFA-založništvo, Ljubljana, 2008
+J.~Mrčun, \emph{Topologija}, Izbrana poglavja iz matematike in računalništva \textbf{44} DMFA-založništvo, Ljubljana, 2008.
 
 \end{thebibliography}
 
