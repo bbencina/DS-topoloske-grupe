@@ -122,10 +122,10 @@ Naj bo $(X, \tau)$ topološki prostor.
 \begin{definicija}\label{def:okolica}
 Naj bo $(X, \tau)$ topološki prostor.
 \begin{enumerate}
-\item Množica $U \subseteq X$ je \emph{okolica za točko} $x \in X$, če obstaja odprta množica $V \in \tau$, da velja $V \subseteq U$ in $x \in V$.
-\item Množica $U \subseteq X$ je \emph{okolica za množico} $A \subseteq X$, če obstaja odprta množica $V \in \tau$, da velja $V \subseteq U$ in $A \subseteq V$.
+\item Množica $U \subseteq X$ je \emph{okolica za točko} $x \in X$, če obstaja taka odprta množica $V \in \tau$, da velja $V \subseteq U$ in $x \in V$.
+\item Množica $U \subseteq X$ je \emph{okolica} množice $A \subseteq X$, če obstaja taka odprta množica $V \in \tau$, da velja $V \subseteq U$ in $A \subseteq V$.
 \item Če je okolica $U$ iz zgornjih dveh primerov tudi sama odprta množica, jo imenujemo \emph{odprta okolica}.
-\item Družina okolic $\Ucurl_x = \lbrace U_\lambda$; $\lambda \in \Lambda \rbrace$ za točko $x \in X$ se imenuje \emph{baza okolic} za $x$, če za poljubno okolico $V$ za točko $x$ velja, da obstaja $\lambda \in \Lambda$, da je $U_\lambda \subseteq V$.
+\item Družina okolic $\Ucurl_x = \lbrace U_\lambda$; $\lambda \in \Lambda \rbrace$ za točko $x \in X$ se imenuje \emph{baza okolic} za $x$, če za poljubno okolico $V$ za točko $x$ velja, da obstaja tak $\lambda \in \Lambda$, da je $U_\lambda \subseteq V$.
 \end{enumerate}
 \end{definicija}
 
@@ -144,7 +144,7 @@ S pomočjo odprtih in zaprtih množic topološkega prostora $X$ lahko sedaj defi
 Naj bo $f: (X, \tau_1) \to (Y, \tau_2)$ preslikava med topološkima prostoroma.
 \begin{enumerate}
 \item Preslikava $f$ je \emph{zvezna}, kadar je praslika preslikave $f$ vsake odprte množice v topološkem prostoru $(Y, \tau_2)$ odprta tudi v topološkem prostoru $(X, \tau_1)$.
-\item Preslikava $f$ je \emph{odprta}, kadar je slika vsake odprte množice v topološkem prostoru $(X, \tau_1)$ odprta tudi v topološkem prostoru $(Y, \tau_2)$.
+\item Preslikava $f$ je \emph{odprta}, kadar je slika preslikave $f$ vsake odprte množice v topološkem prostoru $(X, \tau_1)$ odprta tudi v topološkem prostoru $(Y, \tau_2)$.
 \item Preslikava $f$ je \emph{homeomorfizem}, če je bijektivna, zvezna in ima zvezen inverz.
 \end{enumerate}
 \end{definicija}
@@ -163,6 +163,7 @@ Naj bo $X$ topološki prostor.
 \begin{definicija}\label{def:parakompakt}
 \begin{enumerate}
 \item Naj bosta $\mathcal{U}$ in $\mathcal{V}$ družini podmnožic topološkega prostora $X$. Družina $\mathcal{V}$ je \emph{pofinitev} družine $\mathcal{U}$, če za vsako množico $V \in \mathcal{V}$ obstaja takšna množica $U \in \mathcal{U}$, da je $V \subset U$.
+\item Družina podmnožic $\mathcal{U}$ topološkega prostora $X$ je \emph{lokalno končna}, če ima vsaka točka $x \in X$ okolico, ki seka samo končno mnogo množic iz družine $\mathcal{U}$.
 \item Topološki prostor $X$ je \emph{parakompakten}, če ima vsako njegovo odprto pokritje kakšno pofinitev, ki je lokalno končno odprto pokritje prostora $X$.
 \end{enumerate}
 \end{definicija}
