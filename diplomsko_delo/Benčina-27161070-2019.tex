@@ -100,6 +100,21 @@ Naj bo $f: (G, *) \to (\widetilde{G}, \star)$ preslikava med dvema grupama.
 \end{enumerate}
 \end{definicija}
 
+\begin{definicija}\label{def:podgrupa}
+Naj bo $G$ grupa za operacijo $*$.
+\begin{enumerate}
+\item Podmnožica $H$ grupe $G$ je \emph{podgrupa}, če je tudi sama grupa za operacijo $*$.
+\item Množici $aH = \lbrace a*h ; h \in H \rbrace$ pravimo \emph{levi odsek} grupe $G$ elementa $a \in G$ po podgrupi $H$. Na enak način definiramo definiramo \emph{desne odseke} $Ha$.
+\item Podgrupi $H$ grupe $G$ rečemo podgrupa \emph{edinka}, če za vsak element $a \in G$ velja, da je levi odsek enak desnemu.
+\item Množici $G/H = \lbrace aH ; a \in G \rbrace$ rečemo \emph{kvocient} grupe $G$ po podgrupi $H$.
+\item \emph{Naravna preslikava} na kvocient $G/H$ je preslikava $\varphi: G \to G/H$, $a \mapsto aH$.
+\end{enumerate}
+\end{definicija}
+
+\begin{trditev}
+Če je podgrupa $N$ grupe $G$ podgrupa edinka, je kvocient $G/N$ grupa za operacijo $*$, kjer je $aH*bH = (a*b)H$.
+\end{trditev}
+
 \subsection{Topološki prostori}
 \begin{definicija}\label{def:topologija}
 \emph{Topologija} na neprazni množici $X$ je družina podmnožic $\tau \subseteq 2^X$ z lastnostmi:
