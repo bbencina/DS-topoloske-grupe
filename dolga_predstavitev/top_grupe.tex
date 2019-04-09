@@ -57,7 +57,7 @@ Strukturni operaciji:
 \begin{frame}
 \frametitle{Nekaj lastnosti}
 \begin{matematika}{Izrek}
-Naj bo $G$ topološka grupa in $a \in G$ njen poljuben element. Leva translacija $x \mapsto ax$, desna translacija $x \mapsto xa$ in invertiranje $x \mapsto x^{-1}$ so homeomorfizmi na $G$.
+Naj bo $G$ topološka grupa in $a \in G$ njen element. Leva translacija $x \mapsto ax$, desna translacija $x \mapsto xa$, invertiranje $x \mapsto x^{-1}$ in konjugiranje $x \mapsto axa^{-1}$ so homeomorfizmi na $G$.
 \end{matematika} \newline
 
 \begin{matematika}{Opomba}
@@ -68,11 +68,11 @@ Vemo že, da so to avtomorfizmi grupe $G$.
 \begin{frame}
 \frametitle{Nekaj lastnosti}
 \begin{matematika}{Izrek}
-Naj bo $G$ topološka grupa in $\mathcal{U}$ odprta baza okolic enote $e$. Veljajo naslednje trditve:
+Naj bo $G$ topološka grupa in $\mathcal{U}$ baza odprtih okolic enote $e$. Veljajo naslednje trditve:\pause
 \begin{itemize}[label=\ding{227}]
-	\item za vsako okolico $U \in \mathcal{U}$ obstaja taka okolica $V \in \mathcal{U}$, da velja $V^2 \subset U$,
-	\item za vsako okolico $U \in \mathcal{U}$ obstaja taka okolica $V \in \mathcal{U}$, da velja $V^{-1} \subset U$,
-	\item za vsako okolico $U \in \mathcal{U}$ in element $x \in U$ obstaja taka okolica $V \in \mathcal{U}$, da velja $xV \subset U$,
+	\item za vsako okolico $U \in \mathcal{U}$ obstaja taka okolica $V \in \mathcal{U}$, da velja $V^2 \subset U$,\pause
+	\item za vsako okolico $U \in \mathcal{U}$ obstaja taka okolica $V \in \mathcal{U}$, da velja $V^{-1} \subset U$,\pause
+	\item za vsako okolico $U \in \mathcal{U}$ in element $x \in U$ obstaja taka okolica $V \in \mathcal{U}$, da velja $xV \subset U$,\pause
 	\item za vsako okolico $U \in \mathcal{U}$ in element $x \in U$ obstaja taka okolica $V \in \mathcal{U}$, da velja $xVx^{-1} \subset U$.
 \end{itemize}
 \end{matematika}
@@ -105,17 +105,6 @@ Vsaka topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je regularen 
 \begin{frame}
 \frametitle{Metrika in pseudometrika}
 \begin{matematika}{Definicija}
-	\emph{Metrika} na množici $X$ je funkcija $d: X \times X \to [0,\infty)$, ki zadošča pogojem:
-	\begin{itemize}[label=\ding{227}]
-		\item $d(x, y) = 0 \iff x = y$,
-		\item $d(x, y) = d(y, x)$,
-		\item $d(x, z) \leq d(x, y) + d(y, z)$.
-	\end{itemize}
-\end{matematika}
-
-\pause
-
-\begin{matematika}{Definicija}
 	\emph{Pseudometrika} na množici $X$ je funkcija $d: X \times X \to [0,\infty)$, ki zadošča pogojem:
 	\begin{itemize}[label=\ding{227}]
 		\item $d(x, x) = 0$,
@@ -123,6 +112,8 @@ Vsaka topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je regularen 
 		\item $d(x, z) \leq d(x, y) + d(y, z)$.
 	\end{itemize}
 \end{matematika}
+\vspace{12pt}
+Pseudometriki do metrike manjka: $d(x, y) = 0 \iff x = y$.
 \end{frame}
 
 \begin{frame}
@@ -144,10 +135,8 @@ Vsaka topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je regularen 
 
 \begin{frame}
 \frametitle{Metrizabilnost}
-Pseudometriki do metrike manjka: $d(x, y) = 0 \iff x = y$. \newline
-
 \begin{matematika}{Izrek}
-Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $G$ metrizabilen topološki prostor natanko tedaj, ko obstaja števna odprta baza okolic enote $e$.
+Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $G$ metrizabilen topološki prostor natanko tedaj, ko obstaja števna baza odprtih okolic enote $e$.
 \end{matematika}
 \end{frame}
 
@@ -155,9 +144,9 @@ Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je
 \frametitle{Povsem regularnost}
 \begin{matematika}{Definicija}
 Topološki prostor $X$ zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$, če za vsako zaprto množico $F \subset X$ in točko $a \in X-F$ obstaja zvezna funkcija $\psi: X \to \mathbb{R}$, da je $\psi(a) = 0$ in $\psi|_F = 1$.
-
-Topološki prostor je \emph{povsem regularen}, če zadošča $T_1 + T_{3\frac{1}{2}}$.
 \end{matematika}\newline
+
+Topološki prostor je \emph{povsem regularen}, če zadošča separacijskima aksiomoma $T_1$ in $T_{3\frac{1}{2}}$. \newline
 
 \begin{matematika}{Izrek}
 Vsaka topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je povsem regularen topološki prostor.
@@ -172,7 +161,7 @@ Vsaka topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je povsem
 \end{itemize}
 
 \begin{matematika}{Izrek}
-Vsaka lokalno kompaktna topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je normalna.
+Vsaka lokalno kompaktna topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je normalen topološki prostor.
 \end{matematika}
 \end{frame}
 
