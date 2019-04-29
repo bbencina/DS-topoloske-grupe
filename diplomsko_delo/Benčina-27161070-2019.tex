@@ -234,11 +234,28 @@ Preslikava med dvema topološkima grupama je \emph{topološki izomorfizem}, če 
 \begin{trditev}\label{trd:trans}
 Naj bo $G$ topološka grupa in $a \in G$.
 \begin{enumerate}
-\item Leva translacija $x \mapsto ax$ in desna translacija $x \mapsto xa$ za $a$ sta homeomorfizma iz $G$ v $G$
-\item Invertiranje $x \mapsto x^{-1}$ je homeomorfizem iz $G$ v $G$.
-\item Konjugiranje $x \mapsto axa^{-1}$ je homeomorfizem iz $G$ v $G$.
+\item Leva translacija $l_a\colon x \mapsto ax$ in desna translacija $r_a\colon x \mapsto xa$ za $a$ sta homeomorfizma iz $G$ v $G$
+\item Invertiranje $\iota\colon x \mapsto x^{-1}$ je homeomorfizem iz $G$ v $G$.
+\item Konjugiranje $\gamma\colon x \mapsto axa^{-1}$ je homeomorfizem iz $G$ v $G$.
 \end{enumerate}
 \end{trditev}
+
+\begin{dokaz}
+Vemo že, da so leva translacija, desna translacija, invertiranje in konjugiranje avtomorfizmi grupe $G$, torej bijektivne preslikave. Dokazujemo še zveznost preslikave in njenega inverza.
+
+Naj bo $\text{c}_a\colon x \mapsto a$ konstantna preslikava. Vemo, da je konstantna preslikava zvezna.
+
+Levo translacijo lahko zapišemo kot kompozitum zveznih preslikav \[l_a(x) = \mu(\text{c}_a(x), x) = ax.\]
+Kot kompozitum zveznih preslikav je leva translacija zvezna. Inverzna preslikava leve translacije za element $a$ je leva translacija za element $a^{-1}$, ki je tudi zvezna. Leva translacija je zato homeomorfizem.
+
+Desno translacijo lahko na analogen način zapišemo kot kompozitum zveznih preslikav \[r_a(x) = \mu(x, \text{c}_a(x)) = xa.\]
+Kot kompozitum zveznih preslikav je desna translacija zvezna in njena inverzna preslikava je desna translacija za element $a^{-1}$, torej tudi zvezna. Desna translacija je zato homeomorfizem.
+
+Invertiranje je homeomorfizem, ker je zvezno po definiciji topološke grupe in samo sebi inverz.
+
+Konjugiranje lahko zapišemo kot kompozitum zveznih preslikav \[\gamma = r_{a^{-1}} \circ l_a.\]
+Kot kompozitum zveznih preslikav je konjugiranje zvezno in njegov inverz je konjugiranje za element $a^{-1}$, torej tudi zvezen. Konjugiranje je zato homeomorfizem.
+\end{dokaz}
 
 \begin{trditev}\label{trd:okolice}
 Za topološko grupo $G$ in bazo $\Ucurl$ odprtih okolic enote $e$ veljajo naslednje trditve:
@@ -249,6 +266,15 @@ Za topološko grupo $G$ in bazo $\Ucurl$ odprtih okolic enote $e$ veljajo nasled
 \item za vsako množico $U \in \Ucurl$ in vsak element $x \in G$ obstaja taka množica $V \in \Ucurl$, da velja $xVx^{-1} \subset U$.
 \end{enumerate}
 \end{trditev}
+
+\begin{dokaz}
+Naj bo $U \in \Ucurl$  odprta okolica enote $e$. Ker je množenje zvezno, obstaja v produktni topologiji na $G \times G$ odprta okolica $W = V_1 \times V_2$ enote $(e, e)$, za katero velja $V_1V_2 \subset U$. Po definiciji produktne topologije sta $V_1$ in $V_2$ odprti okolici enote $e$ v $G$. Definiramo $V' = V_1 \cap V_2$ okolico za $e$. Po definiciji baze okolic $\Ucurl$ obstaja $V \in \Ucurl$, da velja $V \subseteq V'$. Ker $V \subseteq V' \subseteq V_1$ in $V \subseteq V' \subseteq V_2$, velja \[V^2 \subseteq V'^2 \subseteq V_1V_2 \subset U.\] To dokaže prvo trditev.
+
+Vzemimo poljuben $V \in \Ucurl$, $V \subset U$ (obstaja po definiciji baze okolic). Ker je invertiranje zvezno, obstaja v $G$ odprta okolica $W$ enote $e$, za katero velja $W \subset V$. Po trditvi \ref{trd:trans} je invertiranje homeomorfizem, zato je $W = V^{-1}$. Velja \[V^{-1} \subset V \subset U.\] To dokaže drugo trditev.
+
+Vzemimo poljubno točko $x \in U$. Ker je $U$ odprta množica, obstaja okolica $W \subset U$ za točko $x$. Naj bo $V' = x^{-1}W$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je $V'$ odprta okolica enote $e$. Vzemimo $V \in \Ucurl$, $V \subset V'$ (obstaja po definiciji baze okolic). Velja \[xV \subset xV' = xx^{-1}W = W \subset U.\]
+To dokaže tretjo trditev.
+\end{dokaz}
 
 \begin{trditev}
 Naj bo $G$ grupa (ne topološka) in $\Ucurl$ družina podmnožic množice $G$, za katero veljajo vse štiri lastnosti iz trditve \ref{trd:okolice}. Naj bodo poljubni končni preseki množic iz $\Ucurl$ neprazni. Tedaj je družina $\lbrace xU \rbrace$, kjer $U \in \Ucurl$ in $x \in G$ odprta podbaza za neko topologijo na $G$. S to topologijo je $G$ topološka grupa. Družina $\lbrace Ux \rbrace$ je podbaza za isto topologijo.
