@@ -353,7 +353,31 @@ Po posledici \ref{pos:sim} za vsako okolico $U$ enote $e$ obstaja okolica $V$ en
 
 \subsection{Primeri topoloških grup}
 
+\begin{primer}
+Vsaka grupa $G$ je za diskretno topologijo $\tau_d = 2^G$ in trivialno topologijo $\tau_t = \lbrace \emptyset, G \rbrace$ topološka grupa, saj je glede na njiju zvezna vsaka preslikava na $G$ ali $G \times G$.
+\end{primer}
 
+\begin{primer}
+Realna števila za operacijo $+$ so topološka grupa z evklidsko topologijo.
+
+V tem primeru sta strukturni operaciji $\mu(x, y) = x + y$ in $\iota(x) = -x$. Preverimo, da sta res zvezni.
+
+Naj bosta preslikavi $pr_x(x, y) = x$ in $pr_y(x, y) = y$ projekciji. Po definiciji produktne topologije sta to zvezni preslikavi. Ker je vsota zveznih preslikav zvezna preslikava, je strukturna preslikava seštevanja $\mu = pr_x + pr_y$ zvezna.
+
+Zveznost invertiranja je dovolj preveriti na baznih množicah evklidske topologije. Vzemimo interval $(-b, -a)$. Tudi $\iota^{-1}((-b, -a)) = \iota((-b, -a)) = (a, b)$ je bazna množica in zato odprta, torej je invertiranje zvezno.
+\end{primer}
+
+\begin{primer}
+Realna števila za operacijo $+$ niso topološka grupa s topologijo $\tau = \lbrace (a, \infty) ; a \in \R \rbrace$.
+
+Preverimo lahko zveznost strukturnih strukturnih preslikav in se prepričamo, da invertiranje ni zvezno, lahko pa se prepričamo tudi drugače.
+
+Po trditvi \ref{trd:t0haus} za vsako topološko grupo velja, da zadošča separacijskemu aksiomu $T_0$ natanko tedaj, ko je Hausdorffova. Topološki prostor $(\R, +, \tau)$ zadošča separacijskemu aksiomu $T_0$, saj je za vsaki dve točki $a < b$ množica $(\frac{a+b}{2}, \infty)$ okolica za točko $b$, ki ne vsebuje točke $a$. Hkrati pa je očitno, da ta prostor ni Hausdorffov, saj se vsaki dve odprti množici sekata. Topološki prostor $(\R, +, \tau)$ torej ne more biti topološka grupa.
+\end{primer}
+
+\begin{primer}
+Enotska krožnica v kompleksni ravnini $S = \lbrace z \in \C ; |z| = 1 \rbrace$ s podedovanim množenjem je topološka grupa za relativno topologijo kot podprostor $\R^2$ (spomnimo se, da je $\C \cong \R^2$).
+\end{primer}
 
 
 \section{Kvocienti topoloških grup}
@@ -513,7 +537,7 @@ Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta 
 \subsection{Metrizabilnost}
 
 \begin{definicija}\label{def:metrika}
-	\emph{Pseudometrika} na neprazni množici $X$ je preslikava $\rho\colon X \times X \to  [0, \infty)$, ki zadošča naslednjim pogojem:
+	\emph{Psevdometrika} na neprazni množici $X$ je preslikava $\rho\colon X \times X \to  [0, \infty)$, ki zadošča naslednjim pogojem:
 	\begin{enumerate}
 		\item za vsako točko $x \in X$ velja $\rho (x, x) = 0$;
 		\item za vsaki dve točki $x, y \in X$ velja $\rho (x, y) = \rho (y, x)$;
@@ -566,7 +590,7 @@ Vsaka topološka grupa je uniformni prostor.
 \end{trditev}
 
 \begin{izrek}\label{izr:pseudometrika}
-	Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Označimo $H = \bigcap_{k=1}^{\infty} U_k$. Potem obstaja taka levoinvariantna pseudometrika $\sigma$ na $G$ z naslednjimi lastnostmi:
+	Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Označimo $H = \bigcap_{k=1}^{\infty} U_k$. Potem obstaja taka levoinvariantna psevdometrika $\sigma$ na $G$ z naslednjimi lastnostmi:
 	\begin{enumerate}
 		\item $\sigma$ je enakomerno zvezna na levi uniformni strukturi od $G \times G$;
 		\item $\sigma (x, y) = 0$ natanko tedaj, ko $y^{-1}x \in H$;
@@ -611,8 +635,19 @@ Baza topologije metrizabilnega topološkega prostora $X$ je družina odprtih kro
 \end{trditev}
 
 \begin{izrek}\label{izr:t3pol}
-	Topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je povsem regularen topoliški prostor.
+	Topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je povsem regularen topološki prostor.
 \end{izrek}
+
+\begin{dokaz}
+Vzemimo zaprto množico $F$ in element $a \in G\setminus\lbrace a \rbrace$.
+Naj bo $\Ucurl$ baza simetričnih okolic enote $e$ in naj bo $U_1 \in \Ucurl$ taka množica, da je $(aU_1)\cap F = \emptyset$. Taka množica $U_1$ obstaja, saj je $G\setminus\lbrace a \rbrace$ odprta množica, $aU_1$ pa je odprta okolica elementa $a$. Izberemo okolice $U_2, U_3,... \in \Ucurl$ take, da velja $U_{k+1}^2 \subset U_k$ za vsak $k \in \Z$ (obstajajo po trditvi \ref{trd:okolice}). S tem smo zadostili predpostavkam izreka \ref{izr:pseudometrika}, zato obstaja na $G$ psevdometrika $\sigma$. Definiramo funkcijo \[ \psi(x) = \min\lbrace 1, 2\sigma(x, a)\rbrace. \] Ker je psevdometrika $\sigma$ enakomerno zvezna glede na levo uniformno strukturo na $G$, je po trditvi \ref{trd:enakzveznazvezna} zvezna, zato je $\psi$ zvezna funkcija.
+
+Očitno velja, da je $\psi(a) = 0$, saj je $\sigma(a, a) = 0$ po definiciji psevdometrike.
+
+Vzemimo element $x \in F$. Po konstrukciji množice $U_1$ velja $a^{-1}x \notin U_1$. Po četrti lastnosti v izreku \ref{izr:pseudometrika} je $\sigma(x, a) \geq 2^{-1} = \frac{1}{2}$. Sledi, da je $\psi(x) = 1$ za vsak element $x \in F$.
+
+Topološka grupa $G$ s tem zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$ in je povsem regularna.
+\end{dokaz}
 
 \subsection{Separacijski aksiom T$_4$}
 \begin{izrek}\label{izr:t4protiprimer}
