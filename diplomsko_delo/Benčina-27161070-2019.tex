@@ -290,13 +290,13 @@ Naj bo $x \in U$ poljubna točka. Ker je po trditvi \ref{trd:trans} konjugiranje
 To dokaže še četrto trditev.
 \end{dokaz}
 
-\begin{trditev}
+\begin{trditev}\label{trd:okolice2}
 Naj bo $G$ grupa (ne topološka) in $\Ucurl$ družina podmnožic množice $G$, za katero veljajo vse štiri lastnosti iz trditve \ref{trd:okolice}. Naj bodo poljubni končni preseki množic iz $\Ucurl$ neprazni. Tedaj je družina $\lbrace xU \rbrace$, kjer $U \in \Ucurl$ in $x \in G$ odprta podbaza za neko topologijo na $G$. S to topologijo je $G$ topološka grupa. Družina $\lbrace Ux \rbrace$ je podbaza za isto topologijo.
 
 Če velja še, da za vsaki množici $U,V \in \Ucurl$ obstaja množica $W \in \Ucurl$, da velja $W \subset U \cap V$, potem sta družini $\lbrace xU \rbrace$ in $\lbrace Ux \rbrace$ tudi bazi za to topologijo.
 \end{trditev}
 
-\begin{definicija}
+\begin{definicija}\label{def:sim}
 Množici, za katero velja $U = U^{-1}$, rečemo \emph{simetrična} množica.
 \end{definicija}
 
@@ -320,13 +320,35 @@ Obstajata torej $v_1, v_2 \in V$, da velja $x v_1 = v_2$. Sledi \[x = v_2 v_1^{-
 Torej res velja $\closure{V} \subset U$.
 \end{dokaz}
 
-\begin{trditev}
+\begin{trditev}\label{trd:t0haus}
 Za topološko grupo $G$ velja, da zadošča separacijskemu aksiomu $T_0$ natanko tedaj, kadar je Hausdorffova.
 \end{trditev}
+
+\begin{dokaz}
+Dokazujemo implikacijo $T_0 \implies T_2$.
+
+Dokažimo najprej, da je $G$ Hausdorffova natanko tedaj, ko je $\lbrace e \rbrace$ zaprta množica.
+
+Če je $G$ Hausdorffova, zadošča tudi separacijskemu aksiomu $T_1$, kar pomeni, da so vse enoelementne množice zaprte, torej tudi $\lbrace e \rbrace$.
+
+Privzemimo, da je $\lbrace e \rbrace$ zaprta množica. Oglejmo si preslikavo $f\colon G \times G \to G$, $(x, y) \mapsto xy^{-1}$. Preslikava $f$ je zvezna kot kompozitum množenja in invertiranja, ki sta zvezni preslikavi po definiciji topološke grupe. Zato je $f^{-1}(\lbrace e \rbrace) = \lbrace (x, x) ; x \in G \rbrace$ zaprta množica v $G \times G$, to pa je ekvivalentno temu, da je $G$ Hausdorffova.
+
+Za dokaz implikacije je dovolj pokazati, da je v vsaki topološki grupi, ki zadošča separacijskemu aksiomu $T_0$, množica $\lbrace e \rbrace$ zaprta. Pokažimo, da je $G\setminus\lbrace e \rbrace$ odprta.
+
+Vzemimo točko $x \in G\setminus\lbrace e \rbrace$. Ker $G$ zadošča separacijskemu aksiomu $T_0$, obstaja bodisi okolica za točko $x$, ki ne vsebuje enote $e$, bodisi okolica $V$ za enoto $e$, ki ne vsebuje točke $x$. V prvem primeru to pomeni, da je $G\setminus\lbrace e \rbrace$ odprta množica in je implikacija dokazana. Zato naj bo $V$ okolica za enoto $e$, ki ne vsebuje točke $x$. Množica $x^{-1}V$ je potem okolica za točko $x^{-1}$, ki ne vsebuje enote $e$, zato je $\iota(x^{-1}V)$ okolica za točko $x$, ki ne vsebuje enote $e$.
+
+Velja \[G \text{ zadošča } T_0 \implies \lbrace e \rbrace \text{ je zaprta } \implies G \text{ zadošča } T_2. \]
+\end{dokaz}
 
 \begin{izrek}\label{izr:t3}
 	Vsaka topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je regularen topološki prostor.
 \end{izrek}
+
+\begin{dokaz}
+Po trditvi \ref{trd:t0haus} je $G$ Hausdorffova in zato zadošča separacijskemu aksiomu $T_1$.
+
+Po posledici \ref{pos:sim} za vsako okolico $U$ enote $e$ obstaja okolica $V$ enote $e$, da je $\closure{V} \subset U$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, to velja v vsaki točki, saj $\closure{aV} \subset aU$, kar pa je ekvivalentno separacijskemu aksiomu $T_3$. Topološka grupa $G$ je res regularna.
+\end{dokaz}
 
 
 \subsection{Primeri topoloških grup}
@@ -414,9 +436,12 @@ Topologiji $\theta(G/H)$ pravimo \emph{kvocientna topologija}, kvocientu $G/H$ p
 Naj bo $G$ topološka grupa, $H$ njena podgrupa in $U, V$ tako okolici enote $e$ v $G$, da velja $V^{-1}V \subset U$. Naj bo $\varphi: G \to G/H$ naravna preslikava. Potem velja $\closure{\varphi(V)} \subset \varphi(U)$.
 \end{trditev}
 
-%%HERE
+\begin{dokaz}
+Vzemimo odsek $xH \in \closure{\varphi(V)}$. Ker je $V$ okolica enote, je množica $\lbrace vxH ; v \in V \rbrace$ okolica odseka $xH$ in ima zato s $\varphi(V)$ neprazen presek. Po definiciji naravne preslikave obstajata točki $v_1, v_2 \in V$, da je $v_1xH = v_2H$. Velja \[xH = v_1^{-1}v_2H \in \lbrace wH ; w \in V^{-1}V \rbrace \subset \lbrace uH ; u \in U \rbrace = \varphi(U). \]
+Torej je res $\closure{\varphi(V)} \subset \varphi(U)$.
+\end{dokaz}
 
-\begin{izrek}
+\begin{izrek}\label{izr:kvocreg}
 Za topološko grupo $G$ in njeno podgrupo $H$ veljajo naslednje trditve:
 \begin{enumerate}
 \item kvocientni prostor $G/H$ je diskreten natanko tedaj, ko je $H$ odprta v $G$,
@@ -424,6 +449,16 @@ Za topološko grupo $G$ in njeno podgrupo $H$ veljajo naslednje trditve:
 \item če kvocientni prostor $G/H$ zadošča separacijskemu aksiomu $T_0$, potem je $H$ zaprta v $G$ in velja, da je kvocient $G/H$ regularen topološki prostor.
 \end{enumerate}
 \end{izrek}
+
+\begin{dokaz}
+Za dokaz prve trditve privzemimo, da je $H$ odprta v $G$. Ker je leva translacija homeomorfizem (trditev \ref{trd:trans}), je množica $aH$ odprta množica za vsak element $a \in G$ in zato tudi $\varphi^{-1}(\lbrace aH \rbrace) = aH$ za vsak element $aH \in G/H$. Po izreku \ref{izr:topkvocienta} je $\varphi$ odprta preslikava, zato je vsaka točka v kvocientnem prostoru $G/H$ odprta kot enoelementna množica in $G/H$ je diskreten topološki prostor.
+
+Obratno, če je $G/H$ diskreten topološki prostor, potem je vsaka njegova točka odprta kot enoelementna množica, torej tudi $\lbrace H \rbrace$. Ker je naravna preslikava zvezna, je $\varphi^{-1}(\lbrace H \rbrace) = H$ odprta množica v $G$.
+
+Za dokaz druge trditve privzemimo, da je $H$ zaprta v $G$. Ker je leva translacija homeomorfizem (trditev \ref{trd:trans}), je zaprta tudi množica $aH$ za vsak element $a \in G$. Po definiciji zaprtosti je $\setcomp{(aH)} = \bigcup \lbrace xH ; xH \neq aH \rbrace$ odprta v $G$. Ker je po izreku \ref{izr:topkvocienta} naravna preslikava odprta, je zato komplement vsake točke $\lbrace aH \rbrace$ odprt v $G/H$. Po definiciji zaprtosti je vsaka točka $\lbrace aH \rbrace$ zaprta v $G/H$, kar je ekvivalentno separacijskemu aksiomu $T_1$. Naj bosta $U$ in $V$ okolici enote $e$ iz trditve \ref{trd:okolicevkvoc}. Če za $V$ vzamemo simetrično okolico (to lahko naredimo po trditvi \ref{trd:sim}), potem po trditvi \ref{trd:okolice} tak $V$ obstaja za vsako okolico $U$, saj lahko vzamemo $V^{-1}V = V^2 \subset U$. Torej za vsako okolico $\varphi(U)$ enote $H$ obstaja takšna okolica $\varphi(V)$ enote $H$, da $\closure{\varphi(V)} \subset \varphi(U)$. Ker je leva translacija homeomorfizem, to velja za vsako točko $aH \in G/H$, kar pa je ekvivalentno separacijskemu aksiomu $T_3$. Kvocientni prostor $G/H$ je res regularen.
+
+Za dokaz tretje trditve privzemimo, da $G/H$ zadošča separacijskemu aksiomu $T_0$. Po izreku \ref{izr:t3} je $G/H$ regularna. Vse enoelementne množice v $G/H$ so zaprte, zato tudi $\lbrace H \rbrace$. Ker je naravna preslikava zvezna, je množica $\varphi^{-1}(\lbrace H \rbrace) = H$ zaprta v $G$.
+\end{dokaz}
 
 \begin{izrek}\label{izr:kvocpovzetek}
 Naj bo $H$ podgrupa edinka topološke grupe $G$. Naj bo kvocient $G/H$ opremljen s kvocientno topologijo $\theta$. Veljajo naslednje trditve:
