@@ -532,7 +532,75 @@ Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta 
 
 \section{Izreki tipa ``2 od 3''}
 
-\section{Separacijski aksiomi in metrizabilnost}
+\section{Metrizabilnost in povsem regularnost}
+
+\subsection{Uniformni prostori}
+
+\begin{definicija}\label{def:uniform}
+	Naj bo $X$ neprazna množica.
+	\begin{enumerate}
+		\item Neprazna poddružina $\mathcal{F} \subset \mathcal{P}(X)$ je \emph{filter} množice $X$, če ima naslednje lastnosti:
+		\begin{enumerate}
+			\item družina $\mathcal{F}$ ne vsebuje prazne množice,
+			\item za vsako množico $F \in \mathcal{F}$ je vsaka množica $E \in X$, za katero velja $F \subseteq E$, tudi v družini $\mathcal{F}$,
+			\item presek $E \cap F$ množic $E, F \in \mathcal{F}$ je tudi v družini $\mathcal{F}$.
+		\end{enumerate}
+		\item Filter $\mathcal{U}$ na množici $X \times X$ definira \emph{uniformno strukturo} na množici $X$, če ima naslednje lastnosti:
+		\begin{enumerate}
+			\item vsaka množica $U \in \mathcal{U}$ vsebuje diagonalo $\Delta = \lbrace (x, x) ; x \in X \rbrace$,
+			\item za vsako množico $U \in \mathcal{U}$ je tudi množica $U^{-1} \in \mathcal{U}$,
+			\item za vsako množico $U \in \mathcal{U}$ obstaja taka množica $V \in \mathcal{U}$, da velja $V \circ V \subseteq U$.
+		\end{enumerate}
+		Množici z uniformno stukturo rečemo \emph{uniformni prostor}.
+	\end{enumerate}
+\end{definicija}
+
+\begin{opomba}
+	V zgornji definiciji so operacije na množicah mišljene v smislu relacij (glej podrazdelek \ref{sec:opnamnozicah}).
+\end{opomba}
+
+\begin{definicija}\label{def:uniinduciranatopo}
+	Naj bo $X$ uniformni prostor z uniformno strukturo $\mathcal{U}$. Topologija, inducirana z $\mathcal{U}$ je taka družina $\tau$ množic $T \subseteq X$, za katere za vsako točko $x \in T$ obstaja $U \in \mathcal{U}$, da velja $U_x = \lbrace y \in X ; (x, y) \in U \rbrace \subseteq T$.
+\end{definicija}
+
+\begin{opomba}
+	V nadaljevanju bomo okolico nekega elementa $x$ v topologiji, inducirani z uniformno strukturo $\mathcal{U}$, označevali kot $U_x$, kjer bo $U \in \mathcal{U}$.
+\end{opomba}
+
+\begin{definicija}\label{def:enakzveznost}
+	Naj bosta $X$ in $Y$ uniformna prostora z uniformnima strukturama $\mathcal{U}$ in $\mathcal{V}$. Preslikava $f: X \to Y$ je \emph{enakomerno zvezna}, če za vsako množico $V \in \mathcal{V}$ obstaja taka množica $U \in \mathcal{U}$, da za vsak par $(x, y) \in U$ velja $(f(x), f(y)) \in V$.
+\end{definicija}
+
+\begin{trditev}\label{trd:enakzveznazvezna}
+	Vsaka enakomerno zvezna preslikava uniformnih prostorov je zvezna v topologiji, inducirani z uniformnima strukturama.
+\end{trditev}
+
+\begin{dokaz}
+	Naj bo $f\colon (X, \mathcal{U}) \to (Y, \mathcal{V})$ enakomerno zvezna preslikava med uniformnima prostoroma. Vzemimo okolico $V_{f(x)}$ elementa $f(x)$ v topologiji na $Y$ inducirani s $\mathcal{V}$. Ker je $f$ enakomerno zvezna, obstaja $U \in \mathcal{U}$, da za vsak par $(x, y) \in U$ velja $(f(x), f(y)) \in V$. To je v induciranih topologijah ekvivalentno temu, da za vsak $y \in U_x$ velja $f(y) \in V_{f(x)}$, torej je $f$ zvezna preslikava glede na topologiji, ki ju inducirata uniformni strukturi.
+\end{dokaz}
+
+\begin{definicija}\label{def:levadesnauni}
+	Naj bo $\Ucurl$ baza odprtih okolic enote $e$ topološke grupe $G$. Za vsako okolico $U \in \Ucurl$ definiramo $L_U = \lbrace (x, y) \in G \times G ; x^{-1}y \in U \rbrace$ in $R_U = \lbrace (x, y) \in G \times G ; yx^{-1} \in U \rbrace$. Družinama $\mathcal{L}(G) = \lbrace L_U \rbrace_{U \in \Ucurl}$ in $\mathcal{R}(G) = \lbrace R_U \rbrace_{U \in \Ucurl}$ pravimo leva in desna uniformna struktura na $G$.
+\end{definicija}
+
+\begin{trditev}\label{trd:topguniform}
+	Vsaka topološka grupa je uniformni prostor.
+\end{trditev}
+
+\begin{dokaz}
+Naj bo filter $\Ucurl$ baza odprtih in simetričnih okolic enote $e$ topološke grupe $G$. Oglejmo si levo in desno uniformno strukturo na $G$, definirani naj bosta s pomočjo $\Ucurl$.
+
+Ker je enote $e$ v vsaki okolici $U \in \Ucurl$, je diagonala $\Delta = \lbrace (x, x) ; x \in X \rbrace$ vsebovana v $L_U$ in $R_U$ za vsako okolico $U \in \Ucurl$.
+
+Velja \[L_{U^{-1}} = \lbrace (x, y) \in G \times G ; x^{-1}y \in U^{-1} \rbrace = \lbrace (x, y) \in G \times G ; y^{-1}x \in U \rbrace = L^{-1}_U\]
+in
+\[R_{U^{-1}} = \lbrace (x, y) \in G \times G ; yx^{-1} \in U^{-1} \rbrace = \lbrace (x, y) \in G \times G ; xy^{-1} \in U \rbrace = R^{-1}_U.\]
+Ker za vsako okolico $U \in \Ucurl$ velja $U = U^{-1}$, je $L^{-1}_U \in \mathcal{L}(G)$ in $R^{-1}_U \in \mathcal{R}(G)$.
+
+Po trditvi \ref{trd:okolice} za vsako okolico $U \in \Ucurl$ obstaja okolica $V \in \Ucurl$, da velja $V^2 \subset U$. Velja torej, da je $L_V \circ L_V \subset L_U$ in $R_V \circ R_V \subset R_U$.
+
+Topološka grupa je z levo ali desno uniformno strukturo torej res uniformni prostor.
+\end{dokaz}
 
 \subsection{Metrizabilnost}
 
@@ -550,44 +618,11 @@ Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta 
 	potem ji rečemo \emph{metrika}.
 \end{definicija}
 
-\begin{definicija}\label{def:uniform}
-Naj bo $X$ neprazna množica.
-\begin{enumerate}
-\item Neprazna poddružina $\mathcal{F} \subset \mathcal{P}(X)$ je \emph{filter} množice $X$, če ima naslednje lastnosti:
-\begin{enumerate}
-\item družina $\mathcal{F}$ ne vsebuje prazne množice,
-\item za vsako množico $F \in \mathcal{F}$ je vsaka množica $E \in X$, za katero velja $F \subseteq E$, tudi v družini $\mathcal{F}$,
-\item presek $E \cap F$ množic $E, F \in \mathcal{F}$ je tudi v družini $\mathcal{F}$.
-\end{enumerate}
-\item Filter $\mathcal{U}$ na množici $X \times X$ definira \emph{uniformno strukturo} na množici $X$, če ima naslednje lastnosti:
-\begin{enumerate}
-\item vsaka množica $U \in \mathcal{U}$ vsebuje diagonalo $\Delta = \lbrace (x, x) ; x \in X \rbrace$,
-\item za vsako množico $U \in \mathcal{U}$ je tudi množica $U^{-1} \in \mathcal{U}$,
-\item za vsako množico $U \in \mathcal{U}$ obstaja taka množica $V \in \mathcal{U}$, da velja $V \circ V \subseteq U$.
-\end{enumerate}
-Množici z uniformno stukturo rečemo \emph{uniformni prostor}.
-\end{enumerate}
+\begin{definicija}
+Psevdometrika na grupi $G$ je levoinvariantna, če je invariantna na levo translacijo, torej če za vsaki dve točki $x, y \in G$ in za vsak element $a \in G$ velja $\rho(ax, ay) = \rho(x, y)$.
+
+Podobno, psevdometrika je desnoinvariantna, če je invariantna na desno translacijo.
 \end{definicija}
-
-\begin{opomba}
-V zgornji definiciji so operacije na množicah mišljene v smislu relacij (glej podrazdelek \ref{sec:opnamnozicah}).
-\end{opomba}
-
-\begin{definicija}\label{def:uniinduciranatopo}
-Naj bo $X$ uniformni prostor z uniformno strukturo $\mathcal{U}$. Topologija, inducirana z $\mathcal{U}$ je taka družina množic $T \subseteq X$, za katere za vsako točko $x \in T$ obstaja $U \in \mathcal{U}$, da velja $\lbrace y \in X ; (x, y) \in U \rbrace \subseteq T$.
-\end{definicija}
-
-\begin{definicija}\label{def:enakzveznost}
-Naj bosta $X$ in $Y$ uniformna prostora z uniformnima strukturama $\mathcal{U}$ in $\mathcal{V}$. Preslikava $f: X \to Y$ je \emph{enakomerno zvezna}, če za vsako množico $V \in \mathcal{V}$ obstaja taka množica $U \in \mathcal{U}$, da za vsak par $(x, y) \in U$ velja $(f(x), f(y)) \in V$.
-\end{definicija}
-
-\begin{trditev}\label{trd:enakzveznazvezna}
-Vsaka enakomerno zvezna preslikava uniformnih prostorov je zvezna v topologiji, inducirani z uniformnima strukturama.
-\end{trditev}
-
-\begin{trditev}\label{trd:topguniform}
-Vsaka topološka grupa je uniformni prostor.
-\end{trditev}
 
 \begin{izrek}\label{izr:pseudometrika}
 	Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Označimo $H = \bigcap_{k=1}^{\infty} U_k$. Potem obstaja taka levoinvariantna psevdometrika $\sigma$ na $G$ z naslednjimi lastnostmi:
@@ -616,7 +651,22 @@ Baza topologije metrizabilnega topološkega prostora $X$ je družina odprtih kro
 	Topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je metrizabilen topološki prostor natanko tedaj, ko obstaja števna baza odprtih okolic enote.
 \end{izrek}
 
-\subsection{Separacijski aksiomi do T$_{3 \frac{1}{2}}$}
+\begin{dokaz}
+Če je $G$ metrizabilen topološki prostor, lahko za števno bazo odprtih okolic enote $e$ izberemo kar družino odprtih krogel s središčem v enoti $\lbrace K(e, 2^{-n}) \rbrace_{n \in \N}$.
+
+Naj bo $\lbrace V_k \rbrace_{k = 1}^\infty$ števna baza odprtih okolic enote. Induktivno definiramo novo bazo okolic enote na sledeč način. Najprej definiramo okolico $U_1 = V_1 \cap V_1^{-1}$, nato pa vsako naslednjo tako, da zadošča $U_k \subset U_1 \cap \dots \cap U_{k-1}\cap V_k$, $U_k = U_k^{-1}$ in $U_k^2 \subset U_{k-1}$ za vsak $k \geq 2$. Tako zaporednje si lahko izberemo po trditvi \ref{trd:okolice}. Ker $G$ zadošča separacijskemu aksiomu $T_0$ in je po izreku \ref{izr:t3} regularna, je $H = \bigcap_{k=1}^\infty = \lbrace e \rbrace$. Baza $\lbrace U_k \rbrace_{k = 1}^\infty$ zadošča predpostavkam izreka \ref{izr:pseudometrika}, zato na topološki grupi $G$ obstaja psevdometrika $\sigma$.
+
+Po drugi lastnosti psevdometrike $\sigma$ je $\sigma(x, y) = 0$ natansko tedaj, ko $y^{-1}x \in H$. Ker $H = \lbrace e \rbrace$, velja $\sigma(x, y) = 0$ natanko tedaj, ko $x = y$. Preslikava $\sigma$ je torej metrika na $G$. Preveriti moramo le še, da topologija $\tau$ na $G$ in topologija $\tau_\sigma$, inducirana z metriko $\sigma$, sovpadata.
+
+Po tretji in četrti lastnosti metrike $\sigma$ za vsak $k \in \N$ velja
+\[ \lbrace x \in G ; \sigma(x, e) \leq 2^{-k} \rbrace \subset U_k \subset \lbrace x \in G ; \sigma(x, e) \leq 2^{-k+1} \rbrace.\]
+Torej za vsak $k \in \N$ velja
+\[ K(e, 2^{-k}) \subset U_k \subset K(e, 2^{-k+2}). \]
+Vsaka okolica enote $e$ v topologiji $\tau$ torej vsebuje okolico enote $e$ v topologiji $\tau_\sigma$ in vsaka okolica enote $e$ v topologiji $\tau_\sigma$ vsebuje okolico enote $e$ v topologiji $\tau$.
+Topologiji $\tau$ in $\tau_\sigma$ sta zato ekvivalentni in $G$ je metrizabilen topološki prostor.
+\end{dokaz}
+
+\subsection{Separacijski aksiom T$_{3 \frac{1}{2}}$}
 
 \begin{definicija}
 	Topološki prostor $X$ zadošča separacijskemu aksiomu $T_{3 \frac{1}{2}}$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstaja taka zvezna realna funkcija $\psi$, definirana na $G$, da je $\psi (b) = 0$ in $\psi (x) = 1$ za vsak $x \in A$.
@@ -628,11 +678,18 @@ Baza topologije metrizabilnega topološkega prostora $X$ je družina odprtih kro
 
 
 \begin{trditev}\label{pos:reghaus}
-	\begin{enumerate}
-		\item Vsak povsem regularen topološki prostor je regularen.
-		\item Vsak normalen topološki prostor je povsem regularen.
-	\end{enumerate}
+\begin{enumerate}
+\item Vsak povsem regularen topološki prostor je regularen.
+\item Vsak normalen topološki prostor je povsem regularen.
+\end{enumerate}
 \end{trditev}
+
+\begin{dokaz}
+Naj bo $F$ zaprta podmnožica povsem regularnega topološkega prostora $X$ in točka $a \in X \setminus F$. Potem obstaja zvezna funkcija $\psi\colon X \to [0, 1]$, da je $\psi(a) = 0$ in $\psi(F) \equiv 1$. Množici $\psi^{-1}([0, \frac{1}{2}))$ in $\psi^{-1}((\frac{1}{2}, 1])$ sta disjunktni odprti okolici za točko $a$ in množico $F$, saj je funkcija $\psi$ zvezna, množici $[0, \frac{1}{2})$ in $(\frac{1}{2}, 1]$ pa sta odprti v inducirani evklidski topologiji na interval $[0, 1]$.
+Izpolnjen je separacijski aksiom $T_3$ in $X$ je regularen topološki prostor.
+
+Naj bo $X$ normalen topološki prostor. Po Urysohnovi karakterizaciji separacijskega aksioma $T_4$ (glej \cite{bib:top}) za vsaki dve disjunktni zaprti množici $A$ in $B$ obstaja zvezna funkcija $\psi\colon X \to [0, 1]$, da je $\psi(A) \equiv 0 $ in $\psi(B) \equiv 1$. Ker $X$ zadošča separacijskemu aksiomu $T_1$, so vse enoelementne množice zaprte. Če za množico $A$ vzamemo enoelementno množico $\lbrace a \rbrace$, vidimo, da je $X$ povsem regularen topološki prostor.
+\end{dokaz}
 
 \begin{izrek}\label{izr:t3pol}
 	Topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je povsem regularen topološki prostor.
@@ -662,13 +719,46 @@ Topološka grupa $G$ s tem zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$ i
 	\end{enumerate}
 \end{definicija}
 
+\begin{definicija}
+\begin{enumerate}
+\item Topološki prostor je $\sigma$-kompakten, če ge je možno zapisati kot števno unijo kompaktnih topoloških prostorov.
+\item Topološki prostor ima Lindel\"ofovo lastnost, če vsako njegovo odprto pokritje vsebuje kakšno števno podpokritje.
+\end{enumerate}
+\end{definicija}
+
+\begin{opomba}
+Očitno je, da ima vsak kompakten prostor Lindel\"ofovo lastnost, saj vsako odprto pokritje vsebuje končno podpokritje, ki je trivialno števno. Velja pa tudi, da ima vsak $\sigma$-kompakten prostor Lindel\"ofovo lastnost, saj je števna unija končnih pokritij števno pokritje.
+\end{opomba}
+
 \begin{trditev}\label{trd:parkompnorm} % Mrčun, Topologija, Trditev 4.21
 Vsak parakompakten Hausdorffov topološki prostor je normalen.
 \end{trditev}
 
+\begin{dokaz}
+Vzemimo $A$ in $B$ zaprti disjunktni podmnožici parakompaktnega Hausdorffovega prostora $X$. Zanju iščemo disjunktni okolici.
+
+Predpostavimo najprej, da je $B = \lbrace b \rbrace$ enoelementna množica za neko točko $X\setminus A$. Ker je prostor $X$ Hausdorffov, sta vsaki dve točki ločeni z disjunktnima okolicama. Za vsako točko $a \in A$ torej obstaja odprta množica $Q_a \subset X$, da je $a \in Q_a$ in $b \in X \setminus \closure{Q_a}$. Ker je $A$ zaprta, je $X \setminus A$ odprta in velja, da je $\mathcal{W} = (X \setminus A)\cup \lbrace Q_a ; a \in A \rbrace$ odprto pokritje prostora $X$. Ker je $X$ parakompakten topološki prostor, obstaja lokalno končno odprto pokritje $\mathcal{W}'$ prostora $X$, ki je pofinitev pokritja $\mathcal{W}$.
+
+Oglejmo si družino \[ \mathcal{Q} = \lbrace W \in \mathcal{W}' ; W \cap A \neq \emptyset \rbrace. \]
+Za vsako množico $W \in \mathcal{Q}$ po definiciji pofinitve obstaja takšna točka $a \in A$, da je $W \subset Q_a$. Velja $b \in X \setminus \closure{Q_a} \subset X \setminus \closure{W}$ za vsak $W \in \mathcal{Q}$ (in primeren $a$). Ker je $\mathcal{W}'$ odprto pokritje prostora $X$, je $S = \cup\mathcal{Q}$ odprta okolica množice $A$ in ker je $\mathcal{Q}$ lokalno končna družina, velja \[ b \in X \setminus \bigcup_{W \in \mathcal{Q}} \closure{W} = X \setminus \closure{S}. \] Množica $T = X \setminus \closure{S}$ je odprta okolica točke $b$, ki je disjunktna s $S$.
+
+Naprej vzemimo poljubno zaprto podmnožico $B$, ki je disjunktna z množico $A$. Po prejšnjem argumentu za vsako točko $b \in B$ obstaja odprta okolica $T_b$ točke $b$, da je $A \cap \closure{T_b} = \emptyset$. Ponovno je $\Ucurl = (X\setminus B) \cup \lbrace T_b ; b \in B \rbrace$ odprto pokritje prostora $X$. Ker je $X$ parakompakten topološki prostor, obstaja lokalno končno odprto pokritje $\Ucurl'$, ki je pofinitev pokritja $\Ucurl$. Naj bo \[ \mathcal{V} = \lbrace U \in \Ucurl' ; U \cap B \neq \emptyset \rbrace. \]
+Podobno kot prej za vsako množico $U \in \mathcal{V}$ obstaja takšna točka $b \in B$, da je $U \subset T_b$, zato je $A \cap \closure{U} \subset A \cap \closure{T_b} = \emptyset$. Množica $V = \cup \mathcal{V}$ je odprta okolica množice $B$ in, ker je $\mathcal{V}$ lokalno končna družinca, velja \[ A \cap \closure{V} = A \cap \bigcup_{U \in \mathcal{V}} = \emptyset.\]
+
+Množica $X \setminus \closure{V}$ je torej odprta okolica množice $A$, ki je disjunktna z odprto okolico $V$ množice $B$. Hausdorffov topološki prostor $X$ zadošča separacijskemu aksiomu $T_4$ in je zato normalen.
+\end{dokaz}
+
 \begin{izrek}\label{izr:t4}
 	Vsaka lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je normalen topološki prostor.
 \end{izrek}
+
+\begin{dokaz}
+Naj bo $G$ lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Po izreku \ref{trd:t0haus} je $G$ Hausdorffova. Zato po trditvi \ref{trd:parkompnorm} zadošča pokazati, da je $G$ parakompaktna topološka grupa.
+
+Ker je $G$ lokalno kompaktna, obstaja kompaktna okolica $K$ enote $e$. Po posledici \ref{pos:sim} obstaja takšna simetrična okolica $U$ enote $e$, da je $\closure{U} \subset K$. Ker so zaprte podmnožice kompaktnih prostorov kompaktne, je $\closure{U}$ tudi kompaktna okolica enote $e$.
+
+Naj bo $L = \bigcup_{n=1}^\infty U^n$. Množica $L$ je po trditvi \ref{trd:podgrupaunija} odprta in zaprta podgrupa topološke grupe $G$. HERE
+\end{dokaz}
 
 \section*{Slovar strokovnih izrazov}
 
