@@ -64,6 +64,8 @@
 % matematične operatorje deklarirajte kot take, da jih bo Latex pravilno stavil
 % \DeclareMathOperator{\conv}{conv}
 
+\DeclareMathOperator{\interior}{int}
+
 % vstavite svoje definicije ...
 %  \newcommand{}{}
 
@@ -72,96 +74,63 @@
 \section{Uvod}
 
 \section{Preliminarna poglavja}
+V tem poglavju bomo ponovili že znane pojme iz algebre in splošne topologije, ki nam bodo kasneje prišli prav. Dogovorili se bomo tudi o zapisu operacij na množicah.
 
 \subsection{Operacije na množicah}\label{sec:opnamnozicah}
 Vse operacije na množicah, če ne bo drugače zaznamovano, delujejo na elementih. Tako je na primer produkt množic $U$ in $V$ enak \[U \cdot V = \lbrace u \cdot v ; u \in U, v \in V \rbrace, \] inverz množice $U$ pa je \[ U^{-1} = \lbrace u^{-1} ; u \in G \rbrace. \] Tukaj se v obeh primerih predpostavlja, da so množice vložene v neki grupi, kjer so operacije na elementih smiselno definirane. Grupno strukturo bomo bolj podrobno opisali v naslednjem podrazdelku.
 
 Pomembnejša izjema temu pravilu so operacije na množicah v smislu relacij. Predpostavimo torej, da imamo množico $X$ in nas zanimajo podmnožice kartezičnega produkta $X \times X$. Inverz take množice $U$ je definiran kot \[ U^{-1} = \lbrace (y, x) ; (x, y) \in U \rbrace, \]
 analogna operacija množenju pa je kompozitum množic \[ V \circ U = \lbrace (x, z) ; \text{ obstaja tak element } y \in X, \text{ da je } (x, y) \in V \text{ in } (y, z) \in U \rbrace. \]
-Takšna notacija operacij bo vedno posebej označena.
+Takšni notaciji operacij bosta vedno posebej označeni.
 
 \subsection{Teorija grup}
-\begin{definicija}\label{def:grupa}
+V tem podpoglavju bomo ponovili nekaj osnovnih algebraičnih pojmov, predvsem iz teorije grup.
+
 Neprazna množica $G$ z binarno operacijo $*$ je \emph{grupa}, če:
 \begin{enumerate}
-\item je množica $G$ zaprta za (ponavadi binarno) operacijo $*$,
+\item je množica $G$ zaprta za operacijo $*$,
 \item je operacija $*$ asociativna v množici $G$,
 \item v $G$ obstaja tak element $e$ (imenujemo ga \emph{enota}), da za vsak element $x$ množice $G$ velja \[ x*e = e*x = x, \]
 \item za vsak element $x$ množice $G$ obstaja element $y$ tudi iz množice $G$, da velja \[ x*y = y*x = e. \]
 \end{enumerate}
-Oznaka za grupo je ($G$, $*$) ali samo $G$, če je operacija znana ali drugače očitna. 
-\end{definicija}
+Oznaka za grupo je ($G$, $*$) ali samo $G$, če je operacija znana ali drugače očitna. Od tukaj naprej bo zapis operacije vedno multiplikativen, razen če bo drugače povdarjeno. To pomeni, da bo grupna operacija označena s $\cdot$ ali pa bo izpuščena.
 
-\begin{opomba}
-Od tukaj naprej bo zapis operacije vedno multiplikativen, razen če bo drugače povdarjeno.
-\end{opomba}
+Med grupami lahko definiramo nekaj tipov preslikav. Našteli bomo dva, ki ju bomo v nadaljevanju najbolj potrebovali.
+Preslikava $f\colon G \to \widetilde{G}$ je \emph{homomorfizem} grup, če za vsaka dva elementa $a, b \in G$ velja $f(a\cdot b) = f(a)\cdot f(b)$.
+Preslikava je \emph{izomorfizem} grup, če je bijektivna in homomorfizem grup.
 
-Iz zgornje definicije je razvidno, da nam grupna struktura na množici porodi dve strukturni preslikavi:
-\begin{itemize}
-\item \emph{množenje} $\mu\colon G \times G \to G$, $(x, y) \mapsto xy$,
-\item \emph{invertiranje} $\iota\colon G \to G$, $x \mapsto x^{-1}$.
-\end{itemize}
+V nadaljevanju si bomo ogledali nekaj podstruktur grupe.
+Podmnožica $H$ grupe $G$ je \emph{podgrupa}, če je tudi sama grupa za isto operacijo.
+Množicama $aH = \lbrace ah ; h \in H \rbrace$ in $Ha = \lbrace ha ; h \in H \rbrace$ zaporedoma pravimo \emph{levi} in \emph{desni odsek} grupe $G$ elementa $a \in G$ po podgrupi $H$.
 
-Definiramo lahko nekaj tipov preslikav med grupami.
+Podgrupi $H$ grupe $G$ rečemo podgrupa \emph{edinka}, če za vsak element $a \in G$ velja \[aHa^{-1} \subseteq H.\]
+Množici $G/H = \lbrace aH ; a \in G \rbrace$ rečemo \emph{kvocientna množica} grupe $G$ po podgrupi $H$.
+\emph{Naravna preslikava} na kvocientno množico $G/H$ je preslikava $\varphi: G \to G/H$, $a \mapsto aH$.
 
-\begin{definicija}\label{def:algpreslikave}
-Naj bo $f: G \to \widetilde{G}$ preslikava med dvema grupama (ne nujno z isto operacijo).
-\begin{enumerate}
-\item Preslikava $f$ je \emph{homomorfizem}, če za vsaka dva elementa $a, b \in G$ velja $f(ab) = f(a)f(b)$.
-\item Preslikava $f$ je \emph{izomorfizem}, če je bijektivni homomorfizem.
-\end{enumerate}
-\end{definicija}
-
-\begin{definicija}\label{def:podgrupa}
-Naj bo $G$ grupa..
-\begin{enumerate}
-\item Podmnožica $H$ grupe $G$ je \emph{podgrupa}, če je tudi sama grupa za isto operacijo.
-\item Množici $aH = \lbrace ah ; h \in H \rbrace$ pravimo \emph{levi odsek} grupe $G$ elementa $a \in G$ po podgrupi $H$.
-\item Množici $Ha = \lbrace ha ; h \in H \rbrace$ pravimo \emph{desni odsek} grupe $G$ elementa $a \in G$ po podgrupi $H$.
-\item Podgrupi $H$ grupe $G$ rečemo podgrupa \emph{edinka}, če za vsak element $a \in G$ velja \[aHa^{-1} = H.\]
-\item Množici $G/H = \lbrace aH ; a \in G \rbrace$ rečemo \emph{kvocient} grupe $G$ po podgrupi $H$.
-\item \emph{Naravna preslikava} na kvocient $G/H$ je preslikava $\varphi: G \to G/H$, $a \mapsto aH$.
-\end{enumerate}
-\end{definicija}
-
-\begin{trditev}
-Če je podgrupa $N$ grupe $G$ podgrupa edinka, je kvocient $G/N$ grupa za operacijo $*$, kjer je $aH*bH = (a*b)H$, naravna preslikava $\varphi$ pa je homomorfizem grup.
-\end{trditev}
+Če je $N$ podgrupa edinka grupe $G$, je kvocientna množica $G/N$ grupa za operacijo $*$, kjer je $aH\cdot bH = (a\cdot b)H$, naravna preslikava $\varphi$ pa je homomorfizem grup in mu rečemo \emph{naravni homomorfizem}.
 
 \subsection{Topološki prostori}
-\begin{definicija}\label{def:topologija}
-\emph{Topologija} na neprazni množici $X$ je družina podmnožic $\tau \subseteq 2^X$ z lastnostmi:
+V tem podpoglavju bomo ponovili nekaj pojmov iz splošne topologije, ki jih bomo kasneje podrobneje študirali na topoloških grupah.
+
+\emph{Topologija} na neprazni množici $X$ je neprazna družina podmnožic $\tau \subseteq 2^X$ z lastnostmi:
 \begin{enumerate}
 \item $X \in \tau$, $\emptyset \in \tau$,
 \item za poljubni dve množici $U,V \in \tau$ je tudi presek $U \cap V \in \tau$,
 \item za poljubno poddružino $\lbrace U_{\lambda} \rbrace_{\lambda \in \Lambda} \subseteq \tau$ je tudi unija $\bigcup\limits_{\lambda \in \Lambda}^{} U_{\lambda} \in \tau$.
 \end{enumerate}
-Množici $X$, opremljeni s topologijo $\tau$, rečemo \emph{topološki} prostor, ki ga označimo z $(X, \tau)$, množice v družini $\tau$ označimo za \emph{odprte} množice v topološkem prostoru $X$. \emph{Zaprte} množice definiramo kot komplemente odprtih množic glede na množico $X$.
-\end{definicija}
+Množici $X$, opremljeni s topologijo $\tau$, rečemo \emph{topološki} prostor, ki ga označimo z $(X, \tau)$. Množice v družini $\tau$ imenujemo \emph{odprte} množice v topološkem prostoru $X$, \emph{zaprte} množice pa definiramo kot komplemente odprtih množic glede na množico $X$.
 
-%\begin{definicija}\label{def:baza}
-%Naj bo $(X, \tau)$ topološki prostor.
-%\begin{enumerate}
-%\item Podmnožica $B \subset \tau$ je \emph{baza} za topologijo $\tau$, če je vsaka množica iz topologije $\tau$ unija nekaterih množic iz $B$.
-%\item Podmnožica $P$ je \emph{podbaza} za topologijo $\tau$, če je družina vseh končnih presekov množic iz $P$ neka baza za topologijo $\tau$.
-%\end{enumerate}
-%\end{definicija}
+Družina $B$ je \emph{baza} za topologijo $\tau$, če je vsaka množica iz topologije $\tau$ unija nekaterih množic iz $B$, družina $P$ pa je \emph{podbaza} za topologijo $\tau$, če je družina vseh končnih presekov množic iz $P$ neka baza za topologijo $\tau$.
 
-\begin{definicija}\label{def:okolica}
-Naj bo $(X, \tau)$ topološki prostor.
-\begin{enumerate}
-\item Množica $U \subseteq X$ je \emph{okolica za točko} $x \in X$, če obstaja taka odprta množica $V \in \tau$, da velja $V \subseteq U$ in $x \in V$.
-\item Množica $U \subseteq X$ je \emph{okolica} množice $A \subseteq X$, če obstaja taka odprta množica $V \in \tau$, da velja $V \subseteq U$ in $A \subseteq V$.
-\item Če je okolica $U$ iz zgornjih dveh primerov tudi sama odprta množica, jo imenujemo \emph{odprta okolica}.
-\item Družina okolic $\Ucurl_x$ točke $x \in X$ se imenuje \emph{baza okolic} za $x$, če za poljubno okolico $V$ točke $x$ velja, da obstaja tak $U \in \Ucurl_x$, da je $U \subseteq V$.
-\end{enumerate}
-\end{definicija}
+Množica $U \subseteq X$ je \emph{okolica za točko} $x \in X$, če obstaja taka odprta množica $V \in \tau$, da velja $V \subseteq U$ in $x \in V$. Enako lahko definiramo okolico za množico.
+Množica $U \subseteq X$ je \emph{okolica} množice $A \subseteq X$, če obstaja taka odprta množica $V \in \tau$, da velja $A \subseteq V \subseteq U$..
+Družina okolic $\Ucurl_x$ točke $x \in X$ se imenuje \emph{baza okolic} za $x$, če za poljubno okolico $V$ točke $x$ velja, da obstaja tak $U \in \Ucurl_x$, da je $U \subseteq V$.
 
 \begin{definicija}\label{def:notranjost}
 Naj bo $(X, \tau)$ topološki prostor in $A \subseteq X$.
 \begin{enumerate}
 \item Točka $a \in A$ je \emph{notranja točka} množice $A$, če je $A$ okolica za točko $a$.
-\item \emph{Notranjost} množice $A$ je množica vseh njenih notranjih točk. Notranjost množice označimo z $int(A)$. Očitno velja $int(A) \subseteq A$ in tudi $int(A) = A \iff A \in \tau$.
+\item \emph{Notranjost} množice $A$ je množica vseh njenih notranjih točk. Notranjost množice označimo z $\interior(A)$. Očitno velja $\interior(A) \subseteq A$ in tudi $\interior(A) = A \iff A \in \tau$.
 \item \emph{Zaprtje} množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Zaprtje množice označimo z $\closure{A}$. Očitno velja $A \subseteq \closure{A}$ in tudi $\closure{A} = A \iff A$ je zaprta množica.
 \end{enumerate}
 \end{definicija}
@@ -220,6 +189,11 @@ Naj bo $X$ topološki prostor.
 
 \section{Kaj je topološka grupa}
 
+Iz zgornje definicije je razvidno, da nam grupna struktura na množici porodi dve strukturni preslikavi:
+\begin{itemize}
+\item \emph{množenje} $\mu\colon G \times G \to G$, $(x, y) \mapsto xy$,
+\item \emph{invertiranje} $\iota\colon G \to G$, $x \mapsto x^{-1}$.
+\end{itemize}
 
 Končno lahko strukturi združimo in povežemo ter definiramo pojem topološke grupe.
 \begin{definicija}\label{def:topgrupa}
