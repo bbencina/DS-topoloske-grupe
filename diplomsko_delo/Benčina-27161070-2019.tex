@@ -65,6 +65,7 @@
 % \DeclareMathOperator{\conv}{conv}
 
 \DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\pr}{pr}
 
 % vstavite svoje definicije ...
 %  \newcommand{}{}
@@ -110,7 +111,7 @@ Množici $G/H = \lbrace aH ; a \in G \rbrace$ rečemo \emph{kvocientna množica}
 Če je $N$ podgrupa edinka grupe $G$, je kvocientna množica $G/N$ grupa za operacijo $*$, kjer je $aH\cdot bH = (a\cdot b)H$, naravna preslikava $\varphi$ pa je homomorfizem grup in mu rečemo \emph{naravni homomorfizem}.
 
 \subsection{Topološki prostori}
-V tem podpoglavju bomo ponovili nekaj pojmov iz splošne topologije, ki jih bomo kasneje podrobneje študirali na topoloških grupah.
+V tem podpoglavju bomo ponovili nekaj pojmov iz splošne topologije, ki jih bomo kasneje podrobneje obravnavali na topoloških grupah.
 
 \emph{Topologija} na neprazni množici $X$ je neprazna družina podmnožic $\tau \subseteq 2^X$ z lastnostmi:
 \begin{enumerate}
@@ -126,66 +127,45 @@ Množica $U \subseteq X$ je \emph{okolica za točko} $x \in X$, če obstaja taka
 Množica $U \subseteq X$ je \emph{okolica} množice $A \subseteq X$, če obstaja taka odprta množica $V \in \tau$, da velja $A \subseteq V \subseteq U$..
 Družina okolic $\Ucurl_x$ točke $x \in X$ se imenuje \emph{baza okolic} za $x$, če za poljubno okolico $V$ točke $x$ velja, da obstaja tak $U \in \Ucurl_x$, da je $U \subseteq V$.
 
-\begin{definicija}\label{def:notranjost}
-Naj bo $(X, \tau)$ topološki prostor in $A \subseteq X$.
-\begin{enumerate}
-\item Točka $a \in A$ je \emph{notranja točka} množice $A$, če je $A$ okolica za točko $a$.
-\item \emph{Notranjost} množice $A$ je množica vseh njenih notranjih točk. Notranjost množice označimo z $\interior(A)$. Očitno velja $\interior(A) \subseteq A$ in tudi $\interior(A) = A \iff A \in \tau$.
-\item \emph{Zaprtje} množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Zaprtje množice označimo z $\closure{A}$. Očitno velja $A \subseteq \closure{A}$ in tudi $\closure{A} = A \iff A$ je zaprta množica.
-\end{enumerate}
-\end{definicija}
+Točka $a \in A$ je \emph{notranja točka} množice $A$, če je $A$ okolica za točko $a$.
+\emph{Notranjost} množice $A$ je množica vseh njenih notranjih točk. Notranjost množice označimo z $\interior(A)$. Očitno velja $\interior(A) \subseteq A$ in tudi $\interior(A) = A \iff A \in \tau$.
+\emph{Zaprtje} množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Zaprtje množice označimo z $\closure{A}$. Očitno velja $A \subseteq \closure{A}$ in tudi $\closure{A} = A \iff A$ je zaprta množica.
 
 S pomočjo odprtih in zaprtih množic topološkega prostora $X$ lahko sedaj definiramo zveznost in odprtost preslikave med dvema topološkima prostoroma ter pojem homeomorfizma.
 
-\begin{definicija}\label{def:toppreslikave}
-Naj bo $f: (X, \tau_1) \to (Y, \tau_2)$ preslikava med topološkima prostoroma.
+Tako kot med grupami lahko tudi med topološkimi prostori definiramo nekaj tipov preslikav. Ogledali si bomo nekaj za nas najpomembnejših tipov.
+Naj bo $f\colon (X, \tau_1) \to (Y, \tau_2)$ preslikava med topološkima prostoroma.
+Preslikava $f$ je \emph{zvezna}, kadar je praslika vsake odprte množice v topološkem prostoru $(Y, \tau_2)$  preslikave $f$ odprta tudi v topološkem prostoru $(X, \tau_1)$.
+Preslikava $f$ je \emph{odprta}, kadar je slika vsake odprte množice v topološkem prostoru $(X, \tau_1)$ preslikave $f$ odprta tudi v topološkem prostoru $(Y, \tau_2)$.
+Preslikava $f$ je \emph{homeomorfizem}, če je bijektivna, zvezna in ima zvezen inverz.
+
+Osnovna podstruktura topološkega prostora je topološki podprostor.
+Najprej vzemimo topološki prostor $X$ s topologijo $\tau$ in množico $A \subseteq X$. \emph{Inducirana} ali \emph{relativna topologija} na množici $A$, inducirana s $\tau$, je družina množic $\lbrace A \cap U ; U \in \tau \rbrace$. Prostoru $A$ rečemo \emph{topološki podprostor} prostora $X$.
+
+Oglejmo si še produkt topoloških prostorov.
+Naj bosta $X$ in $Y$ topološka prostora s topologijama $\tau_1$ in $\tau_2$. \emph{Produktna topologija} na kartezičnemu produktu $X \times Y$ je topologija, generirana z bazo $\lbrace U \times V ; U \in \tau_1, V \in \tau_2 \rbrace$. \emph{Produkt} topoloških prostorov $X$ in $Y$ je topološki prostor $X \times Y$, opremljen s produktno topologijo. Produkt topoloških prostorov je opremljen še z dvema projekcijskima preslikavama $\pr_1\colon X \times Y \to X$, $\pr_1(x, y) = x$ in $\pr_2\colon X \times Y \to Y$, $\pr_2(x, y) = y$. Obe projekciji sta zvezni in odprti preslikavi glede na primerni topologiji.
+
+V nadaljevanju si bomo ogledali nekaj pojmov povezanih s kompaktnostjo topoloških prostorov, ki si jih bomo kasneje ogledali v kontekstu topoloških grup, definirali pa bomo tudi nove.
+Družini $\mathcal{A}$ množic rečemo \emph{pokritje} topološkega prostora $X$, če je $X \subseteq \bigcup \mathcal{A}$,družini $\mathcal{B} \subseteq \mathcal{A}$ pa rečemo \emph{podpokritje} topološkega prostora $X$, če je $\mathcal{B}$ tudi sama pokritje za $X$.
+Topološki prostor je \emph{kompakten}, če vsako njegovo odprto pokritje, tj. pokritje z odprtimi množicami, vsebuje kakšno končno podpokritje.
+Topološki prostor je \emph{lokalno kompakten}, če ima vsaka točka $x \in X$ kakšno kompaktno okolico.
+
+Ponovimo še do sedaj obravnavane separacijske aksiome.
+Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu
 \begin{enumerate}
-\item Preslikava $f$ je \emph{zvezna}, kadar je praslika preslikave $f$ vsake odprte množice v topološkem prostoru $(Y, \tau_2)$ odprta tudi v topološkem prostoru $(X, \tau_1)$.
-\item Preslikava $f$ je \emph{odprta}, kadar je slika preslikave $f$ vsake odprte množice v topološkem prostoru $(X, \tau_1)$ odprta tudi v topološkem prostoru $(Y, \tau_2)$.
-\item Preslikava $f$ je \emph{homeomorfizem}, če je bijektivna, zvezna in ima zvezen inverz.
+\item $T_0$, če za poljubni različni točki $a, b \in X$ obstaja okolica $V$ za eno od točk $a, b$, ki ne vsebuje druge od točk $a, b$;
+\item $T_1$, če za poljubno točko $a \in X$ in točko $b \in X\setminus\lbrace a \rbrace$ obstaja okolica $V$ točke $a$, ki ne vsebuje točke $b$;
+\item $T_2$, če za poljubni različni točki $a, b \in X$ obstajata disjunktni okolici za točki $a$ in $b$;
+\item $T_3$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstajata disjunktni okolici za množico $A$ in točko $b$;
+\item $T_4$, če za poljubni disjunktni zaprti množici $A, B \subseteq X$ obstajata disjunktni okolici za množici $A$ in $B$.
 \end{enumerate}
-\end{definicija}
 
-Definirajmo še dve posebni topologiji.
+Iz definicije je razvidno, da $T_2 \implies T_1 \implies T_0$.
+Topološkemu prostoru, ki zadošča separacijskemu aksiomu $T_2$, pravimo \emph{Hausdorffov} topološki prostor.
+Topološku prostoru, ki zadošča $T_1$ in $T_3$ pravimo \emph{regularen} topološki prostor.
+Topološku prostoru, ki zadošča $T_1$ in $T_4$, pravimo \emph{normalen} topološki prostor.
 
-\begin{definicija}
-Naj bo $X$ topološki prostor s topologijo $\tau$ in $A \subseteq X$. \emph{Inducirana} ali \emph{relativna topologija} na množici $A$, inducirana s $\tau$, je družina množic $\lbrace A \cap U ; U \in \tau \rbrace$. Množici $A$ rečemo \emph{topološki podprostor} prostora $X$.
-\end{definicija}
-
-\begin{definicija}
-Naj bosta $X$ in $Y$ topološka prostora s topologijama $\tau_1$ in $\tau_2$. \emph{Produktna topologija} na kartezičnemu produktu $X \times Y$ je družina množic $\lbrace U \times V ; U \in \tau_1, V \in \tau_2 \rbrace$.
-\end{definicija}
-
-\begin{definicija}\label{def:kompakt}
-Naj bo $X$ topološki prostor.
-\begin{enumerate}
-\item Družini $\mathcal{A}$ množic rečemo \emph{pokritje} topološkega prostora $X$, če je $X \subseteq \bigcup \mathcal{A}$.
-\item Družini $\mathcal{B} \subseteq \mathcal{A}$ rečemo \emph{podpokritje} topološkega prostora $X$, če je $\mathcal{B}$ tudi sama pokritje za $X$.
-\item Topološki prostor je \emph{kompakten}, če vsako njegovo odprto pokritje, tj. pokritje z odprtimi množicami, vsebuje kakšno končno podpokritje.
-\item Topološki prostor je \emph{lokalno kompakten}, če ima vsaka točka $x \in X$ kakšno kompaktno okolico.
-\end{enumerate}
-\end{definicija}
-
-
-\begin{definicija}\label{def:sepaks}
-	Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu
-	\begin{enumerate}
-		\item $T_0$, če za poljubni različni točki $a, b \in X$ obstaja okolica $V$ za eno od točk $a, b$, ki ne vsebuje druge od točk $a, b$;
-		\item $T_1$, če za poljubno točko $a \in X$ in točko $b \in X\setminus\lbrace a \rbrace$ obstaja okolica $V$ točke $a$, ki ne vsebuje točke $b$;
-		\item $T_2$, če za poljubni različni točki $a, b \in X$ obstajata disjunktni okolici za točki $a$ in $b$;
-		\item $T_3$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstajata disjunktni okolici za množico $A$ in točko $b$;
-		\item $T_4$, če za poljubni disjunktni zaprti množici $A, B \subseteq X$ obstajata disjunktni okolici za množici $A$ in $B$.
-	\end{enumerate}
-\end{definicija}
-
-\begin{opomba}
-	\begin{enumerate}
-		\item Iz definicije je razvidno, da $T_2 \implies T_1 \implies T_0$.
-		\item Topološkemu prostoru, ki zadošča separacijskemu aksiomu $T_2$, pravimo \emph{Hausdorffov} topološki prostor.
-		\item Topološku prostoru, ki zadošča $T_1$ in $T_3$ pravimo \emph{regularen} topološki prostor.
-		\item Topološku prostoru, ki zadošča $T_1$ in $T_4$, pravimo \emph{normalen} topološki prostor.
-	\end{enumerate}
-\end{opomba}
+Separacijske aksiome v povezavi z metrizabilnostjo na topoloških grupah si bomo podrobneje ogledali v kasnejših poglavjih.
 
 \section{Kaj je topološka grupa}
 
