@@ -143,7 +143,7 @@ Osnovna podstruktura topološkega prostora je topološki podprostor.
 Najprej vzemimo topološki prostor $X$ s topologijo $\tau$ in množico $A \subseteq X$. \emph{Inducirana} ali \emph{relativna topologija} na množici $A$, inducirana s $\tau$, je družina množic $\lbrace A \cap U ; U \in \tau \rbrace$. Prostoru $A$ rečemo \emph{topološki podprostor} prostora $X$.
 
 Oglejmo si še produkt topoloških prostorov.
-Naj bosta $X$ in $Y$ topološka prostora s topologijama $\tau_1$ in $\tau_2$. \emph{Produktna topologija} na kartezičnemu produktu $X \times Y$ je topologija, generirana z bazo $\lbrace U \times V ; U \in \tau_1, V \in \tau_2 \rbrace$. \emph{Produkt} topoloških prostorov $X$ in $Y$ je topološki prostor $X \times Y$, opremljen s produktno topologijo. Produkt topoloških prostorov je opremljen še z dvema projekcijskima preslikavama $\pr_1\colon X \times Y \to X$, $\pr_1(x, y) = x$ in $\pr_2\colon X \times Y \to Y$, $\pr_2(x, y) = y$. Obe projekciji sta zvezni in odprti preslikavi glede na primerni topologiji.
+Naj bosta $X$ in $Y$ topološka prostora s topologijama $\tau_1$ in $\tau_2$. \emph{Produktna topologija} na kartezičnemu produktu $X \times Y$ je topologija, generirana z bazo $\lbrace U \times V ; U \in \tau_1, V \in \tau_2 \rbrace$. \emph{Produkt} topoloških prostorov $X$ in $Y$ je topološki prostor $X \times Y$, opremljen s produktno topologijo. Produkt topoloških prostorov je opremljen še z dvema projekcijskima preslikavama $\pr_x\colon X \times Y \to X$, $\pr_x(x, y) = x$ in $\pr_y\colon X \times Y \to Y$, $\pr_y(x, y) = y$. Obe projekciji sta zvezni in odprti preslikavi glede na primerni topologiji.
 
 V nadaljevanju si bomo ogledali nekaj pojmov povezanih s kompaktnostjo topoloških prostorov, ki si jih bomo kasneje ogledali v kontekstu topoloških grup, definirali pa bomo tudi nove.
 Družini $\mathcal{A}$ množic rečemo \emph{pokritje} topološkega prostora $X$, če je $X \subseteq \bigcup \mathcal{A}$,družini $\mathcal{B} \subseteq \mathcal{A}$ pa rečemo \emph{podpokritje} topološkega prostora $X$, če je $\mathcal{B}$ tudi sama pokritje za $X$.
@@ -168,30 +168,62 @@ Topološku prostoru, ki zadošča $T_1$ in $T_4$, pravimo \emph{normalen} topolo
 Separacijske aksiome v povezavi z metrizabilnostjo na topoloških grupah si bomo podrobneje ogledali v kasnejših poglavjih.
 
 \section{Kaj je topološka grupa}
+V tem poglavju bomo združili pojem topološkega prostora s pojmom grupe in ju povezali v pojem topološke grupe. Ogledali si bomo nekaj primerov in temeljnih lastnosti.
 
-Iz zgornje definicije je razvidno, da nam grupna struktura na množici porodi dve strukturni preslikavi:
+\subsection{Definicija topološke grupe}
+Iz definicije grupe je razvidno, da nam grupna struktura na množici porodi dve strukturni preslikavi:
 \begin{itemize}
 \item \emph{množenje} $\mu\colon G \times G \to G$, $(x, y) \mapsto xy$,
 \item \emph{invertiranje} $\iota\colon G \to G$, $x \mapsto x^{-1}$.
 \end{itemize}
 
-Končno lahko strukturi združimo in povežemo ter definiramo pojem topološke grupe.
+S pomočjo strukturnih preslikav bomo sedaj definiramo topološko grupo.
 \begin{definicija}\label{def:topgrupa}
 \emph{Topološka grupa} je grupa $G$ opremljena s takšno topologijo $\tau$, da sta za $\tau$ strukturni operaciji množenja in invertiranja zvezni. 
 \end{definicija}
 
-Potrebujemo le še tip preslikave med topološkimi grupami, ki bo ohranjal tako algebraično kot topološko strukturo.
+Potrebujemo še tip preslikave med topološkimi grupami, ki bo ohranjal tako algebraično kot topološko strukturo.
 \begin{definicija}\label{def:topizo}
 Preslikava med dvema topološkima grupama je \emph{topološki izomorfizem}, če je izomorfizem in homeomorfizem.
 \end{definicija}
 
 
+\subsection{Primeri topoloških grup}
+
+\begin{primer}
+	Vsaka grupa $G$ je za diskretno topologijo $\tau_d = 2^G$ in trivialno topologijo $\tau_t = \lbrace \emptyset, G \rbrace$ topološka grupa, saj je glede na njiju zvezna vsaka preslikava na $G$ ali $G \times G$.
+\end{primer}
+
+\begin{primer}
+	Realna števila za operacijo $+$ so topološka grupa z evklidsko topologijo.
+	
+	Preverimo, da sta strukturni operaciji $\mu(x, y) = x + y$ in $\iota(x) = -x$ zvezni.
+	
+	Po definiciji produktne topologije sta projekcijski preslikavi zvezni. Strukturna preslikava seštevanja $\mu = pr_x + pr_y$ je zvezna kot vsota zveznih preslikav.
+	
+	Zveznost invertiranja je dovolj preveriti na baznih množicah evklidske topologije. Vzemimo interval $(a, b)$. Tudi $\iota^{-1}((a, b)) = \iota((a, b)) = (-b, -a)$ je bazna množica in zato odprta, torej je invertiranje zvezno.
+\end{primer}
+
+\begin{primer}
+	Enotska krožnica v kompleksni ravnini $S = \lbrace z \in \C ; |z| = 1 \rbrace$ s podedovanim množenjem je topološka grupa za relativno topologijo kot podprostor $\R^2$ (spomnimo se, da je $\C \cong \R^2$).
+\end{primer}
+
+\begin{primer}
+	Realna števila za operacijo $+$ niso topološka grupa s topologijo $\tau = \lbrace (a, \infty) ; a \in \R \rbrace$. Vzemimo odprto množico $(a, \infty)$ in si oglejmo njeno prasliko glede na preslikavo invertiranja. Res $\iota((a, \infty)) = (-\infty, -a)$ ni odprta množica v topologiji $\tau$, torej prostor $(\R, \tau)$ ni topološka grupa.
+%	Preverimo lahko zveznost strukturnih strukturnih preslikav in se prepričamo, da invertiranje ni zvezno, lahko pa se prepričamo tudi drugače.
+%	
+%	Po trditvi \ref{trd:t0haus} za vsako topološko grupo velja, da zadošča separacijskemu aksiomu $T_0$ natanko tedaj, ko je Hausdorffova. Topološki prostor $(\R, +, \tau)$ zadošča separacijskemu aksiomu $T_0$, saj je za vsaki dve točki $a < b$ množica $(\frac{a+b}{2}, \infty)$ okolica za točko $b$, ki ne vsebuje točke $a$. Hkrati pa je očitno, da ta prostor ni Hausdorffov, saj se vsaki dve odprti množici sekata. Topološki prostor $(\R, +, \tau)$ torej ne more biti topološka grupa.
+\end{primer}
+
+\subsection{Osnovne lastnosti topoloških grup}
+
+
 \begin{trditev}\label{trd:trans}
 Naj bo $G$ topološka grupa in $a \in G$.
 \begin{enumerate}
-\item Leva translacija $l_a\colon x \mapsto ax$ in desna translacija $r_a\colon x \mapsto xa$ za $a$ sta homeomorfizma iz $G$ v $G$
+\item Leva translacija $l_a\colon x \mapsto ax$ in desna translacija $r_a\colon x \mapsto xa$ za element $a$ sta homeomorfizma iz $G$ v $G$.\label{podtrd:ldt}
 \item Invertiranje $\iota\colon x \mapsto x^{-1}$ je homeomorfizem iz $G$ v $G$.
-\item Konjugiranje $\gamma\colon x \mapsto axa^{-1}$ je homeomorfizem iz $G$ v $G$.
+\item Konjugiranje $\gamma_a\colon x \mapsto axa^{-1}$ je homeomorfizem iz $G$ v $G$.
 \end{enumerate}
 \end{trditev}
 
@@ -201,26 +233,29 @@ Vemo že, da so leva translacija, desna translacija, invertiranje in konjugiranj
 Naj bo $\text{c}_a\colon x \mapsto a$ konstantna preslikava. Vemo, da je konstantna preslikava zvezna.
 
 Levo translacijo lahko zapišemo kot kompozitum zveznih preslikav \[l_a(x) = \mu(\text{c}_a(x), x) = ax.\]
-Kot kompozitum zveznih preslikav je leva translacija zvezna. Inverzna preslikava leve translacije za element $a$ je leva translacija za element $a^{-1}$, ki je tudi zvezna. Leva translacija je zato homeomorfizem.
+Kot kompozitum zveznih preslikav je leva translacija zvezna. Inverzna preslikava levi translaciji za element $a$ je leva translacija za element $a^{-1}$, ki je tudi zvezna. Leva translacija je zato homeomorfizem.
 
-Desno translacijo lahko na analogen način zapišemo kot kompozitum zveznih preslikav \[r_a(x) = \mu(x, \text{c}_a(x)) = xa.\]
-Kot kompozitum zveznih preslikav je desna translacija zvezna in njena inverzna preslikava je desna translacija za element $a^{-1}$, torej tudi zvezna. Desna translacija je zato homeomorfizem.
+Za dokaz zveznosti desne translacije najprej opazimo, da velja
+\[r_a(x) = \mu(x, \text{c}_a(x)) = xa.\]
+Nato sledimo zgornjemu dokazu.
 
 Invertiranje je homeomorfizem, ker je zvezno po definiciji topološke grupe in samo sebi inverz.
 
-Konjugiranje lahko zapišemo kot kompozitum zveznih preslikav \[\gamma = r_{a^{-1}} \circ l_a.\]
-Kot kompozitum zveznih preslikav je konjugiranje zvezno in njegov inverz je konjugiranje za element $a^{-1}$, torej tudi zvezen. Konjugiranje je zato homeomorfizem.
+Konjugiranje lahko zapišemo kot kompozitum homeomorfizmov \[\gamma = r_{a^{-1}} \circ l_a,\]
+nato pa uporabimo točko \ref{podtrd:ldt}.
 \end{dokaz}
 
 \begin{trditev}\label{trd:prododp}
-Naj bosta $A$ in $B$ podmnožici topološke grupe $G$. Če je ena od njiju odprta, sta odprti tudi množici $AB$ in $BA$.
+Naj bosta $A$ in $B$ podmnožici topološke grupe $G$. Če je $A$ odprta množica, sta odprti tudi množici $AB$ in $BA$.
 \end{trditev}
 
 \begin{dokaz}
-Brez škode za splošnost privzemimo, da je $A$ odprta. Velja $AB = \lbrace Ab ; b \in B \rbrace$. Ker je $A$ odprta, so po trditvi \ref{trd:trans} odprte tudi vse množice $Ab$, saj je desna translacija homeomorfizem. Množica $AB$ je odprta kot unija odprtih množic.
+Ker je $A$ odprta množica, so po trditvi \ref{trd:trans} odprte tudi vse množice $Ax$ za vsak $x \in G$, saj je desna translacija homeomorfizem. Velja $AB = \bigcup_{b \in B}\lbrace Ab\rbrace$, zato je množica $AB$ je odprta kot unija odprtih množic.
 
-Dokaz je popolnoma simetričen za množico $BA$.
+Za dokaz odprtosti množice $BA$ najprej oprazimo, da so po trditvi \ref{trd:trans} odprte tudi vse množice $xA$ za vsak $x \in X$, potem pa sledimo zgornjemu dokazu.
 \end{dokaz}
+
+Sledi nekaj trditev, ki se nanašajo na okolice enote topološke grupe.
 
 \begin{trditev}\label{trd:okolice}
 Za topološko grupo $G$ in bazo $\Ucurl$ odprtih okolic enote $e$ veljajo naslednje trditve:
@@ -233,22 +268,22 @@ Za topološko grupo $G$ in bazo $\Ucurl$ odprtih okolic enote $e$ veljajo nasled
 \end{trditev}
 
 \begin{dokaz}
-Naj bo $U \in \Ucurl$  odprta okolica enote $e$. Ker je množenje zvezno, obstaja v produktni topologiji na $G \times G$ odprta okolica $W = V_1 \times V_2$ enote $(e, e)$, za katero velja $V_1V_2 \subset U$. Po definiciji produktne topologije sta $V_1$ in $V_2$ odprti okolici enote $e$ v $G$. Definiramo $V' = V_1 \cap V_2$ okolico za $e$. Po definiciji baze okolic obstaja $V \in \Ucurl$, da velja $V \subseteq V'$. Ker je $V \subseteq V' \subseteq V_1$ in $V \subseteq V' \subseteq V_2$, velja \[V^2 \subseteq V'^2 \subseteq V_1V_2 \subset U.\] To dokaže prvo trditev.
+Naj bo $U \in \Ucurl$  odprta okolica enote $e$. Ker je množenje zvezno, obstaja v produktni topologiji na $G \times G$ bazična okolica $W = V_1 \times V_2$ elementa $(e, e)$, za katero velja $V_1V_2 \subset U$. Po definiciji produktne topologije sta $V_1$ in $V_2$ odprti okolici enote $e$ v $G$. Definiramo $V' = V_1 \cap V_2$ okolico za $e$. Po definiciji baze okolic obstaja $V \in \Ucurl$, da velja $V \subseteq V'$. Ker je $V \subseteq V' \subseteq V_1$ in $V \subseteq V' \subseteq V_2$, velja \[V^2 \subseteq V'^2 \subseteq V_1V_2 \subset U.\] To dokaže prvo trditev.
 
-Vzemimo poljuben $V \in \Ucurl$, $V \subset U$ (obstaja po definiciji baze okolic). Ker je invertiranje zvezno, obstaja v $G$ odprta okolica $W$ enote $e$, za katero velja $W \subset V$. Po trditvi \ref{trd:trans} je invertiranje homeomorfizem, zato je $W = V^{-1}$. Velja \[V^{-1} \subset V \subset U.\] To dokaže drugo trditev.
+Ker je invertiranje zvezno, obstaja v $G$ odprta okolica $W$ enote $e$, za katero velja $W^{-1} \subset U$. Po definiciji baze okolic obstaja okolica $V \in \Ucurl$, za katero velja $V \subseteq W$. Potem je $V^{-1} \subseteq W^{-1}$. Velja \[V^{-1} \subset W^{-1} \subset U.\] To dokaže drugo trditev.
 
-Vzemimo poljubno točko $x \in U$. Ker je $U$ odprta množica, obstaja okolica $W \subset U$ za točko $x$. Naj bo $V' = x^{-1}W$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je $V'$ odprta okolica enote $e$. Vzemimo $V \in \Ucurl$, $V \subset V'$ (obstaja po definiciji baze okolic). Velja \[xV \subset xV' = xx^{-1}W = W \subset U.\]
+Vzemimo poljubno točko $x \in U$. Naj bo $W = x^{-1}U$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je $W$ odprta okolica enote $e$. Vzemimo $V \in \Ucurl$, $V \subset W$ (obstaja po definiciji baze okolic). Velja \[xV \subset xW = xx^{-1}U = U.\]
 To dokaže tretjo trditev.
 
 Naj bo $x \in U$ poljubna točka. Ker je po trditvi \ref{trd:trans} konjugiranje homeomorfizem, obstaja odprta okolica enote $e$ oblike $xVx^{-1} \subseteq U$.
 To dokaže še četrto trditev.
 \end{dokaz}
 
-\begin{trditev}\label{trd:okolice2}
-Naj bo $G$ grupa (ne topološka) in $\Ucurl$ družina podmnožic množice $G$, za katero veljajo vse štiri lastnosti iz trditve \ref{trd:okolice}. Naj bodo poljubni končni preseki množic iz $\Ucurl$ neprazni. Tedaj je družina $\lbrace xU \rbrace$, kjer $U \in \Ucurl$ in $x \in G$ odprta podbaza za neko topologijo na $G$. S to topologijo je $G$ topološka grupa. Družina $\lbrace Ux \rbrace$ je podbaza za isto topologijo.
+\begin{izrek}\label{izr:bazaokolice}
+Naj bo $G$ grupa in $\Ucurl$ družina podmnožic množice $G$, za katero veljajo vse štiri lastnosti iz trditve \ref{trd:okolice}. Naj bodo poljubni končni preseki množic iz $\Ucurl$ neprazni. Tedaj je družina $\lbrace xU \rbrace$, kjer $U \in \Ucurl$ in $x \in G$ odprta podbaza za neko topologijo na $G$. S to topologijo je $G$ topološka grupa. Družina $\lbrace Ux \rbrace$ je podbaza za isto topologijo.
 
 Če velja še, da za vsaki množici $U,V \in \Ucurl$ obstaja množica $W \in \Ucurl$, da velja $W \subset U \cap V$, potem sta družini $\lbrace xU \rbrace$ in $\lbrace Ux \rbrace$ tudi bazi za to topologijo.
-\end{trditev}
+\end{izrek}
 
 \begin{definicija}\label{def:sim}
 Množici, za katero velja $U = U^{-1}$, rečemo \emph{simetrična} množica.
@@ -259,9 +294,10 @@ Vsaka topološka grupa ima bazo $\Ucurl$ odprtih in simetričnih okolic enote.
 \end{trditev}
 
 \begin{dokaz}
-Naj bo $\mathcal{V}$ neka baza odprtih okolic enote. Za vsako okolico $V \in \mathcal{V}$ konstruiramo množico $U = V \cup V^{-1}$. Kot presek dveh odprtih množic je $U$ odprta. Ker je $e \in V$ in $e \in V^{-1}$, je $U$ odprta okolica enote, ki je po konstrukciji simetrična. Ker po definiciji preseka velja še $U \subseteq V$, je družina $\Ucurl = \lbrace V \cap V^{-1}; V \in \mathcal{V} \rbrace$ res baza odprtih in simetričnih okolic enote $e$.
+Naj bo $\mathcal{V}$ neka baza odprtih okolic enote. Za vsako okolico $V \in \mathcal{V}$ definiramo množico $U = V \cap V^{-1}$. Kot presek dveh odprtih množic je $U$ odprta. Ker je $e \in V$ in $e \in V^{-1}$, je $U$ odprta okolica enote, ki je po konstrukciji simetrična. Ker po definiciji preseka velja še $U \subseteq V$, je družina $\Ucurl = \lbrace V \cap V^{-1}; V \in \mathcal{V} \rbrace$ res baza odprtih in simetričnih okolic enote $e$.
 \end{dokaz}
 
+%isto kot kasneje pri kvocientih, združimo nekako
 \begin{posledica}\label{pos:sim}
 Za vsako okolico $U$ enote $e$ topološke grupe $G$ obstaja taka okolica $V$ enote $e$, da velja $\closure{V} \subset U$.
 \end{posledica}
@@ -274,109 +310,80 @@ Obstajata torej $v_1, v_2 \in V$, da velja $x v_1 = v_2$. Sledi \[x = v_2 v_1^{-
 Torej res velja $\closure{V} \subset U$.
 \end{dokaz}
 
+
+%prestrukturiraj trditev v ntse
 \begin{trditev}\label{trd:t0haus}
-Za topološko grupo $G$ velja, da zadošča separacijskemu aksiomu $T_0$ natanko tedaj, kadar je Hausdorffova.
+	Za topološko grupo $G$ velja, da zadošča separacijskemu aksiomu $T_0$ natanko tedaj, kadar je Hausdorffova.
 \end{trditev}
 
 \begin{dokaz}
-Dokazujemo implikacijo $T_0 \implies T_2$.
-
-Dokažimo najprej, da je $G$ Hausdorffova natanko tedaj, ko je $\lbrace e \rbrace$ zaprta množica.
-
-Če je $G$ Hausdorffova, zadošča tudi separacijskemu aksiomu $T_1$, kar pomeni, da so vse enoelementne množice zaprte, torej tudi $\lbrace e \rbrace$.
-
-Privzemimo, da je $\lbrace e \rbrace$ zaprta množica. Oglejmo si preslikavo $f\colon G \times G \to G$, $(x, y) \mapsto xy^{-1}$. Preslikava $f$ je zvezna kot kompozitum množenja in invertiranja, ki sta zvezni preslikavi po definiciji topološke grupe. Zato je $f^{-1}(\lbrace e \rbrace) = \lbrace (x, x) ; x \in G \rbrace$ zaprta množica v $G \times G$, to pa je ekvivalentno temu, da je $G$ Hausdorffova.
-
-Za dokaz implikacije je dovolj pokazati, da je v vsaki topološki grupi, ki zadošča separacijskemu aksiomu $T_0$, množica $\lbrace e \rbrace$ zaprta. Pokažimo, da je $G\setminus\lbrace e \rbrace$ odprta.
-
-Vzemimo točko $x \in G\setminus\lbrace e \rbrace$. Ker $G$ zadošča separacijskemu aksiomu $T_0$, obstaja bodisi okolica za točko $x$, ki ne vsebuje enote $e$, bodisi okolica $V$ za enoto $e$, ki ne vsebuje točke $x$. V prvem primeru to pomeni, da je $G\setminus\lbrace e \rbrace$ odprta množica in je implikacija dokazana. Zato naj bo $V$ okolica za enoto $e$, ki ne vsebuje točke $x$. Množica $x^{-1}V$ je potem okolica za točko $x^{-1}$, ki ne vsebuje enote $e$, zato je $\iota(x^{-1}V)$ okolica za točko $x$, ki ne vsebuje enote $e$.
-
-Velja \[G \text{ zadošča } T_0 \implies \lbrace e \rbrace \text{ je zaprta } \implies G \text{ zadošča } T_2. \]
+	Dokazujemo implikacijo $T_0 \implies T_2$.
+	
+	Dokažimo najprej, da je $G$ Hausdorffova natanko tedaj, ko je $\lbrace e \rbrace$ zaprta množica.
+	
+	Če je $G$ Hausdorffova, zadošča tudi separacijskemu aksiomu $T_1$, kar pomeni, da so vse enoelementne množice zaprte, torej tudi $\lbrace e \rbrace$.
+	
+	Privzemimo, da je $\lbrace e \rbrace$ zaprta množica. Oglejmo si preslikavo $f\colon G \times G \to G$, $(x, y) \mapsto xy^{-1}$. Preslikava $f$ je zvezna kot kompozitum množenja in invertiranja, ki sta zvezni preslikavi po definiciji topološke grupe. Zato je $f^{-1}(\lbrace e \rbrace) = \lbrace (x, x) ; x \in G \rbrace$ zaprta množica v $G \times G$, to pa je ekvivalentno temu, da je $G$ Hausdorffova.
+	
+	Za dokaz implikacije je dovolj pokazati, da je v vsaki topološki grupi, ki zadošča separacijskemu aksiomu $T_0$, množica $\lbrace e \rbrace$ zaprta. Pokažimo, da je $G\setminus\lbrace e \rbrace$ odprta.
+	
+	Vzemimo točko $x \in G\setminus\lbrace e \rbrace$. Ker $G$ zadošča separacijskemu aksiomu $T_0$, obstaja bodisi okolica za točko $x$, ki ne vsebuje enote $e$, bodisi okolica $V$ za enoto $e$, ki ne vsebuje točke $x$. V prvem primeru to pomeni, da je $G\setminus\lbrace e \rbrace$ odprta množica in je implikacija dokazana. Zato naj bo $V$ okolica za enoto $e$, ki ne vsebuje točke $x$. Množica $x^{-1}V$ je potem okolica za točko $x^{-1}$, ki ne vsebuje enote $e$, zato je $\iota(x^{-1}V)$ okolica za točko $x$, ki ne vsebuje enote $e$.
+	
+	Velja \[G \text{ zadošča } T_0 \implies \lbrace e \rbrace \text{ je zaprta } \implies G \text{ zadošča } T_2. \]
 \end{dokaz}
 
-\begin{izrek}\label{izr:t3}
-	Vsaka topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je regularen topološki prostor.
-\end{izrek}
+
+\begin{trditev}\label{trd:zaprtost}
+	Za $A$ in $B$ podmnožici topološke grupe $G$ veljajo naslednje trditve:
+	\begin{enumerate}
+		\item $\closure{A}\ \closure{B} \subset \closure{A B}$,\label{podtrd:zap1}
+		\item $(\closure{A})^{-1} = \closure{A^{-1}}$,\label{podtrd:zap2}
+		\item $x \closure{A} y = \closure{x A y}$ za vsaka dva elementa $x, y \in G$.\label{podtrd:zap3}
+		
+		\item Če $G$ ustreza separacijskemu aksiomu $T_0$ in za vsaka dva elementa $a \in A$ in $b \in B$ velja enakost $ab = ba$, potem velja enakost $ab = ba$ tudi za vsaka dva elementa $a \in \closure{A}$ in $b \in \closure{B}$.\label{podtrd:zap4}
+	\end{enumerate}
+\end{trditev}
 
 \begin{dokaz}
-Po trditvi \ref{trd:t0haus} je $G$ Hausdorffova in zato zadošča separacijskemu aksiomu $T_1$.
-
-Po posledici \ref{pos:sim} za vsako okolico $U$ enote $e$ obstaja okolica $V$ enote $e$, da je $\closure{V} \subset U$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, to velja v vsaki točki, saj $\closure{aV} \subset aU$, kar pa je ekvivalentno separacijskemu aksiomu $T_3$. Topološka grupa $G$ je res regularna.
+	Naj bosta $A$ in $B$ podmnožici topološke grupe $G$.
+	
+	Za dokaz \ref{podtrd:zap1} vzemimo točki $x \in \closure{A}$ in $y \in \closure{B}$ ter neko okolico $U$ enote $e$. Dokazali bomo, da je $xy \in \closure{AB}$.
+	Ker je množenje zvezno, obstajata taki okolici $V_1$ in $V_2$ enote $e$, da je $(xV_1)(yV_2) \subset xyU$. Tedaj za okolico enote $V = V_1 \cap V_2$ velja $(xV)(yV) \subset xyU$. Ker je sta množici $xV$ in $yV$ okolici za $x$ in $y$,
+	po definiciji zaprtja obstajata taka elementa $a \in A$ in $B \in B$, da je $a \in xV$ in $b \in yV$. Zato je $ab \in (AB) \cap (xyU)$ in, ker je množica $xyU$ okolica za $xy$, po definiciji zaprtja sledi $xy \in \closure{AB}$.
+	
+	Enakost v \ref{podtrd:zap2} bo sledila iz tega, da je invertiranje po trditvi \ref{trd:trans} homeomorfizem. Vzemimo množico $A \subset G$. Ker je invertiranje homeomorfizem, je $\iota(\closure{A}) = \closure{\iota(A)}$. Torej je $\closure{A}^{-1} = \closure{A^{-1}}$.
+	
+	Enakost v \ref{podtrd:zap3} bo sledila iz tega, da sta leva in desna translacija po trditvi \ref{trd:trans} homeomorfizma. Naj bosta $x, y \in G$. Tedaj je tudi $f = r_y \circ l_x$ homeomorfizem. Ker je $\closure{A}$ zaprta, je $x\closure{A}y$ najmanjša zaprta množica, ki vsebuje množico $xAy$. Torej res velja $x\closure{A}y = \closure{xAy}$.
+	
+	Za dokaz \ref{podtrd:zap4} privzemimo še, da $G$ zadošča separacijskemu aksiomu $T_0$ in da velja $ab = ba$ za vsaka dva elementa $a \in A$ in $b \in B$. Preslikava $f\colon (a,b) \mapsto aba^{-1}b^{-1}$ je zvezna, saj je kompozitum množenj in invertiranj:
+	\[ f(a, b) = \mu(\mu(a, b),\mu(\iota(a), \iota(b))). \]
+	Ker je po izreku \ref{trd:t0haus} množica $\lbrace e \rbrace$ zaprta, je zaprta tudi množica $H = \lbrace (a, b) \in G \times G; aba^{-1}b^{-1} = e \rbrace$, saj je $H = f^{-1}(\lbrace e \rbrace)$. Po predpostavki velja $A \times B \subseteq H$.
+	Ker sta množici $\closure{A}$ in $\closure{B}$ zaprti v $G$, po definiciji produktne topologije velja, da je množica $\closure{A} \times \closure{B}$ zaprta v $G \times G$, zato je $\closure{A \times B} = \closure{A} \times \closure{B}$. Sledi, da je $\closure{A} \times \closure{B} \subseteq H$, torej je $ab = ba$ za vsaka dva elementa $a \in \closure{A}$ in $b \in \closure{B}$.
 \end{dokaz}
 
+\section{Topološke podgrupe in kvocientne grupe}
 
-\subsection{Primeri topoloških grup}
-
-\begin{primer}
-Vsaka grupa $G$ je za diskretno topologijo $\tau_d = 2^G$ in trivialno topologijo $\tau_t = \lbrace \emptyset, G \rbrace$ topološka grupa, saj je glede na njiju zvezna vsaka preslikava na $G$ ali $G \times G$.
-\end{primer}
-
-\begin{primer}
-Realna števila za operacijo $+$ so topološka grupa z evklidsko topologijo.
-
-V tem primeru sta strukturni operaciji $\mu(x, y) = x + y$ in $\iota(x) = -x$. Preverimo, da sta res zvezni.
-
-Naj bosta preslikavi $pr_x(x, y) = x$ in $pr_y(x, y) = y$ projekciji. Po definiciji produktne topologije sta to zvezni preslikavi. Ker je vsota zveznih preslikav zvezna preslikava, je strukturna preslikava seštevanja $\mu = pr_x + pr_y$ zvezna.
-
-Zveznost invertiranja je dovolj preveriti na baznih množicah evklidske topologije. Vzemimo interval $(-b, -a)$. Tudi $\iota^{-1}((-b, -a)) = \iota((-b, -a)) = (a, b)$ je bazna množica in zato odprta, torej je invertiranje zvezno.
-\end{primer}
-
-\begin{primer}
-Realna števila za operacijo $+$ niso topološka grupa s topologijo $\tau = \lbrace (a, \infty) ; a \in \R \rbrace$.
-
-Preverimo lahko zveznost strukturnih strukturnih preslikav in se prepričamo, da invertiranje ni zvezno, lahko pa se prepričamo tudi drugače.
-
-Po trditvi \ref{trd:t0haus} za vsako topološko grupo velja, da zadošča separacijskemu aksiomu $T_0$ natanko tedaj, ko je Hausdorffova. Topološki prostor $(\R, +, \tau)$ zadošča separacijskemu aksiomu $T_0$, saj je za vsaki dve točki $a < b$ množica $(\frac{a+b}{2}, \infty)$ okolica za točko $b$, ki ne vsebuje točke $a$. Hkrati pa je očitno, da ta prostor ni Hausdorffov, saj se vsaki dve odprti množici sekata. Topološki prostor $(\R, +, \tau)$ torej ne more biti topološka grupa.
-\end{primer}
-
-\begin{primer}
-Enotska krožnica v kompleksni ravnini $S = \lbrace z \in \C ; |z| = 1 \rbrace$ s podedovanim množenjem je topološka grupa za relativno topologijo kot podprostor $\R^2$ (spomnimo se, da je $\C \cong \R^2$).
-\end{primer}
-
-
-\section{Kvocienti topoloških grup}
+\subsection{Topološke podgrupe}
 
 \begin{trditev}\label{trd:toppodgrupa}
 Naj bo $G$ topološka grupa in $H$ njena podgrupa. Če $H$ opremimo z relativno topologijo, potem je tudi $H$ topološka grupa.
 \end{trditev}
 
 \begin{dokaz}
-Preslikavi $\mu|_H$ in $\iota|_H$ sta zvezni v relativni topologiji na $H$ kot zožitvi zveznih preslikav na topološki podprostor $H$. Ker je $H$ za zoženo množenje grupa (po definiciji podgrupe), je $H$ topološka grupa.
+Preslikavi $\mu|_{H \times H}$ in $\iota|_H$ sta zvezni glede na relativno topologijo na $H$ kot zožitvi zveznih preslikav na topološki podprostor $H$, torej je $H$ topološka grupa.
 \end{dokaz}
 
-\begin{trditev}\label{trd:zaprtost}
-Za $A$ in $B$ podmnožici topološke grupe $G$ veljajo naslednje trditve:
-\begin{enumerate}
-\item $\closure{A}\ \closure{B} \subset \closure{A B}$,
-\item $(\closure{A})^{-1} = \closure{A^{-1}}$,
-\item $x \closure{A} y = \closure{x A y}$ za vsaka dva elementa $x, y \in G$.
-
-\item Če $G$ ustreza separacijskemu aksiomu $T_0$ in za vsaka dva elementa $a \in A$ in $b \in B$ velja enakost $ab = ba$, potem velja enakost $ab = ba$ tudi za vsaka dva elementa $a \in \closure{A}$ in $b \in \closure{B}$.
-\end{enumerate}
-\end{trditev}
-
-\begin{dokaz}
-Naj bosta $A$ in $B$ podmnožici topološke grupe $G$.
-
-Za dokaz prve trditve vzemimo točki $x \in \closure{A}$ in $y \in \closure{B}$ ter neko okolico $U$ enote $e$. Ker je množenje zvezno, obstaja enote $V_1$ in $V_2$, da je $(xV_1)(yV_2) \subset xyU$. Definiramo okolico enote $V = V_1 \cap V_2$. Velja $(xV)(yV) \subset xyU$. Ker je $xV$ okolica za $x$ in $yV$ okolica za $y$ ter vsaka okolica točke iz zaprtja množice seka množico samo, obstajata $a \in A$ in $B \in B$, da je $a \in xV$ in $b \in yV$. Velja torej $ab \in (AB) \cap (xyU)$ in, ker je $xyU$ okolica za $xy$, tudi $xy \in \closure{AB}$. Inkluzija v prvi trditvi je s tem dokazana.
-
-Enakost v drugi trditvi sledi iz tega, da je invertiranje homeomorfizem (trditev \ref{trd:trans}). Vzemimo množico $A \subset G$. Ker je invertiranje zvezno, je $\iota(\closure{A}) \subseteq \closure{\iota(A)}$. Ker je samo sebi inverz, velja tudi obratno $\closure{\iota(A)} \subseteq \iota(\closure{A})$. Torej $\closure{A}^{-1} = \closure{A^{-1}}$.
-
-Enakost v tretji trditvi sledi iz tega, da sta leva in desna translacija homeomorfizma (trditev \ref{trd:trans}). Naj bosta $x, y \in G$. Tedaj je tudi $f = r_y \circ l_x$ homeomorfizem. Ker je $\closure{A}$ zaprta, je $x\closure{A}y$ najmanjša zaprta množica, ki vsebuje množico $xAy$. Torej res velja $x\closure{A}y = \closure{xAy}$.
-
-Za dokaz četrte trditve privzemimo še, da $G$ zadošča separacijskemu aksiomu $T_0$ in velja $ab = ba$ za vsaka dva elementa $a \in A$ in $b \in B$. Preslikava $(a,b) \mapsto aba^{-1}b^{-1}$ je zvezna, saj je kompozitum množenj in invertiranj. Ker je po izreku \ref{izr:t3} množica $\lbrace e \rbrace$ zaprta, je zaprta tudi množica $H = \lbrace (a, b) \in G \times G; aba^{-1}b^{-1} = e \rbrace$, saj je njena $f$-praslika. Po predpostavki velja $A \times B \subseteq H$ in po definiciji produktne topologije velja $\closure{A \times B} = \closure{A} \times \closure{B}$. Sledi, da je $\closure{A} \times \closure{B} \subseteq H$, torej je $ab = ba$ za vsaka dva elementa $a \in \closure{A}$ in $b \in \closure{B}$.
-\end{dokaz}
 
 \begin{trditev}\label{trd:odpzap}
-Naj bo $H$ podgrupa topološke grupe $G$. $H$ je odprta natanko tedaj, ko ima neprazno notranjost. Vsaka odprta podgrupa $H$ topološke grupa $G$ je tudi zaprta.
+Podgrupa $H$ topološke grupe $G$ je odprta natanko tedaj, ko ima neprazno notranjost. Vsaka odprta podgrupa $H$ topološke grupe $G$ je tudi zaprta.
 \end{trditev}
 
 \begin{dokaz}
-Denimo, da obstaja element $x$ v notranjosti $H$. Potem obstaja okolica $U$ enote $e$, da je $xU \subset H$, saj je notranjost množice $H$ odprta množica, ki je vsebovana v $H$. Vzemimo element $y \in H$. Velja \[yU = yx^{-1}xU \subset yx^{-1}H = H,\] saj $H$ kot podgrupa vsebuje tudi $x^{-1}$. Vsak element v $H$ ima torej odprto okolico, ki je vsebovana v $H$, kar pomeni, da je $H$ odprta množica.
+Denimo, da obstaja element $x \in \interior(H)$. Potem obstaja okolica $U$ enote $e$, da je $xU \subset H$. Dokazali bomo, da velja $H \subseteq \interior(H)$. Ker za poljuben $y \in H$ velja \[yU = yx^{-1}xU \subset yx^{-1}H = H,\] je $y \in \interior(H)$. Torej je vsaka točka v podgrupi $H$ notranja točka, kar pomeni, da je $H$ odprta množica.
 
-Obratno, če je $H$ odprta, vsaka njena točka leži tudi v njeni notranjosti, torej ima neprazno notranjost.
+Obratno, če je $H$ odprta, vsaka njena točka leži tudi v njeni notranjosti. Torej ima $H$ neprazno notranjost.
 
-Privzemimo, da je $H$ odprta podgrupa grupe $G$. Ker je $H$ zaprta za množenje, je $\setcomp{H} = \bigcup \lbrace xH ; x \notin H \rbrace$. Vsaka množica $xH$ je odprta, ker je $H$ odprta in je po trditvi \ref{trd:trans} leva translacija homeomorfizem. Potem je tudi $\setcomp{H}$ odprta množica, torej je $H$ zaprta množica.
+Privzemimo, da je $H$ odprta podgrupa grupe $G$. Ker je $H$ podgrupa, je $G\setminus H = \bigcup \lbrace xH ; x \notin H \rbrace$. Ker je $H$ odprta in je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je tudi vsaka množica $xH$ odprta. Potem je tudi $G \setminus H$ odprta kot unija odprtih množic, torej je $H$ zaprta množica.
 \end{dokaz}
 
 \begin{trditev}\label{trd:podgrupaunija}
@@ -384,7 +391,7 @@ Naj bo $U$ simetrična okolica enote $e$ v topološki grupi $G$. Potem je $L = \
 \end{trditev}
 
 \begin{dokaz}
-Vzemimo $x \in U^k$ in $y \in U^l$. Velja $xy \in U^kU^l \subseteq U^{k+l}$, torej je $L$ zaprta za množenje. Ker je $U$ simetrična, velja tudi $x^{-1} \in (U^{-1})^k = U^k$, torej je $L$ zaprta za invertiranje. Sledi, da je $L$ podgrupa topološke grupe $G$. V njeni notranjosti je zagotovo enota $e$, saj je $U$ okolica za $e$. Po trditvi \ref{trd:odpzap} je $L$ odprta in zaprta podgrupa topološke grupe $G$.
+Ker za $x \in U^k$ in $y \in U^l$ velja $xy \in U^kU^l \subseteq U^{k+l}$, je $L$ zaprta za množenje. Ker je $U$ simetrična, velja tudi $x^{-1} \in (U^{-1})^k = U^k$, torej je $L$ zaprta za invertiranje. Sledi, da je $L$ podgrupa topološke grupe $G$. V njeni notranjosti je zagotovo vsaj enota $e$, saj je $U$ okolica za $e$. Po trditvi \ref{trd:odpzap} je $L$ odprta in zaprta podgrupa topološke grupe $G$.
 \end{dokaz}
 
 
@@ -619,6 +626,19 @@ Torej za vsak $k \in \N$ velja
 Vsaka okolica enote $e$ v topologiji $\tau$ torej vsebuje okolico enote $e$ v topologiji $\tau_\sigma$ in vsaka okolica enote $e$ v topologiji $\tau_\sigma$ vsebuje okolico enote $e$ v topologiji $\tau$.
 Topologiji $\tau$ in $\tau_\sigma$ sta zato ekvivalentni in $G$ je metrizabilen topološki prostor.
 \end{dokaz}
+
+\subsection{Regularnost}
+
+\begin{izrek}\label{izr:t3}
+	Vsaka topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je regularen topološki prostor.
+\end{izrek}
+
+\begin{dokaz}
+	Po trditvi \ref{trd:t0haus} je $G$ Hausdorffova in zato zadošča separacijskemu aksiomu $T_1$.
+	
+	Po posledici \ref{pos:sim} za vsako okolico $U$ enote $e$ obstaja okolica $V$ enote $e$, da je $\closure{V} \subset U$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, to velja v vsaki točki, saj $\closure{aV} \subset aU$, kar pa je ekvivalentno separacijskemu aksiomu $T_3$. Topološka grupa $G$ je res regularna.
+\end{dokaz}
+
 
 \subsection{Separacijski aksiom T$_{3 \frac{1}{2}}$}
 
