@@ -311,25 +311,32 @@ Torej res velja $\closure{V} \subset U$.
 \end{dokaz}
 
 
-%prestrukturiraj trditev v ntse
 \begin{trditev}\label{trd:t0haus}
-	Za topološko grupo $G$ velja, da zadošča separacijskemu aksiomu $T_0$ natanko tedaj, kadar je Hausdorffova.
+Za topološko grupo $G$ so si naslednje trditve ekvivalentne:
+\begin{enumerate}
+	\item Topološka grupa $G$ zadošča separacijskemu aksiomu $T_0$.\label{podtrd:h1}
+	\item Množica $\lbrace e \rbrace$ je zaprta v $G$.\label{podtrd:h2}
+	\item Topološka grupa $G$ je Hausdorffov topološki prostor.\label{podtrd:h3}
+\end{enumerate}
 \end{trditev}
 
 \begin{dokaz}
-	Dokazujemo implikacijo $T_0 \implies T_2$.
+	\ref{podtrd:h1} $\implies$ \ref{podtrd:h2}:
 	
-	Dokažimo najprej, da je $G$ Hausdorffova natanko tedaj, ko je $\lbrace e \rbrace$ zaprta množica.
+	Implikacijo bomo dokazali tako, da bomo pokazali, da je množica $G\setminus\lbrace e \rbrace$ okolica za vsako svojo točko, iz česar bo sledilo, da je odprta.
+	Vzemimo točko $x \in G\setminus\lbrace e \rbrace$. Ker $G$ zadošča separacijskemu aksiomu $T_0$, obstaja bodisi okolica za točko $x$, ki ne vsebuje enote $e$, bodisi okolica $V$ za enoto $e$, ki ne vsebuje točke $x$. V prvem primeru sledi, da je $G\setminus\lbrace e \rbrace$ okolica za točko $x$.
+	Zato naj bo $V$ okolica za enoto $e$, ki ne vsebuje točke $x$. Množica $x^{-1}V$ je potem okolica za točko $x^{-1}$, ki ne vsebuje enote $e$, zato je $\iota(x^{-1}V)$ okolica za točko $x$, ki ne vsebuje enote $e$. Ker velja $\iota(x^{-1}V) \subseteq G \setminus \lbrace e \rbrace$, je $G\setminus\lbrace e \rbrace$ okolica za točko $x$.
 	
-	Če je $G$ Hausdorffova, zadošča tudi separacijskemu aksiomu $T_1$, kar pomeni, da so vse enoelementne množice zaprte, torej tudi $\lbrace e \rbrace$.
+	Množica $G\setminus\lbrace e \rbrace$ je torej okolica za vsako svojo točko in je zato odprta. Sledi, da je $\lbrace e \rbrace$ zaprta množica.
 	
-	Privzemimo, da je $\lbrace e \rbrace$ zaprta množica. Oglejmo si preslikavo $f\colon G \times G \to G$, $(x, y) \mapsto xy^{-1}$. Preslikava $f$ je zvezna kot kompozitum množenja in invertiranja, ki sta zvezni preslikavi po definiciji topološke grupe. Zato je $f^{-1}(\lbrace e \rbrace) = \lbrace (x, x) ; x \in G \rbrace$ zaprta množica v $G \times G$, to pa je ekvivalentno temu, da je $G$ Hausdorffova.
 	
-	Za dokaz implikacije je dovolj pokazati, da je v vsaki topološki grupi, ki zadošča separacijskemu aksiomu $T_0$, množica $\lbrace e \rbrace$ zaprta. Pokažimo, da je $G\setminus\lbrace e \rbrace$ odprta.
+	\ref{podtrd:h2} $\implies$ \ref{podtrd:h3}:
 	
-	Vzemimo točko $x \in G\setminus\lbrace e \rbrace$. Ker $G$ zadošča separacijskemu aksiomu $T_0$, obstaja bodisi okolica za točko $x$, ki ne vsebuje enote $e$, bodisi okolica $V$ za enoto $e$, ki ne vsebuje točke $x$. V prvem primeru to pomeni, da je $G\setminus\lbrace e \rbrace$ odprta množica in je implikacija dokazana. Zato naj bo $V$ okolica za enoto $e$, ki ne vsebuje točke $x$. Množica $x^{-1}V$ je potem okolica za točko $x^{-1}$, ki ne vsebuje enote $e$, zato je $\iota(x^{-1}V)$ okolica za točko $x$, ki ne vsebuje enote $e$.
+	Privzemimo, da je $\lbrace e \rbrace$ zaprta množica. Oglejmo si preslikavo $f\colon G \times G \to G$, $(x, y) \mapsto xy^{-1}$. Preslikava $f$ je zvezna kot kompozitum množenja in invertiranja, ki sta zvezni preslikavi po definiciji topološke grupe. Zato je $f^{-1}(\lbrace e \rbrace) = \lbrace (x, x) ; x \in G \rbrace$ zaprta množica v $G \times G$, to pa je po izreku iz splošne topologije ekvivalentno temu, da je $G$ Hausdorffova.
 	
-	Velja \[G \text{ zadošča } T_0 \implies \lbrace e \rbrace \text{ je zaprta } \implies G \text{ zadošča } T_2. \]
+	\ref{podtrd:h3} $\implies$ \ref{podtrd:h1}:
+	
+	Sledi iz definicije separacijskega aksioma $T_2$.
 \end{dokaz}
 
 
@@ -394,6 +401,7 @@ Naj bo $U$ simetrična okolica enote $e$ v topološki grupi $G$. Potem je $L = \
 Ker za $x \in U^k$ in $y \in U^l$ velja $xy \in U^kU^l \subseteq U^{k+l}$, je $L$ zaprta za množenje. Ker je $U$ simetrična, velja tudi $x^{-1} \in (U^{-1})^k = U^k$, torej je $L$ zaprta za invertiranje. Sledi, da je $L$ podgrupa topološke grupe $G$. V njeni notranjosti je zagotovo vsaj enota $e$, saj je $U$ okolica za $e$. Po trditvi \ref{trd:odpzap} je $L$ odprta in zaprta podgrupa topološke grupe $G$.
 \end{dokaz}
 
+\subsection{Kvocienti topoloških grup}
 
 \begin{izrek}\label{izr:topkvocienta}
 Naj bo $G$ topološka grupa, $H$ njena podgrupa in $\varphi\colon G \to G/H$ naravna preslikava. Definiramo $\theta(G/H) = \lbrace U ; \varphi^{-1}(U)$ odprta v $G \rbrace$.
