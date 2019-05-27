@@ -75,7 +75,7 @@
 \section{Uvod}
 
 \section{Preliminarna poglavja}
-V tem poglavju bomo ponovili že znane pojme iz algebre in splošne topologije, ki nam bodo kasneje prišli prav. Dogovorili se bomo tudi o zapisu operacij na množicah.
+V tem poglavju bomo ponovili že znane pojme iz algebre in splošne topologije, ki nam bodo kasneje prišli prav. Dogovorili se bomo tudi o zapisu operacij na množicah. Navedli bomo nekaj definicij in trditev, za katere privzemamo, da so bralcu že poznane.
 
 \subsection{Operacije na množicah}\label{sec:opnamnozicah}
 Vse operacije na množicah, če ne bo drugače zaznamovano, delujejo na elementih. Tako je na primer produkt množic $U$ in $V$ enak \[U \cdot V = \lbrace u \cdot v ; u \in U, v \in V \rbrace, \] inverz množice $U$ pa je \[ U^{-1} = \lbrace u^{-1} ; u \in G \rbrace. \] Tukaj se v obeh primerih predpostavlja, da so množice vložene v neki grupi, kjer so operacije na elementih smiselno definirane. Grupno strukturo bomo bolj podrobno opisali v naslednjem podrazdelku.
@@ -107,8 +107,8 @@ Množicama $aH = \lbrace ah ; h \in H \rbrace$ in $Ha = \lbrace ha ; h \in H \rb
 Podgrupi $H$ grupe $G$ rečemo podgrupa \emph{edinka}, če za vsak element $a \in G$ velja \[aHa^{-1} \subseteq H.\]
 Množici $G/H = \lbrace aH ; a \in G \rbrace$ rečemo \emph{kvocientna množica} grupe $G$ po podgrupi $H$.
 \emph{Naravna preslikava} na kvocientno množico $G/H$ je preslikava $\varphi: G \to G/H$, $a \mapsto aH$.
-
-Če je $N$ podgrupa edinka grupe $G$, je kvocientna množica $G/N$ grupa za operacijo $*$, kjer je $aH\cdot bH = (a\cdot b)H$, naravna preslikava $\varphi$ pa je homomorfizem grup in mu rečemo \emph{naravni homomorfizem}.
+Kvocientna množica v splošnem ni grupa, razen v primeru, ko je $H$ podgrupa edinka.
+Če je $N$ podgrupa edinka grupe $G$, je kvocientna množica $G/N$ grupa za operacijo $*$, kjer je $aH\cdot bH = (a\cdot b)H$, naravna preslikava $\varphi$ pa je homomorfizem grup in ji rečemo \emph{naravni homomorfizem}.
 
 \subsection{Topološki prostori}
 V tem podpoglavju bomo ponovili nekaj pojmov iz splošne topologije, ki jih bomo kasneje podrobneje obravnavali na topoloških grupah.
@@ -160,10 +160,10 @@ Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu
 \item $T_4$, če za poljubni disjunktni zaprti množici $A, B \subseteq X$ obstajata disjunktni okolici za množici $A$ in $B$.
 \end{enumerate}
 
-Iz definicije je razvidno, da $T_2 \implies T_1 \implies T_0$.
+Iz zgornje definicije je razvidno, da $T_2 \implies T_1 \implies T_0$.
 Topološkemu prostoru, ki zadošča separacijskemu aksiomu $T_2$, pravimo \emph{Hausdorffov} topološki prostor.
-Topološku prostoru, ki zadošča $T_1$ in $T_3$ pravimo \emph{regularen} topološki prostor.
-Topološku prostoru, ki zadošča $T_1$ in $T_4$, pravimo \emph{normalen} topološki prostor.
+Topološkemu prostoru, ki zadošča $T_1$ in $T_3$ pravimo \emph{regularen} topološki prostor.
+Topološkemu prostoru, ki zadošča $T_1$ in $T_4$, pravimo \emph{normalen} topološki prostor.
 
 Separacijske aksiome v povezavi z metrizabilnostjo na topoloških grupah si bomo podrobneje ogledali v kasnejših poglavjih.
 
@@ -177,9 +177,9 @@ Iz definicije grupe je razvidno, da nam grupna struktura na množici porodi dve 
 \item \emph{invertiranje} $\iota\colon G \to G$, $x \mapsto x^{-1}$.
 \end{itemize}
 
-S pomočjo strukturnih preslikav bomo sedaj definiramo topološko grupo.
+S pomočjo strukturnih preslikav bomo sedaj definirali topološko grupo.
 \begin{definicija}\label{def:topgrupa}
-\emph{Topološka grupa} je grupa $G$ opremljena s takšno topologijo $\tau$, da sta za $\tau$ strukturni operaciji množenja in invertiranja zvezni. 
+\emph{Topološka grupa} je grupa $G$ opremljena s takšno topologijo $\tau$, da sta glede na $\tau$ strukturni operaciji množenja in invertiranja zvezni. 
 \end{definicija}
 
 Potrebujemo še tip preslikave med topološkimi grupami, ki bo ohranjal tako algebraično kot topološko strukturo.
@@ -209,7 +209,7 @@ Preslikava med dvema topološkima grupama je \emph{topološki izomorfizem}, če 
 \end{primer}
 
 \begin{primer}
-	Realna števila za operacijo $+$ niso topološka grupa s topologijo $\tau = \lbrace (a, \infty) ; a \in \R \rbrace$. Vzemimo odprto množico $(a, \infty)$ in si oglejmo njeno prasliko glede na preslikavo invertiranja. Res $\iota((a, \infty)) = (-\infty, -a)$ ni odprta množica v topologiji $\tau$, torej prostor $(\R, \tau)$ ni topološka grupa.
+	Realna števila za operacijo $+$ niso topološka grupa s topologijo $\tau = \lbrace (a, \infty) ; a \in \R \rbrace$. Vzemimo odprto množico $(a, \infty)$ in si oglejmo njeno prasliko glede na preslikavo invertiranja. Res $\iota((a, \infty)) = (-\infty, -a)$ ni odprta množica v topologiji $\tau$, torej prostor $(\R, \tau)$ ni topološka grupa. Kasneje bomo pokazali, da realna števila s to topologijo niso topološka grupa za nobeno operacijo.
 %	Preverimo lahko zveznost strukturnih strukturnih preslikav in se prepričamo, da invertiranje ni zvezno, lahko pa se prepričamo tudi drugače.
 %	
 %	Po trditvi \ref{trd:t0haus} za vsako topološko grupo velja, da zadošča separacijskemu aksiomu $T_0$ natanko tedaj, ko je Hausdorffova. Topološki prostor $(\R, +, \tau)$ zadošča separacijskemu aksiomu $T_0$, saj je za vsaki dve točki $a < b$ množica $(\frac{a+b}{2}, \infty)$ okolica za točko $b$, ki ne vsebuje točke $a$. Hkrati pa je očitno, da ta prostor ni Hausdorffov, saj se vsaki dve odprti množici sekata. Topološki prostor $(\R, +, \tau)$ torej ne more biti topološka grupa.
@@ -407,22 +407,21 @@ Ker za $x \in U^k$ in $y \in U^l$ velja $xy \in U^kU^l \subseteq U^{k+l}$, je $L
 Naj bo $G$ topološka grupa, $H$ njena podgrupa in $\varphi\colon G \to G/H$ naravna preslikava. Definiramo $\theta(G/H) = \lbrace U ; \varphi^{-1}(U)$ odprta v $G \rbrace$.
 Veljajo naslednje trditve:
 \begin{enumerate}
-\item družina $\theta(G/H)$ je topologija na kvocientu $G/H$,
-\item glede na topologijo $\theta(G/H)$ je $\varphi$ zvezna preslikava,
-\item družina $\theta(G/H)$ je najmočnejša topologija na kvocientu $G/H$, glede na katero je $\varphi$ zvezna preslikava,
+\item družina $\theta(G/H)$ je topologija na kvocientni množici $G/H$,
+\item družina $\theta(G/H)$ je najmočnejša topologija na kvocientni množici $G/H$, glede na katero je $\varphi$ zvezna preslikava,
 \item $\varphi: G \to G/H$ je odprta preslikava.
 \end{enumerate}
 \end{izrek}
 
 \begin{dokaz}
-Naj bo $\theta(G/H) = \lbrace uH ; u \in U_\lambda \rbrace_{\lambda \in \Lambda}$ družina odprtih množic v $G/H$, kjer so $U_\lambda$ odprte množice v $G$. Potem je njihova unija $\bigcup_{\lambda \in \Lambda} \lbrace uH ; u \in U_\lambda \rbrace = \lbrace uH ; u \in \bigcup_{\lambda \in \Lambda}U_\lambda \rbrace$ prav tako odprta v $G/H$, saj je $\bigcup_{\lambda \in \Lambda}U_\lambda$ odprta v $G$. Presek dveh takih množic $\lbrace uH ; u \in U_\lambda \rbrace \cap \lbrace uH ; u \in U_\mu \rbrace = \lbrace uH ; u \in U_\lambda \cap U_\mu \rbrace$ je tudi odprt, saj je presek $U_\lambda \cap U_\mu$ odprt v $G$. Velja tudi $\emptyset \in \theta(G/H)$, če vzamemo $U_\lambda = \emptyset$, ki je odprta v $G$. Če vzamemo $U_\lambda = G$, dobimo tudi $G/H \in \theta(G/H)$. Preverili smo, da je $\theta(G/H)$ res topologija na kvocientu $G/H$.
+Naj bo $\theta(G/H) = \lbrace uH ; u \in U \rbrace_{U \in \tau}$ družina odprtih množic v $G/H$, kjer so $U$ odprte množice v $G$. Potem je njihova unija $\bigcup_{U \in \tau} \lbrace uH ; u \in U \rbrace = \lbrace uH ; u \in \bigcup_{U \in \tau}U \rbrace$ prav tako odprta v $G/H$, saj je $\bigcup_{U \in \tau}U$ odprta v $G$. Presek dveh takih množic $\lbrace uH ; u \in U \rbrace \cap \lbrace uH ; u \in V \rbrace = \lbrace uH ; u \in U \cap V \rbrace$ je tudi odprt, saj je presek $U \cap V$ odprt v $G$. Velja tudi $\emptyset \in \theta(G/H)$, če vzamemo $U = \emptyset$, ki je odprta v $G$. Če vzamemo $U = G$, dobimo tudi $G/H \in \theta(G/H)$. Preverili smo, da je $\theta(G/H)$ res topologija na kvocientni množici $G/H$.
 
 Preslikava $\varphi$ je zvezna po definiciji topologije $\theta(G/H)$ in topologija $\theta(G/H)$ je res najmočnejpa topologija na kvocientu $G/H$, glede na katero je $\varphi$ zvezna, po konstrukciji $\theta(G/H)$.
 
-Za dokaz četrte trditve vzemimo odprto množico $U \in G$. Po trditvi \ref{trd:prododp} je množica $UH$ odprta v $G$, torej je $\varphi(U) = \lbrace uH ; u \in U \rbrace$ odprta v $G/H$.
+Za dokaz odprtosti naravne preslikave vzemimo odprto množico $U \in G$. Po trditvi \ref{trd:prododp} je množica $UH$ odprta v $G$, torej je $\varphi(U) = \lbrace uH ; u \in U \rbrace$ odprta v $G/H$.
 \end{dokaz}
 
-Topologiji $\theta(G/H)$ pravimo \emph{kvocientna topologija}, kvocientu $G/H$ pa \emph{kvocientni prostor}.
+Topologiji $\theta(G/H)$ pravimo \emph{kvocientna topologija}, topološkemu prostoru $G/H$ pa \emph{kvocientni prostor}.
 
 
 \begin{trditev}\label{trd:okolicevkvoc}
@@ -434,6 +433,7 @@ Vzemimo odsek $xH \in \closure{\varphi(V)}$. Ker je $V$ okolica enote, je množi
 Torej je res $\closure{\varphi(V)} \subset \varphi(U)$.
 \end{dokaz}
 
+%HERE
 \begin{izrek}\label{izr:kvocreg}
 Za topološko grupo $G$ in njeno podgrupo $H$ veljajo naslednje trditve:
 \begin{enumerate}
