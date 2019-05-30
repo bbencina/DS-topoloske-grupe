@@ -421,11 +421,11 @@ Preslikava $\varphi$ je zvezna po definiciji topologije $\theta(G/H)$ in topolog
 Za dokaz odprtosti naravne preslikave vzemimo odprto množico $U \in G$. Po trditvi \ref{trd:prododp} je množica $UH$ odprta v $G$, torej je $\varphi(U) = \lbrace uH ; u \in U \rbrace$ odprta v $G/H$.
 \end{dokaz}
 
-Topologiji $\theta(G/H)$ pravimo \emph{kvocientna topologija}, topološkemu prostoru $G/H$ pa \emph{kvocientni prostor}.
+Topologiji $\theta(G/H)$ pravimo \emph{kvocientna topologija}, topološkemu prostoru $G/H$ pa \emph{kvocientni prostor}. Od tukaj naprej bo kvocientni topološki prostor vedno opremljen s kvocientno topologijo.
 
 
 \begin{trditev}\label{trd:okolicevkvoc}
-Naj bo $G$ topološka grupa, $H$ njena podgrupa in $U, V$ tako okolici enote $e$ v $G$, da velja $V^{-1}V \subset U$. Naj bo $\varphi: G \to G/H$ naravna preslikava. Potem velja $\closure{\varphi(V)} \subset \varphi(U)$.
+Naj bo $G$ topološka grupa, $H$ njena podgrupa in $U, V$ taki okolici enote $e$ v $G$, da velja $V^{-1}V \subset U$. Naj bo $\varphi: G \to G/H$ naravna preslikava. Potem velja $\closure{\varphi(V)} \subset \varphi(U)$.
 \end{trditev}
 
 \begin{dokaz}
@@ -437,24 +437,24 @@ Torej je res $\closure{\varphi(V)} \subset \varphi(U)$.
 \begin{izrek}\label{izr:kvocreg}
 Za topološko grupo $G$ in njeno podgrupo $H$ veljajo naslednje trditve:
 \begin{enumerate}
-\item kvocientni prostor $G/H$ je diskreten natanko tedaj, ko je $H$ odprta v $G$,
-\item če je $H$ zaprta v $G$, potem je kvocient $G/H$ regularen topološki prostor,
-\item če kvocientni prostor $G/H$ zadošča separacijskemu aksiomu $T_0$, potem je $H$ zaprta v $G$ in velja, da je kvocient $G/H$ regularen topološki prostor.
+\item kvocientni prostor $G/H$ je diskreten natanko tedaj, ko je $H$ odprta v $G$,\label{podtrd:kvocreg1}
+\item če je $H$ zaprta v $G$, potem je kvocient $G/H$ regularen topološki prostor,\label{podtrd:kvocreg2}
+\item če kvocientni prostor $G/H$ zadošča separacijskemu aksiomu $T_0$, potem je $H$ zaprta v $G$ in velja, da je kvocient $G/H$ regularen topološki prostor.\label{podtrd:kvocreg3}
 \end{enumerate}
 \end{izrek}
 
 \begin{dokaz}
-Za dokaz prve trditve privzemimo, da je $H$ odprta v $G$. Ker je leva translacija homeomorfizem (trditev \ref{trd:trans}), je množica $aH$ odprta množica za vsak element $a \in G$ in zato tudi $\varphi^{-1}(\lbrace aH \rbrace) = aH$ za vsak element $aH \in G/H$. Po izreku \ref{izr:topkvocienta} je $\varphi$ odprta preslikava, zato je vsaka točka v kvocientnem prostoru $G/H$ odprta kot enoelementna množica in $G/H$ je diskreten topološki prostor.
+Za dokaz \ref{podtrd:kvocreg1} privzemimo, da je $H$ odprta v $G$. Ker je leva translacija po trditvi \ref{trd:trans} homeomorfizem, je množica $aH$ odprta množica za vsak element $a \in G$ in zato tudi $\varphi^{-1}(aH) = \lbrace aH \rbrace$ za vsak element $aH \in G/H$. Ker je po izreku \ref{izr:topkvocienta} preslikava $\varphi$ odprta, je vsaka enoelementna množica $\lbrace aH \rbrace = \varphi(aH)$ odprta v $G/H$, torej je $G/H$ diskreten topološki prostor.
 
-Obratno, če je $G/H$ diskreten topološki prostor, potem je vsaka njegova točka odprta kot enoelementna množica, torej tudi $\lbrace H \rbrace$. Ker je naravna preslikava zvezna, je $\varphi^{-1}(\lbrace H \rbrace) = H$ odprta množica v $G$.
+Obratno, če je $G/H$ diskreten topološki prostor, potem so vse njegove enoelementne podmnožice odprte. V posebnem primeru je tudi $\lbrace H \rbrace$ odprta v $G/H$. Ker je naravna preslikava zvezna, je $H = \varphi^{-1}(\lbrace H \rbrace)$ odprta množica v $G$.
 
-Za dokaz druge trditve privzemimo, da je $H$ zaprta v $G$. Ker je leva translacija homeomorfizem (trditev \ref{trd:trans}), je zaprta tudi množica $aH$ za vsak element $a \in G$. Po definiciji zaprtosti je $\setcomp{(aH)} = \bigcup \lbrace xH ; xH \neq aH \rbrace$ odprta v $G$. Ker je po izreku \ref{izr:topkvocienta} naravna preslikava odprta, je zato komplement vsake točke $\lbrace aH \rbrace$ odprt v $G/H$. Po definiciji zaprtosti je vsaka točka $\lbrace aH \rbrace$ zaprta v $G/H$, kar je ekvivalentno separacijskemu aksiomu $T_1$. Naj bosta $U$ in $V$ okolici enote $e$ iz trditve \ref{trd:okolicevkvoc}. Če za $V$ vzamemo simetrično okolico (to lahko naredimo po trditvi \ref{trd:sim}), potem po trditvi \ref{trd:okolice} tak $V$ obstaja za vsako okolico $U$, saj lahko vzamemo $V^{-1}V = V^2 \subset U$. Torej za vsako okolico $\varphi(U)$ enote $H$ obstaja takšna okolica $\varphi(V)$ enote $H$, da $\closure{\varphi(V)} \subset \varphi(U)$. Ker je leva translacija homeomorfizem, to velja za vsako točko $aH \in G/H$, kar pa je ekvivalentno separacijskemu aksiomu $T_3$. Kvocientni prostor $G/H$ je res regularen.
+Za dokaz \ref{podtrd:kvocreg2} privzemimo, da je $H$ zaprta v $G$. Ker je leva translacija po trditvi \ref{trd:trans} homeomorfizem, je zaprta tudi množica $aH$ za vsak element $a \in G$. Po definiciji zaprtosti je $G\setminus aH = \bigcup \lbrace xH ; xH \neq aH \rbrace$ odprta v $G$. Ker je po izreku \ref{izr:topkvocienta} naravna preslikava odprta, je zato komplement vsake točke $\lbrace aH \rbrace$ odprt v $G/H$. Po definiciji zaprtosti je vsaka točka $\lbrace aH \rbrace$ zaprta v $G/H$, kar je ekvivalentno separacijskemu aksiomu $T_1$. Naj bosta $U$ in $V$ okolici enote $e$ iz trditve \ref{trd:okolicevkvoc}. Če za $V$ vzamemo simetrično okolico (to lahko naredimo po trditvi \ref{trd:sim}), potem po trditvi \ref{trd:okolice} tak $V$ obstaja za vsako okolico $U$, saj lahko vzamemo $V^{-1}V = V^2 \subset U$. Torej za vsako okolico $\varphi(U)$ enote $H$ obstaja takšna okolica $\varphi(V)$ enote $H$, da $\closure{\varphi(V)} \subset \varphi(U)$. Ker je leva translacija homeomorfizem, to velja za vsako točko $aH \in G/H$, kar pa je ekvivalentno separacijskemu aksiomu $T_3$. Kvocientni prostor $G/H$ je res regularen.
 
-Za dokaz tretje trditve privzemimo, da $G/H$ zadošča separacijskemu aksiomu $T_0$. Po izreku \ref{izr:t3} je $G/H$ regularna. Vse enoelementne množice v $G/H$ so zaprte, zato tudi $\lbrace H \rbrace$. Ker je naravna preslikava zvezna, je množica $\varphi^{-1}(\lbrace H \rbrace) = H$ zaprta v $G$.
+Za dokaz \ref{podtrd:kvocreg3} privzemimo, da $G/H$ zadošča separacijskemu aksiomu $T_0$. Po izreku \ref{trd:t0haus} je $G/H$ Hausdorffova. Vse enoelementne množice v $G/H$ so zaprte, zato tudi $\lbrace H \rbrace$. Po definiciji kvocientne topologije je $\lbrace H \rbrace$ zaprta v $G/H$ natanko tedaj, ko je $\varphi^{-1}(\lbrace H \rbrace) = H$ zaprta v $G$. Po točki \ref{podtrd:kvocreg2} je $G/H$ regularen topološki prostor.
 \end{dokaz}
 
 \begin{izrek}\label{izr:kvocpovzetek}
-Naj bo $H$ podgrupa edinka topološke grupe $G$. Naj bo kvocient $G/H$ opremljen s kvocientno topologijo $\theta$. Veljajo naslednje trditve:
+Naj bo $H$ podgrupa edinka topološke grupe $G$ in naj bo $G/H$ kvocientni topološki prostor. Veljajo naslednje trditve:
 \begin{enumerate}
 \item kvocient $G/H$ je topološka grupa s topologijo $\theta$,
 \item naravni homomorfizem je odprta in zvezena preslikava,
@@ -525,7 +525,7 @@ Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta 
 \end{definicija}
 
 \begin{opomba}
-	V zgornji definiciji so operacije na množicah mišljene v smislu relacij (glej podrazdelek \ref{sec:opnamnozicah}).
+	V zgornji definiciji so operacije na množicah mišljene v smislu relacij.
 \end{opomba}
 
 \begin{definicija}\label{def:uniinduciranatopo}
@@ -545,11 +545,11 @@ Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta 
 \end{trditev}
 
 \begin{dokaz}
-	Naj bo $f\colon (X, \mathcal{U}) \to (Y, \mathcal{V})$ enakomerno zvezna preslikava med uniformnima prostoroma. Vzemimo okolico $V_{f(x)}$ elementa $f(x)$ v topologiji na $Y$ inducirani s $\mathcal{V}$. Ker je $f$ enakomerno zvezna, obstaja $U \in \mathcal{U}$, da za vsak par $(x, y) \in U$ velja $(f(x), f(y)) \in V$. To je v induciranih topologijah ekvivalentno temu, da za vsak $y \in U_x$ velja $f(y) \in V_{f(x)}$, torej je $f$ zvezna preslikava glede na topologiji, ki ju inducirata uniformni strukturi.
+	Naj bo $f\colon (X, \mathcal{U}) \to (Y, \mathcal{V})$ enakomerno zvezna preslikava med uniformnima prostoroma. Vzemimo okolico $V_{f(x)}$ elementa $f(x)$ v topologiji na $Y$ inducirani z $\mathcal{V}$. Ker je $f$ enakomerno zvezna, obstaja tak $U \in \mathcal{U}$, da za vsak par $(x, y) \in U$ velja $(f(x), f(y)) \in V$. Po definiciji inducirane topologije za vsak $y \in U_x$ torej velja $f(y) \in V_{f(x)}$, kar pomeni, da je $f$ zvezna preslikava glede na topologiji, ki ju inducirata uniformni strukturi.
 \end{dokaz}
 
 \begin{definicija}\label{def:levadesnauni}
-	Naj bo $\Ucurl$ baza odprtih okolic enote $e$ topološke grupe $G$. Za vsako okolico $U \in \Ucurl$ definiramo $L_U = \lbrace (x, y) \in G \times G ; x^{-1}y \in U \rbrace$ in $R_U = \lbrace (x, y) \in G \times G ; yx^{-1} \in U \rbrace$. Družinama $\mathcal{L}(G) = \lbrace L_U \rbrace_{U \in \Ucurl}$ in $\mathcal{R}(G) = \lbrace R_U \rbrace_{U \in \Ucurl}$ pravimo leva in desna uniformna struktura na $G$.
+	Naj bo $\Ucurl$ baza odprtih okolic enote $e$ topološke grupe $G$. Za vsako okolico $U \in \Ucurl$ definiramo \[L_U = \lbrace (x, y) \in G \times G ; x^{-1}y \in U \rbrace\] in analogno \[R_U = \lbrace (x, y) \in G \times G ; yx^{-1} \in U \rbrace.\] Družinama $\mathcal{L}(G) = \lbrace L_U \rbrace_{U \in \Ucurl}$ in $\mathcal{R}(G) = \lbrace R_U \rbrace_{U \in \Ucurl}$ pravimo leva in desna uniformna struktura na $G$.
 \end{definicija}
 
 \begin{trditev}\label{trd:topguniform}
@@ -557,7 +557,7 @@ Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta 
 \end{trditev}
 
 \begin{dokaz}
-Naj bo filter $\Ucurl$ baza odprtih in simetričnih okolic enote $e$ topološke grupe $G$. Oglejmo si levo in desno uniformno strukturo na $G$, definirani naj bosta s pomočjo $\Ucurl$.
+Naj bo filter $\Ucurl$ baza odprtih in simetričnih okolic enote $e$ topološke grupe $G$. Oglejmo si levo in desno uniformno strukturo na $G$, ki sta definirani z $\Ucurl$. Pokazali bomo, da ustrezata definiciji uniformne strukture na množici $G$.
 
 Ker je enote $e$ v vsaki okolici $U \in \Ucurl$, je diagonala $\Delta = \lbrace (x, x) ; x \in X \rbrace$ vsebovana v $L_U$ in $R_U$ za vsako okolico $U \in \Ucurl$.
 
@@ -587,17 +587,24 @@ Topološka grupa je z levo ali desno uniformno strukturo torej res uniformni pro
 	potem ji rečemo \emph{metrika}.
 \end{definicija}
 
-\begin{definicija}
-Psevdometrika na grupi $G$ je levoinvariantna, če je invariantna na levo translacijo, torej če za vsaki dve točki $x, y \in G$ in za vsak element $a \in G$ velja $\rho(ax, ay) = \rho(x, y)$.
+\begin{definicija}\label{def:metrizabilnost}
+	Topološki prostor $X$ je \emph{metrizabilen}, če njegova topologija $\tau$ izhaja iz kakšne metrike $d$ na množici $X$.
+\end{definicija}
 
-Podobno, psevdometrika je desnoinvariantna, če je invariantna na desno translacijo.
+\begin{opomba}
+	Baza topologije metrizabilnega topološkega prostora $X$ je družina odprtih krogel $\lbrace K(x, \epsilon); x \in X, \epsilon \in \R \rbrace$.
+\end{opomba}
+
+
+\begin{definicija}
+Psevdometrika na grupi $G$ je levoinvariantna, če za vsaki dve točki $x, y \in G$ in za vsak element $a \in G$ velja $\rho(ax, ay) = \rho(x, y)$.
 \end{definicija}
 
 \begin{izrek}\label{izr:pseudometrika}
-	Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Označimo $H = \bigcap_{k=1}^{\infty} U_k$. Potem obstaja taka levoinvariantna psevdometrika $\sigma$ na $G$ z naslednjimi lastnostmi:
+	Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Potem obstaja taka levoinvariantna psevdometrika $\sigma$ na $G$ z naslednjimi lastnostmi:
 	\begin{enumerate}
 		\item $\sigma$ je enakomerno zvezna na levi uniformni strukturi od $G \times G$;
-		\item $\sigma (x, y) = 0$ natanko tedaj, ko $y^{-1}x \in H$;
+		\item $\sigma (x, y) = 0$ natanko tedaj, ko $y^{-1}x \in H = \bigcap_{k=1}^{\infty} U_k$;
 		\item $\sigma (x, y) \leq 2^{-k+2}$, če $y^{-1}x \in U_k$;
 		\item $2^{-k} \leq \sigma (x, y)$, če $y^{-1}x \notin U_k$.
 	\end{enumerate}
@@ -607,14 +614,6 @@ Podobno, psevdometrika je desnoinvariantna, če je invariantna na desno translac
 		\item $\sigma (x^{-1}, y^{-1}) = \sigma (x, y)$ za vsaka dva elementa $x, y \in G$.
 	\end{enumerate}
 \end{izrek}
-
-\begin{definicija}\label{def:metrizabilnost}
-Topološki prostor $X$ je \emph{metrizabilen}, če njegova topologija $\tau$ izhaja iz kakšne metrike $d$ na množici $X$.
-\end{definicija}
-
-\begin{opomba}
-Baza topologije metrizabilnega topološkega prostora $X$ je družina odprtih krogel $\lbrace K(x, \epsilon); x \in X, \epsilon \in \R \rbrace$.
-\end{opomba}
 
 \begin{izrek}\label{izr:metrizabilnost}
 	Topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je metrizabilen topološki prostor natanko tedaj, ko obstaja števna baza odprtih okolic enote.
