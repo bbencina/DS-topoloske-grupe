@@ -603,10 +603,10 @@ Psevdometrika na grupi $G$ je levoinvariantna, če za vsaki dve točki $x, y \in
 \begin{izrek}\label{izr:pseudometrika}
 	Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Potem obstaja taka levoinvariantna psevdometrika $\sigma$ na $G$ z naslednjimi lastnostmi:
 	\begin{enumerate}
-		\item $\sigma$ je enakomerno zvezna na levi uniformni strukturi od $G \times G$;
-		\item $\sigma (x, y) = 0$ natanko tedaj, ko $y^{-1}x \in H = \bigcap_{k=1}^{\infty} U_k$;
-		\item $\sigma (x, y) \leq 2^{-k+2}$, če $y^{-1}x \in U_k$;
-		\item $2^{-k} \leq \sigma (x, y)$, če $y^{-1}x \notin U_k$.
+		\item $\sigma$ je enakomerno zvezna na levi uniformni strukturi od $G \times G$;\label{last:psevdo1}
+		\item $\sigma (x, y) = 0$ natanko tedaj, ko $y^{-1}x \in H = \bigcap_{k=1}^{\infty} U_k$;\label{last:psevdo2}
+		\item $\sigma (x, y) \leq 2^{-k+2}$, če $y^{-1}x \in U_k$;\label{last:psevdo3}
+		\item $2^{-k} \leq \sigma (x, y)$, če $y^{-1}x \notin U_k$.\label{last:psevdo4}
 	\end{enumerate}
 	
 	Če velja še $x U_k x^{-1} = U_k$ za vsak $x \in G$ in $k \in \N$, potem je $\sigma$ tudi desnoinvariantna in velja
@@ -620,18 +620,22 @@ Psevdometrika na grupi $G$ je levoinvariantna, če za vsaki dve točki $x, y \in
 \end{izrek}
 
 \begin{dokaz}
-Če je $G$ metrizabilen topološki prostor, lahko za števno bazo odprtih okolic enote $e$ izberemo kar družino odprtih krogel s središčem v enoti $\lbrace K(e, 2^{-n}) \rbrace_{n \in \N}$.
+Če je $G$ metrizabilen topološki prostor, lahko za števno bazo odprtih okolic enote $e$ izberemo kar družino odprtih krogel $\lbrace K(e, 2^{-n}) \rbrace_{n \in \N}$.
 
-Naj bo $\lbrace V_k \rbrace_{k = 1}^\infty$ števna baza odprtih okolic enote. Induktivno definiramo novo bazo okolic enote na sledeč način. Najprej definiramo okolico $U_1 = V_1 \cap V_1^{-1}$, nato pa vsako naslednjo tako, da zadošča $U_k \subset U_1 \cap \dots \cap U_{k-1}\cap V_k$, $U_k = U_k^{-1}$ in $U_k^2 \subset U_{k-1}$ za vsak $k \geq 2$. Tako zaporednje si lahko izberemo po trditvi \ref{trd:okolice}. Ker $G$ zadošča separacijskemu aksiomu $T_0$ in je po izreku \ref{izr:t3} regularna, je $H = \bigcap_{k=1}^\infty = \lbrace e \rbrace$. Baza $\lbrace U_k \rbrace_{k = 1}^\infty$ zadošča predpostavkam izreka \ref{izr:pseudometrika}, zato na topološki grupi $G$ obstaja psevdometrika $\sigma$.
+Za dokaz obratne trditve predpostavimo, da je $\lbrace V_k \rbrace_{k = 1}^\infty$ števna baza odprtih okolic enote. Induktivno bomo konstruirali novo bazo okolic enote na naslednji način. Najprej definiramo okolico $U_1 = V_1 \cap V_1^{-1}$. Recimo, da smo že konstruirali okolice $U_1,\dots,U_{k-1}$. Izberemo tako okolico $U_k$, da zanjo velja $U_k \subset U_1 \cap \dots \cap U_{k-1}\cap V_k$, $U_k = U_k^{-1}$ in $U_k^2 \subset U_{k-1}$ za vsak $k \geq 2$. Tako okolico lahko izberemo po trditvah \ref{trd:okolice} in \ref{trd:sim}.
 
-Po drugi lastnosti psevdometrike $\sigma$ je $\sigma(x, y) = 0$ natansko tedaj, ko $y^{-1}x \in H$. Ker $H = \lbrace e \rbrace$, velja $\sigma(x, y) = 0$ natanko tedaj, ko $x = y$. Preslikava $\sigma$ je torej metrika na $G$. Preveriti moramo le še, da topologija $\tau$ na $G$ in topologija $\tau_\sigma$, inducirana z metriko $\sigma$, sovpadata.
+Ker $G$ zadošča separacijskemu aksiomu $T_0$, je po trditvi \ref{trd:t0haus} $\lbrace e \rbrace$ zaprta množica in $G$ je Hausdorffova. Po posledici \ref{pos:sim} ima enota $e$ poljubno majhne zaprte okolice. Ker je $\lbrace U_k \rbrace_{k \in \N}$ padajoča baza okolic enote, lahko najdemo tako podzaporedje $\lbrace U_{k_i} \rbrace_{i \in \N, k_i < k_{i+1}}$, da velja $\closure{U_{k_{i+1}}} \subset U_{k_i}$. Ker je $G$ Hausdorffova, ima vsako zaporedje največ eno limito in velja
+\[ H = \bigcap_{k=1}^\infty U_k = \lim_{k \to \infty}U_k = \lim_{i \to \infty} \closure{U_{k_i}} = \lbrace e \rbrace. \]
+ Baza $\lbrace U_k \rbrace_{k = 1}^\infty$ zadošča predpostavkam izreka \ref{izr:pseudometrika}, zato na topološki grupi $G$ obstaja psevdometrika $\sigma$.
+
+Po drugi lastnosti psevdometrike $\sigma$ je $\sigma(x, y) = 0$ natanko tedaj, ko $y^{-1}x \in H$. Ker je $H = \lbrace e \rbrace$, velja $\sigma(x, y) = 0$ natanko tedaj, ko $x = y$. Preslikava $\sigma$ je torej metrika na $G$. Preveriti moramo le še, da topologija $\tau$ na $G$ in topologija $\tau_\sigma$, inducirana z metriko $\sigma$, sovpadata.
 
 Po tretji in četrti lastnosti metrike $\sigma$ za vsak $k \in \N$ velja
 \[ \lbrace x \in G ; \sigma(x, e) \leq 2^{-k} \rbrace \subset U_k \subset \lbrace x \in G ; \sigma(x, e) \leq 2^{-k+1} \rbrace.\]
 Torej za vsak $k \in \N$ velja
 \[ K(e, 2^{-k}) \subset U_k \subset K(e, 2^{-k+2}). \]
 Vsaka okolica enote $e$ v topologiji $\tau$ torej vsebuje okolico enote $e$ v topologiji $\tau_\sigma$ in vsaka okolica enote $e$ v topologiji $\tau_\sigma$ vsebuje okolico enote $e$ v topologiji $\tau$.
-Topologiji $\tau$ in $\tau_\sigma$ sta zato ekvivalentni in $G$ je metrizabilen topološki prostor.
+Ker sta topologiji $\tau$ in $\tau_\sigma$ po trditvi \ref{izr:bazaokolice} translacijsko invariantni, sta ekvivalentni in $G$ je metrizabilen topološki prostor.
 \end{dokaz}
 
 \subsection{Regularnost}
@@ -660,16 +664,17 @@ Topologiji $\tau$ in $\tau_\sigma$ sta zato ekvivalentni in $G$ je metrizabilen 
 
 \begin{trditev}\label{pos:reghaus}
 \begin{enumerate}
-\item Vsak povsem regularen topološki prostor je regularen.
-\item Vsak normalen topološki prostor je povsem regularen.
+\item Vsak povsem regularen topološki prostor je regularen.\label{podtrd:reghaus1}
+\item Vsak normalen topološki prostor je povsem regularen.\label{podtrd:reghaus2}
 \end{enumerate}
 \end{trditev}
 
 \begin{dokaz}
-Naj bo $F$ zaprta podmnožica povsem regularnega topološkega prostora $X$ in točka $a \in X \setminus F$. Potem obstaja zvezna funkcija $\psi\colon X \to [0, 1]$, da je $\psi(a) = 0$ in $\psi(F) \equiv 1$. Množici $\psi^{-1}([0, \frac{1}{2}))$ in $\psi^{-1}((\frac{1}{2}, 1])$ sta disjunktni odprti okolici za točko $a$ in množico $F$, saj je funkcija $\psi$ zvezna, množici $[0, \frac{1}{2})$ in $(\frac{1}{2}, 1]$ pa sta odprti v inducirani evklidski topologiji na interval $[0, 1]$.
-Izpolnjen je separacijski aksiom $T_3$ in $X$ je regularen topološki prostor.
+Za dokaz \ref{podtrd:reghaus1} za dano zaprto množico $F \subset X$ izberemo poljubno točko $a \in X \setminus F$. Potem obstaja taka zvezna funkcija $\psi\colon X \to [0, 1]$, da je $\psi(a) = 0$ in $\psi(F) \equiv 1$.
+Ker sta množici $[0, \frac{1}{2})$ in $(\frac{1}{2}, 1]$ odprti glede na inducirano evklidsko topologijo na intervalu $[0, 1]$ in je funkcija $\psi$ zvezna, sta množici $\psi^{-1}([0, \frac{1}{2}))$ in $\psi^{-1}((\frac{1}{2}, 1])$ disjunktni odprti okolici za točko $a$ in množico $F$.
+S tem smo dokazali, da topološki prostor $X$ zadošča separacijskemu aksiomu $T_3$.
 
-Naj bo $X$ normalen topološki prostor. Po Urysohnovi karakterizaciji separacijskega aksioma $T_4$ (glej \cite{bib:top}) za vsaki dve disjunktni zaprti množici $A$ in $B$ obstaja zvezna funkcija $\psi\colon X \to [0, 1]$, da je $\psi(A) \equiv 0 $ in $\psi(B) \equiv 1$. Ker $X$ zadošča separacijskemu aksiomu $T_1$, so vse enoelementne množice zaprte. Če za množico $A$ vzamemo enoelementno množico $\lbrace a \rbrace$, vidimo, da je $X$ povsem regularen topološki prostor.
+Za dokaz \ref{podtrd:reghaus2} naj bo $X$ normalen topološki prostor. Po Urysohnovi karakterizaciji separacijskega aksioma $T_4$ (glej \cite{bib:top}) za vsaki dve disjunktni zaprti množici $A$ in $B$ obstaja zvezna funkcija $\psi\colon X \to [0, 1]$, da je $\psi(A) \equiv 0 $ in $\psi(B) \equiv 1$. Ker $X$ zadošča separacijskemu aksiomu $T_1$, so vse enoelementne množice zaprte. Če za množico $A$ vzamemo enoelementno množico $\lbrace a \rbrace$, vidimo, da je $X$ povsem regularen topološki prostor.
 \end{dokaz}
 
 \begin{izrek}\label{izr:t3pol}
@@ -677,8 +682,8 @@ Naj bo $X$ normalen topološki prostor. Po Urysohnovi karakterizaciji separacijs
 \end{izrek}
 
 \begin{dokaz}
-Vzemimo zaprto množico $F$ in element $a \in G\setminus\lbrace a \rbrace$.
-Naj bo $\Ucurl$ baza simetričnih okolic enote $e$ in naj bo $U_1 \in \Ucurl$ taka množica, da je $(aU_1)\cap F = \emptyset$. Taka množica $U_1$ obstaja, saj je $G\setminus\lbrace a \rbrace$ odprta množica, $aU_1$ pa je odprta okolica elementa $a$. Izberemo okolice $U_2, U_3,... \in \Ucurl$ take, da velja $U_{k+1}^2 \subset U_k$ za vsak $k \in \Z$ (obstajajo po trditvi \ref{trd:okolice}). S tem smo zadostili predpostavkam izreka \ref{izr:pseudometrika}, zato obstaja na $G$ psevdometrika $\sigma$. Definiramo funkcijo \[ \psi(x) = \min\lbrace 1, 2\sigma(x, a)\rbrace. \] Ker je psevdometrika $\sigma$ enakomerno zvezna glede na levo uniformno strukturo na $G$, je po trditvi \ref{trd:enakzveznazvezna} zvezna, zato je $\psi$ zvezna funkcija.
+Za dano zaprto množico $F$ vzemimo poljuben element $a \in G\setminus F$.
+Naj bo $\Ucurl$ baza simetričnih okolic enote $e$ in naj bo $U_1 \in \Ucurl$ taka množica, da je $(aU_1)\cap F = \emptyset$. Taka množica $U_1$ obstaja, saj je $G\setminus F$ odprta množica, $aU_1$ pa je odprta okolica elementa $a$. Izberemo okolice $U_2, U_3,... \in \Ucurl$ take, da velja $U_{k+1}^2 \subset U_k$ za vsak $k \in \Z$ (obstajajo po trditvi \ref{trd:okolice}). S tem smo zadostili predpostavkam izreka \ref{izr:pseudometrika}, zato obstaja na $G$ psevdometrika $\sigma$. Definiramo funkcijo \[ \psi(x) = \min\lbrace 1, 2\sigma(x, a)\rbrace. \] Ker je psevdometrika $\sigma$ enakomerno zvezna glede na levo uniformno strukturo na $G$, je po trditvi \ref{trd:enakzveznazvezna} zvezna, zato je $\psi$ zvezna funkcija.
 
 Očitno velja, da je $\psi(a) = 0$, saj je $\sigma(a, a) = 0$ po definiciji psevdometrike.
 
