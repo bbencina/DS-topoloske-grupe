@@ -705,6 +705,11 @@ Topološka grupa $G$ s tem zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$ i
 	\end{enumerate}
 \end{definicija}
 
+\begin{opomba}\label{opo:lokkon} % v zvezku STOP
+Iz splošne topologije vemo, da za lokalno končno družino $\lbrace C_\lambda \rbrace_{\lambda \in \Lambda}$ velja
+\[ \closure{\bigcup_{\lambda \in \Lambda} C_\lambda} = \bigcup_{\lambda \in \Lambda} \closure{C_\lambda}. \]
+\end{opomba}
+
 \begin{definicija}
 \begin{enumerate}
 \item Topološki prostor je $\sigma$-kompakten, če ge je možno zapisati kot števno unijo kompaktnih topoloških prostorov.
@@ -724,13 +729,14 @@ Vzemimo zaprti disjunktni podmnožici $A$ in $B$ parakompaktnega Hausdorff\-o\-v
 Vzemimo najprej poljubno točko $b \in B$. Ker je prostor $X$ Hausdorffov, sta vsaki dve točki ločeni z disjunktnima okolicama. Za vsako točko $a \in A$ torej obstaja odprta množica $Q_a \subset X$, da je $a \in Q_a$ in $b \in X \setminus \closure{Q_a}$. Ker je $A$ zaprta, je $X \setminus A$ odprta, iz česar sledi, da je $\mathcal{W} = (X \setminus A)\cup \lbrace Q_a\rbrace_{a \in A}$ odprto pokritje prostora $X$. Ker je $X$ parakompakten topološki prostor, obstaja lokalno končno odprto pokritje $\mathcal{W}'$ prostora $X$, ki je pofinitev pokritja $\mathcal{W}$.
 
 Oglejmo si družino množic \[ \mathcal{Q} = \lbrace W \in \mathcal{W}'; W \cap A \neq \emptyset \rbrace. \]
-Za vsako množico $W \in \mathcal{Q}$ po definiciji pofinitve obstaja takšna točka $a \in A$, da je $W \subset Q_a$. %here
- Velja $b \in X \setminus \closure{Q_a} \subset X \setminus \closure{W}$ za vsak $W \in \mathcal{Q}$ (in primeren $a$). Ker je $\mathcal{W}'$ odprto pokritje prostora $X$, je $S = \cup\mathcal{Q}$ odprta okolica množice $A$ in ker je $\mathcal{Q}$ lokalno končna družina, velja \[ b \in X \setminus \bigcup_{W \in \mathcal{Q}} \closure{W} = X \setminus \closure{S}. \] Množica $T = X \setminus \closure{S}$ je odprta okolica točke $b$, ki je disjunktna s $S$.
+Ker je pofinitev $\mathcal{W}'$ lokalno končna, je tudi družina množic $\mathcal{Q}$ lokalno končna.
+Za vsako množico $W \in \mathcal{Q}$ po definiciji pofinitve obstaja takšna točka $a \in A$, da je $W \subset Q_a$.
+ Potem velja $b \in X \setminus \closure{Q_a} \subset X \setminus \closure{W}$. Ker je $\mathcal{W}'$ odprto pokritje prostora $X$, je $S = \cup\mathcal{Q}$ odprta okolica množice $A$, in ker je $\mathcal{Q}$ lokalno končna družina, po opombi \ref{opo:lokkon} velja \[ b \in X \setminus \bigcup_{W \in \mathcal{Q}} \closure{W} = X \setminus \closure{S}. \] Množica $T = X \setminus \closure{S}$ je odprta okolica točke $b$, ki je disjunktna s $S$.
 
-Naprej vzemimo poljubno zaprto podmnožico $B$, ki je disjunktna z množico $A$. Po zgoraj dokazanem za vsako točko $b \in B$ obstaja odprta okolica $T_b$ točke $b$, da je $A \cap \closure{T_b} = \emptyset$. Ponovno je $\Ucurl = (X\setminus B) \cup \lbrace T_b ; b \in B \rbrace$ odprto pokritje prostora $X$. Ker je $X$ parakompakten topološki prostor, obstaja lokalno končno odprto pokritje $\Ucurl'$, ki je pofinitev pokritja $\Ucurl$. Naj bo \[ \mathcal{V} = \lbrace U \in \Ucurl' ; U \cap B \neq \emptyset \rbrace. \]
-Ker za vsako množico $U \in \mathcal{V}$ obstaja takšna točka $b \in B$, da je $U \subset T_b$, zato je $A \cap \closure{U} \subset A \cap \closure{T_b} = \emptyset$. Množica $V = \bigcup \mathcal{V}$ je odprta okolica množice $B$ in, ker je $\mathcal{V}$ lokalno končna družina, velja \[ A \cap \closure{V} = A \cap \bigcup_{U \in \mathcal{V}} = \emptyset.\]
+Po zgoraj dokazanem torej za vsako točko $b \in B$ obstaja odprta okolica $T_b$ točke $b$, da je $A \cap \closure{T_b} = \emptyset$. Zato je $\Ucurl = (X\setminus B) \cup \lbrace T_b \rbrace_{b \in B}$ odprto pokritje prostora $X$. Ker je $X$ parakompakten topološki prostor, obstaja lokalno končno odprto pokritje $\Ucurl'$, ki je pofinitev pokritja $\Ucurl$. Naj bo \[ \mathcal{V} = \lbrace U \in \Ucurl' ; U \cap B \neq \emptyset \rbrace. \]
+Za vsako množico $U \in \mathcal{V}$ obstaja takšna točka $b \in B$, da je $U \subset T_b$, zato je $A \cap \closure{U} \subset A \cap \closure{T_b} = \emptyset$. Množica $V = \bigcup \mathcal{V}$ je odprta okolica množice $B$ in, ker je $\mathcal{V}$ lokalno končna družina, po opombi \ref{opo:lokkon} velja \[ A \cap \closure{V} = A \cap \bigcup_{U \in \mathcal{V}}\closure{U} = \emptyset.\]
 
-Množica $X \setminus \closure{V}$ je torej odprta okolica množice $A$, ki je disjunktna z odprto okolico $V$ množice $B$. Hausdorffov topološki prostor $X$ zadošča separacijskemu aksiomu $T_4$ in je zato normalen.
+Množica $X \setminus \closure{V}$ je torej odprta okolica množice $A$, ki je disjunktna z odprto okolico $V$ množice $B$. Hausdorffov topološki prostor $X$ s tem zadošča separacijskemu aksiomu $T_4$ in je zato normalen.
 \end{dokaz}
 
 \begin{izrek}\label{izr:t4}
