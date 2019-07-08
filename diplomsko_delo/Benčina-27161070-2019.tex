@@ -748,7 +748,9 @@ Naj bo $G$ lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksio
 
 Ker je $G$ lokalno kompaktna, obstaja kompaktna okolica $K$ enote $e$. Po posledici \ref{pos:sim} obstaja takšna simetrična okolica $U$ enote $e$, da je $\closure{U} \subset K$. Ker so zaprte podmnožice kompaktnih prostorov kompaktne, je $\closure{U}$ tudi kompaktna okolica enote $e$.
 
-Naj bo $L = \bigcup_{n=1}^\infty U^n$. Množica $L$ je po trditvi \ref{trd:podgrupaunija} odprta in zaprta podgrupa topološke grupe $G$. HERE
+Naj bo $L = \bigcup_{n=1}^\infty U^n$. Množica $L$ je po trditvi \ref{trd:podgrupaunija} odprta in zaprta podgrupa topološke grupe $G$. Ker je $\closure{U} \subset U^2$ in zato po indukciji $\closure{U}^i \subset U^{i+1}$ za vsak $i > 0$, je $L = \bigcup_{n=1}^\infty \closure{U}^n$. Množica $L$ je enaka števni uniji kompaktov, torej je $\sigma$-kompaktna in ima Lindel\"ofovo lastnost. Velja tudi, da ima vsak levi odsek $xL$, kjer je $x \in G$, Lindel\"ofovo lastnost.
+
+Vzemimo poljubno odprto pokritje $\mathcal{V}$ topološke grupe $G$. Za vsak levi odsek $xL$, kjer je $x \in G$, potem obstaja števno podpokritje $\lbrace V_{xL}^{(n)} \rbrace_{n = 1}^{\infty}$ pokritja $\mathcal{V}$, da je $xL \subset \bigcup_{n=1}^{\infty}V_{xL}^{(n)}$. Za vsak $n \in \N$ definirajmo družino množic $\mathcal{W}_n = \lbrace V_{xL}^{(n)} \cap (xL) ; xL \in G/L \rbrace$. Tedaj je družina množic $\mathcal{W} = \bigcup_{n=1}^{\infty}\mathcal{W}_n$ pofinitev pokritja $\mathcal{V}$. 
 \end{dokaz}
 
 \section*{Slovar strokovnih izrazov}
