@@ -302,7 +302,7 @@ Družina $\lbrace xU ; x \in G, U \in \Ucurl \rbrace$ je torej res podbaza prost
 Za vsako množico $U_1,\dots,U_n \in \Ucurl$ obstajajo množice $V_1,\dots,V_n \in \Ucurl$, da velja $V_k^2 \subset U_k$ za $k = 1,\dots,n$. Potem velja
 \[ \left( \bigcap_{k=1}^n V_k \right)^2 \subset \bigcap_{k=1}^n V_k^2 \subset \bigcap_{k=1}^n U_k. \]
 Za družino $\widetilde{\Ucurl}$ torej velja lastnost \ref{last:oko1} trditve \ref{trd:okolice}.
-Ker je \[\left( \bigcap_{k=1}^n V_k \right)^{-1} = \bigcap_{k=1}^n V_k^{-1}\], za družino $\widetilde{\Ucurl}$ velja lastnost \ref{last:oko2} trditve \ref{trd:okolice}.
+Ker je \[\left( \bigcap_{k=1}^n V_k \right)^{-1} = \bigcap_{k=1}^n V_k^{-1},\] za družino $\widetilde{\Ucurl}$ velja lastnost \ref{last:oko2} trditve \ref{trd:okolice}.
 Ker velja \[x\left(\bigcap_{k=1}^n V_k\right) = \bigcap_{k=1}^n (xV_k)\]
 in \[ x\left(\bigcap_{k=1}^n V_k\right)x^{-1} = \bigcap_{k=1}^n (xV_kx^{-1}), \]
 za družino $\widetilde{\Ucurl}$ veljata tudi lastnosti \ref{last:oko3} in \ref{last:oko4} trditve \ref{trd:okolice}.
@@ -724,6 +724,31 @@ Topološka grupa $G$ s tem zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$ i
 \end{dokaz}
 
 \subsection{Separacijski aksiom T$_4$}
+Za dokaz izreka o obstoju povsem regularne topološke grupe, ki ni normalna, potrebujemo pojem \emph{proste grupe}. Vzemimo neprazno množico $X$. \emph{Beseda} je bodisi prazna (pišemo $e$) bodisi končni formalni produkt $x_1^{\delta_1}\cdots x_n^{\delta_n}$ elementov iz $X$, kjer je $\delta_k \in \lbrace -1, 1\rbrace$ za $k = 1,\dots,n$. Beseda je \emph{reducirana}, če je prazna ali pa je $\delta_k = \delta_1{k+1}$, kadar je $x_k = x_{k+1}$. Naj bo $F$ množica vseh reduciranih besed nad množico $X$. Na množici $F$ definiramo operacijo na naslednji način: $xy = $ besedi $x$ in $y$ najprej staknemo, nato pa rekurzivno okrajšamo vse pare $x_k$, $x_{k+1}$, za katere velja $x_n = y_1$ in $\delta_n^x \neq \delta_1^y$, dokler ne dobimo okrajšane besede. Trdimo, da je množica $F$ s tako definirano operacijo grupa. Res, če za enoto $e$ vzamemo prazno besedo, inverz pa definiramo kot $(x_1^{\delta_1}\cdots x_n^{\delta_n})^{-1} = x_n^{-\delta_n}\cdots x_1^{-\delta_1}$, dobimo grupno strukturo.
+
+\begin{izrek}\label{izr:prostatopgrupa}
+Za vsak povsem regularen topološki prostor $X$ obstaja taka topološka grupa $F$, da velja:
+\begin{enumerate}
+	\item topološki prostor $X$ je zaprt podprostor v $F$,
+	\item topološka grupa $F$ je prosta grupa nad prostorom $X$,
+	\item za vsako zvezno preslikavo $\varphi\colon X \to G$, kjer je $G$ poljubna topološka grupa, obstaja zvezen homomorfizem $\Phi\colon F \to G$, da je $\Phi(x) = \varphi(x)$ za vsak $x \in X$.
+\end{enumerate}
+\end{izrek}
+
+\begin{izrek}\label{izr:prostaizo}
+Naj bo $X$ povsem regularen topološki prostor, $F$ prosta topološka grupa nad $X$, konstruirana v izreku \ref{izr:prostatopgrupa}, in naj bo $\widetilde{F}$ taka topološka grupa, da zanjo velja:
+\begin{enumerate}
+	\item topološki prostor $X$ je topološki podprostor v $\widetilde{F}$,
+	\item topološka grupa $\widetilde{F}$ je najmanjša zaprta podgrupa v $\widetilde{F}$, ki vsebuje $X$,
+	\item za vsako zvezno preslikavo $\varphi\colon X \to G$, kjer je $G$ poljubna topološka grupa, obstaja zvezen homomorfizem $\Phi\colon \widetilde{F} \to G$, da je $\Phi(x) = \varphi(x)$ za vsak $x \in X$.
+\end{enumerate}
+Tedaj obstaja topološki izomorfizem $\tau\colon F \to \widetilde{F}$, da je $\tau(x) = x$ za vsak $x \in X$.
+\end{izrek}
+
+\begin{izrek}
+Obstaja povsem regularna topološka grupa, ki ni normalna.
+\end{izrek}
+
 \begin{izrek}\label{izr:t4protiprimer}
 	Če je $m$ katerokoli konkretno neštevno kardinalno število, potem je $\Z^{m}$ povsem regularna topološka grupa, ki ni normalna.
 \end{izrek}
