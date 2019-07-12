@@ -255,15 +255,23 @@ Ker je $A$ odprta množica, so po trditvi \ref{trd:trans} odprte tudi vse množi
 Za dokaz odprtosti množice $BA$ najprej oprazimo, da so po trditvi \ref{trd:trans} odprte tudi vse množice $xA$ za vsak $x \in X$, potem pa sledimo zgornjemu dokazu.
 \end{dokaz}
 
+\begin{trditev}\label{trd:prodkomp}
+Za kompaktni podmnožici $A$ in $B$ topološke grupe $G$ velja, da je množica $AB$ kompaktna.
+\end{trditev}
+
+\begin{dokaz}
+Iz splošne topologije vemo, da je kompaktnost multiplikativna lastnost. Množica $A \times B$ je zato kompaktna podmnožica v prostoru $G \times G$. Ker je množenje zvezna preslikava, je tudi množica $\mu (A \times B) = AB$ kompaktna v prostoru $G$.
+\end{dokaz}
+
 Sledi nekaj trditev, ki se nanašajo na okolice enote topološke grupe.
 
 \begin{trditev}\label{trd:okolice}
 Za topološko grupo $G$ in bazo $\Ucurl$ odprtih okolic enote $e$ veljajo naslednje trditve:
 \begin{enumerate}
-\item za vsako množico $U \in \Ucurl$ obstaja taka množica $V \in \Ucurl$, da velja $V^{2} \subset U$;
-\item za vsako množico $U \in \Ucurl$ obstaja taka množica $V \in \Ucurl$, da velja $V^{-1} \subset U$;
-\item za vsako množico $U \in \Ucurl$ in vsak element $x \in U$ obstaja taka množica $V \in \Ucurl$, da velja $xV \subset U$;
-\item za vsako množico $U \in \Ucurl$ in vsak element $x \in G$ obstaja taka množica $V \in \Ucurl$, da velja $xVx^{-1} \subset U$.
+\item za vsako množico $U \in \Ucurl$ obstaja taka množica $V \in \Ucurl$, da velja $V^{2} \subset U$;\label{last:oko1}
+\item za vsako množico $U \in \Ucurl$ obstaja taka množica $V \in \Ucurl$, da velja $V^{-1} \subset U$;\label{last:oko2}
+\item za vsako množico $U \in \Ucurl$ in vsak element $x \in U$ obstaja taka množica $V \in \Ucurl$, da velja $xV \subset U$; \label{last:oko3}
+\item za vsako množico $U \in \Ucurl$ in vsak element $x \in G$ obstaja taka množica $V \in \Ucurl$, da velja $xVx^{-1} \subset U$.\label{last:oko4}
 \end{enumerate}
 \end{trditev}
 
@@ -284,6 +292,30 @@ Naj bo $G$ grupa in $\Ucurl$ družina podmnožic množice $G$, za katero veljajo
 
 Če velja še, da za vsaki množici $U,V \in \Ucurl$ obstaja množica $W \in \Ucurl$, da velja $W \subset U \cap V$, potem sta družini $\lbrace xU \rbrace$ in $\lbrace Ux \rbrace$ tudi bazi za to topologijo.
 \end{izrek}
+
+\begin{dokaz}
+Za vsako množico $U \in \Ucurl$ obstaja množica $V \in \Ucurl$, da velja $V^2 \subset U$. Ker je $V \in \Ucurl$, obstaja množica $W \in \Ucurl$, da velja $W^{-1} \subset V$. Ker velja $V \cap W \neq \emptyset$, velja
+\[ e \in VW^{-1} \subset V^2 \subset U. \]
+Vsaka množica $U \in \Ucurl$ torej vsebuje enoto $e$.
+Družina $\lbrace xU ; x \in G, U \in \Ucurl \rbrace$ je torej res podbaza prostora $G$, saj je pokritje za $G$.
+
+Za vsako množico $U_1,\dots,U_n \in \Ucurl$ obstajajo množice $V_1,\dots,V_n \in \Ucurl$, da velja $V_k^2 \subset U_k$ za $k = 1,\dots,n$. Potem velja
+\[ \left( \bigcap_{k=1}^n V_k \right)^2 \subset \bigcap_{k=1}^n V_k^2 \subset \bigcap_{k=1}^n U_k. \]
+Za družino $\widetilde{\Ucurl}$ torej velja lastnost \ref{last:oko1} trditve \ref{trd:okolice}.
+Ker je \[\left( \bigcap_{k=1}^n V_k \right)^{-1} = \bigcap_{k=1}^n V_k^{-1}\], za družino $\widetilde{\Ucurl}$ velja lastnost \ref{last:oko2} trditve \ref{trd:okolice}.
+Ker velja \[x\left(\bigcap_{k=1}^n V_k\right) = \bigcap_{k=1}^n (xV_k)\]
+in \[ x\left(\bigcap_{k=1}^n V_k\right)x^{-1} = \bigcap_{k=1}^n (xV_kx^{-1}), \]
+za družino $\widetilde{\Ucurl}$ veljata tudi lastnosti \ref{last:oko3} in \ref{last:oko4} trditve \ref{trd:okolice}.
+
+Po definiciji podbaze, neprazne množice $\bigcap_{k=1}^n(x_kU_k)$, kjer je $x_k \in G$ in $U_k \in \Ucurl$, tvorijo bazo za neko topologijo na prostoru $G$. Vzemimo nek element $y \in \bigcap_{k=1}^n (x_kU_k)$. Naj bo $V_k \in \Ucurl$ tista množica, ki zadošča lastnosti \ref{last:oko3} za element $x_k^{-1}y$, torej da velja $x_k^{-1}yV_k \subset U_k$. Potem velja
+\[ y\left(\bigcap_{k=1}^nV_k\right) = \bigcap_{k=1}^n(yV_k) \subset \bigcap_{k=1}^n(x_kU_k). \]
+Torej množice oblike $y\widetilde{U}$, kjer je $\widetilde{U} \in \widetilde{\Ucurl}$ tvorijo odprto bazo za element $y$ za vsak element $y \in G$.
+
+Da pokažemo, da je $G$ res topološka grupa, vzemimo poljubna elementa $a,b \in G$ in poljubno množico $\widetilde{U} \in \widetilde{\Ucurl}$. Ker družina množic $\widetilde{\Ucurl}$ zadošča lastnostima \ref{last:oko1} in \ref{last:oko4} trditve \ref{trd:okolice}, obstajata takšni množici $\widetilde{V}, \widetilde{W} \in \widetilde{\Ucurl}$, da velja $(b^{-1}\widetilde{W}b)\widetilde{V} \subset \widetilde{U}$. Od tod sledi, da je $(a\widetilde{W})(b\widetilde{V}) \subset ab\widetilde{U}$, torej je množenje zvezna preslikava.
+Ker družina množic $\widetilde{\Ucurl}$ zadošča lastnostima \ref{last:oko2} in \ref{last:oko4} trditve \ref{trd:okolice}, obstaja takšna množica $\widetilde{V} \in \widetilde{\Ucurl}$, da velja $(b\widetilde{V}b^{-1})^{-1} \subset \widetilde{U}$. Od tod sledi, da je $b^{-1}(b\widetilde{V}b^{-1})^{-1} = b^{-1}b (b\widetilde{V})^{-1} = (bV)^{-1} \subset b^{-1}\widetilde{U}$, torej je invertiranje zvezna preslikava. Topološki prostor $G$ je torej topološka grupa.
+
+Iz lastnosti \ref{last:oko4} trditve \ref{trd:okolice} je tudi razvidno, da družini $\lbrace xU \rbrace$ in $\lbrace Ux \rbrace$ porodita ekvivalentno topologijo na $G$, saj lahko vsako množico oblike $Ux$ dobimo s konjugiranjem množice $xU$ z elementom $x^{-1}$, konjugiranje pa je po trditvi \ref{trd:trans} homeomorfizem.
+\end{dokaz}
 
 \begin{definicija}\label{def:sim}
 Množici, za katero velja $U = U^{-1}$, rečemo \emph{simetrična} množica.
@@ -628,9 +660,9 @@ Ker $G$ zadošča separacijskemu aksiomu $T_0$, je po trditvi \ref{trd:t0haus} $
 \[ H = \bigcap_{k=1}^\infty U_k = \lim_{k \to \infty}U_k = \lim_{i \to \infty} \closure{U_{k_i}} = \lbrace e \rbrace. \]
  Baza $\lbrace U_k \rbrace_{k = 1}^\infty$ zadošča predpostavkam izreka \ref{izr:pseudometrika}, zato na topološki grupi $G$ obstaja psevdometrika $\sigma$.
 
-Po drugi lastnosti psevdometrike $\sigma$ je $\sigma(x, y) = 0$ natanko tedaj, ko $y^{-1}x \in H$. Ker je $H = \lbrace e \rbrace$, velja $\sigma(x, y) = 0$ natanko tedaj, ko $x = y$. Preslikava $\sigma$ je torej metrika na $G$. Preveriti moramo le še, da topologija $\tau$ na $G$ in topologija $\tau_\sigma$, inducirana z metriko $\sigma$, sovpadata.
+Po lastnosti \ref{last:psevdo2} psevdometrike $\sigma$ je $\sigma(x, y) = 0$ natanko tedaj, ko $y^{-1}x \in H$. Ker je $H = \lbrace e \rbrace$, velja $\sigma(x, y) = 0$ natanko tedaj, ko $x = y$. Preslikava $\sigma$ je torej metrika na $G$. Preveriti moramo le še, da topologija $\tau$ na $G$ in topologija $\tau_\sigma$, inducirana z metriko $\sigma$, sovpadata.
 
-Po tretji in četrti lastnosti metrike $\sigma$ za vsak $k \in \N$ velja
+Po lastnostiih \ref{last:psevdo3} in \ref{last:psevdo4} metrike $\sigma$ za vsak $k \in \N$ velja
 \[ \lbrace x \in G ; \sigma(x, e) \leq 2^{-k} \rbrace \subset U_k \subset \lbrace x \in G ; \sigma(x, e) \leq 2^{-k+1} \rbrace.\]
 Torej za vsak $k \in \N$ velja
 \[ K(e, 2^{-k}) \subset U_k \subset K(e, 2^{-k+2}). \]
@@ -647,7 +679,7 @@ Ker sta topologiji $\tau$ in $\tau_\sigma$ po trditvi \ref{izr:bazaokolice} tran
 \begin{dokaz}
 	Po trditvi \ref{trd:t0haus} je $G$ Hausdorffova in zato zadošča separacijskemu aksiomu $T_1$.
 	
-	Po posledici \ref{pos:sim} za vsako okolico $U$ enote $e$ obstaja okolica $V$ enote $e$, da je $\closure{V} \subset U$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, to velja v vsaki točki, saj $\closure{aV} \subset aU$, kar pa je ekvivalentno separacijskemu aksiomu $T_3$. Topološka grupa $G$ je res regularna.
+	Vzemimo poljuben element $a \in G$ in njegovo okolico $U$. Množica $a^{-1}U$ je potem okolica enote $e$, saj je po trditvi \ref{trd:trans} leva translacija homeomorfizem. Po posledici \ref{pos:sim} obstaja takšna okolica $V$ enote $e$, da je $\closure{V} \subset a^{-1}U$. Ker je leva translacija homeomorfizem, je množica $aV$ okolica elementa $a$, za katero velja $aV \subset \closure{aV} \subset U$. Topološka grupa $G$ zadošča separacijskemu aksiomu $T_3$ in je zato regularna.
 \end{dokaz}
 
 
@@ -683,10 +715,9 @@ Za dokaz \ref{podtrd:reghaus2} naj bo $X$ normalen topološki prostor. Po Urysoh
 
 \begin{dokaz}
 Za dano zaprto množico $F$ vzemimo poljuben element $a \in G\setminus F$.
-Naj bo $\Ucurl$ baza simetričnih okolic enote $e$ in naj bo $U_1 \in \Ucurl$ taka množica, da je $(aU_1)\cap F = \emptyset$. Taka množica $U_1$ obstaja, saj je $G\setminus F$ odprta množica, $aU_1$ pa je odprta okolica elementa $a$. Izberemo okolice $U_2, U_3,... \in \Ucurl$ take, da velja $U_{k+1}^2 \subset U_k$ za vsak $k \in \Z$ (obstajajo po trditvi \ref{trd:okolice}). S tem smo zadostili predpostavkam izreka \ref{izr:pseudometrika}, zato obstaja na $G$ psevdometrika $\sigma$. Definiramo funkcijo \[ \psi(x) = \min\lbrace 1, 2\sigma(x, a)\rbrace. \] Ker je psevdometrika $\sigma$ enakomerno zvezna glede na levo uniformno strukturo na $G$, je po trditvi \ref{trd:enakzveznazvezna} zvezna, zato je $\psi$ zvezna funkcija.
+Naj bo $\Ucurl$ baza simetričnih okolic enote $e$ in naj bo $U_1 \in \Ucurl$ taka množica, da je $(aU_1)\cap F = \emptyset$. Taka množica $U_1$ obstaja, saj je $G\setminus F$ odprta množica, $aU_1$ pa je odprta okolica elementa $a$. Izberemo okolice $U_2, U_3,... \in \Ucurl$ take, da velja $U_{k+1}^2 \subset U_k$ za vsak $k \in \Z$ (obstajajo po trditvi \ref{trd:okolice}). S tem smo zadostili predpostavkam izreka \ref{izr:pseudometrika}, zato obstaja na $G$ psevdometrika $\sigma$. Definiramo funkcijo \[ \psi(x) = \min\lbrace 1, 2\sigma(x, a)\rbrace. \] Ker je psevdometrika $\sigma$ po lastnosti \ref{last:psevdo1} v izreku \ref{izr:pseudometrika} enakomerno zvezna glede na levo uniformno strukturo na $G$, je po trditvi \ref{trd:enakzveznazvezna} zvezna, zato je $\psi$ zvezna funkcija.
 
- Ker je po definiciji prevdometrike $\sigma(a, a) = 0$, velja, da je $\psi(a) = 0$.
-
+Ker je po definiciji prevdometrike $\sigma(a, a) = 0$, velja, da je $\psi(a) = 0$.
 Vzemimo element $x \in F$. Ker po konstrukciji množice $U_1$ velja $a^{-1}x \notin U_1$, po lastnosti \ref{last:psevdo4} v izreku \ref{izr:pseudometrika}, $\sigma(x, a) \geq 2^{-1} = \frac{1}{2}$, od tod sledi, da je $\psi(x) = 1$ za vsak element $x \in F$.
 
 Topološka grupa $G$ s tem zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$ in je povsem regularna.
@@ -748,9 +779,13 @@ Naj bo $G$ lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksio
 
 Ker je $G$ lokalno kompaktna, obstaja kompaktna okolica $K$ enote $e$. Po posledici \ref{pos:sim} obstaja takšna simetrična okolica $U$ enote $e$, da je $\closure{U} \subset K$. Ker so zaprte podmnožice kompaktnih prostorov kompaktne, je $\closure{U}$ tudi kompaktna okolica enote $e$.
 
-Naj bo $L = \bigcup_{n=1}^\infty U^n$. Množica $L$ je po trditvi \ref{trd:podgrupaunija} odprta in zaprta podgrupa topološke grupe $G$. Ker je $\closure{U} \subset U^2$ in zato po indukciji $\closure{U}^i \subset U^{i+1}$ za vsak $i > 0$, je $L = \bigcup_{n=1}^\infty \closure{U}^n$. Množica $L$ je enaka števni uniji kompaktov, torej je $\sigma$-kompaktna in ima Lindel\"ofovo lastnost. Velja tudi, da ima vsak levi odsek $xL$, kjer je $x \in G$, Lindel\"ofovo lastnost.
+Naj bo $L = \bigcup_{n=1}^\infty U^n$. Množica $L$ je po trditvi \ref{trd:podgrupaunija} odprta in zaprta podgrupa topološke grupe $G$. Ker je $\closure{U} \subset U^2$ in zato po indukciji $\closure{U}^i \subset U^{i+1}$ za vsak $i > 0$, je $L = \bigcup_{n=1}^\infty \closure{U}^n$. Podgrupa $L$ je enaka števni uniji kompaktov, saj je po trditvi \ref{trd:prodkomp} za vsak $n \in \N$ množica $\closure{U}^n$ kompaktna, torej je podgrupa $L$ $\sigma$-kompaktna in ima Lindel\"ofovo lastnost. Velja tudi, da ima vsak levi odsek $xL$, kjer je $x \in G$, Lindel\"ofovo lastnost, saj je leva translacija po trditvi \ref{trd:trans} homeomorfizem.
 
-Vzemimo poljubno odprto pokritje $\mathcal{V}$ topološke grupe $G$. Za vsak levi odsek $xL$, kjer je $x \in G$, potem obstaja števno podpokritje $\lbrace V_{xL}^{(n)} \rbrace_{n = 1}^{\infty}$ pokritja $\mathcal{V}$, da je $xL \subset \bigcup_{n=1}^{\infty}V_{xL}^{(n)}$. Za vsak $n \in \N$ definirajmo družino množic $\mathcal{W}_n = \lbrace V_{xL}^{(n)} \cap (xL) ; xL \in G/L \rbrace$. Tedaj je družina množic $\mathcal{W} = \bigcup_{n=1}^{\infty}\mathcal{W}_n$ pofinitev pokritja $\mathcal{V}$. 
+Vzemimo poljubno odprto pokritje $\mathcal{V}$ topološke grupe $G$. Ker je $\mathcal{V}$ tudi pokritje za vsak levi odsek $xL \subset G$, za vsak levi odsek $xL$, kjer je $x \in G$, obstaja števno podpokritje $\lbrace V_{xL}^{(n)} \rbrace_{n = 1}^{\infty}$ pokritja $\mathcal{V}$, da je $xL \subset \bigcup_{n=1}^{\infty}V_{xL}^{(n)}$. Za vsak $n \in \N$ definirajmo družino množic $\mathcal{W}_n = \lbrace V_{xL}^{(n)} \cap (xL) ; xL \in G/L \rbrace$. Tedaj je družina množic $\mathcal{W} = \bigcup_{n=1}^{\infty}\mathcal{W}_n$ pofinitev pokritja $\mathcal{V}$. Res, za vsako množico $(V_{xL}^{(n)} \cap (xL)) \in \mathcal{W}$, kjer je $x \in G$ in $n \in \N$, velja
+\[ V_{xL}^{(n)} \cap (xL) \subseteq V_{xL}^{(n)} \in \mathcal{V}. \]
+Ker ima vsak $x \in G$ kompaktno okolico, je $\mathcal{W}$ lokalno končna družina.
+
+Topološka grupa $G$ je torej parakompakten topološki prostor in zato po trditvi \ref{trd:parkompnorm} normalen topološki prostor.
 \end{dokaz}
 
 \section*{Slovar strokovnih izrazov}
