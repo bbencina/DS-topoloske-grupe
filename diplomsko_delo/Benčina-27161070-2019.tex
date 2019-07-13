@@ -508,12 +508,27 @@ Za dokaz \ref{podtrd:kvocreg3} privzemimo, da $G/H$ zadošča separacijskemu aks
 \begin{izrek}\label{izr:kvocpovzetek}
 Naj bo $H$ podgrupa edinka topološke grupe $G$ in naj bo $G/H$ kvocientni topološki prostor. Veljajo naslednje trditve:
 \begin{enumerate}
-\item kvocient $G/H$ je topološka grupa s topologijo $\theta$,
-\item naravni homomorfizem je odprta in zvezena preslikava,
-\item kvocient $G/H$ je diskreten natanko tedaj, ko je podgrupa $H$ odprta v $G$,
-\item kvocient $G/H$ zadošča separacijskemu aksiomu $T_0$ natanko tedaj, ko je pod\-gru\-pa $H$ zaprta v $G$.
+\item kvocient $G/H$ je topološka grupa s topologijo $\theta$,\label{podtrd:kvoc1}
+\item naravni homomorfizem je odprta in zvezna preslikava,\label{podtrd:kvoc2}
+\item kvocient $G/H$ je diskreten natanko tedaj, ko je podgrupa $H$ odprta v $G$,\label{podtrd:kvoc3}
+\item kvocient $G/H$ zadošča separacijskemu aksiomu $T_0$ natanko tedaj, ko je pod\-gru\-pa $H$ zaprta v $G$.\label{podtrd:kvoc4}
 \end{enumerate}
 \end{izrek}
+
+\begin{dokaz}
+Za dokaz \ref{podtrd:kvoc1} bomo uporabili izrek \ref{izr:bazaokolice}. Preverili bomo, da za družino vseh okolic enote $H$ v grupi $G/H$ s kvocientno topologijo veljajo lastnosti \ref{last:oko1}-\ref{last:oko4} trditve \ref{trd:okolice} in zadostili pogojem izreka.
+
+Naj bo $\lbrace uH ; u \in U \rbrace$ poljubna okolica enote $H$ v grupi $G/H$, kjer je $U$ okolica enote $e$ v topološki grupi $G$. Po lastnosti \ref{last:oko1} trditve \ref{trd:okolice} obstaja taka okolica $V$ enote $e$, da velja $V^2 \subset U$. Po definiciji kvocientne topologije je množica $\lbrace vH ; v \in V \rbrace$ odprta v $G/H$ in velja $\lbrace vH ; v \in V \rbrace^2 = \lbrace yH ; y \in V^2 \rbrace \subset \lbrace uH ; u \in U \rbrace$. Torej za grupo $G/H$ s kvocientno topologijo drži lastnost \ref{last:oko1} trditve \ref{trd:okolice}.
+Naprej, po lastnosti \ref{last:oko2} trditve \ref{trd:okolice} obstaja taka okolica $V$ enote $e$, da velja $V^{-1} \subset U$. Po definiciji kvocientne topologije je množica $\lbrace vH ; v \in V^{-1} \rbrace$ odprta in velja $\lbrace vH ; v \in V \rbrace^{-1} = \lbrace yH ; y \in V^{-1} \rbrace \subset \lbrace uH ; u \in U \rbrace$. Torej za grupo $G/H$ s kvocientno topologijo drži lastnost \ref{last:oko2} trditve \ref{trd:okolice}.
+
+Za dokaz lastnosti \ref{last:oko3} vzemimo še poljuben element $u_0H \in \lbrace uH ; u \in U \rbrace$. Po lastnosti \ref{last:oko3} trditve \ref{trd:okolice} obstaja taka okolica $V$ enote $e$, da velja $u_0V \subset U$. Potem je $\lbrace vH ; v \in V \rbrace$ okolica enote $H$ v $G/H$ in velja $u_0H\cdot\lbrace vH ; v \in V\rbrace = \lbrace u_0vH ; v \in V \rbrace \subset uH ; u \in U \rbrace$. Torej za grupo $G/H$ s kvocientno topologijo drži lastnost \ref{last:oko3} trditve \ref{trd:okolice}.
+Po lastnosti \ref{last:oko4} trditve \ref{trd:okolice} obstaja taka okolica $V$ enote $e$, da velja $u_0Vu_0^{-1} \subset U$. Potem je $\lbrace vH ; v \in V \rbrace$ okolica enote $H$ v $G/H$ in velja $u_0H\cdot\lbrace vH ; v \in V\rbrace (u_0H)^{-1} = \lbrace u_0vu_0^{-1}H ; v \in V \rbrace \subset uH ; u \in U \rbrace$. Torej za grupo $G/H$ s kvocientno topologijo drži lastnost \ref{last:oko4} trditve \ref{trd:okolice}.
+
+Družina vseh okolic enote $H$ v $G/H$ torej zadošča lastnostim \ref{last:oko1}-\ref{last:oko4} trditve \ref{trd:okolice}. Očitno so vsi končni preseki teh okolic neprazni, saj vse okolice vsebujejo enoto $H$. Ker je presek odprtih množic po definiciji topologije odprt in po prejšnji lastnosti neprazen, obstaja za vsaki dve okolici $\lbrace uH ; u \in U \rbrace$ in $\lbrace vH ; v \in V \rbrace$ enote $H$ neka okolica $W \subset U \cap V$ enote $H$. Po izreku \ref{izr:bazaokolice} je grupa $G/H$ res topološka grupa s kvocientno topologijo.
+
+Trditev \ref{podtrd:kvoc2} sledi direktno iz izreka \ref{izr:topkvocienta}.
+Trditev \ref{podtrd:kvoc3} sledi direktno iz točke \ref{podtrd:kvocreg1} izreka \ref{izr:kvocreg}, trditev \ref{podtrd:kvoc4} pa iz točk \ref{podtrd:kvocreg2} in \ref{podtrd:kvocreg3} izreka \ref{izr:kvocreg}.
+\end{dokaz}
 
 \section{Izreki o izomorfizmih}
 
