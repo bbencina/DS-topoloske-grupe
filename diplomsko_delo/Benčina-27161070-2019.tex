@@ -632,6 +632,10 @@ Topološka grupa je z levo ali desno uniformno strukturo torej res uniformni pro
 Psevdometrika na grupi $G$ je levoinvariantna, če za vsaki dve točki $x, y \in G$ in za vsak element $a \in G$ velja $\rho(ax, ay) = \rho(x, y)$.
 \end{definicija}
 
+\begin{opomba}
+V dokazu spodnjega izreka bomo potrebovali pojem \emph{diadičnega} racionalnega števila, tj. racionalno število z imenovalcem je v okrajšani obliki enakim $2^n$, kjer je $n \in \N$. Vsota in produkt dveh diadičnih števil je prav tako diadično število. Opazimo tudi, da lahko s končno vsoto števil oblike $2^{-n}$, kjer je $n \in \N$, dobimo vsako diadično število med $0$ in $1$.
+\end{opomba}
+
 \begin{izrek}\label{izr:pseudometrika}
 	Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Potem obstaja taka levoinvariantna psevdometrika $\sigma$ na $G$ z naslednjimi lastnostmi:
 	\begin{enumerate}
@@ -646,6 +650,49 @@ Psevdometrika na grupi $G$ je levoinvariantna, če za vsaki dve točki $x, y \in
 		\item $\sigma (x^{-1}, y^{-1}) = \sigma (x, y)$ za vsaka dva elementa $x, y \in G$.
 	\end{enumerate}
 \end{izrek}
+
+\begin{dokaz}
+Najprej preimenujmo družino okolic $\lbrace U_k \rbrace_{k = 1}^\infty$. Naj bo za vsak $k \in \N$ okolica $V_{2^{-k}} = U_k$. Za vsako diadično racionalno število $r \in (0, 1)$ definiramo množico $V_r$ na naslednji način. Za
+\[ r = 2^{-l_1} + \cdots + 2^{-l_n}, 0 < l_1 < \cdots < l_n \]
+naj bo množica
+\[ V_r = V_{2^{-l_1}}\cdots V_{2^{-l_n}}. \]
+Za vsa diadična racionalna števila $r \geq 1$ definiramo množico $V_r = G$.
+
+Pokažimo najprej, da iz $r < s$ sledi $V_r \subset V_s$. Privzamemo lahko, da je $s < 1$, v nasprotnem primeru je implikacija očitna, saj je $V_s = G$.
+Naj bo število $r$ definirano tako kot zgoraj in naj bo
+\[ s = 2^{-m_1} + \cdots + 2^{-m_p}, 0 < m_1 < \cdots < m_p. \]
+Ker je $r < s$, obstaja enolično določeno število $k \in \N$, da je $l_j = m_j$ za vsak $j < k$ in $l_k > m_k$. Naj bo $W = V_{2^{-l_1}}\cdots V_{2^{-l_{k-1}}}$.
+Potem, upoštevajoč $U_{k+1}^2 \subset U_k$, velja
+\begin{align*}
+V_r &= WV_{2^{-l_k}}V_{2^{-l_{k+1}}}V_{2^{-l_{k+2}}}\cdots V_{2^{-l_n}} \\
+&\subset WV_{2^{-l_k}}V_{2^{-l_k-1}}V_{2^{-l_k-2}}\cdots V_{2^{-l_n+1}}V_{2^{-l_n}}V_{2^{-l_n}} \\
+&\subset WV_{2^{-l_k}}V_{2^{-l_k-1}}V_{2^{-l_k-2}}\cdots V_{2^{-l_n+1}}V_{2^{-l_n+1}} \subset \cdots \\
+&\subset WV_{2^{-l_k}}V_{2^{-l_k}} \subset WV_{2^{-l_k+1}} \subset WV_{2^{-m_k}} \\
+&= V_{2^{-l_1}}V_{2^{-l_2}}\cdots V_{2^{-l_{k-1}}}V_{2^{-m_k}} \\
+&\subset V_{2^{-m_1}}V_{2^{-m_2}}\cdots V_{2^{-m_{k-1}}}V_{2^{-m_k}}V_{2^{-m_{k+1}}}\cdots V_{2^{-m_p}} = V_s
+\end{align*}
+
+Nato pokažimo, da za vsak zgoraj definirani $r$ in vsak $l \in \N$ velja $V_rV_{2^{-l}} \subset V_{r + 2^{-l+2}}$. Privzemimo, da je $r + 2^{-l+2} < 1$, saj je v nasprotnem primeru inkluzija očitna, ker je $V_{r + 2^{-l+2}} = G$.
+Če je $l > l_n$, je po konstrukciji množic $V_rV_{2^{-l}} = V_{r + 2^{-l}} \subset V_{r + 2^{-l+2}}$. Če je $l \leq l_n$, naj bo $k \in \N$ tako število, da je $l_{k-1} < l \leq l_k$, kjer označimo $l_0 = 0$. Definiramo $r_1 = 2^{-l+1} - 2^{-l_k} - 2^{-l_{k+1}} - \cdots - 2^{-l_n}$ in $r_2 = r + r_1$. Opazimo, da velja $r < r_2 < r + 2^{-l+1}$. Od tod sledi
+\[ V_rV_{2^{l}} \subset V_{r_2}V_{2^{-l}} = V_{r_2 + 2^{-l}} \subset V_{r + 2^{-l+1} + 2^{-l}} \subset V_{r + 2^{-l+2}}. \]
+
+Na topološki grupi $G$ bomo konstruirali psevdometriko. Za vsak $x \in G$ naj bo $\varphi(x) = \inf\lbrace r ; x \in V_r \rbrace$. Očitno je $\varphi(x) = 0$ natanko tedaj, ko je $x \in H = \bigcap_{k=1}^{\infty} U_k = \bigcap_{k=1}^{\infty} V_{2^{-k}}$. Na prostoru $G \times G$ definiramo preslikavo
+\[ \sigma(x, y) = \sup\lbrace |\varphi(zx) - \varphi(zy)| ; z \in G \rbrace. \]
+Zaradi simetričnosti absolutne vrednosti je $\sigma(x, y) = \sigma(y, x)$ za vsaka elementa $x, y \in G$ in očitno je $\sigma(x, x) = 0$. Trikotniška neenakost velja, saj za poljubne $x, y, w \in G$ velja
+\begin{align*}
+\sigma(x, w) &= \sup\lbrace |\varphi(zx) - \varphi(zw)| ; z \in G \rbrace \\
+&= \sup\lbrace |\varphi(zx) - \varphi(zy) + \varphi(zy) - \varphi(zw)| ; z \in G \rbrace \\
+&\leq \sup\lbrace |\varphi(zx) - \varphi(zy)| + |\varphi(zy) - \varphi(zw)| ; z \in G \rbrace \\
+&\leq \sup\lbrace |\varphi(zx) - \varphi(zy)| ; z \in G \rbrace + \sup\lbrace |\varphi(zy) - \varphi(zw)| ; z \in G \rbrace \\
+&= \sigma(x, y) + \sigma(y, w).
+\end{align*}
+Ker velja še
+\begin{align*}
+\sigma(ax, ay) &= \sup\lbrace |\varphi(azx) - \varphi(azy)| ; z \in G \rbrace \\
+&= \sup\lbrace |\varphi(azx) - \varphi(azy)| ; az \in G \rbrace = \sigma(x, y),
+\end{align*}
+je preslikava $\sigma\colon G \times G \to [0, \infty)$ res levoinvariantna psevdometrika na topološki grupi $G$.
+\end{dokaz}
 
 \begin{izrek}\label{izr:metrizabilnost}
 	Topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je me\-tri\-za\-bi\-len topološki prostor natanko tedaj, ko obstaja števna baza odprtih okolic enote.
@@ -683,7 +730,7 @@ Ker sta topologiji $\tau$ in $\tau_\sigma$ po trditvi \ref{izr:bazaokolice} tran
 \end{dokaz}
 
 
-\subsection{Separacijski aksiom T$_{3 \frac{1}{2}}$}
+\subsection{Separacijski aksiom $T_{3 \frac{1}{2}}$}
 
 \begin{definicija}
 	Topološki prostor $X$ zadošča separacijskemu aksiomu $T_{3 \frac{1}{2}}$, če za poljubno zaprto množico $A \subseteq X$ in poljubno točko $b \in X\backslash A$ obstaja taka zvezna funkcija $\psi\colon G \to [0, 1]$, da je $\psi (b) = 0$ in $\psi (x) = 1$ za vsak $x \in A$.
