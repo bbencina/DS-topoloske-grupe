@@ -863,9 +863,53 @@ Tedaj obstaja topološki izomorfizem $\tau\colon F \to \widetilde{F}$, da je $\t
 Obstaja povsem regularna topološka grupa, ki ni normalna.
 \end{izrek}
 
+Oglejmo si še konkreten primer topološke grupe, ki je povsem regularna, vendar ni normalna.
+
 \begin{izrek}\label{izr:t4protiprimer}
 	Če je $m$ katerokoli konkretno neštevno kardinalno število, potem je $\Z^{m}$ povsem regularna topološka grupa, ki ni normalna.
 \end{izrek}
+
+\begin{dokaz}
+Ker topološka grupa $\Z$ glede na inducirano evklidsko topologijo zadošča separacijskemu aksiomu $T_0$ in je separacijski aksiom $T_0$ multiplikativen, je tudi $\Z^m$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Po izreku \ref{izr:t3pol} je zato $\Z^m$ povsem regularna topološka grupa. Za dokaz nenormalnosti pišimo $\Z^m$ raje kot kartezični produkt $\Pi_{\lambda \in \Lambda}\Z_\lambda$, kjer je $|\Lambda| = m$ in $\Z_\lambda\lambda \cong \Z$ za vsak $\lambda \in \Lambda$. Definirajmo množici
+\[ A = \lbrace (x_\lambda) \in \Z^m ; \text{ za vsak $n \neq 0$ obstaja največ en indeks $\lambda$, da velja $x_\lambda = n$}\rbrace \]
+in
+\[ B = \lbrace (x_\lambda) \in \Z^m ; \text{ za vsak $n \neq 1$ obstaja največ en indeks $\lambda$, da velja $x_\lambda = n$}\rbrace. \]
+Če $(x_\lambda) \notin A$, potem obstajata različna indeksa $\lambda_0, \lambda_1 \in \Lambda$, da velja $x_{\lambda_0} = x_{\lambda_1} = n$ za nek $n \in \Z$ in $n \neq 0$. Ker so vse projekcijske preslikave $\pr_x\lambda\colon Z^m \to Z_\lambda$ zvezne, je $\lbrace (y_\lambda) \in \Z^m ; y_{\lambda_0} = y_{\lambda_1} = n \rbrace$ odprta množica, ki vsebuje $(x_\lambda)$ in je disjunktna množici $A$. Vsaka točka iz $\Z^m\setminus A$ ima torej odprto okolico, ki je disjunktna množici $A$. To pomeni, da je $\Z^m\setminus A$ odprta množica, in množica $A$ je posledično zaprta. Z analognim premislekom utemeljimo, da je tudi množica $B$ zaprta. Množici $A$ in $B$ sta očitno disjunktni. Res, vsak element $(x_\lambda) \in A$ ima po konstrukciji množice $A$ na neštevno indeksih vrednost $0$ in zato $(x_\lambda) \notin B$. Obrat je analogen.
+
+Vzemimo poljubni dve odprti okolici $U$ in $V$ zaporedoma za množici $A$ in $B$. Pokazali bomo, da velja $U \cap V \neq \emptyset$.
+
+Naj ima $(x_\lambda^{(1)}) \in \Z^m$ vrednost $0$ za vsak indeks $\lambda \in \Lambda$. Očitno je $(x_\lambda^{(1)}) \in A \subset U$, zato obstajajo taki različni indeksi $\lambda_1,\dots, \lambda_{m_1} \in \Lambda$, da velja
+\[ (x_\lambda^{(1)}) \in \lbrace (x_\lambda) \in \Z^m ; x_{\lambda_k} = 0 \text{ za } k=1,\dots,m_1\rbrace \subset U. \]
+Naj ima $(x_\lambda^{(2)}) \in \Z^m$ vrednost $k$ na indeksih $\lambda_k$, kjer je $1 \leq k \leq m_1$, in vrednost $0$ sicer. Ker je $(x_\lambda^{(2)}) \in A \subset U$, obstajajo taki indeksi $\lambda_{m_1+1},\dots,\lambda_{m_2} \in \Lambda$, ki so različni med sabo in od vseh indeksov $\lambda_1,\dots, \lambda_{m_1}$, da velja
+\begin{align*}
+(x_\lambda^{(2)}) \in \lbrace &(x_\lambda) \in \Z^m ; x_{\lambda_k} = k \text{ za } k=1,\dots,m_1 \text{ in }\\
+& x_{\lambda_k} = 0 \text{ za } k = m_1+1,\dots, m_2\rbrace \subset U.
+\end{align*}
+Tako nadaljujemo in induktivno definiramo zaporedje $\lbrace (x_\lambda^{(n)}) \rbrace_{n = 1}^\infty$ elementov topološke grupe $\Z^m$, zaporedje indeksov$\lbrace\lambda_k\rbrace_{k = 1}^\infty$ in strogo naraščajoče zaporedje števil $\lbrace m_n \rbrace_{n = 1}^\infty$ na naslednji način. Če smo že definirali $(x_\lambda^{(n-1)})$ in različne indekse $\lambda_{m_{n-2}+1},\dots, \lambda_{m_{n-1}}$, naj ima $(x_\lambda^{(n)})$ vrednost $k$ na indeksih $\lambda_k$, kjer je $1 \leq k \leq m_{n-1}$, in vrednost $0$ sicer. Ker je $(x_\lambda^{(n)}) \in A \subset U$, obstajajo taki indeksi $\lambda_{m_{n-1}+1},\dots,\lambda_{m_n}$, ki so različni med sabo in od vseh prej tako definiranih indeksov, da velja
+\begin{align*}
+(x_\lambda^{(n)}) \in \lbrace &(x_\lambda) \in \Z^m ; x_{\lambda_k} = k \text{ za } k=1,\dots,m_{n-1} \text{ in }\\
+& x_{\lambda_k} = 0 \text{ za } k = m_{n-1}+1,\dots, m_n\rbrace \subset U.
+\end{align*}
+
+Definirajmo še $(y_\lambda) \in \Z^m$. Naj bo $(y_\lambda) = k$, če je $\lambda = \lambda_k$ za vsak $k \in \N$ in naj bo $(y_\lambda) = 1$ sicer. Očitno je $(y_\lambda) \in B$, zato za neko končno podmnožico $K \subset \Lambda$ velja
+\[ \lbrace (x_\lambda) \in \Z^m ; x_\lambda = y_\lambda \text{ za vse } \lambda \in K \rbrace \subset V. \]
+Ker je množica $K$ končna, obstaja tak $n_0 \in \N$, da $\lambda_k \notin K$ za vse $k > m_{n_0}$.
+
+Definiramo $(z_\lambda) \in \Z^m$ na naslednji način:
+\begin{align*}
+	z_\lambda &= k \text{, če je $\lambda = \lambda_k$ in $k \leq m_{n_0}$;} \\
+	z_\lambda &= 0 \text{, če je $\lambda = \lambda_k$ in $m_{n_0} + 1 \leq k \leq m_{n_0+1}$;} \\
+	z_\lambda &= 1 \text{ sicer.}
+\end{align*}
+Potem je $(z_\lambda) \in \lbrace (x_\lambda) \in \Z^m ; x_\lambda = y_\lambda \text{ za vse } \lambda  \in K \rbrace \subset V$ in hkrati
+\begin{align*}
+(z_\lambda) \in \lbrace &(x_\lambda) \in \Z^m ; x_{\lambda_k} = k \text{ za } k=1,\dots,m_{n_0} \text{ in }\\
+& x_{\lambda_k} = 0 \text{ za } k = m_{n_0}+1,\dots, m_{n_0 + 1}\rbrace \subset U.
+\end{align*}
+Od tod sledi, da $U \cap V \neq \emptyset$.
+\end{dokaz}
+
+V nadaljevanju bomo dokazali, da je ključni pogoj, ki manjka do normalnosti, lokalna kompaktnost.
 
 \begin{definicija}\label{def:parakompakt}
 	\begin{enumerate}
