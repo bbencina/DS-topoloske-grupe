@@ -108,7 +108,7 @@ Podgrupi $H$ grupe $G$ rečemo podgrupa \emph{edinka}, če za vsak element $a \i
 Množici $G/H = \lbrace aH ; a \in G \rbrace$ rečemo \emph{kvocientna množica} grupe $G$ po podgrupi $H$.
 \emph{Naravna preslikava} na kvocientno množico $G/H$ je preslikava $\varphi: G \to G/H$, $a \mapsto aH$.
 Kvocientna množica v splošnem ni grupa, razen v primeru, ko je $H$ podgrupa edinka.
-Če je $N$ podgrupa edinka grupe $G$, je kvocientna množica $G/N$ grupa za operacijo $*$, kjer je $aH\cdot bH = (a\cdot b)H$, naravna preslikava $\varphi$ pa je homomorfizem grup in ji rečemo \emph{naravni homomorfizem}.
+Če je $N$ podgrupa edinka grupe $G$, je kvocientna množica $G/N$ grupa za operacijo $*$, kjer je $aH*bH = (a\cdot b)H$, naravna preslikava $\varphi$ pa je homomorfizem grup in ji rečemo \emph{naravni homomorfizem}.
 
 \subsection{Topološki prostori}
 V tem podpoglavju bomo ponovili nekaj pojmov iz splo\-šne topologije, ki jih bomo kasneje podrobneje obravnavali na topoloških grupah.
@@ -124,7 +124,7 @@ Množici $X$, opremljeni s topologijo $\tau$, rečemo \emph{topološki} prostor,
 Družina $B$ je \emph{baza} za topologijo $\tau$, če je vsaka množica iz topologije $\tau$ unija nekaterih množic iz $B$, družina $P$ pa je \emph{podbaza} za topologijo $\tau$, če je družina vseh končnih presekov množic iz $P$ neka baza za topologijo $\tau$.
 
 Množica $U \subseteq X$ je \emph{okolica za točko} $x \in X$, če obstaja taka odprta množica $V \in \tau$, da velja $V \subseteq U$ in $x \in V$. Enako lahko definiramo okolico za množico.
-Množica $U \subseteq X$ je \emph{okolica} množice $A \subseteq X$, če obstaja taka odprta množica $V \in \tau$, da velja $A \subseteq V \subseteq U$..
+Množica $U \subseteq X$ je \emph{okolica} množice $A \subseteq X$, če obstaja taka odprta množica $V \in \tau$, da velja $A \subseteq V \subseteq U$.
 Družina okolic $\Ucurl_x$ točke $x \in X$ se imenuje \emph{baza okolic} za $x$, če za poljubno okolico $V$ točke $x$ velja, da obstaja tak $U \in \Ucurl_x$, da je $U \subseteq V$.
 
 Točka $a \in A$ je \emph{notranja točka} množice $A$, če je $A$ okolica za točko $a$.
@@ -140,13 +140,13 @@ Preslikava $f$ je \emph{odprta}, kadar je slika vsake odprte množice v topološ
 Preslikava $f$ je \emph{homeomorfizem}, če je bijektivna, zvezna in ima zvezen inverz.
 
 Osnovna podstruktura topološkega prostora je topološki podprostor.
-Najprej vzemimo topološki prostor $X$ s topologijo $\tau$ in množico $A \subseteq X$. \emph{Inducirana} ali \emph{relativna topologija} na množici $A$, inducirana s $\tau$, je družina množic $\lbrace A \cap U ; U \in \tau \rbrace$. Prostoru $A$ rečemo \emph{topološki podprostor} prostora $X$.
+Najprej vzemimo topološki prostor $X$ s topologijo $\tau$ in množico $A \subseteq X$. \emph{Inducirana} ali \emph{relativna topologija} na množici $A$, inducirana s topologijo $\tau$, je družina množic $\lbrace A \cap U ; U \in \tau \rbrace$. Prostoru $A$ rečemo \emph{topološki podprostor} prostora $X$.
 
 Oglejmo si še produkt topoloških prostorov.
-Naj bosta $X$ in $Y$ topološka prostora s topologijama $\tau_1$ in $\tau_2$. \emph{Produktna topologija} na kartezičnemu produktu $X \times Y$ je topologija, generirana z bazo $\lbrace U \times V ; U \in \tau_1, V \in \tau_2 \rbrace$. \emph{Produkt} topoloških prostorov $X$ in $Y$ je topološki prostor $X \times Y$, opremljen s produktno topologijo. Produkt topoloških prostorov je opremljen še z dvema projekcijskima preslikavama $\pr_x\colon X \times Y \to X$, $\pr_x(x, y) = x$ in $\pr_y\colon X \times Y \to Y$, $\pr_y(x, y) = y$. Obe projekciji sta zvezni in odprti preslikavi glede na primerni topologiji.
+Naj bosta $X$ in $Y$ topološka prostora s topologijama $\tau_1$ in $\tau_2$. \emph{Produktna topologija} na kartezičnemu produktu $X \times Y$ je topologija, generirana z bazo $\lbrace U \times V ; U \in \tau_1, V \in \tau_2 \rbrace$. \emph{Produkt} topoloških prostorov $X$ in $Y$ je topološki prostor $X \times Y$, opremljen s produktno topologijo. Produkt topoloških prostorov je opremljen še z dvema projekcijskima preslikavama $\pr_x\colon X \times Y \to X$, $\pr_x(x, y) = x$ in $\pr_y\colon X \times Y \to Y$, $\pr_y(x, y) = y$. Obe projekciji sta zvezni in odprti preslikavi glede na primerne topologije.
 
 V nadaljevanju si bomo ogledali nekaj pojmov povezanih s kompaktnostjo to\-po\-loš\-kih prostorov, ki si jih bomo kasneje ogledali v kontekstu topoloških grup, definirali pa bomo tudi nove.
-Družini $\mathcal{A}$ množic rečemo \emph{pokritje} topološkega prostora $X$, če je $X \subseteq \bigcup \mathcal{A}$,družini $\mathcal{B} \subseteq \mathcal{A}$ pa rečemo \emph{podpokritje} topološkega prostora $X$, če je $\mathcal{B}$ tudi sama pokritje za $X$.
+Družini $\mathcal{A}$ množic rečemo \emph{pokritje} topološkega prostora $X$, če je $X \subseteq \bigcup \mathcal{A}$, družini $\mathcal{B} \subseteq \mathcal{A}$ pa rečemo \emph{podpokritje} topološkega prostora $X$, če je $\mathcal{B}$ tudi sama pokritje za $X$.
 Topološki prostor je \emph{kompakten}, če vsako njegovo odprto pokritje, tj. pokritje z odprtimi množicami, vsebuje kakšno končno podpokritje.
 Topološki prostor je \emph{lokalno kompakten}, če ima vsaka točka $x \in X$ kakšno kompaktno okolico.
 
@@ -208,7 +208,7 @@ Preslikava med dvema topološkima grupama je \emph{to\-po\-loš\-ki izo\-mor\-fi
 	Enotska krožnica v kompleksni ravnini $S = \lbrace z \in \C ; |z| = 1 \rbrace$ s podedovanim množenjem je topološka grupa za relativno topologijo kot podprostor $\R^2$ (spomnimo se, da je $\C \cong \R^2$).
 \end{primer}
 
-\begin{primer}
+\begin{primer}\label{pri:haus}
 	Realna števila za operacijo $+$ niso topološka grupa s topologijo $\tau = \lbrace (a, \infty) ; a \in \R \rbrace$. Vzemimo odprto množico $(a, \infty)$ in si oglejmo njeno prasliko glede na preslikavo invertiranja. Res $\iota((a, \infty)) = (-\infty, -a)$ ni odprta množica v topologiji $\tau$, torej prostor $(\R, \tau)$ ni topološka grupa. Kasneje bomo pokazali, da realna števila s to topologijo niso topološka grupa za nobeno operacijo.
 %	Preverimo lahko zveznost strukturnih strukturnih preslikav in se prepričamo, da invertiranje ni zvezno, lahko pa se prepričamo tudi drugače.
 %	
@@ -399,6 +399,18 @@ Za topološko grupo $G$ so si naslednje trditve ekvivalentne:
 	Ker je po izreku \ref{trd:t0haus} množica $\lbrace e \rbrace$ zaprta, je zaprta tudi množica $H = \lbrace (a, b) \in G \times G; aba^{-1}b^{-1} = e \rbrace$, saj je $H = f^{-1}(\lbrace e \rbrace)$. Po predpostavki velja $A \times B \subseteq H$.
 	Ker sta množici $\closure{A}$ in $\closure{B}$ zaprti v $G$, po definiciji produktne topologije velja, da je množica $\closure{A} \times \closure{B}$ zaprta v $G \times G$, zato je $\closure{A \times B} = \closure{A} \times \closure{B}$. Sledi, da je $\closure{A} \times \closure{B} \subseteq H$, torej je $ab = ba$ za vsaka dva elementa $a \in \closure{A}$ in $b \in \closure{B}$.
 \end{dokaz}
+
+\begin{primer}\label{pri:haus2}
+Nadaljujmo s primerom \ref{pri:haus}.
+	Zgoraj smo pokazali, da strukturna preslikava invertiranja ni zvezna, lahko pa se prepričamo tudi drugače.
+	
+	Po trditvi \ref{trd:t0haus} za vsako topološko grupo velja, da zadošča separacijskemu aksiomu $T_0$ natanko tedaj, ko je Hausdorffova. Topološki prostor $(\R, +, \tau)$ zadošča separacijskemu aksiomu $T_0$, saj je za vsaki dve točki $a < b$ množica $(\frac{a+b}{2}, \infty)$ okolica za točko $b$, ki ne vsebuje točke $a$. Hkrati pa je očitno, da ta prostor ni Hausdorffov, saj se vsaki dve neprazni odprti množici sekata. Topološki prostor $(\R, +, \tau)$ torej ne more biti topološka grupa. Še več, topološki prostor $(\R, \tau)$ ni topološka grupa za nobeno operacijo, saj informacije o operaciji v zgornjem premisleku sploh nismo uporabili.
+\end{primer}
+
+\begin{primer}
+Naj bo $G$ poljubna neskončna grupa in naj bo topologija $\tau$ topologija končnih komplementov, tj. $\tau = \lbrace U \subseteq G ; |G\setminus U| < \infty \rbrace$.
+Iz splošne topologije vemo, da je to najšibkejša topologija na $G$, da topološki prostor $G$ zadošča separacijskemu aksiomu $T_1$, ne pa tudi $T_2$. Od tod po enakem razmisleku kot v primeru \ref{pri:haus2} sledi, da topološki prostor $(G, \tau)$ ni topološka grupa za nobeno operacijo.
+\end{primer}
 
 \section{Topološke podgrupe in kvocientne grupe}
 
