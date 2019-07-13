@@ -647,7 +647,7 @@ V dokazu spodnjega izreka bomo potrebovali pojem \emph{diadičnega} racionalnega
 	
 	Če velja še $x U_k x^{-1} = U_k$ za vsak $x \in G$ in $k \in \N$, potem je $\sigma$ tudi desnoinvariantna in velja
 	\begin{enumerate}[resume]
-		\item $\sigma (x^{-1}, y^{-1}) = \sigma (x, y)$ za vsaka dva elementa $x, y \in G$.
+		\item $\sigma (x^{-1}, y^{-1}) = \sigma (x, y)$ za vsaka dva elementa $x, y \in G$.\label{last:psevdo5}
 	\end{enumerate}
 \end{izrek}
 
@@ -692,6 +692,38 @@ Ker velja še
 &= \sup\lbrace |\varphi(azx) - \varphi(azy)| ; az \in G \rbrace = \sigma(x, y),
 \end{align*}
 je preslikava $\sigma\colon G \times G \to [0, \infty)$ res levoinvariantna psevdometrika na topološki grupi $G$.
+
+Najprej dokažimo lastnost \ref{last:psevdo3}. Naj bo $l \in \N$, $u \in V_{2^{-l}}$ in $z \in G$. Če je $z \in V_r$, potem je po zgoraj dokazanem $zu \in V_rV_{2^{-l}} \subset V_{r + 2^{-l+2}}$. Po definiciji preslikave $\varphi$ torej sledi $\varphi(zu) \leq \varphi(z) + 2^{-l+2}$. Naprej, če je $zu \in V_r$, potem je $z \in V_rV_{2^{-l}}^{-1} = V_rV_{2^{-l}} \subset V_{r + 2^{-l+2}}$, saj je okolica $V_{2^{-l}} = U_l$ simetrična. Po definiciji preslikave $\varphi$ torej sledi $\varphi(z) \leq \varphi(zu) + 2^{-l+2}$. Od tod sledi $|\varphi(z) - \varphi(zu)| \leq 2^{-l+2}$ za vsak $u \in V_{2^{-l}}$ in $z \in G$, kar po definiciji preslikave $\sigma$ pomeni $\sigma(u, e) \leq 2^{-l+2}$ za vsak $u \in V_{2^{-l}}$. Ker je preslikava $\sigma$ levoinvariantna, sledi da je $\sigma(x, y) \leq 2^{-l+2}$, če je $y^{-1}x \in V_{2^{-l}} = U_l$.
+
+Nato dokažimo lastnost \ref{last:psevdo1}. Vzemimo $(x, y), (x_1,y_1) \in G \times G$. Uporabimo levoinvariantnost, trikotniško neenakost in lastnost \ref{last:psevdo3} ter dobimo
+\begin{align*}
+&|\sigma(x, y) - \sigma(x_1, y_1)| = |\sigma(x_1^{-1}x, x_1^{-1}y) - \sigma(x_1^{-1}y, e) + \sigma(e, y^{-1}x_1) - \sigma(y^{-1}x_1, y^{-1}y_1)| \\
+&\leq |\sigma(x_1^{-1}x, x_1^{-1}y) - \sigma(x_1^{-1}y, e)| + |\sigma(e, y^{-1}x_1) - \sigma(y^{-1}x_1, y^{-1}y_1)| \\
+&\leq |\sigma(x_1^{-1}x, e)| + |\sigma(e, y^{-1}y_1)| \leq 2^{-l+2} + 2^{-l+2} = 2^{-l+3}
+\end{align*}
+Zadnja neenakost velja, če sta $x_1^{-1}x, y_1^{-1}y \in U_k$. Po definiciji leve uniformne strukture na topološki grupi $G$, je psevdometrika $\sigma$ enakomerno zvezna.
+
+Dokažimo lastnost \ref{last:psevdo4}. Naj velja $y^{-1}x \notin U_l = V_{2^{-l}}$. Po definiciji preslikave $\varphi$ velja $\varphi(y^{-1}x) \geq 2^{-l}$. Upoštevamo levoinvariantnost in dobimo
+\[ \sigma(x, y) = \sigma(y^{-1}x, e) \geq |\varphi(ey^{-1}x) - \varphi(ee)| = \varphi(y^{-1}x) \geq 2^{-l}. \]
+
+Lastnost \ref{last:psevdo2} sledi iz lastnosti \ref{last:psevdo3} in \ref{last:psevdo4}. Če velja $\sigma(x, y) = \sigma(y^{-1}x, e) = 0$, mora veljati $y^{-1}x \in U_k$ za vsak $k \in \N$, sicer bi po lastnosti \ref{last:psevdo4} obstajal $k_0 \in \N$, da bi veljajo $\sigma(x, y) \geq 2^{-k_0} > 0$. Torej je $y^{-1}x \in H = \bigcap_{k=1}^\infty U_k$. Če pa je $y^{-1}x \in H = \bigcap_{k=1}^\infty U_k$, je po lastnosti \ref{last:psevdo3} $\sigma(x,y) \leq 2^{-k}$ za vsak $k \in \N$. Ker je $\lim_{k \to \infty}2^{-k} = 0$, je res $\sigma(x, y) = 0$.
+
+Dokažimo še dodatek. Privzemimo, da velja $xU_kx^{-1} = U_k$ za vsak $x \in G$ in $k \in \N$. Potem za vsako diadično racionalno število $r > 0$ velja
+\begin{align*}
+xV_rx^{-1} &= xV_{2^{-l_1}}V_{2^{-l_2}}\cdots V_{2^{-l_n}}x^{-1} = xV_{2^{-l_1}}x^{-1}xV_{2^{-l_2}}x^{-1}\cdots xV_{2^{-l_n}}x^{-1} \\
+&= xU_1x^{-1}xU_2x^{-1}\cdots xU_nx^{-1} = U_1U_2\cdots U_n \\ 
+&= V_{2^{-l_1}}V_{2^{-l_2}}\cdots V_{2^{-l_n}} = V_r.
+\end{align*}
+Zato za vsaka $x, y \in G$ velja $\varphi(xyx^{-1}) = \inf\lbrace r ; xyx^{-1} \in V_r \rbrace = \inf\lbrace r ; y \in x^{-1}V_rx \rbrace = \inf\lbrace r ; y \in V_r \rbrace = \varphi(y)$.
+Za vsake elemente $x, y, a \in G$ od tod sledi
+\begin{align*}
+\sigma(xa, ya) &= \sup\lbrace |\varphi(zxa) - \varphi(zya)| ; z \in G \rbrace \\
+&= \sup\lbrace |\varphi(azx) - \varphi(azy)| ; z \in G \rbrace \\
+&= \sup\lbrace |\varphi(zx) - \varphi(zy)| ; z \in G \rbrace = \sigma(x, y),
+\end{align*}
+torej je psevdometrika $\sigma$ tudi desnoinvariantna.
+Lastnost \ref{last:psevdo5} sledi iz levo in desnoinvariantnosti. Velja
+\[ \sigma(x^{-1}, y^{-1}) = \sigma(e, y^{-1}x) = \sigma(y, x) ) = \sigma(x, y). \]
 \end{dokaz}
 
 \begin{izrek}\label{izr:metrizabilnost}
