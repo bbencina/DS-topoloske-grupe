@@ -329,18 +329,18 @@ Vsaka topološka grupa ima bazo $\Ucurl$ odprtih in simetričnih okolic enote.
 Naj bo $\mathcal{V}$ neka baza odprtih okolic enote. Za vsako okolico $V \in \mathcal{V}$ definiramo množico $U = V \cap V^{-1}$. Kot presek dveh odprtih množic je $U$ odprta. Ker je $e \in V$ in $e \in V^{-1}$, je $U$ odprta okolica enote, ki je po konstrukciji simetrična. Ker po definiciji preseka velja še $U \subseteq V$, je družina $\Ucurl = \lbrace V \cap V^{-1}; V \in \mathcal{V} \rbrace$ res baza odprtih in simetričnih okolic enote $e$.
 \end{dokaz}
 
-%isto kot kasneje pri kvocientih, združimo nekako
-\begin{posledica}\label{pos:sim}
-Za vsako okolico $U$ enote $e$ topološke grupe $G$ obstaja taka okolica $V$ enote $e$, da velja $\closure{V} \subset U$.
-\end{posledica}
-
-\begin{dokaz}
-Naj bo $U$ neka okolica enote in naj bo $\mathcal{V}$ baza odprtih in simetričnih okolic enote (obstaja po trditvi \ref{trd:sim}). Naj bo $V \in \mathcal{V}$ takšna okolica, da velja $V^2 \subset U$. Takšna okolica obstaja po trditvi \ref{trd:okolice}. Vzemimo $x \in \closure{V}$. Velja $(xV) \cap V \neq \emptyset$.
-Res: ker je $V$ okolica enote, je $xV$ okolica elementa $x$. Če je $x \in V$, zgornji presek ni prazen, ker je $V$ odprta množica, če pa je $x$ iz roba množice $V$, vsaka njegova okolica seka množico $V$.
-
-Obstajata torej $v_1, v_2 \in V$, da velja $x v_1 = v_2$. Sledi \[x = v_2 v_1^{-1} \in VV^{-1} = V^2 \subset U.\]
-Torej res velja $\closure{V} \subset U$.
-\end{dokaz}
+%%isto kot kasneje pri kvocientih, združimo nekako
+%\begin{posledica}\label{pos:sim}
+%Za vsako okolico $U$ enote $e$ topološke grupe $G$ obstaja taka okolica $V$ enote $e$, da velja $\closure{V} \subset U$.
+%\end{posledica}
+%
+%\begin{dokaz}
+%Naj bo $U$ neka okolica enote in naj bo $\mathcal{V}$ baza odprtih in simetričnih okolic enote (obstaja po trditvi \ref{trd:sim}). Naj bo $V \in \mathcal{V}$ takšna okolica, da velja $V^2 \subset U$. Takšna okolica obstaja po trditvi \ref{trd:okolice}. Vzemimo $x \in \closure{V}$. Velja $(xV) \cap V \neq \emptyset$.
+%Res: ker je $V$ okolica enote, je $xV$ okolica elementa $x$. Če je $x \in V$, zgornji presek ni prazen, ker je $V$ odprta množica, če pa je $x$ iz roba množice $V$, vsaka njegova okolica seka množico $V$.
+%
+%Obstajata torej $v_1, v_2 \in V$, da velja $x v_1 = v_2$. Sledi \[x = v_2 v_1^{-1} \in VV^{-1} = V^2 \subset U.\]
+%Torej res velja $\closure{V} \subset U$.
+%\end{dokaz}
 
 
 \begin{trditev}\label{trd:t0haus}
@@ -475,6 +475,14 @@ Naj bo $G$ topološka grupa, $H$ njena podgrupa in $U, V$ taki okolici enote $e$
 \begin{dokaz}
 Vzemimo odsek $xH \in \closure{\varphi(V)}$. Ker je $V$ okolica enote, je množica $\lbrace vxH ; v \in V \rbrace$ okolica odseka $xH$ in ima zato s $\varphi(V)$ neprazen presek. Po definiciji naravne preslikave obstajata točki $v_1, v_2 \in V$, da je $v_1xH = v_2H$. Velja \[xH = v_1^{-1}v_2H \in \lbrace wH ; w \in V^{-1}V \rbrace \subset \lbrace uH ; u \in U \rbrace = \varphi(U). \]
 Torej je res $\closure{\varphi(V)} \subset \varphi(U)$.
+\end{dokaz}
+
+\begin{posledica}\label{pos:sim}
+Za vsako okolico $U$ enote $e$ topološke grupe $G$ obstaja taka okolica $V$ enote $e$, da velja $\closure{V} \subset U$.
+\end{posledica}
+
+\begin{dokaz}
+Naj bo $U$ poljubna okolica enote $e$ in naj bo $\mathcal{V}$ baza simetričnih okolic enote $e$ iz trditve \ref{trd:sim}. Vzemimo tako okolico $V \in \mathcal{V}$, da velja $V^2 \subset U$. Takšna okolica obstaja po trditvi \ref{trd:okolice}. Velja $V^2 = V^{-1}V \subset U$. Naj bo podgrupa $H = \lbrace e \rbrace$. Po trditvi \ref{trd:okolicevkvoc} je $\closure{\varphi(V)} \subset \varphi(U)$. Ker je $H$ trivialna podgrupa, je kvocientna množica $G/H = G$ in naravna preslikava je identična preslikava na topološki grupi $G$. Torej velja $\closure{V} \subset U$.
 \end{dokaz}
 
 %HERE
