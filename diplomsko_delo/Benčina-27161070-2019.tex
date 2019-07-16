@@ -537,29 +537,76 @@ Trditev \ref{podtrd:kvoc3} sledi direktno iz točke \ref{podtrd:kvocreg1} izreka
 	Za vsak element $a \in G$ je $\psi_a$ homeomorfizem na prostoru $G/H$.
 \end{trditev}
 
+\begin{dokaz}
+Preslikava $\psi_a$ je očitno bijektivna za vsak $a \in G$, saj je preslikava $\psi_{a^{-1}}$ njen inverz. Pokazali bomo, da je za vsak $a \in G$ preslikava $\psi_a$ odprta. Od tod bo sledilo, da je preslikava $\psi_{a^{-1}}$ zvezna. Ker je tudi $\psi_{a^{-1}}$ odprta preslikava, je tudi $\psi_a$ zvezna preslikava. Torej je $\psi_a$ homeomorfizem.
+
+Vzemimo odprto podmnožico $\lbrace uH ; u \in U \rbrace$ prostora $G/H$, kjer je $U \subset G$ odprta množica. Potem velja, da je
+\[ \psi_a(\lbrace uH ; u \in U \rbrace) = \lbrace auH ; u \in U \rbrace = \lbrace vH ; v \in aU \rbrace \]
+odprta množica, saj je množica $aU$ odprta v $G$, ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem. Preslikava $\psi_a$ je torej odprta.
+\end{dokaz}
+
 \begin{trditev}\label{trd:kvockompakt}
 	Naj bo $H$ podgrupa (lokalno) kompaktne topološke grupe $G$. Potem je tudi kvocientni prostor $G/H$ (lokalno) kompakten.
 \end{trditev}
 
+\begin{dokaz}
+Če je $G$ kompaktna topološka grupa, je tudi $G/H$ kompakten prostor, saj je prostor $G/H$ slika množice $G$ z naravno preslikavo, ki je po izreku \ref{izr:topkvocienta} zvezna.
+
+Naj bo topološka grupa $G$ lokalno kompaktna in naj bo množica $K$ kompaktna okolica poljubnega elementa $a \in G$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je množica $a^{-1}K$ kompaktna okolica enote $e$. Ker je po izreku \ref{izr:topkvocienta} naravna preslikava zvezna, je množica $\varphi(a^{-1}K)$ kompaktna okolica enote $H$ v prostoru $G/H$. Po trditvi \ref{trd:homogenkvoc} je potem $\psi_a(\varphi(a^{-1}K))$ kompaktna okolica elementa $aH$. Kvocientni prostor $G/H$ je torej lokalno kompakten.
+\end{dokaz}
+
+\begin{trditev}\label{trd:kompni}
+Lokalno kompakten, števno kompakten, regularen topološki prostor $X$ ni unija števno zaprtih množic s prazno notranjostjo.
+\end{trditev}
+
+\begin{trditev}\label{trd:kompodp}
+Naj bo $G$ lokalno kompaktna, $\sigma$-kompaktna topološka grupa in naj bo $f\colon G \to \widetilde{G}$ zvezen homomorfizem v lokalno kompaktno, števno kompaktno topološko grupo $\widetilde{G}$, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $f$ odprta preslikava.
+\end{trditev}
+
 \subsection{Prvi izrek o izomorfizmih}
 \begin{izrek}[Prvi izrek o izomorfizmih za topološke grupe]\label{izr:prvitopizrek}
-Naj bosta $G$ in $\widetilde{G}$ topološki grupi. Naj bo $f: G \to \widetilde{G}$ odprt, zvezen in surjektiven homomorfizem. Potem je ker$f$ podgrupa edinka v grupi $G$ in množice $f^{-1}(\tilde{x})$, kjer je $\tilde{x} \in \widetilde{G}$, so disjunktni odseki ker$f$ v grupi $G$. Preslikava $\Phi:\widetilde{G} \to G/\text{ker}f$ s predpisom $\tilde{x} \mapsto f^{-1}(\tilde{x})$ je topološki izomorfizem.
+Naj bosta $G$ in $\widetilde{G}$ topološki grupi. Naj bo $f\colon G \to \widetilde{G}$ odprt, zvezen in surjektiven homomorfizem. Potem je $\ker f$ podgrupa edinka v grupi $G$ in množice $f^{-1}(\tilde{x})$, kjer je $\tilde{x} \in \widetilde{G}$, so disjunktni odseki $\ker f$ v grupi $G$. Preslikava $\Phi\colon\widetilde{G} \to G/\ker f$ s predpisom $\tilde{x} \mapsto f^{-1}(\tilde{x})$ je topološki izomorfizem.
 \end{izrek}
+
+\begin{dokaz}
+Upoštevajoč izrek (prvi izrek o izomorfizmih) moramo pokazati le, da je preslikava $\Phi$ homeomorfizem. Vzemimo odprto podmnožico $\widetilde{U} \subset \widetilde{G}$. Množica $\Phi(\widetilde{U}) = \lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace$ je potem odprta v $G/H$, saj je množica $\cup\lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace = f^{-1}(\widetilde{U})$ odprta v $G$, ker je preslikava $f$ zvezna. Torej je preslikava $\Phi$ odprta, od koder sledi, da je $\Phi^{-1}$ zvezna preslikava.
+
+Vzemimo $\lbrace uH ; u \in U \rbrace$ odprto množico v $G/H$, kjer je množica $U \subset G$ odprta. Potem velja
+\begin{align*}
+\Phi^{-1}(\lbrace uH ; u \in U \rbrace) &= \lbrace \tilde{x} \in \widetilde{G} ; f^{-1}(\tilde{x}) = uH \text{ za nek element } u \in U \rbrace \\
+&= \lbrace f(u) ; u \in U \rbrace = f(U).
+\end{align*}
+Ker je preslikava $f$ po predpostavki odprta, je $f(U)$ odprta množica v $\widetilde{G}$. Torej je preslikava $\Phi^{-1}$ odprta, od koder sledi, da je $\Phi$ zvezna preslikava. Sledi, da je $\Phi$ homeomorfizem.
+\end{dokaz}
 
 \subsection{Drugi izrek o izomorfizmih}
 \begin{izrek}[Drugi izrek o izomorfizmih za topološke grupe]\label{izr:drugitopizrek}
-Naj bo $G$ topološka grupa, $A$ njena podgrupa in $H$ podgrupa edinka grupe $G$. Naj bo $\tau$ izomorfizem iz kvocienta $(AH)/H$ v kvocient $A/(A \cap H)$ s predpisom $\tau (aH) = a(A \cap H)$, kjer je $a \in A$.
+Naj bo $G$ topološka grupa, $A$ njena podgrupa in $H$ podgrupa edinka grupe $G$. Naj bo $\tau\colon (AH)/H \to A/(A \cap H)$ izomorfizem s predpisom $\tau (aH) = a(A \cap H)$, kjer je $a \in A$.
 \begin{enumerate}
-\item Preslikava $\tau$ slika odprte množice iz $(AH)/H$ v odprte množice iz $A/(A \cap H)$.
-\item Če je $A$ še lokalno kompaktna in $\sigma$-kompaktna, $H$ zaprta v $G$ in $AH$ lokalno kompaktna, potem je $\tau$ homeomorfizem ter topološki grupi $(AH)/H$ in $A/(A \cap H)$ sta topološko izomorfni.
+\item Preslikava $\tau$ slika odprte množice iz $(AH)/H$ v odprte množice iz $A/(A \cap H)$. \label{podtrd:ioi2-1}
+\item Če je $A$ še lokalno kompaktna in $\sigma$-kompaktna, $H$ zaprta v $G$ in $AH$ lokalno kompaktna, potem je $\tau$ homeomorfizem ter topološki grupi $(AH)/H$ in $A/(A \cap H)$ sta topološko izomorfni. \label{podtrd:ioi2-2}
 \end{enumerate}
 \end{izrek}
+
+\begin{dokaz}
+Najprej dokažimo \ref{podtrd:ioi2-1}.
+Odprta množica v prostoru $(AH)/H$ je množica $\lbrace xH ; \break x\in X \rbrace$, kjer je $X \subset A$ taka množica, da je $XH$ odprta v podprostoru $AH$ topološke grupe $G$. Ker je $\tau(\lbrace xH ; x \in X \rbrace) = \lbrace x(A \cap H) ; x \in X \rbrace$ in velja $X(A \cap H) = (XH)\cap A$, sledi, da je množica $X(A \cap H)$ odprta v podprostoru $A$ topološke grupe $G$. Zato je po definiciji kvocientne topologije je množica $\lbrace x(A\cap H) ; x \in X \rbrace$ odprta v prostoru $A/(A \cap H)$.
+
+Za dokaz \ref{podtrd:ioi2-2} moreamo upoštevajoč izrek (drugi izrek o izomorfizmih) in točko \ref{podtrd:ioi2-1} tega izreka dokazati le, da je tudi preslikava $\tau^{-1}$ odprta.
+Oglejmo si naravno preslikavo $\varphi\colon G \to G/H$. Za njeno zožitev na podgrupo $A$ velja, da preslika podgrupo $A$ surjektivno v podgrupo $(AH)/H$ topološke grupe $G/H$. Ker je po predpostavki množica $AH$ lokalno kompaktna in podgrupa edinka $H$ zaprta v $G$, je po trditvi \ref{trd:kvockompakt} $(AH)/H$ lokalno kompaktna in po izreku \ref{izr:kvocreg} zadošča separacijskemu aksiomu $T_0$. Preslikava $\varphi|_A$ je torej surjektiven in odprt homomorfizem iz lokalno kompaktne, $\sigma$-kompaktne grupe $A$ v lokalno kompaktno grupo $(AH)/H$, ki zadošča separacijskemu aksiomu $T_0$. Po trditvi \ref{trd:kompodp} odprta preslikava.
+
+Vzemimo odprto podmnožico $\lbrace y(A \cap H) ; y \in Y \rbrace \subset A/(A \cap H)$, kjer je $Y \subset A$, tj. množica $Y(A \cap H)$ je odprta v $A$. Velja $\varphi(Y(A \cap H)) = \lbrace yH ; y \in Y \rbrace \subset (AH)/H$. Ker je $\varphi|_A$ odprta preslikava, je množica $\lbrace yH ; y \in Y \rbrace$ odprta v $(AH)/H$. Po definiciji preslikave $\tau$ velja $\lbrace yH ; y \in Y \rbrace = \tau^{-1}(\lbrace y(A \cap H) ; y \in Y \rbrace)$. Od tod sledi, da je preslikava $\tau^{-1}$ odprta.
+\end{dokaz}
 
 
 \subsection{Tretji izrek o izomorfizmih}
 \begin{izrek}\label{izr:predtretji}
-	Naj bo $f\colon G \to \widetilde{G}$ odprt, zvezen homomorfizem topoloških grup in naj bo $\widetilde{H}$ podgrupa edinka v $\widetilde{G}$. Potem so grupe $(G/\text{ker}f)/(f^{-1}(\widetilde{H})/\text{ker}f)$, $G/f^{-1}(\widetilde{H})$ in $\widetilde{G}/\widetilde{H}$ topološko izomorfne.
+	Naj bo $f\colon G \to \widetilde{G}$ odprt, zvezen homomorfizem topoloških grup in naj bo $\widetilde{H}$ podgrupa edinka v $\widetilde{G}$. Potem so grupe $(G/\ker f)/(f^{-1}(\widetilde{H})/\ker f)$, $G/f^{-1}(\widetilde{H})$ in $\widetilde{G}/\widetilde{H}$ topološko izomorfne.
 \end{izrek}
+
+\begin{dokaz}
+Naj bo $\tilde{\varphi}\colon \widetilde{G} \to \widetilde{G}/\widetilde{H}$ naravna preslikava. Po izreku \ref{izr:kvocpovzetek} je $\tilde{\varphi}$ odprt in zvezen homomorfizem. Ker je preslikava $f$ odprt in zvezen homomorfizem, je zato preslikava $\tilde{\varphi}\circ f\colon G \to \widetilde{G}/\widetilde{H}$ odprt in zvezen homomorfizem z jedrom $H = f^{-1}(\widetilde{H})$. Po izreku \ref{izr:prvitopizrek} sta topološki grupi $G/H$ in $\widetilde{G}/\widetilde{H}$ topološko izomorfni. Naj bo $N = \ker f$. Ker je po izreku \ref{izr:prvitopizrek} preslikava $f^{-1}\colon \widetilde{G} \to G/N$, $\tilde{x} \mapsto f^{-1}(\tilde{x})$, topološki izomorfizem in je slika podgrupe $\widetilde{H}$ so to preslikavo enaka $H/N$, je topološka grupa $\widetilde{G}/\widetilde{H}$ topološko izomorfna $(G/N)/(H/N)$.
+\end{dokaz}
 
 Izrek lahko preoblikujemo v obliko, ki je bolj podobna algebraični različici in ne vsebuje pomožne topološke grupe $\widetilde{G}$.
 \begin{izrek}[Tretji izrek o izomorfizmih za topološke grupe]\label{izr:tretjitopizrek}
