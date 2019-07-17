@@ -485,7 +485,18 @@ Za vsako okolico $U$ enote $e$ topološke grupe $G$ obstaja taka okolica $V$ eno
 Naj bo $U$ poljubna okolica enote $e$ in naj bo $\mathcal{V}$ baza simetričnih okolic enote $e$ iz trditve \ref{trd:sim}. Vzemimo tako okolico $V \in \mathcal{V}$, da velja $V^2 \subset U$. Takšna okolica obstaja po trditvi \ref{trd:okolice}. Velja $V^2 = V^{-1}V \subset U$. Naj bo podgrupa $H = \lbrace e \rbrace$. Po trditvi \ref{trd:okolicevkvoc} je $\closure{\varphi(V)} \subset \varphi(U)$. Ker je $H$ trivialna podgrupa, je kvocientna množica $G/H = G$ in naravna preslikava je identična preslikava na topološki grupi $G$. Torej velja $\closure{V} \subset U$.
 \end{dokaz}
 
-%HERE
+S pomočjo zgornje posledice lahko pokažemo, da sta separacijski aksiom $T_0$ in regularnost za topološke grupe ekvivalentna pojma. Kasneje bomo pokazali, da sledi iz separacijskega aksioma $T_0$ sledi še več - povsem regularnost.
+
+\begin{izrek}\label{izr:t3}
+	Vsaka topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je regularen topološki prostor.
+\end{izrek}
+
+\begin{dokaz}
+	Po trditvi \ref{trd:t0haus} je $G$ Hausdorffova in zato zadošča separacijskemu aksiomu $T_1$.
+	
+	Vzemimo poljuben element $a \in G$ in njegovo okolico $U$. Množica $a^{-1}U$ je potem okolica enote $e$, saj je po trditvi \ref{trd:trans} leva translacija homeomorfizem. Po posledici \ref{pos:sim} obstaja takšna okolica $V$ enote $e$, da je $\closure{V} \subset a^{-1}U$. Ker je leva translacija homeomorfizem, je množica $aV$ okolica elementa $a$, za katero velja $aV \subset \closure{aV} \subset U$. Topološka grupa $G$ zadošča separacijskemu aksiomu $T_3$ in je zato regularna.
+\end{dokaz}
+
 \begin{izrek}\label{izr:kvocreg}
 Za topološko grupo $G$ in njeno podgrupo $H$ veljajo naslednje trditve:
 \begin{enumerate}
@@ -563,9 +574,34 @@ Naj bo topološka grupa $G$ lokalno kompaktna in naj bo množica $K$ kompaktna o
 Lokalno števno kompakten, regularen topološki prostor $X$ ni unija števno zaprtih množic s prazno notranjostjo.
 \end{trditev}
 
+\begin{dokaz}
+Trditev bomo dokazali s protislovjem. Naj bo topološki prostor $X$ enak uniji zaprtih množic s prazno notranjostjo, torej $X = \bigcup_{n=1}^\infty A_n$, kjer je za vsak $n \in \N$ množica $A_n$ zaprta in velja $\interior{A} = \emptyset$. Za vsak $n \in \N$ definiramo $D_n = X \setminus A_n$. Očitno je za vsak $n \in \N$ množica $D_n$ odprta. Ker ima za vsak $n \in \N$ množica $A_n$ prazno notranjost, torej ne vsebuje nobene neprazne odprte množice, vsaka odprta množica v topološkem prostoru $X$ seka množico $D_n$. Množica $D_n$ je torej gosta v prostoru $X$. Pokazali bomo, da velja $\bigcap_{n=1}^\infty D_n \neq \emptyset$, kar pomeni, da obstaja nek element prostora $X$, ki ni v nobeni množici $A_n$, torej topološki prostor $X$ ne more biti unija množic $A_n$.
+
+Vzemimo poljuben element $x_0 \in X$. Naj bo množica $K$ njegova števno kompaktna okolica. Ker je prostor $X$ regularen, obstaja takšna odprta okolica $U_0$ elementa $x_0$, da je $U_0 \subset \closure{U_0} \subset K$. Tudi množica $\closure{U_0}$ je števno kompaktna. Ker je množica $D_1$ gosta v regularnem topološkem prostoru $X$, ima z vsako odprto množico neprazen presek, torej obstaja takšna neprazna odprta množica $U_1$, da je $U_1 \subset \closure{U_1} \subset U_0 \cap D_1$. Induktivno za vsak $n \in \N$ definiramo množico $U_n$ na naslednji način. Če smo že definirali množice $U_i$ za $i = 1,\dots,n-1$, naj bo množica $U_n$ takšna neprazna odprta množica, da velja $U_n \subset \closure{U_n} \subset U_{n-1} \cap D_n$. Tako kot pri definiciji množice $U_1$ upoštevamo, da je množica $D_n$ gosta za vsak $n \in \N$ in da je topološki prostor $X$ regularen.
+Ker je množica $\closure{U_0}$ števno kompaktna in je za vsak $n \in \N$ množica $\closure{U_n}$ neprazna, je tudi presek $\bigcap_{n=0}^\infty \closure{U_n}$ neprazen. Elementi tega preseka morajo po zgornji konstrukciji ležati v preseku $\bigcap_{n=1}^\infty D_n$, torej res velja $\bigcap_{n=1}^\infty D_n \neq \emptyset$.
+\end{dokaz}
+
 \begin{trditev}\label{trd:kompodp}
-Naj bo $G$ lokalno kompaktna, $\sigma$-kompaktna topološka grupa in naj bo $f\colon G \to \widetilde{G}$ zvezen homomorfizem v lokalno števno kompaktno topološko grupo $\widetilde{G}$, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $f$ odprta preslikava.
+Naj bo $G$ lokalno kompaktna, $\sigma$-kompaktna topološka grupa in naj bo $f\colon G \to \widetilde{G}$ zvezen in surjektiven homomorfizem v lokalno števno kompaktno topološko grupo $\widetilde{G}$, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $f$ odprta preslikava.
 \end{trditev}
+
+\begin{dokaz}
+Pišimo $G = \bigcup_{n=1}^\infty A_n$, kjer je $A_n$ kompaktna množica za vsak $n \in \N$. Naj bo $\Ucurl$ družina vseh simetričnih okolic enote $e$ topološke grupe $G$ in naj bo $\widetilde{\Ucurl}$ družina vseh okolic enote $\tilde{e}$ topološke grupe $\widetilde{G}$. Dokazali bomo, da za vsako okolico $U \in \Ucurl$ obstaja okolica $\widetilde{U} \in \widetilde{\Ucurl}$, da velja $\widetilde{\Ucurl} \subset f(U)$. Potem lahko vzamemo poljubno odprto podmnožico $B \subset G$. Za vsak $x \in B$ obstaja taka okolica $U \in \Ucurl$, da je $xU$ okolica elementa $x$ in velja $xU \subset B$. Ker obstaja $\widetilde{U} \in \widetilde{\Ucurl}$, da velja $\widetilde{\Ucurl} \subset f(U)$, imamo
+\[ f(x) \in f(x)\widetilde{U} \subset f(x)f(U) = f(xU) \subset f(B), \]
+torej je množica $f(B)$ okolica za vsako svojo točko in po definiciji odprta v topološki grupi $\widetilde{G}$. Ker je množica $B$ poljubna, je $f$ odprta preslikava.
+
+Dokažimo torej, da za vsako okolico $U \in \Ucurl$ obstaja okolica $\widetilde{U} \in \widetilde{\Ucurl}$, da velja $\widetilde{\Ucurl} \subset f(U)$. Vzemimo poljubno okolico $U \in \Ucurl$. Po trditvi \ref{trd:okolice} obstaja takšna množica $V_1 \in \Ucurl$, da velja $V_1^2 \subset U$. Po posledici \ref{pos:sim} obstaja takšna množica $V \in \Ucurl$, da velja $\closure{V} \subset V_1$. Upoštevamo še trditev \ref{trd:zaprtost} in dobimo
+\[ U \supset V_1^2 \supset \closure{V}\closure{V} = \closure{V^{-1}}\closure{V} = \closure{V}^{-1}\closure{V}. \]
+Ker je topološka grupa $G$ lokalno kompaktna, lahko vzamemo tako množico $V$, da je množica $\closure{V}$ kompaktna.
+Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je družina množic $\lbrace xV ; x \in G \rbrace$ odprto pokritje topološke grupe $G$ in zato tudi množice $A_n$ za vsak $n \in \N$. Ker je množica $A_n$ za vsak $n \in \N$ kompaktna, jo pokrije le končno množic oblike $xV$, kjer je $x \in G$. Množic $A_n$ je števno, torej topološko grupo $G$ pokrije števno množic oblike $xV$, kjer je $x \in G$. Naj bo to števno pokritje družina $\lbrace x_nV \rbrace_{n=1}^\infty$. Potem velja $G = \bigcup_{n=1}^\infty x_nV = \bigcup_{n=1}^\infty x_n\closure{V}$. Ker je preslikava $f$ surjektivna, velja tudi $\widetilde{G} = \bigcup_{n=1}^\infty f(x_n\closure{V}) = \bigcup_{n=1}^\infty f(x_n)f(\closure{V})$.
+
+Pokažimo, da ima množica $f(\closure{V})$ neprazno notranjost. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je za vsak $n \in \N$ množica $x_nV$ kompaktna v topološki grupi $G$. Ker je preslikava $f$ zvezna, je množica $f(x_n)f(\closure{V})$ kompaktna v topološki grupi $\widetilde{G}$ za vsak $n \in \N$. Topološka grupa $\widetilde{G}$ zadošča separacijskemu aksiomu $T_0$, zato je po trditvi \ref{trd:t0haus} Hausdorffova, torej so vse kompaktne množice $f(x_n)f(\closure{V})$ zaprte v $\widetilde{G}$. Če predpostavimo, da ima množica $f(\closure{V})$ prazno notranjost, imajo tudi množice $f(x_n)f(\closure{V})$ prazno notranjost za vsak $n \in \N$, saj je leva translacija po trditvi \ref{trd:trans} homeomorfizem. Potem je topološka grupa $\widetilde{G} = \bigcup_{n=1}^\infty f(x_n)f(\closure{V})$ unija števno zaprtih množic s prazno notranjostjo. Po drugi strani je topološka grupa $\widetilde{G}$ lokalno števno kompakten topološki prostor, ki zadošča separacijskemu aksiomu $T_0$ in je zato po izreku \ref{izr:t3} regularen. Po trditvi \ref{trd:kompni} je to nemogoče, zato ima množica $f(\closure{V})$ neprazno notranjost, torej vsebuje neko neprazno odprto množico $\widetilde{V} \subset G$.
+
+Izberimo poljubni točki $\tilde{x} \in \widetilde{V}$ in $x \in f^{-1}(\tilde{x})\cap\closure{V}$.
+Po konstrukciji množice $V$ potem velja $x^{-1}\closure{V} \subset U$. Ker je $f$ zvezna preslikava, dobimo
+\[ f(U) \supset f(x^{-1}\closure{B}) = f(x)^{-1}f(\closure{V}) \supset \tilde{x}^{-1}\widetilde{V}. \]
+Množica $\tilde{x}^{-1}\widetilde{V}$ je okolica enote $\tilde{e}$ in je zato vsebovana v družini $\widetilde{\Ucurl}$. S tem smo dokazali zgornjo izjavo in s tem izrek.
+\end{dokaz}
 
 \subsection{Prvi izrek o izomorfizmih}
 \begin{izrek}[Prvi izrek o izomorfizmih za topološke grupe]\label{izr:prvitopizrek}
@@ -833,18 +869,6 @@ Torej za vsak $k \in \N$ velja
 \[ K(e, 2^{-k}) \subset U_k \subset K(e, 2^{-k+2}). \]
 Vsaka okolica enote $e$ v topologiji $\tau$ torej vsebuje okolico enote $e$ v topologiji $\tau_\sigma$ in vsaka okolica enote $e$ v topologiji $\tau_\sigma$ vsebuje okolico enote $e$ v topologiji $\tau$.
 Ker sta topologiji $\tau$ in $\tau_\sigma$ po trditvi \ref{izr:bazaokolice} translacijsko invariantni, sta ekvivalentni in $G$ je metrizabilen topološki prostor.
-\end{dokaz}
-
-\subsection{Regularnost}
-
-\begin{izrek}\label{izr:t3}
-	Vsaka topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je regularen topološki prostor.
-\end{izrek}
-
-\begin{dokaz}
-	Po trditvi \ref{trd:t0haus} je $G$ Hausdorffova in zato zadošča separacijskemu aksiomu $T_1$.
-	
-	Vzemimo poljuben element $a \in G$ in njegovo okolico $U$. Množica $a^{-1}U$ je potem okolica enote $e$, saj je po trditvi \ref{trd:trans} leva translacija homeomorfizem. Po posledici \ref{pos:sim} obstaja takšna okolica $V$ enote $e$, da je $\closure{V} \subset a^{-1}U$. Ker je leva translacija homeomorfizem, je množica $aV$ okolica elementa $a$, za katero velja $aV \subset \closure{aV} \subset U$. Topološka grupa $G$ zadošča separacijskemu aksiomu $T_3$ in je zato regularna.
 \end{dokaz}
 
 
