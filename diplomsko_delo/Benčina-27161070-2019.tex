@@ -555,12 +555,16 @@ odprta množica, saj je množica $aU$ odprta v $G$, ker je po trditvi \ref{trd:t
 Naj bo topološka grupa $G$ lokalno kompaktna in naj bo množica $K$ kompaktna okolica poljubnega elementa $a \in G$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je množica $a^{-1}K$ kompaktna okolica enote $e$. Ker je po izreku \ref{izr:topkvocienta} naravna preslikava zvezna, je množica $\varphi(a^{-1}K)$ kompaktna okolica enote $H$ v prostoru $G/H$. Po trditvi \ref{trd:homogenkvoc} je potem $\psi_a(\varphi(a^{-1}K))$ kompaktna okolica elementa $aH$. Kvocientni prostor $G/H$ je torej lokalno kompakten.
 \end{dokaz}
 
+\begin{opomba}
+\emph{Števno kompakten} prostor je tak topološki prostor, pri katerem za vsako števno odprto pokritje obstaja končno podpokritje, v \emph{lokalno števno kompaktnem} topološkem prostoru pa ima vsaka točka števno kompaktno okolico. 
+\end{opomba}
+
 \begin{trditev}\label{trd:kompni}
-Lokalno kompakten, števno kompakten, regularen topološki prostor $X$ ni unija števno zaprtih množic s prazno notranjostjo.
+Lokalno števno kompakten, regularen topološki prostor $X$ ni unija števno zaprtih množic s prazno notranjostjo.
 \end{trditev}
 
 \begin{trditev}\label{trd:kompodp}
-Naj bo $G$ lokalno kompaktna, $\sigma$-kompaktna topološka grupa in naj bo $f\colon G \to \widetilde{G}$ zvezen homomorfizem v lokalno kompaktno, števno kompaktno topološko grupo $\widetilde{G}$, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $f$ odprta preslikava.
+Naj bo $G$ lokalno kompaktna, $\sigma$-kompaktna topološka grupa in naj bo $f\colon G \to \widetilde{G}$ zvezen homomorfizem v lokalno števno kompaktno topološko grupo $\widetilde{G}$, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $f$ odprta preslikava.
 \end{trditev}
 
 \subsection{Prvi izrek o izomorfizmih}
@@ -593,7 +597,7 @@ Najprej dokažimo \ref{podtrd:ioi2-1}.
 Odprta množica v prostoru $(AH)/H$ je množica $\lbrace xH ; \break x\in X \rbrace$, kjer je $X \subset A$ taka množica, da je $XH$ odprta v podprostoru $AH$ topološke grupe $G$. Ker je $\tau(\lbrace xH ; x \in X \rbrace) = \lbrace x(A \cap H) ; x \in X \rbrace$ in velja $X(A \cap H) = (XH)\cap A$, sledi, da je množica $X(A \cap H)$ odprta v podprostoru $A$ topološke grupe $G$. Zato je po definiciji kvocientne topologije je množica $\lbrace x(A\cap H) ; x \in X \rbrace$ odprta v prostoru $A/(A \cap H)$.
 
 Za dokaz \ref{podtrd:ioi2-2} moreamo upoštevajoč izrek (drugi izrek o izomorfizmih) in točko \ref{podtrd:ioi2-1} tega izreka dokazati le, da je tudi preslikava $\tau^{-1}$ odprta.
-Oglejmo si naravno preslikavo $\varphi\colon G \to G/H$. Za njeno zožitev na podgrupo $A$ velja, da preslika podgrupo $A$ surjektivno v podgrupo $(AH)/H$ topološke grupe $G/H$. Ker je po predpostavki množica $AH$ lokalno kompaktna in podgrupa edinka $H$ zaprta v $G$, je po trditvi \ref{trd:kvockompakt} $(AH)/H$ lokalno kompaktna in po izreku \ref{izr:kvocreg} zadošča separacijskemu aksiomu $T_0$. Preslikava $\varphi|_A$ je torej surjektiven in odprt homomorfizem iz lokalno kompaktne, $\sigma$-kompaktne grupe $A$ v lokalno kompaktno grupo $(AH)/H$, ki zadošča separacijskemu aksiomu $T_0$. Po trditvi \ref{trd:kompodp} odprta preslikava.
+Oglejmo si naravno preslikavo $\varphi\colon G \to G/H$. Za njeno zožitev na podgrupo $A$ velja, da preslika podgrupo $A$ surjektivno v podgrupo $(AH)/H$ topološke grupe $G/H$. Ker je po predpostavki množica $AH$ lokalno kompaktna in podgrupa edinka $H$ zaprta v $G$, je po trditvi \ref{trd:kvockompakt} $(AH)/H$ lokalno kompaktna in po izreku \ref{izr:kvocreg} zadošča separacijskemu aksiomu $T_0$. Preslikava $\varphi|_A$ je torej surjektiven in odprt homomorfizem iz lokalno kompaktne, $\sigma$-kompaktne grupe $A$ v lokalno kompaktno grupo $(AH)/H$, ki zadošča separacijskemu aksiomu $T_0$. Po trditvi \ref{trd:kompodp} je $\varphi|_A$ odprta preslikava.
 
 Vzemimo odprto podmnožico $\lbrace y(A \cap H) ; y \in Y \rbrace \subset A/(A \cap H)$, kjer je $Y \subset A$, tj. množica $Y(A \cap H)$ je odprta v $A$. Velja $\varphi(Y(A \cap H)) = \lbrace yH ; y \in Y \rbrace \subset (AH)/H$. Ker je $\varphi|_A$ odprta preslikava, je množica $\lbrace yH ; y \in Y \rbrace$ odprta v $(AH)/H$. Po definiciji preslikave $\tau$ velja $\lbrace yH ; y \in Y \rbrace = \tau^{-1}(\lbrace y(A \cap H) ; y \in Y \rbrace)$. Od tod sledi, da je preslikava $\tau^{-1}$ odprta.
 \end{dokaz}
