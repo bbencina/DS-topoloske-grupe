@@ -928,6 +928,22 @@ Za vsak povsem regularen topološki prostor $X$ obstaja taka topološka grupa $F
 \end{enumerate}
 \end{izrek}
 
+\begin{dokaz}
+Naj $\mathbf{c}$ označuje kontinuum, torej $\mathbf{c} = |\R|$. Vzemimo povsem regularen topološki prostor $X$. Naj bo $\mathcal{G}$ družina vseh topoloških grup, za katero velja:
+\begin{enumerate}
+\item za vsako topološko grupo $G \in \mathcal{G}$ je $|G| \leq \max\lbrace |X|, \mathbf{c}\rbrace$,
+\item za vsako topološko grupo $H$, za katero je $|H| \leq \max\lbrace |X|, \mathbf{c}\rbrace$, obstaja taka topološka grupa $G \in \mathcal{G}$, da sta $G$ in $H$ topološko izomorfni.
+\end{enumerate}
+Definiramo množico $\lbrace (G_\iota, \varphi_\iota)\rbrace_{\iota \in I}$ vseh parov $(G_\iota, \varphi_\iota)$, kjer je $G_\iota \in \mathcal{G}$ in je $\varphi_\iota\colon X \to G_\iota$ zvezna preslikava. Po definiciji družine $\mathcal{G}$ za vsako topološko grupo $H$ in zvezno preslikavo $\varphi\colon X \to H$, kjer velja $|H| \leq \max\lbrace |X|,  \mathbf{c}\rbrace$, obstaja tak indeks $\iota_0$, da sta topološki grupi $G_{\iota_0}$ in $H$ topološko izomorfni s topološkim izomorfizmom $\tau$ in velja $\tau\circ\varphi_{\iota_0} = \varphi$.
+V tem primeru identificiramo par $(H, \varphi)$ s parom $(G_{\iota_0}, \varphi_{\iota_0})$.
+
+Definiramo kartezični produkt $G_0 = \Pi_{\iota \in I}G_\iota$ in označimo enoto grupe $G_0$ z $e$. Za vsak $x \in X$ po komponentah definiramo $\nu(x) \in G_0$ tako: $\nu(x)_\iota = \varphi_\iota(x)$. Pokažimo, da je Preslikava $\nu\colon X \to \nu(X)$ homeomorfizem. Preslikava $\nu$ je zvezna, saj so vse funkcije $\varphi_\iota$ zvezne. Preslikava $\nu$ je injektivna, saj vse topološko izomorfne topološke grupe med sabo identificiramo, torej je bijektivna na svojo sliko. Za dokaz odprtosti preslikave $\nu$ vzemimo poljubno neprazno odprto množico $U \subset X$. Ker je $X$ povsem regularen topološki prostor, za vsak $a \in U$ obstaja zvezna preslikava $\psi_a\colon X \to [0,1]$, za katero velja $\psi_a(a) = 0$ in $\phi_a(X\setminus U) \equiv 1$. Množici $\nu(U)$ in $\nu(X\setminus U)$ sta disjunktni v $G_0$, ker je preslikava $\nu$ bijektivna. Potem je množica $\nu(\psi_a^{-1}([0,\frac{1}{2}))$ odprta okolica elementa $\nu(a) \in \nu(\psi_a^{-1}([0,\frac{1}{2})) \subset \nu(U)$ za vsak $a \in U$. Torej je množica $\nu(U)$ odprta in $\nu$ je odprta preslikava in s tem homeomorfizem.
+Od tukaj naprej lahko torej identificiramo prostor $X$ s podmnožico $\nu(X) \subset G_0$ in pojmujemo $X \subset G_0$.
+Naj bo potem podgrupa $F \leq G$ tista podgrupa, ki je generirana z množico $X$.
+
+
+\end{dokaz}
+
 \begin{izrek}\label{izr:prostaizo}
 Naj bo $X$ povsem regularen topološki prostor, $F$ prosta topološka grupa nad $X$, konstruirana v izreku \ref{izr:prostatopgrupa}, in naj bo $\widetilde{F}$ taka topološka grupa, da zanjo velja:
 \begin{enumerate}
