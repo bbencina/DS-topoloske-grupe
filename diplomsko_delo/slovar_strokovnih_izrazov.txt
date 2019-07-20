@@ -1,28 +1,15 @@
-﻿continuous - zvezen
-uniformly continuous - enakomerno zvezen
+﻿uniformly continuous - enakomerno zvezen
 free group - prosta grupa
-isomorphism - izomorfizem ?
-homomorphism - homomorfizem
-homeomorphism - homeomorfizem
 locally finite - lokalno končen
 paracompact - parakompakten
 completely regular - povsem regularen
 normal subgroup - podgrupa edinka
 
 natural mapping - naravna preslikava
-uniform space - uniformni prostor
 refinement - pofinitev
-quotient set - kvocientna množica
-open basis - odprta baza okolic
-symetric neighbourhood - simetrična okolica
-separation axiom - separacijski aksiom
-compact - kompakten
-locally compact - lokalno kompakten
-countable - števen
-disjoint - disjunkten
+symmetric neighbourhood - simetrična okolica
 coset - odsek
-mapping - preslikava
-pseudo-metrics - psevdometrika
+pseudo-metric - psevdometrika
 metrizable - metrizabilen
 dyadic number - diadično število
 uniform structure - uniformna struktura
