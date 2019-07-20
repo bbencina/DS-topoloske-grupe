@@ -106,7 +106,7 @@ Množicama $aH = \lbrace ah ; h \in H \rbrace$ in $Ha = \lbrace ha ; h \in H \rb
 
 Podgrupi $H$ grupe $G$ rečemo podgrupa \emph{edinka}, če za vsak element $a \in G$ velja \[aHa^{-1} \subseteq H.\]
 Množici $G/H = \lbrace aH ; a \in G \rbrace$ rečemo \emph{kvocientna množica} grupe $G$ po podgrupi $H$.
-\emph{Naravna preslikava} na kvocientno množico $G/H$ je preslikava $\varphi: G \to G/H$, $a \mapsto aH$.
+\emph{Naravna preslikava} na kvocientno množico $G/H$ je preslikava $\varphi: G \to G/H$, definirana s predpisom $a \mapsto aH$.
 Kvocientna množica v splošnem ni grupa, razen v primeru, ko je $H$ podgrupa edinka.
 Če je $N$ podgrupa edinka grupe $G$, je kvocientna množica $G/N$ grupa za operacijo $*$, kjer je $aH*bH = (a\cdot b)H$, naravna preslikava $\varphi$ pa je homomorfizem grup in ji rečemo \emph{naravni homomorfizem}.
 
@@ -121,19 +121,18 @@ V tem podpoglavju bomo ponovili nekaj pojmov iz splo\-šne topologije, ki jih bo
 \end{enumerate}
 Množici $X$, opremljeni s topologijo $\tau$, rečemo \emph{topološki} prostor, ki ga označimo z $(X, \tau)$. Množice v družini $\tau$ imenujemo \emph{odprte} množice v topološkem prostoru $X$, \emph{zaprte} množice pa definiramo kot komplemente odprtih množic glede na množico $X$.
 
-Družina $B$ je \emph{baza} za topologijo $\tau$, če je vsaka množica iz topologije $\tau$ unija nekaterih množic iz $B$, družina $P$ pa je \emph{podbaza} za topologijo $\tau$, če je družina vseh končnih presekov množic iz $P$ neka baza za topologijo $\tau$.
+Družina $B$ je \emph{baza} za topologijo $\tau$, če je vsaka množica iz topologije $\tau$ unija nekaterih množic iz $B$, družina $P$ pa je \emph{podbaza} za topologijo $\tau$, če je družina vseh končnih presekov množic iz $P$ baza za topologijo $\tau$.
 
-Množica $U \subseteq X$ je \emph{okolica za točko} $x \in X$, če obstaja taka odprta množica $V \in \tau$, da velja $V \subseteq U$ in $x \in V$. Enako lahko definiramo okolico za množico.
-Množica $U \subseteq X$ je \emph{okolica} množice $A \subseteq X$, če obstaja taka odprta množica $V \in \tau$, da velja $A \subseteq V \subseteq U$.
+Množica $U \subseteq X$ je \emph{okolica} za točko $x \in X$, če obstaja taka odprta množica $V \in \tau$, da velja $x \in V \subseteq U$. Na podoben način lahko definiramo okolico dane množice.
+Množica $U \subseteq X$ je okolica množice $A \subseteq X$, če obstaja taka odprta množica $V \in \tau$, da velja $A \subseteq V \subseteq U$.
 Družina okolic $\Ucurl_x$ točke $x \in X$ se imenuje \emph{baza okolic} za $x$, če za poljubno okolico $V$ točke $x$ velja, da obstaja tak $U \in \Ucurl_x$, da je $U \subseteq V$.
 
 Točka $a \in A$ je \emph{notranja točka} množice $A$, če je $A$ okolica za točko $a$.
-\emph{Notranjost} množice $A$ je množica vseh njenih notranjih točk. Notranjost množice označimo z $\interior(A)$. Očitno velja $\interior(A) \subseteq A$ in tudi $\interior(A) = A \iff A \in \tau$.
-\emph{Zaprtje} množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Zaprtje množice označimo z $\closure{A}$. Očitno velja $A \subseteq \closure{A}$ in tudi $\closure{A} = A \iff A$ je zaprta množica.
+\emph{Notranjost} množice $A$ je množica vseh njenih notranjih točk. Notranjost množice označimo z $\interior(A)$. Očitno velja $\interior(A) \subseteq A$ in da je $\interior(A) = A$ natanko tedaj, ko je $A \in \tau$.
+\emph{Zaprtje} množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Zaprtje množice označimo z $\closure{A}$. Očitno velja $A \subseteq \closure{A}$ in da je $\closure{A} = A$ natanko tedaj, ko je $A$ zaprta množica.
 
-S pomočjo odprtih in zaprtih množic topološkega prostora $X$ lahko sedaj de\-fi\-ni\-ra\-mo zveznost in odprtost preslikave med dvema topološkima prostoroma ter pojem ho\-me\-o\-mor\-fiz\-ma.
+S pomočjo odprtih in zaprtih množic topološkega prostora $X$ lahko sedaj de\-fi\-ni\-ra\-mo zveznost in odprtost preslikav med topološkimi prostori ter pojem ho\-me\-o\-mor\-fiz\-ma.
 
-Tako kot med grupami lahko tudi med topološkimi prostori definiramo nekaj tipov preslikav. Ogledali si bomo nekaj za nas najpomembnejših tipov.
 Naj bo $f\colon (X, \tau_1) \to (Y, \tau_2)$ preslikava med topološkima prostoroma.
 Preslikava $f$ je \emph{zvezna}, kadar je praslika vsake odprte množice v topološkem prostoru $(Y, \tau_2)$  preslikave $f$ odprta tudi v topološkem prostoru $(X, \tau_1)$.
 Preslikava $f$ je \emph{odprta}, kadar je slika vsake odprte množice v topološkem prostoru $(X, \tau_1)$ preslikave $f$ odprta tudi v topološkem prostoru $(Y, \tau_2)$.
@@ -146,24 +145,23 @@ Oglejmo si še produkt topoloških prostorov.
 Naj bosta $X$ in $Y$ topološka prostora s topologijama $\tau_1$ in $\tau_2$. \emph{Produktna topologija} na kartezičnemu produktu $X \times Y$ je topologija, generirana z bazo $\lbrace U \times V ; U \in \tau_1, V \in \tau_2 \rbrace$. \emph{Produkt} topoloških prostorov $X$ in $Y$ je topološki prostor $X \times Y$, opremljen s produktno topologijo. Produkt topoloških prostorov je opremljen še z dvema projekcijskima preslikavama $\pr_x\colon X \times Y \to X$, $\pr_x(x, y) = x$ in $\pr_y\colon X \times Y \to Y$, $\pr_y(x, y) = y$. Obe projekciji sta zvezni in odprti preslikavi glede na primerne topologije.
 
 V nadaljevanju si bomo ogledali nekaj pojmov povezanih s kompaktnostjo to\-po\-loš\-kih prostorov, ki si jih bomo kasneje ogledali v kontekstu topoloških grup, definirali pa bomo tudi nove.
-Družini $\mathcal{A}$ množic rečemo \emph{pokritje} topološkega prostora $X$, če je $X \subseteq \bigcup \mathcal{A}$, družini $\mathcal{B} \subseteq \mathcal{A}$ pa rečemo \emph{podpokritje} topološkega prostora $X$, če je $\mathcal{B}$ tudi sama pokritje za $X$.
+Družini $\mathcal{A}$ množic rečemo \emph{pokritje} topološkega prostora $X$, če je $X = \bigcup \mathcal{A}$, družini $\mathcal{B} \subseteq \mathcal{A}$ pa rečemo \emph{podpokritje} topološkega prostora $X$, če je $\mathcal{B}$ tudi sama pokritje za $X$.
 Topološki prostor je \emph{kompakten}, če vsako njegovo odprto pokritje, tj. pokritje z odprtimi množicami, vsebuje kakšno končno podpokritje.
 Topološki prostor je \emph{lokalno kompakten}, če ima vsaka točka $x \in X$ kakšno kompaktno okolico.
 
 Ponovimo še do sedaj obravnavane separacijske aksiome.
 Topološki prostor $(X, \tau)$ zadošča separacijskemu aksiomu
 \begin{enumerate}
-\item $T_0$, če za poljubni različni točki $a, b \in X$ obstaja okolica $V$ za eno od točk $a, b$, ki ne vsebuje druge od točk $a, b$;
-\item $T_1$, če za poljubno točko $a \in X$ in točko $b \in X\setminus\lbrace a \rbrace$ obstaja okolica $V$ točke $a$, ki ne vsebuje točke $b$;
-\item $T_2$, če za poljubni različni točki $a, b \in X$ obstajata disjunktni okolici za točki $a$ in $b$;
-\item $T_3$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstajata disjunktni okolici za množico $A$ in točko $b$;
-\item $T_4$, če za poljubni disjunktni zaprti množici $A, B \subseteq X$ obstajata disjunktni okolici za množici $A$ in $B$.
+\item[] $T_0$, če za poljubni različni točki $a, b \in X$ obstaja okolica $V$ za eno od točk $a, b$, ki ne vsebuje druge.
+\item[] $T_1$, če za poljubno točko $a \in X$ in točko $b \in X\setminus\lbrace a \rbrace$ obstaja okolica $V$ točke $a$, ki ne vsebuje točke $b$.
+\item[] $T_2$, če za poljubni različni točki $a, b \in X$ obstajata disjunktni okolici za točki $a$ in $b$.
+\item[] $T_3$, če za poljubno zaprto množico $A \subseteq X$ in točko $b \in X\backslash A$ obstajata disjunktni okolici za množico $A$ in točko $b$.
+\item[] $T_4$, če za poljubni disjunktni zaprti množici $A, B \subseteq X$ obstajata disjunktni okolici za množici $A$ in $B$.
 \end{enumerate}
 
-Iz zgornje definicije je razvidno, da $T_2 \implies T_1 \implies T_0$.
-Topološkemu prostoru, ki zadošča separacijskemu aksiomu $T_2$, pravimo \emph{Hausdorffov} topološki prostor.
-Topološkemu prostoru, ki zadošča $T_1$ in $T_3$ pravimo \emph{regularen} topološki prostor.
-Topološkemu prostoru, ki zadošča $T_1$ in $T_4$, pravimo \emph{normalen} topološki prostor.
+Topološkemu prostoru, ki zadošča separacijskemu aksiomu $T_2$, pravimo \emph{Hausdorffov} topološki prostor. Iz zgornje definicije je razvidno, da vsak Hausdorffov topološki prostor zadošča separacijskemu aksiomu $T_1$ in s tem tudi $T_0$.
+Topološkemu prostoru, ki zadošča $T_1$ in $T_3$ pravimo \emph{regularen},
+topološkemu prostoru, ki zadošča $T_1$ in $T_4$, pa \emph{normalen} topološki prostor.
 
 Separacijske aksiome v povezavi z metrizabilnostjo na topoloških grupah si bomo podrobneje ogledali v kasnejših poglavjih.
 
@@ -184,7 +182,7 @@ S pomočjo strukturnih preslikav bomo sedaj definirali topološko grupo.
 
 Potrebujemo še tip preslikave med topološkimi grupami, ki bo ohranjal tako algebraično kot topološko strukturo.
 \begin{definicija}\label{def:topizo}
-Preslikava med dvema topološkima grupama je \emph{to\-po\-loš\-ki izo\-mor\-fi\-zem}, če je izomorfizem in homeomorfizem.
+Preslikava med dvema topološkima grupama je \emph{to\-po\-loš\-ki izo\-mor\-fi\-zem}, če je izomorfizem grup in homeomorfizem topoloških prostorov.
 \end{definicija}
 
 
@@ -198,42 +196,38 @@ Preslikava med dvema topološkima grupama je \emph{to\-po\-loš\-ki izo\-mor\-fi
 	Realna števila za operacijo $+$ so topološka grupa z evklidsko topologijo.
 	
 	Preverimo, da sta strukturni operaciji $\mu(x, y) = x + y$ in $\iota(x) = -x$ zvezni.
-	
 	Po definiciji produktne topologije sta projekcijski preslikavi zvezni. Strukturna preslikava seštevanja $\mu = pr_x + pr_y$ je zvezna kot vsota zveznih preslikav.
 	
-	Zveznost invertiranja je dovolj preveriti na baznih množicah evklidske topologije. Vzemimo interval $(a, b)$. Tudi $\iota^{-1}((a, b)) = \iota((a, b)) = (-b, -a)$ je bazna množica in zato odprta, torej je invertiranje zvezno.
+	Zveznost invertiranja je dovolj preveriti na baznih množicah evklidske topologije. Vzemimo interval $(a, b)$. Tudi $\iota^{-1}((a, b)) = \iota((a, b)) = (-b, -a)$ je bazična množica in zato odprta. Torej je invertiranje zvezna preslikava.
 \end{primer}
 
 \begin{primer}
-	Enotska krožnica v kompleksni ravnini $S = \lbrace z \in \C ; |z| = 1 \rbrace$ s podedovanim množenjem je topološka grupa za relativno topologijo kot podprostor $\R^2$ (spomnimo se, da je $\C \cong \R^2$).
+	Spomnimo se, da je $\C \cong \R^2$, zato je
+	enotska krožnica v kompleksni ravnini $S = \lbrace z \in \C ; |z| = 1 \rbrace$ s podedovanim množenjem je topološka grupa za relativno topologijo kot podprostor $\R^2$.
 \end{primer}
 
 \begin{primer}\label{pri:haus}
-	Realna števila za operacijo $+$ niso topološka grupa s topologijo $\tau = \lbrace (a, \infty) ; a \in \R \rbrace$. Vzemimo odprto množico $(a, \infty)$ in si oglejmo njeno prasliko glede na preslikavo invertiranja. Res $\iota((a, \infty)) = (-\infty, -a)$ ni odprta množica v topologiji $\tau$, torej prostor $(\R, \tau)$ ni topološka grupa. Kasneje bomo pokazali, da realna števila s to topologijo niso topološka grupa za nobeno operacijo.
-%	Preverimo lahko zveznost strukturnih strukturnih preslikav in se prepričamo, da invertiranje ni zvezno, lahko pa se prepričamo tudi drugače.
-%	
-%	Po trditvi \ref{trd:t0haus} za vsako topološko grupo velja, da zadošča separacijskemu aksiomu $T_0$ natanko tedaj, ko je Hausdorffova. Topološki prostor $(\R, +, \tau)$ zadošča separacijskemu aksiomu $T_0$, saj je za vsaki dve točki $a < b$ množica $(\frac{a+b}{2}, \infty)$ okolica za točko $b$, ki ne vsebuje točke $a$. Hkrati pa je očitno, da ta prostor ni Hausdorffov, saj se vsaki dve odprti množici sekata. Topološki prostor $(\R, +, \tau)$ torej ne more biti topološka grupa.
+	Realna števila za operacijo $+$ niso topološka grupa s topologijo $\tau = \lbrace (a, \infty) ; a \in \R \rbrace$. Vzemimo odprto množico $(a, \infty)$ in si oglejmo njeno prasliko glede na preslikavo invertiranja. Ker $\iota((a, \infty)) = (-\infty, -a)$ ni odprta množica v topologiji $\tau$, prostor $(\R, \tau)$ ni topološka grupa. Kasneje bomo pokazali, da realna števila s to topologijo niso topološka grupa za nobeno operacijo.
 \end{primer}
 
 \subsection{Osnovne lastnosti topoloških grup}
-
+Najprej ponovimo nekaj preslikav iz teorije grup, ki jih bomo skozi celotno delo pogosto uporabljali. \emph{Leva} in \emph{desna translacija} za element $a \in G$ sta zaporedoma definirani s predpisoma $l_a\colon x \mapsto ax$ in $r_a\colon x \mapsto xa$. \emph{Konjugiranje} z elementom $a \in G$ je definirano s predpisom $\gamma_a\colon x \mapsto axa^{-1}$. Naslednja trditev nam pove, zakaj bomo te preslikave v nadaljevanju veliko uporabljali.
 
 \begin{trditev}\label{trd:trans}
 Naj bo $G$ topološka grupa in $a \in G$.
 \begin{enumerate}
-\item Leva translacija $l_a\colon x \mapsto ax$ in desna translacija $r_a\colon x \mapsto xa$ za element $a$ sta homeomorfizma iz $G$ v $G$.\label{podtrd:ldt}
-\item Invertiranje $\iota\colon x \mapsto x^{-1}$ je homeomorfizem iz $G$ v $G$.
-\item Konjugiranje $\gamma_a\colon x \mapsto axa^{-1}$ je homeomorfizem iz $G$ v $G$.
+\item Leva in desna translacija za element $a$ sta homeomorfizma iz $G$ v $G$.\label{podtrd:ldt}
+\item Invertiranje je homeomorfizem iz $G$ v $G$.
+\item Konjugiranje je homeomorfizem iz $G$ v $G$.
 \end{enumerate}
 \end{trditev}
 
 \begin{dokaz}
-Vemo že, da so leva translacija, desna translacija, invertiranje in konjugiranje avtomorfizmi grupe $G$, torej bijektivne preslikave. Dokazujemo še zveznost pre\-sli\-ka\-ve in njenega inverza.
+Vemo že, da so leva translacija, desna translacija, invertiranje in konjugiranje bijektivne preslikave. Dokazujemo še zveznost pre\-sli\-ka\-ve in njenega inverza.
 
-Naj bo $\text{c}_a\colon x \mapsto a$ konstantna preslikava. Vemo, da je konstantna preslikava zvezna.
-
-Levo translacijo lahko zapišemo kot kompozitum zveznih preslikav \[l_a(x) = \mu(\text{c}_a(x), x) = ax.\]
-Kot kompozitum zveznih preslikav je leva translacija zvezna. Inverzna preslikava levi translaciji za element $a$ je leva translacija za element $a^{-1}$, ki je tudi zvezna. Leva translacija je zato homeomorfizem.
+Ker je konstantna preslikava $\text{c}_a\colon x \mapsto a$ zvezna in ker
+lahko levo translacijo zapišemo kot kompozitum zveznih preslikav \[l_a(x) = \mu(\text{c}_a(x), x) = ax,\]
+je leva translacija zvezna. Inverzna preslikava levi translaciji za element $a$ je leva translacija za element $a^{-1}$, ki je tudi zvezna. Leva translacija je zato homeomorfizem.
 
 Za dokaz zveznosti desne translacije najprej opazimo, da velja
 \[r_a(x) = \mu(x, \text{c}_a(x)) = xa.\]
@@ -242,17 +236,17 @@ Nato sledimo zgornjemu dokazu.
 Invertiranje je homeomorfizem, ker je zvezno po definiciji topološke grupe in samo sebi inverz.
 
 Konjugiranje lahko zapišemo kot kompozitum homeomorfizmov \[\gamma = r_{a^{-1}} \circ l_a,\]
-nato pa uporabimo točko \ref{podtrd:ldt}.
+nato pa uporabimo točko (\ref{podtrd:ldt}).
 \end{dokaz}
 
 \begin{trditev}\label{trd:prododp}
-Naj bosta $A$ in $B$ podmnožici topološke grupe $G$. Če je $A$ odprta množica, sta odprti tudi množici $AB$ in $BA$.
+Naj bo $A$ odprta podmnožica topološke grupe $G$. Tedaj sta za vsako množico $B \subseteq G$ množici $AB$ in $BA$ odprti.
 \end{trditev}
 
 \begin{dokaz}
-Ker je $A$ odprta množica, so po trditvi \ref{trd:trans} odprte tudi vse množice $Ax$ za vsak $x \in G$, saj je desna translacija homeomorfizem. Velja $AB = \bigcup_{b \in B}\lbrace Ab\rbrace$, zato je množica $AB$ je odprta kot unija odprtih množic.
+Ker je po trditvi \ref{trd:trans} desna translacija homeomorfizem, so odprte tudi vse množice $Ax$ za vsak $x \in G$. Ker je $AB = \bigcup_{b \in B}\lbrace Ab\rbrace$, je množica $AB$ je odprta kot unija odprtih množic.
 
-Za dokaz odprtosti množice $BA$ najprej oprazimo, da so po trditvi \ref{trd:trans} odprte tudi vse množice $xA$ za vsak $x \in X$, potem pa sledimo zgornjemu dokazu.
+Za dokaz odprtosti množice $BA$ opazimo, da so po trditvi \ref{trd:trans} odprte tudi vse množice $xA$ za vsak $x \in X$, potem pa sledimo zgornjemu dokazu.
 \end{dokaz}
 
 \begin{trditev}\label{trd:prodkomp}
@@ -260,10 +254,10 @@ Za kompaktni podmnožici $A$ in $B$ topološke grupe $G$ velja, da je množica $
 \end{trditev}
 
 \begin{dokaz}
-Iz splošne topologije vemo, da je kompaktnost multiplikativna lastnost. Množica $A \times B$ je zato kompaktna podmnožica v prostoru $G \times G$. Ker je množenje zvezna preslikava, je tudi množica $\mu (A \times B) = AB$ kompaktna v prostoru $G$.
+Iz splošne topologije vemo, da je kompaktnost končno multiplikativna lastnost. Množica $A \times B$ je zato kompaktna podmnožica v prostoru $G \times G$. Ker je operacija množenja $\mu$ zvezna preslikava, je množica $\mu (A \times B) = AB$ kompaktna v prostoru $G$.
 \end{dokaz}
 
-Sledi nekaj trditev, ki se nanašajo na okolice enote topološke grupe.
+Sledi nekaj trditev, ki se nanašajo na okolice enote topološke grupe. Dokazali bomo nekaj lastnosti baze odprtih okolic enote topološke grupe, nato pa pokazali kaj mora veljati, da je družina podmnožic topološke grupe baza njene topologije.
 
 \begin{trditev}\label{trd:okolice}
 Za topološko grupo $G$ in bazo $\Ucurl$ odprtih okolic enote $e$ veljajo naslednje trditve:
@@ -276,45 +270,46 @@ Za topološko grupo $G$ in bazo $\Ucurl$ odprtih okolic enote $e$ veljajo nasled
 \end{trditev}
 
 \begin{dokaz}
-Naj bo $U \in \Ucurl$  odprta okolica enote $e$. Ker je množenje zvezno, obstaja v produktni topologiji na $G \times G$ bazična okolica $W = V_1 \times V_2$ elementa $(e, e)$, za katero velja $V_1V_2 \subset U$. Po definiciji produktne topologije sta $V_1$ in $V_2$ odprti okolici enote $e$ v $G$. Definiramo $V' = V_1 \cap V_2$ okolico za $e$. Po definiciji baze okolic obstaja $V \in \Ucurl$, da velja $V \subseteq V'$. Ker je $V \subseteq V' \subseteq V_1$ in $V \subseteq V' \subseteq V_2$, velja \[V^2 \subseteq V'^2 \subseteq V_1V_2 \subset U.\] To dokaže prvo trditev.
+Naj bo $U \in \Ucurl$  odprta okolica enote $e$. Ker je množenje zvezno, obstaja v produktni topologiji na $G \times G$ bazična okolica $W = V_1 \times V_2$ elementa $(e, e)$, za katero velja $V_1V_2 \subset U$. Po definiciji produktne topologije sta $V_1$ in $V_2$ odprti okolici enote $e$ v $G$. Tedaj je $V' = V_1 \cap V_2$ okolica za $e$. Po definiciji baze okolic obstaja $V \in \Ucurl$, da velja $V \subseteq V'$. Ker je $V \subseteq V' \subseteq V_1$ in $V \subseteq V' \subseteq V_2$, velja \[V^2 \subseteq V'^2 \subseteq V_1V_2 \subset U.\] To dokaže prvo trditev.
 
 Ker je invertiranje zvezno, obstaja v $G$ odprta okolica $W$ enote $e$, za katero velja $W^{-1} \subset U$. Po definiciji baze okolic obstaja okolica $V \in \Ucurl$, za katero velja $V \subseteq W$. Potem je $V^{-1} \subseteq W^{-1}$. Velja \[V^{-1} \subset W^{-1} \subset U.\] To dokaže drugo trditev.
 
-Vzemimo poljubno točko $x \in U$. Naj bo $W = x^{-1}U$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je $W$ odprta okolica enote $e$. Vzemimo $V \in \Ucurl$, $V \subset W$ (obstaja po definiciji baze okolic). Velja \[xV \subset xW = xx^{-1}U = U.\]
-To dokaže tretjo trditev.
+Vzemimo poljubno točko $x \in U$. Naj bo $W = x^{-1}U$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je $W$ odprta okolica enote $e$. Če vzamemo $V \in \Ucurl$, $V \subset W$, ki obstaja po definiciji baze okolic, velja \[xV \subset xW = xx^{-1}U = U,\]
+kar dokaže tretjo trditev.
 
-Naj bo $x \in U$ poljubna točka. Ker je po trditvi \ref{trd:trans} konjugiranje homeomorfizem, obstaja odprta okolica enote $e$ oblike $xVx^{-1} \subseteq U$.
-To dokaže še četrto trditev.
+Naj bo $x \in U$ poljubna točka. Ker je po trditvi \ref{trd:trans} konjugiranje homeomorfizem, je množica $W = x^{-1}Ux$ odprta okolica enote $e$. Če vzamemo $V \in \Ucurl$, $V \subset W$, ki obstaja po definiciji baze okolic, velja
+\[ xVx^{-1} \subset xWx^{-1} = xx^{-1}Uxx^{-1} = U, \]
+kar dokaže še četrto trditev.
 \end{dokaz}
 
 \begin{izrek}\label{izr:bazaokolice}
-Naj bo $G$ grupa in $\Ucurl$ družina podmnožic množice $G$, za katero veljajo vse štiri lastnosti iz trditve \ref{trd:okolice}. Naj bodo poljubni končni preseki množic iz $\Ucurl$ neprazni. Tedaj je družina $\lbrace xU \rbrace$, kjer $U \in \Ucurl$ in $x \in G$ odprta podbaza za neko topologijo na $G$. S to topologijo je $G$ topološka grupa. Družina $\lbrace Ux \rbrace$ je podbaza za isto topologijo.
+Naj bo $G$ grupa in $\Ucurl$ družina podmnožic množice $G$, za katero veljajo vse štiri lastnosti iz trditve \ref{trd:okolice}. Naj bodo poljubni končni preseki množic iz $\Ucurl$ neprazni. Tedaj je družina $\lbrace xU \rbrace$, kjer $U \in \Ucurl$ in $x \in G$, odprta podbaza za neko topologijo na $G$. S to topologijo je $G$ topološka grupa. Družina $\lbrace Ux \rbrace$ je podbaza za isto topologijo.
 
 Če velja še, da za vsaki množici $U,V \in \Ucurl$ obstaja množica $W \in \Ucurl$, da velja $W \subset U \cap V$, potem sta družini $\lbrace xU \rbrace$ in $\lbrace Ux \rbrace$ tudi bazi za to topologijo.
 \end{izrek}
 
 \begin{dokaz}
-Za vsako množico $U \in \Ucurl$ obstaja množica $V \in \Ucurl$, da velja $V^2 \subset U$. Ker je $V \in \Ucurl$, obstaja množica $W \in \Ucurl$, da velja $W^{-1} \subset V$. Ker velja $V \cap W \neq \emptyset$, velja
+Za vsako množico $U \in \Ucurl$ obstaja taka množica $V \in \Ucurl$, da velja $V^2 \subset U$. Ker je $V \in \Ucurl$, obstaja taka množica $W \in \Ucurl$, da velja $W^{-1} \subset V$. Ker velja $V \cap W \neq \emptyset$, je
 \[ e \in VW^{-1} \subset V^2 \subset U. \]
 Vsaka množica $U \in \Ucurl$ torej vsebuje enoto $e$.
-Družina $\lbrace xU ; x \in G, U \in \Ucurl \rbrace$ je torej res podbaza prostora $G$, saj je pokritje za $G$.
+Družina $\lbrace xU ; x \in G, U \in \Ucurl \rbrace$ je torej res podbaza neke topologije na $G$, saj je pokritje za $G$.
 
-Za vsako množico $U_1,\dots,U_n \in \Ucurl$ obstajajo množice $V_1,\dots,V_n \in \Ucurl$, da velja $V_k^2 \subset U_k$ za $k = 1,\dots,n$. Potem velja
-\[ \left( \bigcap_{k=1}^n V_k \right)^2 \subset \bigcap_{k=1}^n V_k^2 \subset \bigcap_{k=1}^n U_k. \]
-Za družino $\widetilde{\Ucurl}$ torej velja lastnost \ref{last:oko1} trditve \ref{trd:okolice}.
-Ker je \[\left( \bigcap_{k=1}^n V_k \right)^{-1} = \bigcap_{k=1}^n V_k^{-1},\] za družino $\widetilde{\Ucurl}$ velja lastnost \ref{last:oko2} trditve \ref{trd:okolice}.
+Za vsako izbiro množic $U_1,\dots,U_n \in \Ucurl$ obstajajo take množice $V_1,\dots,V_n \in \Ucurl$, da velja $V_k^2 \subset U_k$ za $k = 1,\dots,n$. Potem velja
+\[ \left( \bigcap_{k=1}^n V_k \right)^2 \subseteq \bigcap_{k=1}^n V_k^2 \subset \bigcap_{k=1}^n U_k. \]
+Za družino $\widetilde{\Ucurl}$ torej velja lastnost (\ref{last:oko1}) trditve \ref{trd:okolice}.
+Ker je \[\left( \bigcap_{k=1}^n V_k \right)^{-1} = \bigcap_{k=1}^n V_k^{-1},\] za družino $\widetilde{\Ucurl}$ velja lastnost (\ref{last:oko2}) trditve \ref{trd:okolice}.
 Ker velja \[x\left(\bigcap_{k=1}^n V_k\right) = \bigcap_{k=1}^n (xV_k)\]
 in \[ x\left(\bigcap_{k=1}^n V_k\right)x^{-1} = \bigcap_{k=1}^n (xV_kx^{-1}), \]
-za družino $\widetilde{\Ucurl}$ veljata tudi lastnosti \ref{last:oko3} in \ref{last:oko4} trditve \ref{trd:okolice}.
+za družino $\widetilde{\Ucurl}$ veljata tudi lastnosti (\ref{last:oko3}) in (\ref{last:oko4}) trditve \ref{trd:okolice}.
 
-Po definiciji podbaze, neprazne množice $\bigcap_{k=1}^n(x_kU_k)$, kjer je $x_k \in G$ in $U_k \in \Ucurl$, tvorijo bazo za neko topologijo na prostoru $G$. Vzemimo nek element $y \in \bigcap_{k=1}^n (x_kU_k)$. Naj bo $V_k \in \Ucurl$ tista množica, ki zadošča lastnosti \ref{last:oko3} za element $x_k^{-1}y$, torej da velja $x_k^{-1}yV_k \subset U_k$. Potem velja
+Po definiciji podbaze vse neprazne množice oblike $\bigcap_{k=1}^n(x_kU_k)$, kjer je $x_k \in G$ in $U_k \in \Ucurl$, tvorijo bazo za neko topologijo na prostoru $G$. Vzemimo nek element $y \in \bigcap_{k=1}^n (x_kU_k)$. Naj bo $V_k \in \Ucurl$ tista množica, ki zadošča lastnosti (\ref{last:oko3}) za element $x_k^{-1}y$, torej da velja $x_k^{-1}yV_k \subset U_k$. Potem velja
 \[ y\left(\bigcap_{k=1}^nV_k\right) = \bigcap_{k=1}^n(yV_k) \subset \bigcap_{k=1}^n(x_kU_k). \]
 Torej množice oblike $y\widetilde{U}$, kjer je $\widetilde{U} \in \widetilde{\Ucurl}$ tvorijo odprto bazo za element $y$ za vsak element $y \in G$.
 
-Da pokažemo, da je $G$ res topološka grupa, vzemimo poljubna elementa $a,b \in G$ in poljubno množico $\widetilde{U} \in \widetilde{\Ucurl}$. Ker družina množic $\widetilde{\Ucurl}$ zadošča lastnostima \ref{last:oko1} in \ref{last:oko4} trditve \ref{trd:okolice}, obstajata takšni množici $\widetilde{V}, \widetilde{W} \in \widetilde{\Ucurl}$, da velja $(b^{-1}\widetilde{W}b)\widetilde{V} \subset \widetilde{U}$. Od tod sledi, da je $(a\widetilde{W})(b\widetilde{V}) \subset ab\widetilde{U}$, torej je množenje zvezna preslikava.
-Ker družina množic $\widetilde{\Ucurl}$ zadošča lastnostima \ref{last:oko2} in \ref{last:oko4} trditve \ref{trd:okolice}, obstaja takšna množica $\widetilde{V} \in \widetilde{\Ucurl}$, da velja $(b\widetilde{V}b^{-1})^{-1} \subset \widetilde{U}$. Od tod sledi, da je $b^{-1}(b\widetilde{V}b^{-1})^{-1} = b^{-1}b (b\widetilde{V})^{-1} = (bV)^{-1} \subset b^{-1}\widetilde{U}$, torej je invertiranje zvezna preslikava. Topološki prostor $G$ je torej topološka grupa.
+Da pokažemo, da je $G$ res topološka grupa, vzemimo poljubna elementa $a,b \in G$ in poljubno množico $\widetilde{U} \in \widetilde{\Ucurl}$. Ker družina množic $\widetilde{\Ucurl}$ zadošča lastnostma (\ref{last:oko1}) in (\ref{last:oko4}) trditve \ref{trd:okolice}, obstajata takšni množici $\widetilde{V}, \widetilde{W} \in \widetilde{\Ucurl}$, da velja $(b^{-1}\widetilde{W}b)\widetilde{V} \subset \widetilde{U}$. Od tod sledi, da je $(a\widetilde{W})(b\widetilde{V}) \subset ab\widetilde{U}$, iz česar sledi, da je operacija množenja zvezna preslikava.
+Ker družina množic $\widetilde{\Ucurl}$ zadošča lastnostma (\ref{last:oko2}) in (\ref{last:oko4}) trditve \ref{trd:okolice}, obstaja takšna množica $\widetilde{V} \in \widetilde{\Ucurl}$, da velja $(b\widetilde{V}b^{-1})^{-1} \subset \widetilde{U}$. Od tod sledi, da je $b^{-1}(b\widetilde{V}b^{-1})^{-1} = b^{-1}b (b\widetilde{V})^{-1} = (bV)^{-1} \subset b^{-1}\widetilde{U}$, torej je invertiranje zvezna preslikava. Topološki prostor $G$ je torej topološka grupa.
 
-Iz lastnosti \ref{last:oko4} trditve \ref{trd:okolice} je tudi razvidno, da družini $\lbrace xU \rbrace$ in $\lbrace Ux \rbrace$ porodita ekvivalentno topologijo na $G$, saj lahko vsako množico oblike $Ux$ dobimo s konjugiranjem množice $xU$ z elementom $x^{-1}$, konjugiranje pa je po trditvi \ref{trd:trans} homeomorfizem.
+Iz lastnosti (\ref{last:oko4}) trditve \ref{trd:okolice} je tudi razvidno, da družini $\lbrace xU \rbrace$ in $\lbrace Ux \rbrace$ porodita ekvivalentno topologijo na $G$, saj lahko vsako množico oblike $Ux$ dobimo s konjugiranjem množice $xU$ z elementom $x^{-1}$, konjugiranje pa je po trditvi \ref{trd:trans} homeomorfizem.
 \end{dokaz}
 
 \begin{definicija}\label{def:sim}
@@ -329,22 +324,8 @@ Vsaka topološka grupa ima bazo $\Ucurl$ odprtih in simetričnih okolic enote.
 Naj bo $\mathcal{V}$ neka baza odprtih okolic enote. Za vsako okolico $V \in \mathcal{V}$ definiramo množico $U = V \cap V^{-1}$. Kot presek dveh odprtih množic je $U$ odprta. Ker je $e \in V$ in $e \in V^{-1}$, je $U$ odprta okolica enote, ki je po konstrukciji simetrična. Ker po definiciji preseka velja še $U \subseteq V$, je družina $\Ucurl = \lbrace V \cap V^{-1}; V \in \mathcal{V} \rbrace$ res baza odprtih in simetričnih okolic enote $e$.
 \end{dokaz}
 
-%%isto kot kasneje pri kvocientih, združimo nekako
-%\begin{posledica}\label{pos:sim}
-%Za vsako okolico $U$ enote $e$ topološke grupe $G$ obstaja taka okolica $V$ enote $e$, da velja $\closure{V} \subset U$.
-%\end{posledica}
-%
-%\begin{dokaz}
-%Naj bo $U$ neka okolica enote in naj bo $\mathcal{V}$ baza odprtih in simetričnih okolic enote (obstaja po trditvi \ref{trd:sim}). Naj bo $V \in \mathcal{V}$ takšna okolica, da velja $V^2 \subset U$. Takšna okolica obstaja po trditvi \ref{trd:okolice}. Vzemimo $x \in \closure{V}$. Velja $(xV) \cap V \neq \emptyset$.
-%Res: ker je $V$ okolica enote, je $xV$ okolica elementa $x$. Če je $x \in V$, zgornji presek ni prazen, ker je $V$ odprta množica, če pa je $x$ iz roba množice $V$, vsaka njegova okolica seka množico $V$.
-%
-%Obstajata torej $v_1, v_2 \in V$, da velja $x v_1 = v_2$. Sledi \[x = v_2 v_1^{-1} \in VV^{-1} = V^2 \subset U.\]
-%Torej res velja $\closure{V} \subset U$.
-%\end{dokaz}
-
-
 \begin{trditev}\label{trd:t0haus}
-Za topološko grupo $G$ so si naslednje trditve ekvivalentne:
+Za topološko grupo $G$ so naslednje trditve ekvivalentne:
 \begin{enumerate}
 	\item Topološka grupa $G$ zadošča separacijskemu aksiomu $T_0$.\label{podtrd:h1}
 	\item Množica $\lbrace e \rbrace$ je zaprta v $G$.\label{podtrd:h2}
@@ -353,27 +334,23 @@ Za topološko grupo $G$ so si naslednje trditve ekvivalentne:
 \end{trditev}
 
 \begin{dokaz}
-	\ref{podtrd:h1} $\implies$ \ref{podtrd:h2}:
-	
+	(\ref{podtrd:h1}) $\Rightarrow$ (\ref{podtrd:h2}):
 	Implikacijo bomo dokazali tako, da bomo pokazali, da je množica $G\setminus\lbrace e \rbrace$ okolica za vsako svojo točko, iz česar bo sledilo, da je odprta.
 	Vzemimo točko $x \in G\setminus\lbrace e \rbrace$. Ker $G$ zadošča separacijskemu aksiomu $T_0$, obstaja bodisi okolica za točko $x$, ki ne vsebuje enote $e$, bodisi okolica $V$ za enoto $e$, ki ne vsebuje točke $x$. V prvem primeru sledi, da je $G\setminus\lbrace e \rbrace$ okolica za točko $x$.
-	Zato naj bo $V$ okolica za enoto $e$, ki ne vsebuje točke $x$. Množica $x^{-1}V$ je potem okolica za točko $x^{-1}$, ki ne vsebuje enote $e$, zato je $\iota(x^{-1}V)$ okolica za točko $x$, ki ne vsebuje enote $e$. Ker velja $\iota(x^{-1}V) \subseteq G \setminus \lbrace e \rbrace$, je $G\setminus\lbrace e \rbrace$ okolica za točko $x$.
-	
+	Zato lahko brez škode splošnosti predpostavimo, da obstaja okolica $V$ enote $e$, ki ne vsebuje točke $x$. Množica $x^{-1}V$ je potem okolica za točko $x^{-1}$, ki ne vsebuje enote $e$, zato je $\iota(x^{-1}V)$ okolica za točko $x$, ki ne vsebuje enote $e$. Ker velja $\iota(x^{-1}V) \subseteq G \setminus \lbrace e \rbrace$, je $G\setminus\lbrace e \rbrace$ okolica za točko $x$.
 	Množica $G\setminus\lbrace e \rbrace$ je torej okolica za vsako svojo točko in je zato odprta. Sledi, da je $\lbrace e \rbrace$ zaprta množica.
 	
 	
-	\ref{podtrd:h2} $\implies$ \ref{podtrd:h3}:
+	(\ref{podtrd:h2}) $\Rightarrow$ (\ref{podtrd:h3}):
+	Privzemimo, da je $\lbrace e \rbrace$ zaprta množica. Oglejmo si preslikavo $f\colon G \times G \to G$, $(x, y) \mapsto xy^{-1}$. Preslikava $f$ je zvezna kot kompozitum množenja in invertiranja, ki sta zvezni preslikavi po definiciji topološke grupe. Zato je $f^{-1}(\lbrace e \rbrace) = \lbrace (x, x) ; x \in G \rbrace$ zaprta množica v $G \times G$. Po izreku iz splošne topologije je $G$ Hausdorffov topološki prostor.
 	
-	Privzemimo, da je $\lbrace e \rbrace$ zaprta množica. Oglejmo si preslikavo $f\colon G \times G \to G$, $(x, y) \mapsto xy^{-1}$. Preslikava $f$ je zvezna kot kompozitum množenja in invertiranja, ki sta zvezni preslikavi po definiciji topološke grupe. Zato je $f^{-1}(\lbrace e \rbrace) = \lbrace (x, x) ; x \in G \rbrace$ zaprta množica v $G \times G$, to pa je po izreku iz splošne topologije ekvivalentno temu, da je $G$ Hausdorffova.
-	
-	\ref{podtrd:h3} $\implies$ \ref{podtrd:h1}:
-	
+	(\ref{podtrd:h3}) $\Rightarrow$ (\ref{podtrd:h1}):
 	Sledi iz definicije separacijskega aksioma $T_2$.
 \end{dokaz}
 
 
 \begin{trditev}\label{trd:zaprtost}
-	Za $A$ in $B$ podmnožici topološke grupe $G$ veljajo naslednje trditve:
+	Za podmnožici $A$ in $B$ topološke grupe $G$ veljajo naslednje trditve:
 	\begin{enumerate}
 		\item $\closure{A}\ \closure{B} \subset \closure{A B}$,\label{podtrd:zap1}
 		\item $(\closure{A})^{-1} = \closure{A^{-1}}$,\label{podtrd:zap2}
@@ -384,24 +361,24 @@ Za topološko grupo $G$ so si naslednje trditve ekvivalentne:
 \end{trditev}
 
 \begin{dokaz}
-	Naj bosta $A$ in $B$ podmnožici topološke grupe $G$.
+	Naj bosta $A$ in $B$ podmnožici topološke grupe $G$. Spomnimo se, da je poljubna preslikava $f$ zvezna natanko tedaj, ko velja $f(\closure{A}) \subseteq \closure{f(A)}$. Če je preslikava homeomorfizem, velja enačaj.
 	
-	Za dokaz \ref{podtrd:zap1} vzemimo točki $x \in \closure{A}$ in $y \in \closure{B}$ ter neko okolico $U$ enote $e$. Dokazali bomo, da je $xy \in \closure{AB}$.
-	Ker je množenje zvezno, obstajata taki okolici $V_1$ in $V_2$ enote $e$, da je $(xV_1)(yV_2) \subset xyU$. Tedaj za okolico enote $V = V_1 \cap V_2$ velja $(xV)(yV) \subset xyU$. Ker je sta množici $xV$ in $yV$ okolici za $x$ in $y$,
-	po definiciji zaprtja obstajata taka elementa $a \in A$ in $B \in B$, da je $a \in xV$ in $b \in yV$. Zato je $ab \in (AB) \cap (xyU)$ in, ker je množica $xyU$ okolica za $xy$, po definiciji zaprtja sledi $xy \in \closure{AB}$.
+	Za dokaz točke (\ref{podtrd:zap1}) upoštevamo le, da je operacija množenja zvezna preslikava po definiciji topološke grupa. Potem po zgornjem velja
+	\[ \closure{A}\;\closure{B} = \mu(\closure{A}, \closure{B}) \subseteq \closure{\mu(A, B)} = \closure{AB}\]
 	
-	Enakost v \ref{podtrd:zap2} bo sledila iz tega, da je invertiranje po trditvi \ref{trd:trans} homeomorfizem. Vzemimo množico $A \subset G$. Ker je invertiranje homeomorfizem, je $\iota(\closure{A}) = \closure{\iota(A)}$. Torej je $\closure{A}^{-1} = \closure{A^{-1}}$.
+	Enakost v točki (\ref{podtrd:zap2}) bo sledila iz tega, da je invertiranje po trditvi \ref{trd:trans} homeomorfizem. Vzemimo množico $A \subset G$. Ker je invertiranje homeomorfizem, je $\iota(\closure{A}) = \closure{\iota(A)}$. Torej je $\closure{A}^{-1} = \closure{A^{-1}}$.
 	
-	Enakost v \ref{podtrd:zap3} bo sledila iz tega, da sta leva in desna translacija po trditvi \ref{trd:trans} homeomorfizma. Naj bosta $x, y \in G$. Tedaj je tudi $f = r_y \circ l_x$ homeomorfizem. Ker je $\closure{A}$ zaprta, je $x\closure{A}y$ najmanjša zaprta množica, ki vsebuje množico $xAy$. Torej res velja $x\closure{A}y = \closure{xAy}$.
+	Enakost v točki (\ref{podtrd:zap3}) bo sledila iz tega, da sta leva in desna translacija po trditvi \ref{trd:trans} homeomorfizma. Naj bosta $x, y \in G$. Tedaj je tudi $f = r_y \circ l_x$ homeomorfizem. Velja torej
+	\[ x\closure{A}y = f(\closure{A}) = \closure{f(A)} = \closure{xAy}. \]
 	
-	Za dokaz \ref{podtrd:zap4} privzemimo še, da $G$ zadošča separacijskemu aksiomu $T_0$ in da velja $ab = ba$ za vsaka dva elementa $a \in A$ in $b \in B$. Preslikava $f\colon (a,b) \mapsto aba^{-1}b^{-1}$ je zvezna, saj je kompozitum množenj in invertiranj:
+	Za dokaz točke (\ref{podtrd:zap4}) privzemimo še, da $G$ zadošča separacijskemu aksiomu $T_0$ in da velja $ab = ba$ za vsaka dva elementa $a \in A$ in $b \in B$. Preslikava $f\colon (a,b) \mapsto aba^{-1}b^{-1}$ je zvezna, saj je kompozitum množenj in invertiranj:
 	\[ f(a, b) = \mu(\mu(a, b),\mu(\iota(a), \iota(b))). \]
-	Ker je po izreku \ref{trd:t0haus} množica $\lbrace e \rbrace$ zaprta, je zaprta tudi množica $H = \lbrace (a, b) \in G \times G; aba^{-1}b^{-1} = e \rbrace$, saj je $H = f^{-1}(\lbrace e \rbrace)$. Po predpostavki velja $A \times B \subseteq H$.
-	Ker sta množici $\closure{A}$ in $\closure{B}$ zaprti v $G$, po definiciji produktne topologije velja, da je množica $\closure{A} \times \closure{B}$ zaprta v $G \times G$, zato je $\closure{A \times B} = \closure{A} \times \closure{B}$. Sledi, da je $\closure{A} \times \closure{B} \subseteq H$, torej je $ab = ba$ za vsaka dva elementa $a \in \closure{A}$ in $b \in \closure{B}$.
+	Ker je po trditvi \ref{trd:t0haus} množica $\lbrace e \rbrace$ zaprta, je zaprta tudi množica $H = f^{-1}(\lbrace e \rbrace) = \lbrace (a, b) \in G \times G; aba^{-1}b^{-1} = e \rbrace$. Po predpostavki velja $A \times B \subseteq H$.
+	Ker je $\closure{A}\times\closure{B} = \closure{A \times B}$ in po predpostavki velja $A \times B \subseteq H$, je $\closure{A}\times\closure{B} \subseteq H$, torej velja $ab = ba$ za vsaka dva elementa $a \in \closure{A}$ in $b \in \closure{B}$.
 \end{dokaz}
 
+Še enkrat si oglejmo primer \ref{pri:haus}.
 \begin{primer}\label{pri:haus2}
-Nadaljujmo s primerom \ref{pri:haus}.
 	Zgoraj smo pokazali, da strukturna preslikava invertiranja ni zvezna, lahko pa se prepričamo tudi drugače.
 	
 	Po trditvi \ref{trd:t0haus} za vsako topološko grupo velja, da zadošča separacijskemu aksiomu $T_0$ natanko tedaj, ko je Hausdorffova. Topološki prostor $(\R, +, \tau)$ zadošča separacijskemu aksiomu $T_0$, saj je za vsaki dve točki $a < b$ množica $(\frac{a+b}{2}, \infty)$ okolica za točko $b$, ki ne vsebuje točke $a$. Hkrati pa je očitno, da ta prostor ni Hausdorffov, saj se vsaki dve neprazni odprti množici sekata. Topološki prostor $(\R, +, \tau)$ torej ne more biti topološka grupa. Še več, topološki prostor $(\R, \tau)$ ni topološka grupa za nobeno operacijo, saj informacije o operaciji v zgornjem premisleku sploh nismo uporabili.
@@ -448,8 +425,8 @@ Ker za $x \in U^k$ in $y \in U^l$ velja $xy \in U^kU^l \subseteq U^{k+l}$, je $L
 \subsection{Kvocienti topoloških grup}
 
 \begin{izrek}\label{izr:topkvocienta}
-Naj bo $G$ topološka grupa, $H$ njena podgrupa in $\varphi\colon G \to G/H$ naravna preslikava. Definiramo $\theta(G/H) = \lbrace U ; \varphi^{-1}(U)$ odprta v $G \rbrace$.
-Veljajo naslednje trditve:
+Naj bo $G$ topološka grupa, $H$ njena podgrupa in $\varphi\colon G \to G/H$ naravna preslikava. Za družino \[\theta(G/H) = \lbrace U ; \varphi^{-1}(U) \text{odprta v } G \rbrace\]
+veljajo naslednje trditve:
 \begin{enumerate}
 \item družina $\theta(G/H)$ je topologija na kvocientni množici $G/H$,
 \item družina $\theta(G/H)$ je najmočnejša topologija na kvocientni množici $G/H$, glede na katero je $\varphi$ zvezna preslikava,
@@ -458,11 +435,11 @@ Veljajo naslednje trditve:
 \end{izrek}
 
 \begin{dokaz}
-Naj bo $\theta(G/H) = \lbrace uH ; u \in U \rbrace_{U \in \tau}$ družina odprtih množic v $G/H$, kjer so $U$ odprte množice v $G$. Potem je njihova unija $\bigcup_{U \in \tau} \lbrace uH ; u \in U \rbrace = \lbrace uH ; u \in \bigcup_{U \in \tau}U \rbrace$ prav tako odprta v $G/H$, saj je $\bigcup_{U \in \tau}U$ odprta v $G$. Presek dveh takih množic $\lbrace uH ; u \in U \rbrace \cap \lbrace uH ; u \in V \rbrace = \lbrace uH ; u \in U \cap V \rbrace$ je tudi odprt, saj je presek $U \cap V$ odprt v $G$. Velja tudi $\emptyset \in \theta(G/H)$, če vzamemo $U = \emptyset$, ki je odprta v $G$. Če vzamemo $U = G$, dobimo tudi $G/H \in \theta(G/H)$. Preverili smo, da je $\theta(G/H)$ res topologija na kvocientni množici $G/H$.
+Družina $\theta(G/H)$ vsebuje prazno množico, ker je množica $\varphi^{-1}(\emptyset) = \emptyset$ odprta v $G$. Vsebuje tudi množico $G/H$, ker je množica $\varphi^{-1}(G/H) = G$ odprta v $G$. Vzemimo poljubno unijo odprtih množic $\bigcup_{\lambda \in \Lambda}\lbrace uH ; u \in U_\lambda, U_\lambda \text{ odprta v } G\rbrace$. Ker je $\bigcup_{\lambda \in \Lambda} U_\lambda$ odprta v $G$ in velja $\varphi^{-1}(\bigcup_{\lambda \in \Lambda}\lbrace uH ; u \in U_\lambda, U_\lambda \text{ odprta v } G\rbrace) = \bigcup_{\lambda \in \Lambda} U_\lambda$, je tudi unija $\bigcup_{\lambda \in \Lambda}\lbrace uH ; u \in U_\lambda, U_\lambda \text{ odprta v } G\rbrace \in \theta(G/H)$. Ker je za vsaki množici $U$ in $V$, ki sta odprti v $G$, tudi presek $U \cap V$ odprt v $G$, in ker je $\varphi^{-1}(\lbrace uH ; u \in U\rbrace \cap \lbrace vH ; v \in V \rbrace) = \varphi^{-1}(\lbrace uH ; u \in U \cap V \rbrace) = U \cap V$, je tudi presek $\lbrace uH ; u \in U\rbrace \cap \lbrace vH ; v \in V \rbrace$ odprt v $G/H$.
 
-Preslikava $\varphi$ je zvezna po definiciji topologije $\theta(G/H)$ in topologija $\theta(G/H)$ je res najmočnejpa topologija na kvocientu $G/H$, glede na katero je $\varphi$ zvezna, po konstrukciji $\theta(G/H)$.
+Topologije $\theta(G/H)$ je po definiciji najmočnejša topologija na kvocientni množici $G/H$, glede na katero je $\varphi$ zvezna.
 
-Za dokaz odprtosti naravne preslikave vzemimo odprto množico $U \in G$. Po trditvi \ref{trd:prododp} je množica $UH$ odprta v $G$, torej je $\varphi(U) = \lbrace uH ; u \in U \rbrace$ odprta v $G/H$.
+Za dokaz odprtosti naravne preslikave vzemimo odprto množico $U \in G$. Po trditvi \ref{trd:prododp} je množica $UH$ odprta v $G$. Ker velja $\varphi^{-1}(\lbrace uH ; u \in U \rbrace) = UH$, je $\varphi(U) = \lbrace uH ; u \in U \rbrace$ odprta v $G/H$.
 \end{dokaz}
 
 Topologiji $\theta(G/H)$ pravimo \emph{kvocientna topologija}, topološkemu prostoru $G/H$ pa \emph{kvocientni prostor}. Od tukaj naprej bo kvocientni topološki prostor vedno opremljen s kvocientno topologijo.
@@ -473,8 +450,8 @@ Naj bo $G$ topološka grupa, $H$ njena podgrupa in $U, V$ taki okolici enote $e$
 \end{trditev}
 
 \begin{dokaz}
-Vzemimo odsek $xH \in \closure{\varphi(V)}$. Ker je $V$ okolica enote, je množica $\lbrace vxH ; v \in V \rbrace$ okolica odseka $xH$ in ima zato s $\varphi(V)$ neprazen presek. Po definiciji naravne preslikave obstajata točki $v_1, v_2 \in V$, da je $v_1xH = v_2H$. Velja \[xH = v_1^{-1}v_2H \in \lbrace wH ; w \in V^{-1}V \rbrace \subset \lbrace uH ; u \in U \rbrace = \varphi(U). \]
-Torej je res $\closure{\varphi(V)} \subset \varphi(U)$.
+Vzemimo odsek $xH \in \closure{\varphi(V)}$. Ker je $V$ okolica enote, je množica $\lbrace vxH ; v \in V \rbrace$ okolica odseka $xH$, in ima zato s $\varphi(V)$ neprazen presek. Po definiciji naravne preslikave obstajata točki $v_1, v_2 \in V$, da je $v_1xH = v_2H$. Ker je \[xH = v_1^{-1}v_2H \in \lbrace wH ; w \in V^{-1}V \rbrace \subset \lbrace uH ; u \in U \rbrace = \varphi(U), \]
+je $\closure{\varphi(V)} \subset \varphi(U)$.
 \end{dokaz}
 
 \begin{posledica}\label{pos:sim}
@@ -482,19 +459,7 @@ Za vsako okolico $U$ enote $e$ topološke grupe $G$ obstaja taka okolica $V$ eno
 \end{posledica}
 
 \begin{dokaz}
-Naj bo $U$ poljubna okolica enote $e$ in naj bo $\mathcal{V}$ baza simetričnih okolic enote $e$ iz trditve \ref{trd:sim}. Vzemimo tako okolico $V \in \mathcal{V}$, da velja $V^2 \subset U$. Takšna okolica obstaja po trditvi \ref{trd:okolice}. Velja $V^2 = V^{-1}V \subset U$. Naj bo podgrupa $H = \lbrace e \rbrace$. Po trditvi \ref{trd:okolicevkvoc} je $\closure{\varphi(V)} \subset \varphi(U)$. Ker je $H$ trivialna podgrupa, je kvocientna množica $G/H = G$ in naravna preslikava je identična preslikava na topološki grupi $G$. Torej velja $\closure{V} \subset U$.
-\end{dokaz}
-
-S pomočjo zgornje posledice lahko pokažemo, da sta separacijski aksiom $T_0$ in regularnost za topološke grupe ekvivalentna pojma. Kasneje bomo pokazali, da iz separacijskega aksioma $T_0$ sledi še več - povsem regularnost.
-
-\begin{izrek}\label{izr:t3}
-	Vsaka topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je regularen topološki prostor.
-\end{izrek}
-
-\begin{dokaz}
-	Po trditvi \ref{trd:t0haus} je $G$ Hausdorffova in zato zadošča separacijskemu aksiomu $T_1$.
-	
-	Vzemimo poljuben element $a \in G$ in njegovo okolico $U$. Množica $a^{-1}U$ je potem okolica enote $e$, saj je po trditvi \ref{trd:trans} leva translacija homeomorfizem. Po posledici \ref{pos:sim} obstaja takšna okolica $V$ enote $e$, da je $\closure{V} \subset a^{-1}U$. Ker je leva translacija homeomorfizem, je množica $aV$ okolica elementa $a$, za katero velja $aV \subset \closure{aV} \subset U$. Topološka grupa $G$ zadošča separacijskemu aksiomu $T_3$ in je zato regularna.
+Naj bo $U$ poljubna okolica enote $e$ in naj bo $\mathcal{V}$ baza simetričnih okolic enote $e$, ki obstaja po trditvi \ref{trd:sim}. Po trditvi \ref{trd:okolice} obstaja takšna okolica $V \in \mathcal{V}$, da je $V^2 = V^{-1}V \subset U$. Naj bo podgrupa $H = \lbrace e \rbrace$ trivialna podgrupa. Po trditvi \ref{trd:okolicevkvoc} je $\closure{\varphi(V)} \subset \varphi(U)$. Ker je $H$ trivialna podgrupa, je kvocientna množica $G/H$ enaka $G$ in naravna preslikava je identična preslikava na topološki grupi $G$. Zato velja $\closure{V} \subset U$.
 \end{dokaz}
 
 \begin{izrek}\label{izr:kvocreg}
@@ -502,49 +467,63 @@ Za topološko grupo $G$ in njeno podgrupo $H$ veljajo naslednje trditve:
 \begin{enumerate}
 \item kvocientni prostor $G/H$ je diskreten natanko tedaj, ko je $H$ odprta v $G$,\label{podtrd:kvocreg1}
 \item če je $H$ zaprta v $G$, potem je kvocient $G/H$ regularen topološki prostor,\label{podtrd:kvocreg2}
-\item če kvocientni prostor $G/H$ zadošča separacijskemu aksiomu $T_0$, potem je $H$ zaprta v $G$ in velja, da je kvocient $G/H$ regularen topološki prostor.\label{podtrd:kvocreg3}
+\item če kvocientni prostor $G/H$ zadošča separacijskemu aksiomu $T_0$, potem je $H$ zaprta v $G$, kvocientni topološki prostor $G/H$ pa je regularen.\label{podtrd:kvocreg3}
 \end{enumerate}
 \end{izrek}
 
 \begin{dokaz}
-Za dokaz \ref{podtrd:kvocreg1} privzemimo, da je $H$ odprta v $G$. Ker je leva translacija po trditvi \ref{trd:trans} homeomorfizem, je množica $aH$ odprta množica za vsak element $a \in G$ in zato tudi $\varphi^{-1}(aH) = \lbrace aH \rbrace$ za vsak element $aH \in G/H$. Ker je po izreku \ref{izr:topkvocienta} preslikava $\varphi$ odprta, je vsaka enoelementna množica $\lbrace aH \rbrace = \varphi(aH)$ odprta v $G/H$, torej je $G/H$ diskreten topološki prostor.
+Za dokaz točke (\ref{podtrd:kvocreg1}) privzemimo, da je $H$ odprta v $G$. Ker je leva translacija po trditvi \ref{trd:trans} homeomorfizem, je množica $aH$ odprta množica za vsak element $a \in G$. Ker je $\varphi^{-1}(\lbrace aH \rbrace) = aH$, je množica $\lbrace aH \rbrace$ odprta v $G/H$ za vsak element $aH \in G/H$, torej je $G/H$ diskreten topološki prostor.
 
 Obratno, če je $G/H$ diskreten topološki prostor, potem so vse njegove eno\-e\-le\-ment\-ne podmnožice odprte. V posebnem primeru je tudi $\lbrace H \rbrace$ odprta v $G/H$. Ker je naravna preslikava zvezna, je $H = \varphi^{-1}(\lbrace H \rbrace)$ odprta množica v $G$.
 
-Za dokaz \ref{podtrd:kvocreg2} privzemimo, da je $H$ zaprta v $G$. Ker je leva translacija po trditvi \ref{trd:trans} homeomorfizem, je zaprta tudi množica $aH$ za vsak element $a \in G$. Po definiciji zaprtosti je $G\setminus aH = \bigcup \lbrace xH ; xH \neq aH \rbrace$ odprta v $G$. Ker je po izreku \ref{izr:topkvocienta} naravna preslikava odprta, je zato komplement vsake točke $\lbrace aH \rbrace$ odprt v $G/H$. Po definiciji zaprtosti je vsaka točka $\lbrace aH \rbrace$ zaprta v $G/H$, kar je ekvivalentno separacijskemu aksiomu $T_1$. Naj bosta $U$ in $V$ okolici enote $e$ iz trditve \ref{trd:okolicevkvoc}. Če za $V$ vzamemo simetrično okolico (to lahko naredimo po trditvi \ref{trd:sim}), potem po trditvi \ref{trd:okolice} tak $V$ obstaja za vsako okolico $U$, saj lahko vzamemo $V^{-1}V = V^2 \subset U$. Torej za vsako okolico $\varphi(U)$ enote $H$ obstaja takšna okolica $\varphi(V)$ enote $H$, da $\closure{\varphi(V)} \subset \varphi(U)$. Ker je leva translacija homeomorfizem, to velja za vsako točko $aH \in G/H$, kar pa je ekvivalentno separacijskemu aksiomu $T_3$. Kvocientni prostor $G/H$ je res regularen.
+Za dokaz točke (\ref{podtrd:kvocreg2}) privzemimo, da je $H$ zaprta v $G$. Ker je leva translacija po trditvi \ref{trd:trans} homeomorfizem, je zaprta tudi množica $aH$ za vsak element $a \in G$. Po definiciji zaprtosti je $G\setminus aH = \bigcup \lbrace xH ; xH \neq aH \rbrace$ odprta v $G$. Ker je po izreku \ref{izr:topkvocienta} naravna preslikava odprta, je zato komplement vsake točke $\lbrace aH \rbrace$ odprt v $G/H$. Po definiciji zaprtosti je vsaka točka $\lbrace aH \rbrace$ zaprta v $G/H$, kar je ekvivalentno separacijskemu aksiomu $T_1$. 
+Naj bo množica $U$ okolica enote $e$ v $G$. Ker po trditvi \ref{trd:sim} obstaja baza simetričnih okolic, potem po trditvi \ref{trd:okolice} obstaja takšna okolica enote $V$, da velja $V^2 = V^{-1}V \subset U$. Torej po trditvi \ref{trd:okolicevkvoc} za vsako okolico $\varphi(U)$ enote $H$ obstaja takšna okolica $\varphi(V)$ enote $H$, da je $\closure{\varphi(V)} \subset \varphi(U)$.
+Ker je leva translacija homeomorfizem, to velja za vsako točko $aH \in G/H$, kar pa je ekvivalentno separacijskemu aksiomu $T_3$. Ker kvocientni prostor $G/H$ zadošča separacijskima aksiomoma $T_1$ in $T_3$, je regularen.
 
-Za dokaz \ref{podtrd:kvocreg3} privzemimo, da $G/H$ zadošča separacijskemu aksiomu $T_0$. Po izreku \ref{trd:t0haus} je $G/H$ Hausdorffova. Vse enoelementne množice v $G/H$ so zaprte, zato tudi $\lbrace H \rbrace$. Po definiciji kvocientne topologije je $\lbrace H \rbrace$ zaprta v $G/H$ natanko tedaj, ko je $\varphi^{-1}(\lbrace H \rbrace) = H$ zaprta v $G$. Po točki \ref{podtrd:kvocreg2} je $G/H$ regularen topološki prostor.
+Za dokaz točke (\ref{podtrd:kvocreg3}) privzemimo, da $G/H$ zadošča separacijskemu aksiomu $T_0$. Po izreku \ref{trd:t0haus} je zaprta enota $\lbrace H \rbrace$. Po definiciji kvocientne topologije je $\lbrace H \rbrace$ zaprta v $G/H$ natanko tedaj, ko je $\varphi^{-1}(\lbrace H \rbrace) = H$ zaprta v $G$. Po točki (\ref{podtrd:kvocreg2}) je $G/H$ regularen topološki prostor.
 \end{dokaz}
 
 \begin{izrek}\label{izr:kvocpovzetek}
 Naj bo $H$ podgrupa edinka topološke grupe $G$ in naj bo $G/H$ kvocientni topološki prostor. Veljajo naslednje trditve:
 \begin{enumerate}
-\item kvocient $G/H$ je topološka grupa s topologijo $\theta$,\label{podtrd:kvoc1}
+\item kvocientni topološki prostor $G/H$ je topološka grupa s topologijo $\theta$,\label{podtrd:kvoc1}
 \item naravni homomorfizem je odprta in zvezna preslikava,\label{podtrd:kvoc2}
-\item kvocient $G/H$ je diskreten natanko tedaj, ko je podgrupa $H$ odprta v $G$,\label{podtrd:kvoc3}
-\item kvocient $G/H$ zadošča separacijskemu aksiomu $T_0$ natanko tedaj, ko je pod\-gru\-pa $H$ zaprta v $G$.\label{podtrd:kvoc4}
+\item kvocientni topološki prostor $G/H$ je diskreten natanko tedaj, ko je podgrupa $H$ odprta v $G$,\label{podtrd:kvoc3}
+\item kvocientni topološki prostor $G/H$ zadošča separacijskemu aksiomu $T_0$ natanko tedaj, ko je pod\-gru\-pa $H$ zaprta v $G$.\label{podtrd:kvoc4}
 \end{enumerate}
 \end{izrek}
 
 \begin{dokaz}
-Za dokaz \ref{podtrd:kvoc1} bomo uporabili izrek \ref{izr:bazaokolice}. Preverili bomo, da za družino vseh okolic enote $H$ v grupi $G/H$ s kvocientno topologijo veljajo lastnosti \ref{last:oko1}-\ref{last:oko4} trditve \ref{trd:okolice} in zadostili pogojem izreka.
+Za dokaz točke (\ref{podtrd:kvoc1}) bomo uporabili izrek \ref{izr:bazaokolice}. Preverili bomo, da za družino vseh okolic enote $H$ v grupi $G/H$ s kvocientno topologijo veljajo lastnosti (\ref{last:oko1})-(\ref{last:oko4}) trditve \ref{trd:okolice} in zadostili pogojem izreka \ref{izr:bazaokolice}.
 
-Naj bo $\lbrace uH ; u \in U \rbrace$ poljubna okolica enote $H$ v grupi $G/H$, kjer je $U$ okolica enote $e$ v topološki grupi $G$. Po lastnosti \ref{last:oko1} trditve \ref{trd:okolice} obstaja taka okolica $V$ enote $e$, da velja $V^2 \subset U$. Po definiciji kvocientne topologije je množica $\lbrace vH ; v \in V \rbrace$ odprta v $G/H$ in velja $\lbrace vH ; v \in V \rbrace^2 = \lbrace yH ; y \in V^2 \rbrace \subset \lbrace uH ; u \in U \rbrace$. Torej za grupo $G/H$ s kvocientno topologijo drži lastnost \ref{last:oko1} trditve \ref{trd:okolice}.
-Naprej, po lastnosti \ref{last:oko2} trditve \ref{trd:okolice} obstaja taka okolica $V$ enote $e$, da velja $V^{-1} \subset U$. Po definiciji kvocientne topologije je množica $\lbrace vH ; v \in V^{-1} \rbrace$ odprta in velja $\lbrace vH ; v \in V \rbrace^{-1} = \lbrace yH ; y \in V^{-1} \rbrace \subset \lbrace uH ; u \in U \rbrace$. Torej za grupo $G/H$ s kvocientno topologijo drži lastnost \ref{last:oko2} trditve \ref{trd:okolice}.
+Naj bo $\lbrace uH ; u \in U \rbrace$ poljubna okolica enote $H$ v grupi $G/H$, kjer je $U$ okolica enote $e$ v topološki grupi $G$. Po lastnosti (\ref{last:oko1}) trditve \ref{trd:okolice} obstaja taka okolica $V$ enote $e$, da velja $V^2 \subset U$. Po definiciji kvocientne topologije je množica $\lbrace vH ; v \in V \rbrace$ odprta v $G/H$ in velja \[\lbrace vH ; v \in V \rbrace^2 = \lbrace yH ; y \in V^2 \rbrace \subset \lbrace uH ; u \in U \rbrace\]. Torej za grupo $G/H$ s kvocientno topologijo drži lastnost (\ref{last:oko1}) trditve \ref{trd:okolice}.
 
-Za dokaz lastnosti \ref{last:oko3} vzemimo še poljuben element $u_0H \in \lbrace uH ; u \in U \rbrace$. Po lastnosti \ref{last:oko3} trditve \ref{trd:okolice} obstaja taka okolica $V$ enote $e$, da velja $u_0V \subset U$. Potem je $\lbrace vH ; v \in V \rbrace$ okolica enote $H$ v $G/H$ in velja $u_0H\cdot\lbrace vH ; v \in V\rbrace = \lbrace u_0vH ; v \in V \rbrace \subset uH ; u \in U \rbrace$. Torej za grupo $G/H$ s kvocientno topologijo drži lastnost \ref{last:oko3} trditve \ref{trd:okolice}.
-Po lastnosti \ref{last:oko4} trditve \ref{trd:okolice} obstaja taka okolica $V$ enote $e$, da velja $u_0Vu_0^{-1} \subset U$. Potem je $\lbrace vH ; v \in V \rbrace$ okolica enote $H$ v $G/H$ in velja $u_0H\cdot\lbrace vH ; v \in V\rbrace (u_0H)^{-1} = \lbrace u_0vu_0^{-1}H ; v \in V \rbrace \subset uH ; u \in U \rbrace$. Torej za grupo $G/H$ s kvocientno topologijo drži lastnost \ref{last:oko4} trditve \ref{trd:okolice}.
+Po lastnosti (\ref{last:oko2}) trditve \ref{trd:okolice} obstaja taka okolica $V$ enote $e$, da velja $V^{-1} \subset U$. Po definiciji kvocientne topologije je množica $\lbrace vH ; v \in V^{-1} \rbrace$ odprta in velja \[\lbrace vH ; v \in V \rbrace^{-1} = \lbrace yH ; y \in V^{-1} \rbrace \subset \lbrace uH ; u \in U \rbrace.\] Torej za grupo $G/H$ s kvocientno topologijo drži lastnost (\ref{last:oko2}) trditve \ref{trd:okolice}.
 
-Družina vseh okolic enote $H$ v $G/H$ torej zadošča lastnostim \ref{last:oko1}-\ref{last:oko4} trditve \ref{trd:okolice}. Očitno so vsi končni preseki teh okolic neprazni, saj vse okolice vsebujejo enoto $H$. Ker je presek odprtih množic po definiciji topologije odprt in po prejšnji lastnosti neprazen, obstaja za vsaki dve okolici $\lbrace uH ; u \in U \rbrace$ in $\lbrace vH ; v \in V \rbrace$ enote $H$ neka okolica $W \subset U \cap V$ enote $H$. Po izreku \ref{izr:bazaokolice} je grupa $G/H$ res topološka grupa s kvocientno topologijo.
+Za dokaz lastnosti (\ref{last:oko3}) vzemimo še poljuben element $u_0H \in \lbrace uH ; u \in U \rbrace$. Po lastnosti (\ref{last:oko3}) trditve \ref{trd:okolice} obstaja taka okolica $V$ enote $e$, da velja $u_0V \subset U$. Potem je $\lbrace vH ; v \in V \rbrace$ okolica enote $H$ v $G/H$ in velja \[u_0H\cdot\lbrace vH ; v \in V\rbrace = \lbrace u_0vH ; v \in V \rbrace \subset uH ; u \in U \rbrace.\] Torej za grupo $G/H$ s kvocientno topologijo drži lastnost (\ref{last:oko3}) trditve \ref{trd:okolice}.
 
-Trditev \ref{podtrd:kvoc2} sledi direktno iz izreka \ref{izr:topkvocienta}.
-Trditev \ref{podtrd:kvoc3} sledi direktno iz točke \ref{podtrd:kvocreg1} izreka \ref{izr:kvocreg}, trditev \ref{podtrd:kvoc4} pa iz točk \ref{podtrd:kvocreg2} in \ref{podtrd:kvocreg3} izreka \ref{izr:kvocreg}.
+Po lastnosti (\ref{last:oko4}) trditve \ref{trd:okolice} obstaja taka okolica $V$ enote $e$, da velja $u_0Vu_0^{-1} \subset U$. Potem je $\lbrace vH ; v \in V \rbrace$ okolica enote $H$ v $G/H$ in velja \[u_0H\cdot\lbrace vH ; v \in V\rbrace (u_0H)^{-1} = \lbrace u_0vu_0^{-1}H ; v \in V \rbrace \subset uH ; u \in U \rbrace\]. Torej za grupo $G/H$ s kvocientno topologijo drži lastnost (\ref{last:oko4}) trditve \ref{trd:okolice}.
+
+Družina vseh okolic enote $H$ v $G/H$ torej zadošča lastnostim (\ref{last:oko1})-(\ref{last:oko4}) trditve \ref{trd:okolice}. Ker vse okolice vsebujejo enoto $H$, so vsi končni preseki teh okolic neprazni. Ker je presek odprtih množic po definiciji topologije odprt in po prejšnji lastnosti neprazen, obstaja za vsaki dve okolici $\lbrace uH ; u \in U \rbrace$ in $\lbrace vH ; v \in V \rbrace$ enote $H$ neka okolica $W \subset U \cap V$ enote $H$. Po izreku \ref{izr:bazaokolice} je grupa $G/H$ res topološka grupa s kvocientno topologijo.
+
+Točka (\ref{podtrd:kvoc2}) sledi direktno iz izreka \ref{izr:topkvocienta}.
+Točka (\ref{podtrd:kvoc3}) sledi direktno iz točke (\ref{podtrd:kvocreg1}) izreka \ref{izr:kvocreg}, točka (\ref{podtrd:kvoc4}) pa iz točk (\ref{podtrd:kvocreg2}) in (\ref{podtrd:kvocreg3}) izreka \ref{izr:kvocreg}.
+\end{dokaz}
+
+S pomočjo zgornjega izreka lahko pokažemo, da sta separacijski aksiom $T_0$ in regularnost za topološke grupe ekvivalentna pojma. Kasneje bomo pokazali, da iz separacijskega aksioma $T_0$ sledi še več - povsem regularnost.
+
+\begin{posledica}\label{izr:t3}
+	Vsaka topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je regularen topološki prostor.
+\end{posledica}
+
+\begin{dokaz}
+Ker topološla grupa $G$ zadošča separacijskemu aksiomu $T_0$, je po trditvi podgrupa edinka $H = \lbrace e \rbrace$ zaprta v $G$. Po izreku \ref{izr:kvocpovzetek} je $G/H = G$ regularen topološki prostor.
 \end{dokaz}
 
 \section{Izreki o izomorfizmih}
 
 \begin{trditev}\label{trd:homogenkvoc}
-	Naj bo $G$ topološka grupa in $H$ njena podgrupa. Naj bo za vsak element $a \in G$ na kvocientu $G/H$ definirana preslikava $\psi_a$ s predpisom $\psi_a(xH) = (ax)H$.
+	Naj bo $G$ topološka grupa in $H$ njena podgrupa. Naj bo za vsak element $a \in G$ na kvocientnem topološke prostoru $G/H$ definirana preslikava $\psi_a$ s predpisom $\psi_a(xH) = (ax)H$.
 	Za vsak element $a \in G$ je $\psi_a$ homeomorfizem na prostoru $G/H$.
 \end{trditev}
 
@@ -557,7 +536,7 @@ odprta množica, saj je množica $aU$ odprta v $G$, ker je po trditvi \ref{trd:t
 \end{dokaz}
 
 \begin{trditev}\label{trd:kvockompakt}
-	Naj bo $H$ podgrupa (lokalno) kompaktne topološke grupe $G$. Potem je tudi kvocientni prostor $G/H$ (lokalno) kompakten.
+	Naj bo $H$ podgrupa (lokalno) kompaktne topološke grupe $G$. Potem je tudi kvocientni topološki prostor $G/H$ (lokalno) kompakten.
 \end{trditev}
 
 \begin{dokaz}
@@ -609,11 +588,11 @@ Množica $\tilde{x}^{-1}\widetilde{V}$ je okolica enote $\tilde{e}$ in je zato v
 
 \subsection{Prvi izrek o izomorfizmih}
 \begin{izrek}[Prvi izrek o izomorfizmih za topološke grupe]\label{izr:prvitopizrek}
-Naj bosta $G$ in $\widetilde{G}$ topološki grupi. Naj bo $f\colon G \to \widetilde{G}$ odprt, zvezen in surjektiven homomorfizem. Potem je $\ker f$ podgrupa edinka v grupi $G$ in množice $f^{-1}(\tilde{x})$, kjer je $\tilde{x} \in \widetilde{G}$, so disjunktni odseki po podgrupi $\ker f$ v grupi $G$. Preslikava $\Phi\colon\widetilde{G} \to G/\ker f$ s predpisom $\tilde{x} \mapsto f^{-1}(\tilde{x})$ je topološki izomorfizem.
+Naj bosta $G$ in $\widetilde{G}$ topološki grupi. Naj bo $f\colon G \to \widetilde{G}$ odprt, zvezen in surjektiven homomorfizem. Preslikava $\Phi\colon\widetilde{G} \to G/\ker f$ s predpisom $\tilde{x} \mapsto f^{-1}(\tilde{x})$ je topološki izomorfizem.
 \end{izrek}
 
 \begin{dokaz}
-Upoštevajoč izrek (prvi izrek o izomorfizmih) moramo pokazati le, da je preslikava $\Phi$ homeomorfizem. Vzemimo odprto podmnožico $\widetilde{U} \subset \widetilde{G}$. Množica $\Phi(\widetilde{U}) = \lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace$ je potem odprta v $G/H$, saj je množica $\cup\lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace = f^{-1}(\widetilde{U})$ odprta v $G$, ker je preslikava $f$ zvezna. Torej je preslikava $\Phi$ odprta, od koder sledi, da je $\Phi^{-1}$ zvezna preslikava.
+Upoštevajoč prvi izrek o izomorfizmih moramo pokazati le, da je preslikava $\Phi$ homeomorfizem. Vzemimo odprto podmnožico $\widetilde{U} \subset \widetilde{G}$. Množica $\Phi(\widetilde{U}) = \lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace$ je potem odprta v $G/H$, saj je množica $\cup\lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace = f^{-1}(\widetilde{U})$ odprta v $G$, ker je preslikava $f$ zvezna. Torej je preslikava $\Phi$ odprta, od koder sledi, da je $\Phi^{-1}$ zvezna preslikava.
 
 Vzemimo $\lbrace uH ; u \in U \rbrace$ odprto množico v $G/H$, kjer je množica $U \subset G$ odprta. Potem velja
 \begin{align*}
@@ -644,9 +623,9 @@ Vzemimo odprto podmnožico $\lbrace y(A \cap H) ; y \in Y \rbrace \subset A/(A \
 
 
 \subsection{Tretji izrek o izomorfizmih}
-\begin{izrek}\label{izr:predtretji}
-	Naj bo $f\colon G \to \widetilde{G}$ odprt, zvezen homomorfizem topoloških grup in naj bo $\widetilde{H}$ podgrupa edinka v $\widetilde{G}$. Potem so grupe $(G/\ker f)/(f^{-1}(\widetilde{H})/\ker f)$, $G/f^{-1}(\widetilde{H})$ in $\widetilde{G}/\widetilde{H}$ topološko izomorfne.
-\end{izrek}
+\begin{trditev}\label{trd:predtretji}
+	Naj bo $f\colon G \to \widetilde{G}$ odprt in zvezen homomorfizem topoloških grup in naj bo $\widetilde{H}$ podgrupa edinka v $\widetilde{G}$. Potem so grupe $(G/\ker f)/(f^{-1}(\widetilde{H})/\ker f)$, $G/f^{-1}(\widetilde{H})$ in $\widetilde{G}/\widetilde{H}$ topološko izomorfne.
+\end{trditev}
 
 \begin{dokaz}
 Naj bo $\tilde{\varphi}\colon \widetilde{G} \to \widetilde{G}/\widetilde{H}$ naravna preslikava. Po izreku \ref{izr:kvocpovzetek} je $\tilde{\varphi}$ odprt in zvezen homomorfizem. Ker je preslikava $f$ odprt in zvezen homomorfizem, je zato preslikava $\tilde{\varphi}\circ f\colon G \to \widetilde{G}/\widetilde{H}$ odprt in zvezen homomorfizem z jedrom $H = f^{-1}(\widetilde{H})$. Po izreku \ref{izr:prvitopizrek} sta topološki grupi $G/H$ in $\widetilde{G}/\widetilde{H}$ topološko izomorfni. Naj bo $N = \ker f$. Ker je po izreku \ref{izr:prvitopizrek} preslikava $f^{-1}\colon \widetilde{G} \to G/N$, $\tilde{x} \mapsto f^{-1}(\tilde{x})$, topološki izomorfizem in je slika podgrupe $\widetilde{H}$ so to preslikavo enaka $H/N$, je topološka grupa $\widetilde{G}/\widetilde{H}$ topološko izomorfna $(G/N)/(H/N)$.
@@ -664,30 +643,37 @@ Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta 
 \subsection{Uniformni prostori}
 
 \begin{definicija}\label{def:uniform}
-	Naj bo $X$ neprazna množica.
-	\begin{enumerate}
-		\item Neprazna poddružina $\mathcal{F} \subset \mathcal{P}(X)$ je \emph{filter} množice $X$, če ima naslednje lastnosti:
-		\begin{enumerate}
-			\item družina $\mathcal{F}$ ne vsebuje prazne množice,
-			\item za vsako množico $F \in \mathcal{F}$ je vsaka množica $E \in X$, za katero velja $F \subseteq E$, tudi v družini $\mathcal{F}$,
-			\item presek $E \cap F$ množic $E, F \in \mathcal{F}$ je tudi v družini $\mathcal{F}$.
-		\end{enumerate}
-		\item Filter $\mathcal{U}$ na množici $X \times X$ definira \emph{uniformno strukturo} na množici $X$, če ima naslednje lastnosti:
-		\begin{enumerate}
-			\item vsaka množica $U \in \mathcal{U}$ vsebuje diagonalo $\Delta = \lbrace (x, x) ; x \in X \rbrace$,
-			\item za vsako množico $U \in \mathcal{U}$ je tudi množica $U^{-1} \in \mathcal{U}$,
-			\item za vsako množico $U \in \mathcal{U}$ obstaja taka množica $V \in \mathcal{U}$, da velja $V \circ V \subseteq U$.
-		\end{enumerate}
-		Množici z uniformno stukturo rečemo \emph{uniformni prostor}.
-	\end{enumerate}
+Naj bo $X$ neprazna množica.Neprazna poddružina $\mathcal{F} \subset \mathcal{P}(X)$ je \emph{filter} množice $X$, če ima naslednje lastnosti:
+\begin{enumerate}
+\item $\emptyset \notin \mathcal{F}$,
+\item za vsako množico $F \in \mathcal{F}$ je vsaka množica $E \in X$, za katero velja $F \subseteq E$, tudi v družini $\mathcal{F}$,
+\item presek $E \cap F$ množic $E, F \in \mathcal{F}$ je tudi v družini $\mathcal{F}$.
+\end{enumerate}
+\end{definicija}
+
+\begin{primer}
+Preprost primer filtra je družina vseh okolic poljubne točke $x$ topološkega prostora $X$. 
+\end{primer}
+\begin{definicija}
+Filter $\mathcal{U}$ na neprazni množici $X \times X$ definira \emph{uniformno strukturo} $\Ucurl$ na množici $X$, če ima naslednje lastnosti:
+\begin{enumerate}
+\item vsaka množica $U \in \mathcal{U}$ vsebuje diagonalo $\Delta = \lbrace (x, x) ; x \in X \rbrace$,
+\item za vsako množico $U \in \mathcal{U}$ je tudi množica $U^{-1} \in \mathcal{U}$,
+\item za vsako množico $U \in \mathcal{U}$ obstaja taka množica $V \in \mathcal{U}$, da velja $V \circ V \subseteq U$.
+\end{enumerate}
+Množici z uniformno stukturo rečemo \emph{uniformni prostor} in označimo $(X, \Ucurl)$.
 \end{definicija}
 
 \begin{opomba}
 	V zgornji definiciji so operacije na množicah mišljene v smislu relacij.
 \end{opomba}
 
+\begin{trditev}\label{trd:uniinduciranatopo}
+Naj bo $X$ uniformni prostor z uniformno strukturo $\mathcal{U}$. Družina $\tau$ množic $T \subseteq X$, za katere za vsako točko $x \in T$ obstaja $U \in \mathcal{U}$, da velja $U_x = \lbrace y \in X ; (x, y) \in U \rbrace \subseteq T$, je topologija na množici $X$.
+\end{trditev}
+
 \begin{definicija}\label{def:uniinduciranatopo}
-	Naj bo $X$ uniformni prostor z uniformno strukturo $\mathcal{U}$. Topologija, inducirana z $\mathcal{U}$ je taka družina $\tau$ množic $T \subseteq X$, za katere za vsako točko $x \in T$ obstaja $U \in \mathcal{U}$, da velja $U_x = \lbrace y \in X ; (x, y) \in U \rbrace \subseteq T$.
+Topologiji, definirani v trditvi \ref{trd:uniinduciranatopo}, pravimo, da je z uniformno strukturo inducirana topologija.
 \end{definicija}
 
 \begin{opomba}
@@ -695,7 +681,7 @@ Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta 
 \end{opomba}
 
 \begin{definicija}\label{def:enakzveznost}
-	Naj bosta $X$ in $Y$ uniformna prostora z uniformnima strukturama $\mathcal{U}$ in $\mathcal{V}$. Preslikava $f: X \to Y$ je \emph{enakomerno zvezna}, če za vsako množico $V \in \mathcal{V}$ obstaja taka množica $U \in \mathcal{U}$, da za vsak par $(x, y) \in U$ velja $(f(x), f(y)) \in V$.
+	Naj bosta $X$ in $Y$ uniformna prostora z uniformnima strukturama $\mathcal{U}$ in $\mathcal{V}$. Preslikava $f\colon X \to Y$ je \emph{enakomerno zvezna}, če za vsako množico $V \in \mathcal{V}$ obstaja taka množica $U \in \mathcal{U}$, da za vsak par $(x, y) \in U$ velja $(f(x), f(y)) \in V$.
 \end{definicija}
 
 \begin{trditev}\label{trd:enakzveznazvezna}
@@ -703,64 +689,52 @@ Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta 
 \end{trditev}
 
 \begin{dokaz}
-	Naj bo $f\colon (X, \mathcal{U}) \to (Y, \mathcal{V})$ enakomerno zvezna preslikava med uniformnima prostoroma. Vzemimo okolico $V_{f(x)}$ elementa $f(x)$ v topologiji na $Y$ inducirani z $\mathcal{V}$. Ker je $f$ enakomerno zvezna, obstaja tak $U \in \mathcal{U}$, da za vsak par $(x, y) \in U$ velja $(f(x), f(y)) \in V$. Po definiciji inducirane topologije za vsak $y \in U_x$ torej velja $f(y) \in V_{f(x)}$, kar pomeni, da je $f$ zvezna preslikava glede na topologiji, ki ju inducirata uniformni strukturi.
+	Naj bo $f\colon (X, \mathcal{U}) \to (Y, \mathcal{V})$ enakomerno zvezna preslikava med uniformnima prostoroma. Vzemimo okolico $V_{f(x)}$ elementa $f(x)$ v topologiji na $Y$ inducirani z $\mathcal{V}$. Ker je $f$ enakomerno zvezna, obstaja tak $U \in \mathcal{U}$, da za vsak par $(x, y) \in U$ velja $(f(x), f(y)) \in V$. Po definiciji inducirane topologije za vsak $y \in U_x$ zato velja $f(y) \in V_{f(x)}$, kar pomeni, da je $f$ zvezna preslikava glede na topologiji, ki ju inducirata uniformni strukturi.
 \end{dokaz}
 
 \begin{definicija}\label{def:levadesnauni}
-	Naj bo $\Ucurl$ baza odprtih okolic enote $e$ topološke grupe $G$. Za vsako okolico $U \in \Ucurl$ definiramo \[L_U = \lbrace (x, y) \in G \times G ; x^{-1}y \in U \rbrace\] in analogno \[R_U = \lbrace (x, y) \in G \times G ; yx^{-1} \in U \rbrace.\] Družinama $\mathcal{L}(G) = \lbrace L_U \rbrace_{U \in \Ucurl}$ in $\mathcal{R}(G) = \lbrace R_U \rbrace_{U \in \Ucurl}$ pravimo leva in desna uniformna struktura na $G$.
+	Naj bo $\Ucurl$ baza odprtih okolic enote $e$ topološke grupe $G$. Za vsako okolico $U \in \Ucurl$ definiramo \[L_U = \lbrace (x, y) \in G \times G ; x^{-1}y \in U \rbrace\] in analogno \[R_U = \lbrace (x, y) \in G \times G ; yx^{-1} \in U \rbrace.\] Družinama $\mathcal{L}(G) = \lbrace L_U \rbrace_{U \in \Ucurl}$ in $\mathcal{R}(G) = \lbrace R_U \rbrace_{U \in \Ucurl}$ zaporedoma pravimo leva in desna uniformna struktura na $G$.
 \end{definicija}
 
 \begin{trditev}\label{trd:topguniform}
-	Vsaka topološka grupa je uniformni prostor.
+	Vsaka topološka grupa je uniformni prostor glede na levo ali desno uniformno strukturo.
 \end{trditev}
 
 \begin{dokaz}
-Naj bo filter $\Ucurl$ baza odprtih in simetričnih okolic enote $e$ topološke grupe $G$. Oglejmo si levo in desno uniformno strukturo na $G$, ki sta definirani z $\Ucurl$. Pokazali bomo, da ustrezata definiciji uniformne strukture na množici $G$.
+Naj bo filter $\Ucurl$ baza okolic enote $e$ topološke grupe $G$, sestavljene iz simetričnih in odprtih okolic. Oglejmo si levo in desno uniformno strukturo na $G$, ki sta definirani z $\Ucurl$. Pokazali bomo, da ustrezata definiciji uniformne strukture na množici $G$.
 
-Ker je enote $e$ v vsaki okolici $U \in \Ucurl$, je diagonala $\Delta = \lbrace (x, x) ; x \in X \rbrace$ vsebovana v $L_U$ in $R_U$ za vsako okolico $U \in \Ucurl$.
+Ker je enota $e$ v vsaki okolici $U \in \Ucurl$, je diagonala $\Delta = \lbrace (x, x) ; x \in X \rbrace$ vsebovana v $L_U$ in $R_U$ za vsako okolico $U \in \Ucurl$.
 
-Velja \[L_{U^{-1}} = \lbrace (x, y) \in G \times G ; x^{-1}y \in U^{-1} \rbrace = \lbrace (x, y) \in G \times G ; y^{-1}x \in U \rbrace = L^{-1}_U\]
+Ker velja \[L_{U^{-1}} = \lbrace (x, y) \in G \times G ; x^{-1}y \in U^{-1} \rbrace = \lbrace (x, y) \in G \times G ; y^{-1}x \in U \rbrace = L^{-1}_U\]
 in
-\[R_{U^{-1}} = \lbrace (x, y) \in G \times G ; yx^{-1} \in U^{-1} \rbrace = \lbrace (x, y) \in G \times G ; xy^{-1} \in U \rbrace = R^{-1}_U.\]
-Ker za vsako okolico $U \in \Ucurl$ velja $U = U^{-1}$, je $L^{-1}_U \in \mathcal{L}(G)$ in $R^{-1}_U \in \mathcal{R}(G)$.
+\[R_{U^{-1}} = \lbrace (x, y) \in G \times G ; yx^{-1} \in U^{-1} \rbrace = \lbrace (x, y) \in G \times G ; xy^{-1} \in U \rbrace = R^{-1}_U,\]
+in ker za vsako okolico $U \in \Ucurl$ velja $U = U^{-1}$, je $L^{-1}_U \in \mathcal{L}(G)$ in $R^{-1}_U \in \mathcal{R}(G)$.
 
-Po trditvi \ref{trd:okolice} za vsako okolico $U \in \Ucurl$ obstaja okolica $V \in \Ucurl$, da velja $V^2 \subset U$. Velja torej, da je $L_V \circ L_V \subset L_U$ in $R_V \circ R_V \subset R_U$.
+Ker po trditvi \ref{trd:okolice} za vsako okolico $U \in \Ucurl$ obstaja okolica $V \in \Ucurl$, da velja $V^2 \subset U$, je $L_V \circ L_V \subset L_U$ in $R_V \circ R_V \subset R_U$.
 
 Topološka grupa je z levo ali desno uniformno strukturo torej res uniformni prostor.
 \end{dokaz}
 
 \subsection{Metrizabilnost}
-
-\begin{definicija}\label{def:metrika}
-	\emph{Psevdometrika} na neprazni množici $X$ je preslikava $\rho\colon X \times X \to  [0, \infty)$, ki zadošča naslednjim pogojem:
-	\begin{enumerate}
-		\item za vsako točko $x \in X$ velja $\rho (x, x) = 0$;
-		\item za vsaki dve točki $x, y \in X$ velja $\rho (x, y) = \rho (y, x)$;
-		\item za vsake tri točke $x, y, z \in X$ velja $\rho (x, z) \leq \rho (x, y) + \rho (y, z)$.
-	\end{enumerate}
-	Če za preslikavo $\rho$ velja še
-	\begin{enumerate}[resume]
-		\item $\rho(x,y) = 0$ natanko tedaj, ko $x = y$,
-	\end{enumerate}
-	potem ji rečemo \emph{metrika}.
-\end{definicija}
-
-\begin{definicija}\label{def:metrizabilnost}
-	Topološki prostor $X$ je \emph{metrizabilen}, če njegova topologija $\tau$ izhaja iz kakšne metrike $d$ na množici $X$.
-\end{definicija}
-
-\begin{opomba}
-	Baza topologije metrizabilnega topološkega prostora $X$ je družina odprtih krogel $\lbrace K(x, \epsilon); x \in X, \epsilon \in \R \rbrace$.
-\end{opomba}
-
+\emph{Psevdometrika} na neprazni množici $X$ je preslikava $\rho\colon X\times X \to  [0, \infty)$, ki zadošča naslednjim pogojem:
+\begin{enumerate}
+\item za vsako točko $x \in X$ velja $\rho (x, x) = 0$,
+\item za vsaki dve točki $x, y \in X$ velja $\rho (x, y) = \rho (y, x)$,
+\item za vsake tri točke $x, y, z \in X$ velja $\rho (x, z) \leq \rho (x, y) + \rho (y, z)$.
+\end{enumerate}
+Če za preslikavo $\rho$ velja še
+\begin{enumerate}[resume]
+\item $\rho(x,y) = 0$ natanko tedaj, ko $x = y$,
+\end{enumerate}
+potem ji rečemo \emph{metrika}.
+Topološki prostor $X$ je \emph{metrizabilen}, če njegova topologija $\tau$ izhaja iz kakšne metrike $d$ na množici $X$.
+Baza topologije metrizabilnega topološkega prostora $X$ je družina odprtih krogel $\lbrace K(x, \epsilon); x \in X, \epsilon \in \R \rbrace$.
 
 \begin{definicija}
 Psevdometrika na grupi $G$ je levoinvariantna, če za vsaki dve točki $x, y \in G$ in za vsak element $a \in G$ velja $\rho(ax, ay) = \rho(x, y)$.
 \end{definicija}
 
-\begin{opomba}
-V dokazu spodnjega izreka bomo potrebovali pojem \emph{diadičnega} racionalnega števila, tj. racionalno število z imenovalcem je v okrajšani obliki enakim $2^n$, kjer je $n \in \N$. Vsota in produkt dveh diadičnih števil je prav tako diadično število. Opazimo tudi, da lahko s končno vsoto števil oblike $2^{-n}$, kjer je $n \in \N$, dobimo vsako diadično število med $0$ in $1$.
-\end{opomba}
+V dokazu spodnjega izreka bomo potrebovali pojem \emph{diadičnega} racionalnega števila, tj. racionalno število z imenovalcem v okrajšani obliki enakim $2^n$, kjer je $n \in \N$. Vsota in produkt dveh diadičnih števil je prav tako diadično število. Opazimo tudi, da lahko s končno vsoto števil oblike $2^{-n_i}$, kjer je $n \in \N$ in $n_i \neq n_j$ za $i \neq j$, dobimo vsako diadično število med $0$ in $1$.
 
 \begin{izrek}\label{izr:pseudometrika}
 	Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Potem obstaja taka levoinvariantna psevdometrika $\sigma$ na $G$ z naslednjimi lastnostmi:
@@ -771,24 +745,24 @@ V dokazu spodnjega izreka bomo potrebovali pojem \emph{diadičnega} racionalnega
 		\item $2^{-k} \leq \sigma (x, y)$, če $y^{-1}x \notin U_k$.\label{last:psevdo4}
 	\end{enumerate}
 	
-	Če velja še $x U_k x^{-1} = U_k$ za vsak $x \in G$ in $k \in \N$, potem je $\sigma$ tudi desnoinvariantna in velja
+	Če velja še $x U_k x^{-1} = U_k$ za vsak $x \in G$ in $k \in \N$, potem je $\sigma$ tudi desnoinvariantna in dodatno velja
 	\begin{enumerate}[resume]
 		\item $\sigma (x^{-1}, y^{-1}) = \sigma (x, y)$ za vsaka dva elementa $x, y \in G$.\label{last:psevdo5}
 	\end{enumerate}
 \end{izrek}
 
 \begin{dokaz}
-Najprej preimenujmo družino okolic $\lbrace U_k \rbrace_{k = 1}^\infty$. Naj bo za vsak $k \in \N$ okolica $V_{2^{-k}} = U_k$. Za vsako diadično racionalno število $r \in (0, 1)$ definiramo množico $V_r$ na naslednji način. Za
-\[ r = 2^{-l_1} + \cdots + 2^{-l_n}, 0 < l_1 < \cdots < l_n \]
-naj bo množica
+Najprej preimenujmo družino okolic $\lbrace U_k \rbrace_{k = 1}^\infty$. Najprej za vsak $k \in \N$ definiramo okolic $V_{2^{-k}} = U_k$. Za vsako diadično racionalno število $r \in (0, 1)$ nato definiramo množico $V_r$ na naslednji način. Če je
+\[ r = 2^{-l_1} + \cdots + 2^{-l_n}, 0 < l_1 < \cdots < l_n, \]
+potem definiramo
 \[ V_r = V_{2^{-l_1}}\cdots V_{2^{-l_n}}. \]
 Za vsa diadična racionalna števila $r \geq 1$ definiramo množico $V_r = G$.
 
-Pokažimo najprej, da iz $r < s$ sledi $V_r \subset V_s$. Privzamemo lahko, da je $s < 1$, v nasprotnem primeru je implikacija očitna, saj je $V_s = G$.
-Naj bo število $r$ definirano tako kot zgoraj in naj bo
+Pokažimo najprej, da iz $r < s$ sledi $V_r \subset V_s$. Ker za $s \geq 1$ velja $v_r \subseteq G = V_s$, lahko privzamemo, da je $s < 1$.
+Naj bo število $r$ definirano kot zgoraj in naj bo
 \[ s = 2^{-m_1} + \cdots + 2^{-m_p}, 0 < m_1 < \cdots < m_p. \]
 Ker je $r < s$, obstaja enolično določeno število $k \in \N$, da je $l_j = m_j$ za vsak $j < k$ in $l_k > m_k$. Naj bo $W = V_{2^{-l_1}}\cdots V_{2^{-l_{k-1}}}$.
-Potem, upoštevajoč $U_{k+1}^2 \subset U_k$, velja
+Potem, upoštevajoč $V_{2^{-k-1}}^2 \subset U_{2^{-k}}$, velja
 \begin{align*}
 V_r &= WV_{2^{-l_k}}V_{2^{-l_{k+1}}}V_{2^{-l_{k+2}}}\cdots V_{2^{-l_n}} \\
 &\subset WV_{2^{-l_k}}V_{2^{-l_k-1}}V_{2^{-l_k-2}}\cdots V_{2^{-l_n+1}}V_{2^{-l_n}}V_{2^{-l_n}} \\
@@ -798,18 +772,20 @@ V_r &= WV_{2^{-l_k}}V_{2^{-l_{k+1}}}V_{2^{-l_{k+2}}}\cdots V_{2^{-l_n}} \\
 &\subset V_{2^{-m_1}}V_{2^{-m_2}}\cdots V_{2^{-m_{k-1}}}V_{2^{-m_k}}V_{2^{-m_{k+1}}}\cdots V_{2^{-m_p}} = V_s
 \end{align*}
 
-Nato pokažimo, da za vsak zgoraj definirani $r$ in vsak $l \in \N$ velja $V_rV_{2^{-l}} \subset V_{r + 2^{-l+2}}$. Privzemimo, da je $r + 2^{-l+2} < 1$, saj je v nasprotnem primeru inkluzija očitna, ker je $V_{r + 2^{-l+2}} = G$.
-Če je $l > l_n$, je po konstrukciji množic $V_rV_{2^{-l}} = V_{r + 2^{-l}} \subset V_{r + 2^{-l+2}}$. Če je $l \leq l_n$, naj bo $k \in \N$ tako število, da je $l_{k-1} < l \leq l_k$, kjer označimo $l_0 = 0$. Definiramo $r_1 = 2^{-l+1} - 2^{-l_k} - 2^{-l_{k+1}} - \cdots - 2^{-l_n}$ in $r_2 = r + r_1$. Opazimo, da velja $r < r_2 < r + 2^{-l+1}$. Od tod sledi
+Pokažimo še, da za vsak zgoraj definirani $r$ in vsak $l \in \N$ velja $V_rV_{2^{-l}} \subset V_{r + 2^{-l+2}}$. Ker za $r + 2^{-l+2} \geq 1$ velja $V_{r + 2^{-l+2}} = G$, lahko privzamemo, da je  $r + 2^{-l+2} < 1$.
+Če je $l > l_n$, je po konstrukciji množic $V_rV_{2^{-l}} = V_{r + 2^{-l}} \subset V_{r + 2^{-l+2}}$. Če je $l \leq l_n$, naj bo $k \in \N$ tako število, da je $l_{k-1} < l \leq l_k$, kjer označimo $l_0 = 0$. Definiramo $r_1 = 2^{-l+1} - 2^{-l_k} - 2^{-l_{k+1}} - \cdots - 2^{-l_n}$ in $r_2 = r + r_1$. Ker je $r < r_2 < r + 2^{-l+1}$, velja
 \[ V_rV_{2^{l}} \subset V_{r_2}V_{2^{-l}} = V_{r_2 + 2^{-l}} \subset V_{r + 2^{-l+1} + 2^{-l}} \subset V_{r + 2^{-l+2}}. \]
 
-Na topološki grupi $G$ bomo konstruirali psevdometriko. Za vsak $x \in G$ naj bo $\varphi(x) = \inf\lbrace r ; x \in V_r \rbrace$. Očitno je $\varphi(x) = 0$ natanko tedaj, ko je $x \in H = \bigcap_{k=1}^{\infty} U_k = \bigcap_{k=1}^{\infty} V_{2^{-k}}$. Na prostoru $G \times G$ definiramo preslikavo
-\[ \sigma(x, y) = \sup\lbrace |\varphi(zx) - \varphi(zy)| ; z \in G \rbrace. \]
-Zaradi simetričnosti absolutne vrednosti je $\sigma(x, y) = \sigma(y, x)$ za vsaka elementa $x, y \in G$ in očitno je $\sigma(x, x) = 0$. Trikotniška neenakost velja, saj za poljubne $x, y, w \in G$ velja
+Na topološki grupi $G$ bomo sedaj konstruirali psevdometriko. Za vsak $x \in G$ naj bo \[\varphi(x) = \inf\lbrace r ; x \in V_r \rbrace\]. Očitno je $\varphi(x) = 0$ natanko tedaj, ko je $x \in H = \bigcap_{k=1}^{\infty} U_k = \bigcap_{k=1}^{\infty} V_{2^{-k}}$. Na prostoru $G \times G$ definiramo preslikavo
+\[ \sigma(x, y) = \sup_{z \in G}\lbrace |\varphi(zx) - \varphi(zy)| \rbrace. \]
+Trdimo, da je preslikava $\sigma$ iskana psevdometrika.
+
+Očitno je $\sigma(x, x) = 0$ in zaradi simetričnosti absolutne vrednosti je $\sigma(x, y) = \sigma(y, x)$ za vsaka elementa $x, y \in G$. Trikotniška neenakost velja, saj za poljubne $x, y, w \in G$ velja
 \begin{align*}
-\sigma(x, w) &= \sup\lbrace |\varphi(zx) - \varphi(zw)| ; z \in G \rbrace \\
-&= \sup\lbrace |\varphi(zx) - \varphi(zy) + \varphi(zy) - \varphi(zw)| ; z \in G \rbrace \\
-&\leq \sup\lbrace |\varphi(zx) - \varphi(zy)| + |\varphi(zy) - \varphi(zw)| ; z \in G \rbrace \\
-&\leq \sup\lbrace |\varphi(zx) - \varphi(zy)| ; z \in G \rbrace + \sup\lbrace |\varphi(zy) - \varphi(zw)| ; z \in G \rbrace \\
+\sigma(x, w) &= \sup_{z \in G}\lbrace |\varphi(zx) - \varphi(zw)| \rbrace 
+= \sup_{z \in G}\lbrace |\varphi(zx) - \varphi(zy) + \varphi(zy) - \varphi(zw)| \rbrace \\
+&\leq \sup_{z \in G}\lbrace |\varphi(zx) - \varphi(zy)| + |\varphi(zy) - \varphi(zw)| \rbrace \\
+&\leq \sup_{z \in G}\lbrace |\varphi(zx) - \varphi(zy)| \rbrace + \sup_{z \in G}\lbrace |\varphi(zy) - \varphi(zw)| \rbrace \\
 &= \sigma(x, y) + \sigma(y, w).
 \end{align*}
 Ker velja še
@@ -819,36 +795,35 @@ Ker velja še
 \end{align*}
 je preslikava $\sigma\colon G \times G \to [0, \infty)$ res levoinvariantna psevdometrika na topološki grupi $G$.
 
-Najprej dokažimo lastnost \ref{last:psevdo3}. Naj bo $l \in \N$, $u \in V_{2^{-l}}$ in $z \in G$. Če je $z \in V_r$, potem je po zgoraj dokazanem $zu \in V_rV_{2^{-l}} \subset V_{r + 2^{-l+2}}$. Po definiciji preslikave $\varphi$ torej sledi $\varphi(zu) \leq \varphi(z) + 2^{-l+2}$. Naprej, če je $zu \in V_r$, potem je $z \in V_rV_{2^{-l}}^{-1} = V_rV_{2^{-l}} \subset V_{r + 2^{-l+2}}$, saj je okolica $V_{2^{-l}} = U_l$ simetrična. Po definiciji preslikave $\varphi$ torej sledi $\varphi(z) \leq \varphi(zu) + 2^{-l+2}$. Od tod sledi $|\varphi(z) - \varphi(zu)| \leq 2^{-l+2}$ za vsak $u \in V_{2^{-l}}$ in $z \in G$, kar po definiciji preslikave $\sigma$ pomeni $\sigma(u, e) \leq 2^{-l+2}$ za vsak $u \in V_{2^{-l}}$. Ker je preslikava $\sigma$ levoinvariantna, sledi da je $\sigma(x, y) \leq 2^{-l+2}$, če je $y^{-1}x \in V_{2^{-l}} = U_l$.
+Dokažimo lastnost (\ref{last:psevdo3}). Naj bo $l \in \N$, $u \in V_{2^{-l}}$ in $z \in G$. Če je $z \in V_r$, potem je po zgoraj dokazanem $zu \in V_rV_{2^{-l}} \subset V_{r + 2^{-l+2}}$. Po definiciji preslikave $\varphi$ torej sledi $\varphi(zu) \leq \varphi(z) + 2^{-l+2}$. Podobno, če je $zu \in V_r$, potem je $z \in V_rV_{2^{-l}}^{-1} = V_rV_{2^{-l}} \subset V_{r + 2^{-l+2}}$, saj je okolica $V_{2^{-l}} = U_l$ simetrična. Po definiciji preslikave $\varphi$ torej sledi $\varphi(z) \leq \varphi(zu) + 2^{-l+2}$. Od tod sledi $|\varphi(z) - \varphi(zu)| \leq 2^{-l+2}$ za vsak $u \in V_{2^{-l}}$ in $z \in G$, kar po definiciji preslikave $\sigma$ pomeni $\sigma(u, e) \leq 2^{-l+2}$ za vsak $u \in V_{2^{-l}}$. Ker je preslikava $\sigma$ levoinvariantna, sledi, da je $\sigma(x, y) \leq 2^{-l+2}$, če je $y^{-1}x \in V_{2^{-l}} = U_l$.
 
-Nato dokažimo lastnost \ref{last:psevdo1}. Vzemimo $(x, y), (x_1,y_1) \in G \times G$. Uporabimo levoinvariantnost, trikotniško neenakost in lastnost \ref{last:psevdo3} ter dobimo
+Sedaj dokažimo lastnost (\ref{last:psevdo1}). Vzemimo $(x, y), (x_1,y_1) \in G \times G$. Če sta $x_1^{-1}x, y_1^{-1}y \in U_l$, uporabimo levoinvariantnost psevdometrike $\sigma$, trikotniško neenakost ter lastnost (\ref{last:psevdo3}), da dobimo
 \begin{align*}
 &|\sigma(x, y) - \sigma(x_1, y_1)| = |\sigma(x_1^{-1}x, x_1^{-1}y) - \sigma(x_1^{-1}y, e) + \sigma(e, y^{-1}x_1) - \sigma(y^{-1}x_1, y^{-1}y_1)| \\
 &\leq |\sigma(x_1^{-1}x, x_1^{-1}y) - \sigma(x_1^{-1}y, e)| + |\sigma(e, y^{-1}x_1) - \sigma(y^{-1}x_1, y^{-1}y_1)| \\
 &\leq |\sigma(x_1^{-1}x, e)| + |\sigma(e, y^{-1}y_1)| \leq 2^{-l+2} + 2^{-l+2} = 2^{-l+3}
 \end{align*}
-Zadnja neenakost velja, če sta $x_1^{-1}x, y_1^{-1}y \in U_k$. Po definiciji leve uniformne strukture na topološki grupi $G$, je psevdometrika $\sigma$ enakomerno zvezna.
+Po definiciji leve uniformne strukture na topološki grupi $G$ je psevdometrika $\sigma$ enakomerno zvezna.
 
-Dokažimo lastnost \ref{last:psevdo4}. Naj velja $y^{-1}x \notin U_l = V_{2^{-l}}$. Po definiciji preslikave $\varphi$ velja $\varphi(y^{-1}x) \geq 2^{-l}$. Upoštevamo levoinvariantnost in dobimo
+Dokažimo lastnost (\ref{last:psevdo4}). Naj velja $y^{-1}x \notin U_l = V_{2^{-l}}$. Po definiciji preslikave $\varphi$ velja $\varphi(y^{-1}x) \geq 2^{-l}$. Upoštevamo levoinvariantnost psevdometrike $\sigma$ in dobimo
 \[ \sigma(x, y) = \sigma(y^{-1}x, e) \geq |\varphi(ey^{-1}x) - \varphi(ee)| = \varphi(y^{-1}x) \geq 2^{-l}. \]
 
-Lastnost \ref{last:psevdo2} sledi iz lastnosti \ref{last:psevdo3} in \ref{last:psevdo4}. Če velja $\sigma(x, y) = \sigma(y^{-1}x, e) = 0$, mora veljati $y^{-1}x \in U_k$ za vsak $k \in \N$, sicer bi po lastnosti \ref{last:psevdo4} obstajal $k_0 \in \N$, da bi veljajo $\sigma(x, y) \geq 2^{-k_0} > 0$. Torej je $y^{-1}x \in H = \bigcap_{k=1}^\infty U_k$. Če pa je $y^{-1}x \in H = \bigcap_{k=1}^\infty U_k$, je po lastnosti \ref{last:psevdo3} $\sigma(x,y) \leq 2^{-k}$ za vsak $k \in \N$. Ker je $\lim_{k \to \infty}2^{-k} = 0$, je res $\sigma(x, y) = 0$.
+Lastnost (\ref{last:psevdo2}) sledi iz lastnosti (\ref{last:psevdo3}) in (\ref{last:psevdo4}). Če velja $\sigma(x, y) = \sigma(y^{-1}x, e) = 0$, mora veljati $y^{-1}x \in U_k$ za vsak $k \in \N$, sicer bi po lastnosti (\ref{last:psevdo4}) obstajal $k_0 \in \N$, da bi veljalo $\sigma(x, y) \geq 2^{-k_0} > 0$. Torej je $y^{-1}x \in H = \bigcap_{k=1}^\infty U_k$. Če pa je $y^{-1}x \in H = \bigcap_{k=1}^\infty U_k$, po lastnosti (\ref{last:psevdo3}) velja $\sigma(x,y) \leq 2^{-k}$ za vsak $k \in \N$. Od tod očitno sledi $\sigma(x, y) = 0$.
 
 Dokažimo še dodatek. Privzemimo, da velja $xU_kx^{-1} = U_k$ za vsak $x \in G$ in $k \in \N$. Potem za vsako diadično racionalno število $r > 0$ velja
 \begin{align*}
 xV_rx^{-1} &= xV_{2^{-l_1}}V_{2^{-l_2}}\cdots V_{2^{-l_n}}x^{-1} = xV_{2^{-l_1}}x^{-1}xV_{2^{-l_2}}x^{-1}\cdots xV_{2^{-l_n}}x^{-1} \\
-&= xU_1x^{-1}xU_2x^{-1}\cdots xU_nx^{-1} = U_1U_2\cdots U_n \\ 
+&= xU_{l_1}x^{-1}xU_{l_2}x^{-1}\cdots xU_{l_n}x^{-1} = U_{l_1}U_{l_2}\cdots U_{l_n} \\ 
 &= V_{2^{-l_1}}V_{2^{-l_2}}\cdots V_{2^{-l_n}} = V_r.
 \end{align*}
 Zato za vsaka $x, y \in G$ velja $\varphi(xyx^{-1}) = \inf\lbrace r ; xyx^{-1} \in V_r \rbrace = \inf\lbrace r ; y \in x^{-1}V_rx \rbrace = \inf\lbrace r ; y \in V_r \rbrace = \varphi(y)$.
 Za vsake elemente $x, y, a \in G$ od tod sledi
 \begin{align*}
-\sigma(xa, ya) &= \sup\lbrace |\varphi(zxa) - \varphi(zya)| ; z \in G \rbrace \\
-&= \sup\lbrace |\varphi(azx) - \varphi(azy)| ; z \in G \rbrace \\
-&= \sup\lbrace |\varphi(zx) - \varphi(zy)| ; z \in G \rbrace = \sigma(x, y),
+\sigma(xa, ya) &= \sup_{z \in G}\lbrace |\varphi(zxa) - \varphi(zya)| \rbrace = \sup_{z \in G}\lbrace |\varphi(azx) - \varphi(azy)| \rbrace \\
+&= \sup_{z \in G}\lbrace |\varphi(zx) - \varphi(zy)| \rbrace = \sigma(x, y),
 \end{align*}
 torej je psevdometrika $\sigma$ tudi desnoinvariantna.
-Lastnost \ref{last:psevdo5} sledi iz levo in desnoinvariantnosti. Velja
+Lastnost (\ref{last:psevdo5}) sledi iz levo in desnoinvariantnosti psevdometrike $\sigma$. Velja
 \[ \sigma(x^{-1}, y^{-1}) = \sigma(e, y^{-1}x) = \sigma(y, x) ) = \sigma(x, y). \]
 \end{dokaz}
 
@@ -882,9 +857,9 @@ Ker sta topologiji $\tau$ in $\tau_\sigma$ po trditvi \ref{izr:bazaokolice} tran
 	Topološki prostor $X$ zadošča separacijskemu aksiomu $T_{3 \frac{1}{2}}$, če za poljubno zaprto množico $A \subseteq X$ in poljubno točko $b \in X\backslash A$ obstaja taka zvezna funkcija $\psi\colon G \to [0, 1]$, da je $\psi (b) = 0$ in $\psi (x) = 1$ za vsak $x \in A$.
 \end{definicija}
 
-\begin{opomba}
+\begin{definicija}
 	Topološku prostoru, ki zadošča $T_1$ in $T_{3 \frac{1}{2}}$, pravimo \emph{povsem regularen} topološki prostor.
-\end{opomba}
+\end{definicija}
 
 
 \begin{trditev}\label{pos:reghaus}
@@ -895,11 +870,14 @@ Ker sta topologiji $\tau$ in $\tau_\sigma$ po trditvi \ref{izr:bazaokolice} tran
 \end{trditev}
 
 \begin{dokaz}
-Za dokaz \ref{podtrd:reghaus1} za dano zaprto množico $F \subset X$ izberemo poljubno točko $a \in X \setminus F$. Potem obstaja taka zvezna funkcija $\psi\colon X \to [0, 1]$, da je $\psi(a) = 0$ in $\psi(F) \equiv 1$.
-Ker sta množici $[0, \frac{1}{2})$ in $(\frac{1}{2}, 1]$ odprti glede na inducirano evklidsko topologijo na intervalu $[0, 1]$ in je funkcija $\psi$ zvezna, sta množici $\psi^{-1}([0, \frac{1}{2}))$ in $\psi^{-1}((\frac{1}{2}, 1])$ disjunktni odprti okolici za točko $a$ in množico $F$.
+Za dokaz (\ref{podtrd:reghaus1}) za dano zaprto množico $A \subset X$ izberemo poljubno točko $b \in X \setminus A$. Potem obstaja taka zvezna funkcija $\psi\colon X \to [0, 1]$, da je $\psi(b) = 0$ in $\psi(A) \equiv 1$.
+Ker sta množici $[0, \frac{1}{2})$ in $(\frac{1}{2}, 1]$ odprti glede na inducirano evklidsko topologijo na intervalu $[0, 1]$ in je funkcija $\psi$ zvezna, sta množici $\psi^{-1}([0, \frac{1}{2}))$ in $\psi^{-1}((\frac{1}{2}, 1])$ disjunktni odprti okolici za točko $b$ in množico $A$.
 S tem smo dokazali, da topološki prostor $X$ zadošča separacijskemu aksiomu $T_3$.
 
-Za dokaz \ref{podtrd:reghaus2} naj bo $X$ normalen topološki prostor. Po Urysohnovi karakterizaciji separacijskega aksioma $T_4$ (glej \cite{bib:top}) za vsaki dve disjunktni zaprti množici $A$ in $B$ obstaja zvezna funkcija $\psi\colon X \to [0, 1]$, da je $\psi(A) \equiv 0 $ in $\psi(B) \equiv 1$. Ker $X$ zadošča separacijskemu aksiomu $T_1$, so vse enoelementne množice zaprte. Če za množico $A$ vzamemo enoelementno množico $\lbrace a \rbrace$, vidimo, da je $X$ povsem regularen topološki prostor.
+Za dokaz (\ref{podtrd:reghaus2}) naj bo $X$ normalen topološki prostor. 
+Vzemimo zaprto množico $A \subset X$ in poljubno točko $b \in X \setminus A$.
+Ker je prostor $X$ normalen, je množica $\lbrace b \rbrace$ zaprta,
+zato po Urysohnovi karakterizaciji separacijskega aksioma $T_4$ (glej \cite{bib:top}) obstaja zvezna funkcija $\psi\colon X \to [0, 1]$, da je $\psi(b) = 0 $ in $\psi(A) \equiv 1$.
 \end{dokaz}
 
 \begin{izrek}\label{izr:t3pol}
@@ -917,7 +895,7 @@ Topološka grupa $G$ s tem zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$ i
 \end{dokaz}
 
 \subsection{Separacijski aksiom $T_4$}
-Za dokaz izreka o obstoju povsem regularne topološke grupe, ki ni normalna, potrebujemo pojem \emph{proste grupe}. Vzemimo neprazno množico $X$. \emph{Beseda} je bodisi prazna (pišemo $e$) bodisi končni formalni produkt $x_1^{\delta_1}\cdots x_n^{\delta_n}$ elementov iz $X$, kjer je $\delta_k \in \lbrace -1, 1\rbrace$ za $k = 1,\dots,n$. Beseda je \emph{reducirana}, če je prazna ali pa je $\delta_k = \delta_{k+1}$, kadar je $x_k = x_{k+1}$. Naj bo $F$ množica vseh reduciranih besed nad množico $X$. Na množici $F$ definiramo operacijo na naslednji način: $xy = $ besedi $x$ in $y$ najprej staknemo, nato pa rekurzivno okrajšamo vse pare $x_k$, $x_{k+1}$, za katere velja $x_n = y_1$ in $\delta_n^x \neq \delta_1^y$, dokler ne dobimo okrajšane besede. Trdimo, da je množica $F$ s tako definirano operacijo grupa. Res, če za enoto $e$ vzamemo prazno besedo, inverz pa definiramo kot $(x_1^{\delta_1}\cdots x_n^{\delta_n})^{-1} = x_n^{-\delta_n}\cdots x_1^{-\delta_1}$, dobimo grupno strukturo.
+Za dokaz izreka o obstoju povsem regularne topološke grupe, ki ni normalna, potrebujemo pojem \emph{proste grupe}. Vzemimo neprazno množico $X$. \emph{Beseda} je bodisi prazna (pišemo $e$) bodisi končni formalni produkt $x_1^{\delta_1}\cdots x_n^{\delta_n}$ elementov iz $X$, kjer je $\delta_k \in \lbrace -1, 1\rbrace$ za $k = 1,\dots,n$. Beseda je \emph{reducirana}, če je prazna ali pa je $\delta_k = \delta_{k+1}$, kadar je $x_k = x_{k+1}$. Naj bo $F$ množica vseh reduciranih besed nad množico $X$. Na množici $F$ definiramo operacijo na naslednji način: produkt besed $x$ in $y$ je beseda, ki jo dobimo, če besedi $x$ in $y$ najprej staknemo, nato pa rekurzivno okrajšamo vse pare $x_k$, $y_1$, za katere velja $x_n = y_1$ in $\delta_n^x \neq \delta_1^y$, dokler ne dobimo okrajšane besede. Trdimo, da je množica $F$ s tako definirano operacijo grupa. Res, če za enoto $e$ vzamemo prazno besedo, inverz pa definiramo kot $(x_1^{\delta_1}\cdots x_n^{\delta_n})^{-1} = x_n^{-\delta_n}\cdots x_1^{-\delta_1}$, dobimo grupno strukturo.
 
 \begin{izrek}\label{izr:prostatopgrupa}
 Za vsak povsem regularen topološki prostor $X$ obstaja taka topološka grupa $F$, da velja:
@@ -1004,7 +982,7 @@ Potem je $(z_\lambda) \in \lbrace (x_\lambda) \in \Z^m ; x_\lambda = y_\lambda \
 Od tod sledi, da $U \cap V \neq \emptyset$.
 \end{dokaz}
 
-V nadaljevanju bomo dokazali, da je ključni pogoj, ki manjka do normalnosti, lokalna kompaktnost.
+V nadaljevanju bomo dokazali, da je ključni pogoj, ki topološki grupi, ki zadočša $T_0$, manjka do normalnosti, lokalna kompaktnost.
 
 \begin{definicija}\label{def:parakompakt}
 	\begin{enumerate}
@@ -1023,7 +1001,7 @@ Iz splošne topologije vemo, da za lokalno končno družino $\lbrace C_\lambda \
 Topološki prostor ima Lindel\"ofovo lastnost, če vsako njegovo odprto pokritje vsebuje kakšno števno podpokritje.
 \end{definicija}
 
-Očitno ima vsak kompakten prostor Lindel\"ofovo lastnost, saj vsako odprto pokritje vsebuje končno podpokritje, ki je trivialno števno. Velja pa tudi, da ima vsak $\sigma$-kompakten prostor Lindel\"ofovo lastnost. Res, ker je $\sigma$-kompakten prostor unija števno kompaktnih prostorov, vsako odprto pokritje vsakega od njih pa vsebuje končno podpokritje, vsako odprto pokritje $\sigma$-kompaktnega prostora vsebuje pod\-pok\-rit\-je, ki je sestavljeno iz števno končnih pokritji. Ker je števna unija končnih množic števna množica, je to podpokritje števno.
+Očitno ima vsak kompakten prostor Lindel\"ofovo lastnost, saj vsako odprto pokritje vsebuje končno podpokritje, ki je očitno števno. Velja pa tudi, da ima vsak $\sigma$-kompakten prostor Lindel\"ofovo lastnost. Res, ker je $\sigma$-kompakten prostor unija števno mnogo kompaktnih prostorov, vsako odprto pokritje vsakega od njih pa vsebuje končno podpokritje, vsako odprto pokritje $\sigma$-kompaktnega prostora vsebuje pod\-pok\-rit\-je, ki je sestavljeno iz števno mnogo končnih pokritji. Ker je števna unija končnih množic števna množica, je to podpokritje števno.
 
 \begin{trditev}\label{trd:parkompnorm} % Mrčun, Topologija, Trditev 4.21
 Vsak parakompakten Hausdorffov topološki prostor je normalen.
@@ -1037,30 +1015,26 @@ Vzemimo najprej poljubno točko $b \in B$. Ker je prostor $X$ Hausdorffov, sta v
 Oglejmo si družino množic \[ \mathcal{Q} = \lbrace W \in \mathcal{W}'; W \cap A \neq \emptyset \rbrace. \]
 Ker je pofinitev $\mathcal{W}'$ lokalno končna, je tudi družina množic $\mathcal{Q}$ lokalno končna.
 Za vsako množico $W \in \mathcal{Q}$ po definiciji pofinitve obstaja takšna točka $a \in A$, da je $W \subset Q_a$.
- Potem velja $b \in X \setminus \closure{Q_a} \subset X \setminus \closure{W}$. Ker je $\mathcal{W}'$ odprto pokritje prostora $X$, je $S = \cup\mathcal{Q}$ odprta okolica množice $A$, in ker je $\mathcal{Q}$ lokalno končna družina, po opombi \ref{opo:lokkon} velja \[ b \in X \setminus \bigcup_{W \in \mathcal{Q}} \closure{W} = X \setminus \closure{S}. \] Množica $T = X \setminus \closure{S}$ je odprta okolica točke $b$, ki je disjunktna s $S$.
+ Potem velja $b \in X \setminus \closure{Q_a} \subset X \setminus \closure{W}$. Ker je $\mathcal{W}'$ odprto pokritje prostora $X$, je $S = \bigcup\mathcal{Q}$ odprta okolica množice $A$, in ker je $\mathcal{Q}$ lokalno končna družina, po opombi \ref{opo:lokkon} velja \[ b \in X \setminus \bigcup_{W \in \mathcal{Q}} \closure{W} = X \setminus \closure{S}. \] Množica $T_b = X \setminus \closure{S}$ je odprta okolica točke $b$, ki je disjunktna s $S$.
 
 Po zgoraj dokazanem torej za vsako točko $b \in B$ obstaja odprta okolica $T_b$ točke $b$, da je $A \cap \closure{T_b} = \emptyset$. Zato je $\Ucurl = (X\setminus B) \cup \lbrace T_b \rbrace_{b \in B}$ odprto pokritje prostora $X$. Ker je $X$ parakompakten topološki prostor, obstaja lokalno končno odprto pokritje $\Ucurl'$, ki je pofinitev pokritja $\Ucurl$. Naj bo \[ \mathcal{V} = \lbrace U \in \Ucurl' ; U \cap B \neq \emptyset \rbrace. \]
-Za vsako množico $U \in \mathcal{V}$ obstaja takšna točka $b \in B$, da je $U \subset T_b$, zato je $A \cap \closure{U} \subset A \cap \closure{T_b} = \emptyset$. Množica $V = \bigcup \mathcal{V}$ je odprta okolica množice $B$ in, ker je $\mathcal{V}$ lokalno končna družina, po opombi \ref{opo:lokkon} velja \[ A \cap \closure{V} = A \cap \bigcup_{U \in \mathcal{V}}\closure{U} = \emptyset.\]
+Ker za vsako množico $U \in \mathcal{V}$ obstaja takšna točka $b \in B$, da je $U \subset T_b$, je $A \cap \closure{U} \subset A \cap \closure{T_b} = \emptyset$. Množica $V = \bigcup \mathcal{V}$ je odprta okolica množice $B$ in, ker je $\mathcal{V}$ lokalno končna družina, po opombi \ref{opo:lokkon} velja \[ A \cap \closure{V} = A \cap \bigcup_{U \in \mathcal{V}}\closure{U} = \emptyset.\]
 
 Množica $X \setminus \closure{V}$ je torej odprta okolica množice $A$, ki je disjunktna z odprto okolico $V$ množice $B$. Hausdorffov topološki prostor $X$ s tem zadošča separacijskemu aksiomu $T_4$ in je zato normalen.
 \end{dokaz}
 
 \begin{izrek}\label{izr:t4}
-	Vsaka lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je normalen topološki prostor.
+	Vsaka lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je parakompakten topološki prostor.
 \end{izrek}
 
 \begin{dokaz}
-Naj bo $G$ lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Po izreku \ref{trd:t0haus} je $G$ Hausdorffova. Zato po trditvi \ref{trd:parkompnorm} zadošča pokazati, da je $G$ parakompaktna topološka grupa.
-
 Ker je $G$ lokalno kompaktna, obstaja kompaktna okolica $K$ enote $e$. Po posledici \ref{pos:sim} obstaja takšna simetrična okolica $U$ enote $e$, da je $\closure{U} \subset K$. Ker so zaprte podmnožice kompaktnih prostorov kompaktne, je $\closure{U}$ tudi kompaktna okolica enote $e$.
 
 Naj bo $L = \bigcup_{n=1}^\infty U^n$. Množica $L$ je po trditvi \ref{trd:podgrupaunija} odprta in zaprta podgrupa topološke grupe $G$. Ker je $\closure{U} \subset U^2$ in zato po indukciji $\closure{U}^i \subset U^{i+1}$ za vsak $i > 0$, je $L = \bigcup_{n=1}^\infty \closure{U}^n$. Podgrupa $L$ je enaka števni uniji kompaktov, saj je po trditvi \ref{trd:prodkomp} za vsak $n \in \N$ množica $\closure{U}^n$ kompaktna, torej je podgrupa $L$ $\sigma$-kompaktna in ima Lindel\"ofovo lastnost. Velja tudi, da ima vsak levi odsek $xL$, kjer je $x \in G$, Lindel\"ofovo lastnost, saj je leva translacija po trditvi \ref{trd:trans} homeomorfizem.
 
 Vzemimo poljubno odprto pokritje $\mathcal{V}$ topološke grupe $G$. Ker je $\mathcal{V}$ tudi pokritje za vsak levi odsek $xL \subset G$, za vsak levi odsek $xL$, kjer je $x \in G$, obstaja števno podpokritje $\lbrace V_{xL}^{(n)} \rbrace_{n = 1}^{\infty}$ pokritja $\mathcal{V}$, da je $xL \subset \bigcup_{n=1}^{\infty}V_{xL}^{(n)}$. Za vsak $n \in \N$ definirajmo družino množic $\mathcal{W}_n = \lbrace V_{xL}^{(n)} \cap (xL) ; xL \in G/L \rbrace$. Tedaj je družina množic $\mathcal{W} = \bigcup_{n=1}^{\infty}\mathcal{W}_n$ pofinitev pokritja $\mathcal{V}$. Res, za vsako množico $(V_{xL}^{(n)} \cap (xL)) \in \mathcal{W}$, kjer je $x \in G$ in $n \in \N$, velja
 \[ V_{xL}^{(n)} \cap (xL) \subseteq V_{xL}^{(n)} \in \mathcal{V}. \]
-Ker ima vsak $x \in G$ kompaktno okolico, je $\mathcal{W}$ lokalno končna družina.
-
-Topološka grupa $G$ je torej parakompakten topološki prostor in zato po trditvi \ref{trd:parkompnorm} normalen topološki prostor.
+Ker ima vsak $x \in G$ kompaktno okolico, je $\mathcal{W}$ lokalno končna družina.!!!
 \end{dokaz}
 
 \section*{Slovar strokovnih izrazov}
