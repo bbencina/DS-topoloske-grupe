@@ -646,7 +646,7 @@ Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta 
 Naj bo $X$ neprazna množica.Neprazna poddružina $\mathcal{F} \subset \mathcal{P}(X)$ je \emph{filter} množice $X$, če ima naslednje lastnosti:
 \begin{enumerate}
 \item $\emptyset \notin \mathcal{F}$,
-\item za vsako množico $F \in \mathcal{F}$ je vsaka množica $E \in X$, za katero velja $F \subseteq E$, tudi v družini $\mathcal{F}$,
+\item za vsako množico $F \in \mathcal{F}$ je vsaka množica $E \subset X$, za katero velja $F \subseteq E$, tudi v družini $\mathcal{F}$,
 \item presek $E \cap F$ množic $E, F \in \mathcal{F}$ je tudi v družini $\mathcal{F}$.
 \end{enumerate}
 \end{definicija}
@@ -672,8 +672,17 @@ Množici z uniformno stukturo rečemo \emph{uniformni prostor} in označimo $(X,
 Naj bo $X$ uniformni prostor z uniformno strukturo $\mathcal{U}$. Družina $\tau$ množic $T \subseteq X$, za katere za vsako točko $x \in T$ obstaja $U \in \mathcal{U}$, da velja $U_x = \lbrace y \in X ; (x, y) \in U \rbrace \subseteq T$, je topologija na množici $X$.
 \end{trditev}
 
+\begin{dokaz}
+Brez škode lahko privzamemo $\emptyset \in \tau$, saj je pogoj iz trditve na prazno izpolnjen. Ker je za vsak $x \in X$ in vsak $U \in \Ucurl$ množica $U_x \subseteq X$ (lahko tudi prazna), je tudi $X \in \tau$.
+
+Vzemimo poljubno unijo $\bigcup_{\lambda \in \Lambda} T_\lambda$ množic iz $\tau$ in poljubno točko $x \in \bigcup_{\lambda \in \Lambda} T_\lambda$. Potem obstaja podmnožica indeksov $I \subseteq \Lambda$, da je $x \in T_\lambda$ za vsak $\lambda \in I$. Ker so $T_\lambda \in \tau$, za vsak $\lambda \in I$ obstaja taka množica $U_\lambda \in \Ucurl$, da velja $U_{x,\lambda} \subseteq T_\lambda \subseteq \bigcup_{\lambda \in \Lambda} T_\lambda$. Torej je tudi unija $\bigcup_{\lambda \in \Lambda} T_\lambda \in \tau$.
+
+Vzemimo še presek $T_1 \cap T_2$ množic iz $\tau$ in poljubno točko $x \in T_1 \cap T_2$. Ker je $x \in T_1$ in $x \in T_2$, obstajata množici $U_1, U_2 \in \Ucurl$, da je $U_{x,1} \subseteq T_1$ in $U_{x, 2} \subseteq T_2$. Ker je $\Ucurl$ filter, je $V = U_1 \cap U_2 \in \Ucurl$ in velja
+$V_x = U_{x,1}\cap U_{x,2} \subseteq T_1 \cap T_2$, zato je tudi presek $T_1 \cap T_2 \in \tau$, torej je $\tau$ res topologija na uniformnem prostoru $X$.
+\end{dokaz}
+
 \begin{definicija}\label{def:uniinduciranatopo}
-Topologiji, definirani v trditvi \ref{trd:uniinduciranatopo}, pravimo, da je z uniformno strukturo inducirana topologija.
+Topologiji, definirani v trditvi \ref{trd:uniinduciranatopo}, pravimo topologija, inducirana z uniformno strukturo.
 \end{definicija}
 
 \begin{opomba}
@@ -734,7 +743,8 @@ Baza topologije metrizabilnega topološkega prostora $X$ je družina odprtih kro
 Psevdometrika na grupi $G$ je levoinvariantna, če za vsaki dve točki $x, y \in G$ in za vsak element $a \in G$ velja $\rho(ax, ay) = \rho(x, y)$.
 \end{definicija}
 
-V dokazu spodnjega izreka bomo potrebovali pojem \emph{diadičnega} racionalnega števila, tj. racionalno število z imenovalcem v okrajšani obliki enakim $2^n$, kjer je $n \in \N$. Vsota in produkt dveh diadičnih števil je prav tako diadično število. Opazimo tudi, da lahko s končno vsoto števil oblike $2^{-n_i}$, kjer je $n \in \N$ in $n_i \neq n_j$ za $i \neq j$, dobimo vsako diadično število med $0$ in $1$.
+V dokazu spodnjega izreka bomo potrebovali pojem \emph{diadičnega} racionalnega števila, tj. racionalno število z imenovalcem v okrajšani obliki enakim $2^n$, kjer je $n \in \N$. Vsota in produkt dveh diadičnih števil je prav tako diadično število. Trdimo, da lahko s končno vsoto števil oblike $2^{-n_i}$, kjer je $n_i \in \N$ in $n_i \neq n_j$ za $i \neq j$, dobimo vsako diadično število med $0$ in $1$.
+Vzemimo poljubno diadično število $d = \frac{b}{2^n}$, kjer je $n \in \N$ in $b < 2^n$. Sedaj zapišimo število $d$ v binarnem zapisu. Ker je imenovalec števila $d$ potenca števila $2$, je ta binarni zapis končen. Sedaj vidimo, da je $d = \Sigma_{i=1}^n k_i2^{i}$, kjer je $k_i$ enak $1$, če je v binarnem zapisu števila $d$ na $i$-tem mestu števka $1$, in $0$ sicer. 
 
 \begin{izrek}\label{izr:pseudometrika}
 	Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Potem obstaja taka levoinvariantna psevdometrika $\sigma$ na $G$ z naslednjimi lastnostmi:
@@ -762,7 +772,7 @@ Pokažimo najprej, da iz $r < s$ sledi $V_r \subset V_s$. Ker za $s \geq 1$ velj
 Naj bo število $r$ definirano kot zgoraj in naj bo
 \[ s = 2^{-m_1} + \cdots + 2^{-m_p}, 0 < m_1 < \cdots < m_p. \]
 Ker je $r < s$, obstaja enolično določeno število $k \in \N$, da je $l_j = m_j$ za vsak $j < k$ in $l_k > m_k$. Naj bo $W = V_{2^{-l_1}}\cdots V_{2^{-l_{k-1}}}$.
-Potem, upoštevajoč $V_{2^{-k-1}}^2 \subset U_{2^{-k}}$, velja
+Potem, upoštevajoč $V_{2^{-k-1}}^2 \subset V_{2^{-k}}$, velja
 \begin{align*}
 V_r &= WV_{2^{-l_k}}V_{2^{-l_{k+1}}}V_{2^{-l_{k+2}}}\cdots V_{2^{-l_n}} \\
 &\subset WV_{2^{-l_k}}V_{2^{-l_k-1}}V_{2^{-l_k-2}}\cdots V_{2^{-l_n+1}}V_{2^{-l_n}}V_{2^{-l_n}} \\
@@ -808,7 +818,7 @@ Po definiciji leve uniformne strukture na topološki grupi $G$ je psevdometrika 
 Dokažimo lastnost (\ref{last:psevdo4}). Naj velja $y^{-1}x \notin U_l = V_{2^{-l}}$. Po definiciji preslikave $\varphi$ velja $\varphi(y^{-1}x) \geq 2^{-l}$. Upoštevamo levoinvariantnost psevdometrike $\sigma$ in dobimo
 \[ \sigma(x, y) = \sigma(y^{-1}x, e) \geq |\varphi(ey^{-1}x) - \varphi(ee)| = \varphi(y^{-1}x) \geq 2^{-l}. \]
 
-Lastnost (\ref{last:psevdo2}) sledi iz lastnosti (\ref{last:psevdo3}) in (\ref{last:psevdo4}). Če velja $\sigma(x, y) = \sigma(y^{-1}x, e) = 0$, mora veljati $y^{-1}x \in U_k$ za vsak $k \in \N$, sicer bi po lastnosti (\ref{last:psevdo4}) obstajal $k_0 \in \N$, da bi veljalo $\sigma(x, y) \geq 2^{-k_0} > 0$. Torej je $y^{-1}x \in H = \bigcap_{k=1}^\infty U_k$. Če pa je $y^{-1}x \in H = \bigcap_{k=1}^\infty U_k$, po lastnosti (\ref{last:psevdo3}) velja $\sigma(x,y) \leq 2^{-k}$ za vsak $k \in \N$. Od tod očitno sledi $\sigma(x, y) = 0$.
+Lastnost (\ref{last:psevdo2}) sledi iz lastnosti (\ref{last:psevdo3}) in (\ref{last:psevdo4}). Če je $\sigma(x, y) = \sigma(y^{-1}x, e) = 0$, mora veljati $y^{-1}x \in U_k$ za vsak $k \in \N$, sicer bi po lastnosti (\ref{last:psevdo4}) obstajal $k_0 \in \N$, da bi veljalo $\sigma(x, y) \geq 2^{-k_0} > 0$. Torej je $y^{-1}x \in H = \bigcap_{k=1}^\infty U_k$. Če pa je $y^{-1}x \in H = \bigcap_{k=1}^\infty U_k$, po lastnosti (\ref{last:psevdo3}) velja $\sigma(x,y) \leq 2^{-k}$ za vsak $k \in \N$. Od tod očitno sledi $\sigma(x, y) = 0$.
 
 Dokažimo še dodatek. Privzemimo, da velja $xU_kx^{-1} = U_k$ za vsak $x \in G$ in $k \in \N$. Potem za vsako diadično racionalno število $r > 0$ velja
 \begin{align*}
@@ -824,7 +834,19 @@ Za vsake elemente $x, y, a \in G$ od tod sledi
 \end{align*}
 torej je psevdometrika $\sigma$ tudi desnoinvariantna.
 Lastnost (\ref{last:psevdo5}) sledi iz levo in desnoinvariantnosti psevdometrike $\sigma$. Velja
-\[ \sigma(x^{-1}, y^{-1}) = \sigma(e, y^{-1}x) = \sigma(y, x) ) = \sigma(x, y). \]
+\[ \sigma(x^{-1}, y^{-1}) = \sigma(e, y^{-1}x) = \sigma(y, x) ) = \sigma(x, y). \qedhere\]
+\end{dokaz}
+
+V dokazu izreka o metrizabilnosti topološke grupe, ki zadošča $T_0$, si bomo pomagali z novo karakterizacijo separacijskega aksioma $T_2$.
+\begin{trditev}\label{trd:hauskar}
+Topološki prostor $X$ je Hausdorffov natanko tedaj, ko za vsak $x \in X$ velja
+\[ \bigcap\lbrace \closure{U} ; U \text{ okolica za } x \rbrace = \lbrace x \rbrace. \]
+\end{trditev}
+
+\begin{dokaz}
+Vzemimo točko $x \in X$ in poljubno točko $y \neq x$ Hausdorffovega prostora $X$. Potem obstajata taki disjunktni okolici $U$ in $V$ zaporedoma za točki $x$ in $y$, da velja $y \in V \subseteq X\setminus \closure{U}$. Ker $y \notin \closure{U}$, velja $y \notin bigcap\lbrace \closure{U} ; U \text{ okolica za } x \rbrace$. Ker je bil $y$ poljuben, je $bigcap\lbrace \closure{U} ; U \text{ okolica za } x \rbrace = \lbrace x \rbrace$.
+
+Vzemimo poljubni različni točki $x, y \in X$. Ker je $\bigcap\lbrace \closure{U} ; U \text{ okolica za } x \rbrace = \lbrace x \rbrace$, obstaja neka okolica $U_0$ točke $x$, da $y \notin \closure{U_0}$. Potem sta množici $U_0$ in $X \setminus \closure{U_0}$ disjunktni odprti okolici zaporedoma za točki $x$ in $y$. Ker sta $x$ in $y$ poljubno izbrani različni točki, je $X$ Hausdorffov topološki prostor.
 \end{dokaz}
 
 \begin{izrek}\label{izr:metrizabilnost}
@@ -834,20 +856,23 @@ Lastnost (\ref{last:psevdo5}) sledi iz levo in desnoinvariantnosti psevdometrike
 \begin{dokaz}
 Če je $G$ metrizabilen topološki prostor, lahko za števno bazo odprtih okolic enote $e$ izberemo kar družino odprtih krogel $\lbrace K(e, 2^{-n}) \rbrace_{n \in \N}$.
 
-Za dokaz obratne trditve predpostavimo, da je $\lbrace V_k \rbrace_{k = 1}^\infty$ števna baza odprtih okolic enote. Induktivno bomo konstruirali novo bazo okolic enote na naslednji način. Najprej definiramo okolico $U_1 = V_1 \cap V_1^{-1}$. Recimo, da smo že konstruirali okolice $U_1,\dots,U_{k-1}$. Izberemo tako okolico $U_k$, da zanjo velja $U_k \subset U_1 \cap \dots \cap U_{k-1}\cap V_k$, $U_k = U_k^{-1}$ in $U_k^2 \subset U_{k-1}$ za vsak $k \geq 2$. Tako okolico lahko izberemo po trditvah \ref{trd:okolice} in \ref{trd:sim}.
+Za dokaz obratne trditve predpostavimo, da je $\lbrace V_k \rbrace_{k = 1}^\infty$ števna baza odprtih okolic enote. Induktivno bomo konstruirali novo bazo okolic enote na naslednji način. Najprej definiramo okolico $U_1 = V_1 \cap V_1^{-1}$. Recimo, da smo že konstruirali okolice $U_1,\dots,U_{k-1}$. 
+Po trditvah \ref{trd:okolice} in \ref{trd:sim} lahko
+izberemo tako okolico $U_k$, da zanjo velja $U_k \subset U_1 \cap \dots \cap U_{k-1}\cap V_k$, $U_k = U_k^{-1}$ in $U_k^2 \subset U_{k-1}$ za vsak $k \geq 2$.
 
-Ker $G$ zadošča separacijskemu aksiomu $T_0$, je po trditvi \ref{trd:t0haus} $\lbrace e \rbrace$ zaprta množica in $G$ je Hausdorffova. Po posledici \ref{pos:sim} ima enota $e$ poljubno majhne zaprte okolice. Ker je $\lbrace U_k \rbrace_{k \in \N}$ padajoča baza okolic enote, lahko najdemo tako podzaporedje \[\lbrace U_{k_i} \rbrace_{i \in \N, k_i < k_{i+1}},\] da velja $\closure{U_{k_{i+1}}} \subset U_{k_i}$. Ker je $G$ Hausdorffova, ima vsako zaporedje največ eno limito in velja
-\[ H = \bigcap_{k=1}^\infty U_k = \lim_{k \to \infty}U_k = \lim_{i \to \infty} \closure{U_{k_i}} = \lbrace e \rbrace. \]
- Baza $\lbrace U_k \rbrace_{k = 1}^\infty$ zadošča predpostavkam izreka \ref{izr:pseudometrika}, zato na topološki grupi $G$ obstaja psevdometrika $\sigma$.
+Ker $G$ zadošča separacijskemu aksiomu $T_0$, je po trditvi \ref{trd:t0haus} $G$ Hausdorffova. Po trditvi \ref{trd:hauskar} potem sledi
+\[ H = \bigcap_{k=1}^\infty \subseteq \bigcap\lbrace \closure{U} ; U \text{ okolica enote } e \rbrace = \lbrace e \rbrace. \]
+Ker množica $H$ očitno vsebuje vsaj enoto $e$, je neprazna in $H = \lbrace e \rbrace$.
+Ker baza $\lbrace U_k \rbrace_{k = 1}^\infty$ zadošča predpostavkam izreka \ref{izr:pseudometrika}, na topološki grupi $G$ obstaja psevdometrika $\sigma$ z lastnostmi (\ref{last:psevdo1})-(\ref{last:psevdo4}).
 
-Po lastnosti \ref{last:psevdo2} psevdometrike $\sigma$ je $\sigma(x, y) = 0$ natanko tedaj, ko $y^{-1}x \in H$. Ker je $H = \lbrace e \rbrace$, velja $\sigma(x, y) = 0$ natanko tedaj, ko $x = y$. Preslikava $\sigma$ je torej metrika na $G$. Preveriti moramo le še, da topologija $\tau$ na $G$ in topologija $\tau_\sigma$, inducirana z metriko $\sigma$, sovpadata.
+Po lastnosti (\ref{last:psevdo2}) psevdometrike $\sigma$ je $\sigma(x, y) = 0$ natanko tedaj, ko $y^{-1}x \in H$. Ker je $H = \lbrace e \rbrace$, velja $\sigma(x, y) = 0$ natanko tedaj, ko $x = y$. Preslikava $\sigma$ je torej metrika na $G$. Preveriti moramo le še, da topologija $\tau$ na $G$ in topologija $\tau_\sigma$, inducirana z metriko $\sigma$, sovpadata.
 
-Po lastnostiih \ref{last:psevdo3} in \ref{last:psevdo4} metrike $\sigma$ za vsak $k \in \N$ velja
-\[ \lbrace x \in G ; \sigma(x, e) \leq 2^{-k} \rbrace \subset U_k \subset \lbrace x \in G ; \sigma(x, e) \leq 2^{-k+1} \rbrace.\]
+Po lastnostih (\ref{last:psevdo3}) in (\ref{last:psevdo4}) metrike $\sigma$ za vsak $k \in \N$ velja
+\[ \lbrace x \in G ; \sigma(x, e) \leq 2^{-k} \rbrace \subset U_k \subset \lbrace x \in G ; \sigma(x, e) \leq 2^{-k+2} \rbrace.\]
 Torej za vsak $k \in \N$ velja
 \[ K(e, 2^{-k}) \subset U_k \subset K(e, 2^{-k+2}). \]
 Vsaka okolica enote $e$ v topologiji $\tau$ torej vsebuje okolico enote $e$ v topologiji $\tau_\sigma$ in vsaka okolica enote $e$ v topologiji $\tau_\sigma$ vsebuje okolico enote $e$ v topologiji $\tau$.
-Ker sta topologiji $\tau$ in $\tau_\sigma$ po trditvi \ref{izr:bazaokolice} translacijsko invariantni, sta ekvivalentni in $G$ je metrizabilen topološki prostor.
+Ker sta topologiji $\tau$ in $\tau_\sigma$ po trditvi \ref{izr:bazaokolice} translacijsko invariantni, sta ekvivalentni, iz česar sledi, da je $G$ metrizabilen topološki prostor.
 \end{dokaz}
 
 
@@ -886,23 +911,25 @@ zato po Urysohnovi karakterizaciji separacijskega aksioma $T_4$ (glej \cite{bib:
 
 \begin{dokaz}
 Za dano zaprto množico $F$ vzemimo poljuben element $a \in G\setminus F$.
-Naj bo $\Ucurl$ baza simetričnih okolic enote $e$ in naj bo $U_1 \in \Ucurl$ taka množica, da je $(aU_1)\cap F = \emptyset$. Taka množica $U_1$ obstaja, saj je $G\setminus F$ odprta množica, $aU_1$ pa je odprta okolica elementa $a$. Izberemo okolice $U_2, U_3,... \in \Ucurl$ take, da velja $U_{k+1}^2 \subset U_k$ za vsak $k \in \Z$ (obstajajo po trditvi \ref{trd:okolice}). S tem smo zadostili predpostavkam izreka \ref{izr:pseudometrika}, zato obstaja na $G$ psevdometrika $\sigma$. Definiramo funkcijo \[ \psi(x) = \min\lbrace 1, 2\sigma(x, a)\rbrace. \] Ker je psevdometrika $\sigma$ po lastnosti \ref{last:psevdo1} v izreku \ref{izr:pseudometrika} enakomerno zvezna glede na levo uniformno strukturo na $G$, je po trditvi \ref{trd:enakzveznazvezna} zvezna, zato je $\psi$ zvezna funkcija.
+Naj bo $\Ucurl$ baza simetričnih okolic enote $e$ in naj bo $U$ taka odprta okolica elementa $a$, da je $U \cap F = \emptyset$. Potem je $a^{-1}U$ okolica enote $e$ in, ker je leva translacija po trditvi \ref{trd:trans} homeomorfizem, velja $a^{-1}U \cap a^{-1}F = \emptyset$. Vzemimo $U_1 \in \Ucurl$, da je $U_1 \subseteq a^{-1}U$. Ker je leva translacija homeomorfizem, je množica $aU_1$ odprta okolica elementa $a$ in $aU_1 \cap F = \emptyset$. Po trditvi \ref{trd:okolice} lahko potem induktivno izberemo take okolice $U_2, U_3,... \in \Ucurl$, da velja $U_{k+1}^2 \subset U_k$ za vsak $k \in \Z$. S tem smo zadostili predpostavkam izreka \ref{izr:pseudometrika}, zato obstaja na $G$ psevdometrika $\sigma$ z lastnostmi (\ref{last:psevdo1})-(\ref{last:psevdo4}). Definiramo funkcijo $\psi\colon G \to [0, \infty)$ s predpisom
+\[ \psi(x) = \min\lbrace 1, 2\sigma(x, a)\rbrace. \]
+Ker je psevdometrika $\sigma$ po lastnosti (\ref{last:psevdo1}) v izreku \ref{izr:pseudometrika} enakomerno zvezna glede na levo uniformno strukturo na $G$, je po trditvi \ref{trd:enakzveznazvezna} zvezna, iz česar sledi, da je $\psi$ zvezna funkcija.
 
-Ker je po definiciji prevdometrike $\sigma(a, a) = 0$, velja, da je $\psi(a) = 0$.
-Vzemimo element $x \in F$. Ker po konstrukciji množice $U_1$ velja $a^{-1}x \notin U_1$, po lastnosti \ref{last:psevdo4} v izreku \ref{izr:pseudometrika}, $\sigma(x, a) \geq 2^{-1} = \frac{1}{2}$, od tod sledi, da je $\psi(x) = 1$ za vsak element $x \in F$.
+Ker je po definiciji prevdometrike $\sigma(a, a) = 0$, je $\psi(a) = 0$.
+Vzemimo element $x \in F$. Ker po konstrukciji množice $U_1$ velja $a^{-1}x \notin U_1$, po lastnosti (\ref{last:psevdo4}) v izreku \ref{izr:pseudometrika}, $\sigma(x, a) \geq 2^{-1} = \frac{1}{2}$, sledi $\psi(x) = 1$ za vsak element $x \in F$.
 
-Topološka grupa $G$ s tem zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$ in je povsem regularna.
+Topološka grupa $G$ zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$. Ker zadošča tudi separacijskemu aksiomu $T_0$, je po trditvi \ref{trd:t0haus} Hausdorffova in zato povsem regularna.
 \end{dokaz}
 
 \subsection{Separacijski aksiom $T_4$}
-Za dokaz izreka o obstoju povsem regularne topološke grupe, ki ni normalna, potrebujemo pojem \emph{proste grupe}. Vzemimo neprazno množico $X$. \emph{Beseda} je bodisi prazna (pišemo $e$) bodisi končni formalni produkt $x_1^{\delta_1}\cdots x_n^{\delta_n}$ elementov iz $X$, kjer je $\delta_k \in \lbrace -1, 1\rbrace$ za $k = 1,\dots,n$. Beseda je \emph{reducirana}, če je prazna ali pa je $\delta_k = \delta_{k+1}$, kadar je $x_k = x_{k+1}$. Naj bo $F$ množica vseh reduciranih besed nad množico $X$. Na množici $F$ definiramo operacijo na naslednji način: produkt besed $x$ in $y$ je beseda, ki jo dobimo, če besedi $x$ in $y$ najprej staknemo, nato pa rekurzivno okrajšamo vse pare $x_k$, $y_1$, za katere velja $x_n = y_1$ in $\delta_n^x \neq \delta_1^y$, dokler ne dobimo okrajšane besede. Trdimo, da je množica $F$ s tako definirano operacijo grupa. Res, če za enoto $e$ vzamemo prazno besedo, inverz pa definiramo kot $(x_1^{\delta_1}\cdots x_n^{\delta_n})^{-1} = x_n^{-\delta_n}\cdots x_1^{-\delta_1}$, dobimo grupno strukturo.
+Za dokaz izreka o obstoju povsem regularne topološke grupe, ki ni normalna, potrebujemo pojem \emph{proste grupe}. Vzemimo neprazno množico $X$. \emph{Beseda} je bodisi prazna (pišemo $e$) bodisi končni formalni produkt $x_1^{\delta_1}\cdots x_n^{\delta_n}$ elementov iz $X$, kjer je $\delta_k \in \lbrace -1, 1\rbrace$ za $k = 1,\dots,n$ in $n \in \N$. Beseda je \emph{reducirana}, če je prazna ali pa je $\delta_k = \delta_{k+1}$, kadar je $x_k = x_{k+1}$. Naj bo $F$ množica vseh reduciranih besed nad množico $X$. Na množici $F$ definiramo operacijo na naslednji način: produkt besed $x$ in $y$ je beseda, ki jo dobimo, če besedi $x$ in $y$ najprej staknemo, nato pa rekurzivno okrajšamo vse pare $x_k$, $y_1$, za katere velja $x_n = y_1$ in $\delta_n^x \neq \delta_1^y$, dokler ne dobimo okrajšane besede. Trdimo, da je množica $F$ s tako definirano operacijo grupa. Res, če za enoto $e$ vzamemo prazno besedo, inverz pa definiramo kot $(x_1^{\delta_1}\cdots x_n^{\delta_n})^{-1} = x_n^{-\delta_n}\cdots x_1^{-\delta_1}$, dobimo grupno strukturo.
 
 \begin{izrek}\label{izr:prostatopgrupa}
-Za vsak povsem regularen topološki prostor $X$ obstaja taka topološka grupa $F$, da velja:
+Za vsak povsem regularen topološki prostor $X$ obstaja taka topološka grupa $F_X$, da velja:
 \begin{enumerate}
-	\item topološki prostor $X$ je zaprt podprostor v $F$,
-	\item topološka grupa $F$ je prosta grupa nad prostorom $X$,
-	\item za vsako zvezno preslikavo $\varphi\colon X \to G$, kjer je $G$ poljubna topološka grupa, obstaja zvezen homomorfizem $\Phi\colon F \to G$, da je $\Phi(x) = \varphi(x)$ za vsak $x \in X$.
+	\item topološka grupa $F_X$ je prosta grupa nad prostorom $X$,
+	\item topološki prostor $X$ je zaprt podprostor v $F_X$,
+	\item za vsako zvezno preslikavo $\varphi\colon X \to G$, kjer je $G$ poljubna topološka grupa, obstaja zvezen homomorfizem $\Phi\colon F_X \to G$, da je $\Phi(x) = \varphi(x)$ za vsak $x \in X$.
 \end{enumerate}
 \end{izrek}
 
@@ -923,7 +950,7 @@ Naj bo potem podgrupa $F \leq G$ tista podgrupa, ki je generirana z množico $X$
 \end{dokaz}
 
 \begin{izrek}\label{izr:prostaizo}
-Naj bo $X$ povsem regularen topološki prostor, $F$ prosta topološka grupa nad $X$, konstruirana v izreku \ref{izr:prostatopgrupa}, in naj bo $\widetilde{F}$ taka topološka grupa, da zanjo velja:
+Naj bo $X$ povsem regularen topološki prostor, $F_X$ prosta topološka grupa nad $X$ in naj bo $\widetilde{F}$ taka topološka grupa, da zanjo velja:
 \begin{enumerate}
 	\item topološki prostor $X$ je topološki podprostor v $\widetilde{F}$,
 	\item topološka grupa $\widetilde{F}$ je najmanjša zaprta podgrupa v $\widetilde{F}$, ki vsebuje $X$,
@@ -943,35 +970,35 @@ Oglejmo si še konkreten primer topološke grupe, ki je povsem regularna, vendar
 \end{izrek}
 
 \begin{dokaz}
-Ker topološka grupa $\Z$ glede na inducirano evklidsko topologijo zadošča separacijskemu aksiomu $T_0$ in je separacijski aksiom $T_0$ multiplikativna lastnost, je tudi $\Z^m$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Po izreku \ref{izr:t3pol} je zato $\Z^m$ povsem regularna topološka grupa. Za dokaz nenormalnosti pišimo $\Z^m$ raje kot kartezični produkt $\Pi_{\lambda \in \Lambda}\Z_\lambda$, kjer je $|\Lambda| = m$ in $\Z_\lambda\lambda \cong \Z$ za vsak $\lambda \in \Lambda$. Definirajmo množici
-\[ A = \lbrace (x_\lambda) \in \Z^m ; \text{ za vsak $n \neq 0$ obstaja največ en indeks $\lambda$, da velja $x_\lambda = n$}\rbrace \]
+Ker topološka grupa $\Z$ glede na inducirano evklidsko topologijo zadošča separacijskemu aksiomu $T_0$ in je separacijski aksiom $T_0$ multiplikativna lastnost, je tudi $\Z^m$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, zato je po izreku \ref{izr:t3pol} topološka grupa $\Z^m$ povsem regularna. Za dokaz nenormalnosti pišimo $\Z^m$ raje kot kartezični produkt $\Pi_{\lambda \in \Lambda}\Z_\lambda$, kjer je $|\Lambda| = m$ in $\Z_\lambda \cong \Z$ za vsak $\lambda \in \Lambda$. Definirajmo množici
+\[ A = \lbrace (x_\lambda) \in \Z^m ; \text{ za vsak $n \in \Z$ in $n \neq 0$ obstaja največ en $\lambda \in \Lambda$, da je $x_\lambda = n$}\rbrace \]
 in
-\[ B = \lbrace (x_\lambda) \in \Z^m ; \text{ za vsak $n \neq 1$ obstaja največ en indeks $\lambda$, da velja $x_\lambda = n$}\rbrace. \]
-Če $(x_\lambda) \notin A$, potem obstajata različna indeksa $\lambda_0, \lambda_1 \in \Lambda$, da velja $x_{\lambda_0} = x_{\lambda_1} = n$ za nek $n \in \Z$ in $n \neq 0$. Ker so vse projekcijske preslikave $\pr_x\lambda\colon Z^m \to Z_\lambda$ zvezne, je $\lbrace (y_\lambda) \in \Z^m ; y_{\lambda_0} = y_{\lambda_1} = n \rbrace$ odprta množica, ki vsebuje $(x_\lambda)$ in je disjunktna množici $A$. Vsaka točka iz $\Z^m\setminus A$ ima torej odprto okolico, ki je disjunktna množici $A$. To pomeni, da je $\Z^m\setminus A$ odprta množica, in množica $A$ je posledično zaprta. Z analognim premislekom utemeljimo, da je tudi množica $B$ zaprta. Množici $A$ in $B$ sta očitno disjunktni. Res, vsak element $(x_\lambda) \in A$ ima po konstrukciji množice $A$ na neštevno indeksih vrednost $0$ in zato $(x_\lambda) \notin B$. Obrat je analogen.
+\[ B = \lbrace (x_\lambda) \in \Z^m ; \text{ za vsak $n \in \Z$ in $n \neq 1$ obstaja največ en $\lambda \in \Lambda$, da je $x_\lambda = n$}\rbrace. \]
+Če $(x_\lambda) \notin A$, potem obstajata različna indeksa $\lambda_0, \lambda_1 \in \Lambda$, da velja $x_{\lambda_0} = x_{\lambda_1} = n$ za nek $n \in \Z$ in $n \neq 0$. Ker so vse projekcijske preslikave $\pr_{\lambda}\colon Z^m \to Z_\lambda$ zvezne, je $\lbrace (y_\lambda) \in \Z^m ; y_{\lambda_0} = y_{\lambda_1} = n \rbrace$ odprta množica, ki vsebuje $(x_\lambda)$ in je disjunktna množici $A$. Vsaka točka iz $\Z^m\setminus A$ ima torej odprto okolico, ki je disjunktna množici $A$, iz česar sledi, da je $\Z^m\setminus A$ odprta množica in množica $A$ je posledično zaprta. Z enakim premislekom utemeljimo, da je tudi množica $B$ zaprta. Množici $A$ in $B$ sta očitno disjunktni. Res, vsak element $(x_\lambda) \in A$ ima po konstrukciji množice $A$ na neštevno mnogo indeksih vrednost $0$ in zato $(x_\lambda) \notin B$. Premislek ponovimo še v obratni smeri.
 
-Vzemimo poljubni dve odprti okolici $U$ in $V$ zaporedoma za množici $A$ in $B$. Pokazali bomo, da velja $U \cap V \neq \emptyset$.
+Vzemimo poljubni dve odprti okolici $U$ in $V$ zaporedoma za množici $A$ in $B$. Pokazali bomo, da velja $U \cap V \neq \emptyset$, iz česar bo takoj sledilo, da topološka grupa $Z^m$ ni normalen topološki prostor.
 
-Naj ima $(x_\lambda^{(1)}) \in \Z^m$ vrednost $0$ za vsak indeks $\lambda \in \Lambda$. Očitno je $(x_\lambda^{(1)}) \in A \subset U$, zato obstajajo taki različni indeksi $\lambda_1,\dots, \lambda_{m_1} \in \Lambda$, da velja
+Naj ima $(x_\lambda^{(1)}) \in \Z^m$ vrednost $0$ za vsak indeks $\lambda \in \Lambda$. Očitno je $(x_\lambda^{(1)}) \in A \subset U$, zato obstaja tako število $m_1 \in \N$ in taki različni indeksi $\lambda_1,\dots, \lambda_{m_1} \in \Lambda$, da velja
 \[ (x_\lambda^{(1)}) \in \lbrace (x_\lambda) \in \Z^m ; x_{\lambda_k} = 0 \text{ za } k=1,\dots,m_1\rbrace \subset U. \]
-Naj ima $(x_\lambda^{(2)}) \in \Z^m$ vrednost $k$ na indeksih $\lambda_k$, kjer je $1 \leq k \leq m_1$, in vrednost $0$ sicer. Ker je $(x_\lambda^{(2)}) \in A \subset U$, obstajajo taki indeksi $\lambda_{m_1+1},\dots,\lambda_{m_2} \in \Lambda$, ki so različni med sabo in od vseh indeksov $\lambda_1,\dots, \lambda_{m_1}$, da velja
+Naj ima $(x_\lambda^{(2)}) \in \Z^m$ vrednost $k$ na indeksih $\lambda_k$, kjer je $1 \leq k \leq m_1$, in vrednost $0$ drugod. Ker je $(x_\lambda^{(2)}) \in A \subset U$, obstaja tako število $m_2 \in \N$, kjer $m_2 > m_1$, in taki indeksi $\lambda_{m_1+1},\dots,\lambda_{m_2} \in \Lambda$, ki so različni med sabo in od vseh indeksov $\lambda_1,\dots, \lambda_{m_1}$, da velja
 \begin{align*}
 (x_\lambda^{(2)}) \in \lbrace &(x_\lambda) \in \Z^m ; x_{\lambda_k} = k \text{ za } k=1,\dots,m_1 \text{ in }\\
 & x_{\lambda_k} = 0 \text{ za } k = m_1+1,\dots, m_2\rbrace \subset U.
 \end{align*}
-Tako nadaljujemo in induktivno definiramo zaporedje $\lbrace (x_\lambda^{(n)}) \rbrace_{n = 1}^\infty$ elementov topološke grupe $\Z^m$, zaporedje indeksov$\lbrace\lambda_k\rbrace_{k = 1}^\infty$ in strogo naraščajoče zaporedje števil $\lbrace m_n \rbrace_{n = 1}^\infty$ na naslednji način. Če smo že definirali $(x_\lambda^{(n-1)})$ in različne indekse $\lambda_{m_{n-2}+1},\dots, \lambda_{m_{n-1}}$, naj ima $(x_\lambda^{(n)})$ vrednost $k$ na indeksih $\lambda_k$, kjer je $1 \leq k \leq m_{n-1}$, in vrednost $0$ sicer. Ker je $(x_\lambda^{(n)}) \in A \subset U$, obstajajo taki indeksi $\lambda_{m_{n-1}+1},\dots,\lambda_{m_n}$, ki so različni med sabo in od vseh prej tako definiranih indeksov, da velja
+Tako nadaljujemo in induktivno definiramo zaporedje $\lbrace (x_\lambda^{(n)}) \rbrace_{n = 1}^\infty$ elementov topološke grupe $\Z^m$, zaporedje indeksov$\lbrace\lambda_k\rbrace_{k = 1}^\infty$ in strogo naraščajoče zaporedje naravnih števil $\lbrace m_n \rbrace_{n = 1}^\infty$ na naslednji način. Če smo že definirali $(x_\lambda^{(n-1)})$ in različne indekse $\lambda_{m_{n-2}+1},\dots, \lambda_{m_{n-1}}$, naj ima $(x_\lambda^{(n)})$ vrednost $k$ na indeksih $\lambda_k$, kjer je $1 \leq k \leq m_{n-1}$, in vrednost $0$ sicer. Ker je $(x_\lambda^{(n)}) \in A \subset U$, obstaja tako število $m_n \in \N$, kjer $m_n > m_{n-1}$, in taki indeksi $\lambda_{m_{n-1}+1},\dots,\lambda_{m_n}$, ki so različni med sabo in od vseh prej tako definiranih indeksov, da velja
 \begin{align*}
 (x_\lambda^{(n)}) \in \lbrace &(x_\lambda) \in \Z^m ; x_{\lambda_k} = k \text{ za } k=1,\dots,m_{n-1} \text{ in }\\
 & x_{\lambda_k} = 0 \text{ za } k = m_{n-1}+1,\dots, m_n\rbrace \subset U.
 \end{align*}
 
-Definirajmo še $(y_\lambda) \in \Z^m$. Naj bo $(y_\lambda) = k$, če je $\lambda = \lambda_k$ za vsak $k \in \N$ in naj bo $(y_\lambda) = 1$ sicer. Očitno je $(y_\lambda) \in B$, zato za neko končno podmnožico $K \subset \Lambda$ velja
+Definirajmo še $(y_\lambda) \in \Z^m$. Naj bo $(y_\lambda) = k$, če je $\lambda = \lambda_k$ za vsak $k \in \N$ in naj bo $y_\lambda = 1$ drugod. Očitno je $(y_\lambda) \in B$, zato za neko končno podmnožico $K \subset \Lambda$ velja
 \[ \lbrace (x_\lambda) \in \Z^m ; x_\lambda = y_\lambda \text{ za vse } \lambda \in K \rbrace \subset V. \]
 Ker je množica $K$ končna, obstaja tak $n_0 \in \N$, da $\lambda_k \notin K$ za vse $k > m_{n_0}$.
 
 Definiramo $(z_\lambda) \in \Z^m$ na naslednji način:
 \begin{align*}
-	z_\lambda &= k \text{, če je $\lambda = \lambda_k$ in $k \leq m_{n_0}$;} \\
-	z_\lambda &= 0 \text{, če je $\lambda = \lambda_k$ in $m_{n_0} + 1 \leq k \leq m_{n_0+1}$;} \\
+	z_\lambda &= k \text{, če je $\lambda = \lambda_k$ in $k \leq m_{n_0}$}, k \in \N; \\
+	z_\lambda &= 0 \text{, če je $\lambda = \lambda_k$ in $m_{n_0} + 1 \leq k \leq m_{n_0+1}$}, k \in \N; \\
 	z_\lambda &= 1 \text{ sicer.}
 \end{align*}
 Potem je $(z_\lambda) \in \lbrace (x_\lambda) \in \Z^m ; x_\lambda = y_\lambda \text{ za vse } \lambda  \in K \rbrace \subset V$ in hkrati
@@ -1017,8 +1044,8 @@ Ker je pofinitev $\mathcal{W}'$ lokalno končna, je tudi družina množic $\math
 Za vsako množico $W \in \mathcal{Q}$ po definiciji pofinitve obstaja takšna točka $a \in A$, da je $W \subset Q_a$.
  Potem velja $b \in X \setminus \closure{Q_a} \subset X \setminus \closure{W}$. Ker je $\mathcal{W}'$ odprto pokritje prostora $X$, je $S = \bigcup\mathcal{Q}$ odprta okolica množice $A$, in ker je $\mathcal{Q}$ lokalno končna družina, po opombi \ref{opo:lokkon} velja \[ b \in X \setminus \bigcup_{W \in \mathcal{Q}} \closure{W} = X \setminus \closure{S}. \] Množica $T_b = X \setminus \closure{S}$ je odprta okolica točke $b$, ki je disjunktna s $S$.
 
-Po zgoraj dokazanem torej za vsako točko $b \in B$ obstaja odprta okolica $T_b$ točke $b$, da je $A \cap \closure{T_b} = \emptyset$. Zato je $\Ucurl = (X\setminus B) \cup \lbrace T_b \rbrace_{b \in B}$ odprto pokritje prostora $X$. Ker je $X$ parakompakten topološki prostor, obstaja lokalno končno odprto pokritje $\Ucurl'$, ki je pofinitev pokritja $\Ucurl$. Naj bo \[ \mathcal{V} = \lbrace U \in \Ucurl' ; U \cap B \neq \emptyset \rbrace. \]
-Ker za vsako množico $U \in \mathcal{V}$ obstaja takšna točka $b \in B$, da je $U \subset T_b$, je $A \cap \closure{U} \subset A \cap \closure{T_b} = \emptyset$. Množica $V = \bigcup \mathcal{V}$ je odprta okolica množice $B$ in, ker je $\mathcal{V}$ lokalno končna družina, po opombi \ref{opo:lokkon} velja \[ A \cap \closure{V} = A \cap \bigcup_{U \in \mathcal{V}}\closure{U} = \emptyset.\]
+Po zgoraj dokazanem za vsako točko $b \in B$ obstaja odprta okolica $T_b$ točke $b$, da je $A \cap \closure{T_b} = \emptyset$, zato je $\Ucurl = (X\setminus B) \cup \lbrace T_b \rbrace_{b \in B}$ odprto pokritje prostora $X$. Ker je $X$ parakompakten topološki prostor, obstaja lokalno končno odprto pokritje $\Ucurl'$, ki je pofinitev pokritja $\Ucurl$. Naj bo \[ \mathcal{V} = \lbrace U \in \Ucurl' ; U \cap B \neq \emptyset \rbrace. \]
+Ker je družina $\Ucurl'$ pofinitev pokritja $\Ucurl$ za vsako množico $U \in \mathcal{V}$ obstaja takšna točka $b \in B$, da je $U \subset T_b$, in sledi $A \cap \closure{U} \subset A \cap \closure{T_b} = \emptyset$. Množica $V = \bigcup \mathcal{V}$ je odprta okolica množice $B$ in, ker je $\mathcal{V}$ lokalno končna družina, po opombi \ref{opo:lokkon} velja \[ A \cap \closure{V} = A \cap \bigcup_{U \in \mathcal{V}}\closure{U} = \emptyset.\]
 
 Množica $X \setminus \closure{V}$ je torej odprta okolica množice $A$, ki je disjunktna z odprto okolico $V$ množice $B$. Hausdorffov topološki prostor $X$ s tem zadošča separacijskemu aksiomu $T_4$ in je zato normalen.
 \end{dokaz}
@@ -1030,12 +1057,22 @@ Množica $X \setminus \closure{V}$ je torej odprta okolica množice $A$, ki je d
 \begin{dokaz}
 Ker je $G$ lokalno kompaktna, obstaja kompaktna okolica $K$ enote $e$. Po posledici \ref{pos:sim} obstaja takšna simetrična okolica $U$ enote $e$, da je $\closure{U} \subset K$. Ker so zaprte podmnožice kompaktnih prostorov kompaktne, je $\closure{U}$ tudi kompaktna okolica enote $e$.
 
-Naj bo $L = \bigcup_{n=1}^\infty U^n$. Množica $L$ je po trditvi \ref{trd:podgrupaunija} odprta in zaprta podgrupa topološke grupe $G$. Ker je $\closure{U} \subset U^2$ in zato po indukciji $\closure{U}^i \subset U^{i+1}$ za vsak $i > 0$, je $L = \bigcup_{n=1}^\infty \closure{U}^n$. Podgrupa $L$ je enaka števni uniji kompaktov, saj je po trditvi \ref{trd:prodkomp} za vsak $n \in \N$ množica $\closure{U}^n$ kompaktna, torej je podgrupa $L$ $\sigma$-kompaktna in ima Lindel\"ofovo lastnost. Velja tudi, da ima vsak levi odsek $xL$, kjer je $x \in G$, Lindel\"ofovo lastnost, saj je leva translacija po trditvi \ref{trd:trans} homeomorfizem.
+Naj bo $L = \bigcup_{n=1}^\infty U^n$. Množica $L$ je po trditvi \ref{trd:podgrupaunija} odprta in zaprta podgrupa topološke grupe $G$.
+Preverimo, da je $\closure{U} \subseteq U^2$. Vzemimo $x \in \closure{U}$. Množica $xU$ je odprta okolica za $x$ in velja $xU \cap U \neq \emptyset$, iz česar sledi, da obstajata elementa $u_1,u_2 \in U$, da je $xu_1 = u_2$. Od tod dobimo
+\[ x = u_2u_1^{-1} \in UU^{-1} = U^2. \]
+Sledi, da za vsak $n \in \N$ velja $\closure{U^n} \subseteq U^{2n}$, zato je $L = \bigcup_{n=1}^\infty \closure{U}^n$. Po trditvi \ref{trd:prodkomp} je za vsak $n \in \N$ množica $\closure{U}^n$ kompaktna, zato je podgrupa $L$ enaka števni uniji kompaktnih množic, torej $\sigma$-kompaktna in ima posledično Lindel\"ofovo lastnost. Ker je leva translacija po trditvi \ref{trd:trans} homeomorfizem, ima za vsak $x \in G$ tudi levi odsek $xL$ Lindel\"ofovo lastnost.
 
-Vzemimo poljubno odprto pokritje $\mathcal{V}$ topološke grupe $G$. Ker je $\mathcal{V}$ tudi pokritje za vsak levi odsek $xL \subset G$, za vsak levi odsek $xL$, kjer je $x \in G$, obstaja števno podpokritje $\lbrace V_{xL}^{(n)} \rbrace_{n = 1}^{\infty}$ pokritja $\mathcal{V}$, da je $xL \subset \bigcup_{n=1}^{\infty}V_{xL}^{(n)}$. Za vsak $n \in \N$ definirajmo družino množic $\mathcal{W}_n = \lbrace V_{xL}^{(n)} \cap (xL) ; xL \in G/L \rbrace$. Tedaj je družina množic $\mathcal{W} = \bigcup_{n=1}^{\infty}\mathcal{W}_n$ pofinitev pokritja $\mathcal{V}$. Res, za vsako množico $(V_{xL}^{(n)} \cap (xL)) \in \mathcal{W}$, kjer je $x \in G$ in $n \in \N$, velja
+Vzemimo poljubno odprto pokritje $\mathcal{V}$ topološke grupe $G$ in točko $x \in G$.
+Ker je $\mathcal{V}$ pokritje tudi za levi odsek $xL \subseteq G$, obstaja števna poddružina $\lbrace V_{xL}^{(n)} \rbrace_{n = 1}^{\infty}$ pokritja $\mathcal{V}$, da je $xL \subseteq \bigcup_{n=1}^{\infty}V_{xL}^{(n)}$. Za vsak $n \in \N$ definirajmo družino množic $\mathcal{W}_n = \lbrace V_{xL}^{(n)} \cap (xL) ; xL \in G/L \rbrace$.
+Trdimo, da je družina množic $\mathcal{W} = \bigcup_{n=1}^{\infty}\mathcal{W}_n$ pofinitev pokritja $\mathcal{V}$. Res, za vsako množico $(V_{xL}^{(n)} \cap (xL)) \in \mathcal{W}$, kjer je $x \in G$ in $n \in \N$, velja
 \[ V_{xL}^{(n)} \cap (xL) \subseteq V_{xL}^{(n)} \in \mathcal{V}. \]
-Ker ima vsak $x \in G$ kompaktno okolico, je $\mathcal{W}$ lokalno končna družina.!!!
+
+
 \end{dokaz}
+
+\begin{posledica}
+Vsaka lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je normalen topološki prostor.
+\end{posledica}
 
 \section*{Slovar strokovnih izrazov}
 
@@ -1060,6 +1097,8 @@ Ker ima vsak $x \in G$ kompaktno okolico, je $\mathcal{W}$ lokalno končna druž
 
 \bibitem{bib:uniform}
 S.~Bhowmik, \emph{Introduction to Uniform Spaces}, 10.13140/RG.2.1.3743.8967, junij 2014, [ogled 1.~4.~2019], dostopno na \url{https://www.researchgate.net/publication/305196408_INTRODUCTION_TO_UNIFORM_SPACES}.
+\bibitem{bib:dugundji}
+J.~Dugundji, \emph{Topology}, Allyn and Bacon series in advanced mathematics, Allyn and Bacon, 1966
 \bibitem{bib:aha1}
 E.~Hewitt in K.~A.~Ross, \emph{Abstact Harmonic Analysis I}, Springer-Verlag, New York, 1979.
 \bibitem{bib:top}
