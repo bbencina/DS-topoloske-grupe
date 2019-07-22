@@ -422,6 +422,18 @@ Naj bo $U$ simetrična okolica enote $e$ v topološki grupi $G$. Potem je $L = \
 Ker za $x \in U^k$ in $y \in U^l$ velja $xy \in U^kU^l \subseteq U^{k+l}$, je $L$ zaprta za množenje. Ker je $U$ simetrična, velja tudi $x^{-1} \in (U^{-1})^k = U^k$, torej je $L$ zaprta za invertiranje. Sledi, da je $L$ podgrupa topološke grupe $G$. V njeni notranjosti je zagotovo vsaj enota $e$, saj je $U$ okolica za $e$. Po trditvi \ref{trd:odpzap} je $L$ odprta in zaprta podgrupa topološke grupe $G$.
 \end{dokaz}
 
+\begin{trditev}\label{trd:povedinka}
+Naj bo $C$ komponenta za povezanost topološke grupe $G$, ki vsebuje enoto $e$. Potem je $C$ zaprta podgrupa edinka topološke grupe $G$.
+\end{trditev}
+
+\begin{dokaz}
+Ker je po trditvi \ref{trd:trans} invertiranje homeomorfizem, je $C^{-1}$ povezana množica, ki vsebuje enoto $e$. Ker je $C$ komponenta za povezanost, je $C^{-1} \subseteq C$. Od tod sledi, da je za vsak $a \in C$ tudi $a^{-1} \in C$, zato je množica $aC$ povezana množica, ki vsebuje enoto $e$, in velja $aC \subseteq C$. Ker to velja za vsak $a \in C$, je $C^2 \subseteq C$. Množica $C$ je zaprta za invertiranje in množenje ter vsebuje enoto $e$, zato je $C$ podgrupa topološke grupe $G$. Ker je $C$ komponenta za povezanost, vemo, da je zaprta v $G$. Preverimo še, da je $C$ podgrupa edinka. Vzemimo poljuben $a \in G$. Ker je konjugiranje po trditvi \ref{trd:trans} homeomorfizem, je množica $aCa^{-1}$ povezana množica, ki vsebuje enoto $e$. Od tod sledi, da je $aCa^{-1} \subseteq C$, torej je $C$ podgrupa edinka topološke grupe $G$.
+\end{dokaz}
+
+\begin{opomba}
+V trditvi \ref{trd:podgrupaunija} smo pokazali, da je za poljubno simetrično okolico $U$ enote $e$ množica $L = \bigcup_{n=1}^{\infty} U^n$ odprta in zaprta podgrupa, torej komponenta za povezanost, ki očitno vsebuje enoto $e$. Po trditvi \ref{trd:povedinka} je $L$ podgrupa edinka topološke grupe $G$.
+\end{opomba}
+
 \subsection{Kvocienti topoloških grup}
 
 \begin{izrek}\label{izr:topkvocienta}
@@ -528,11 +540,12 @@ Ker topološla grupa $G$ zadošča separacijskemu aksiomu $T_0$, je po trditvi p
 \end{trditev}
 
 \begin{dokaz}
-Preslikava $\psi_a$ je očitno bijektivna za vsak $a \in G$, saj je preslikava $\psi_{a^{-1}}$ njen inverz. Pokazali bomo, da je za vsak $a \in G$ preslikava $\psi_a$ odprta. Od tod bo sledilo, da je preslikava $\psi_{a^{-1}}$ zvezna. Ker je tudi $\psi_{a^{-1}}$ odprta preslikava, je tudi $\psi_a$ zvezna preslikava. Torej je $\psi_a$ homeomorfizem.
+Preslikava $\psi_a$ je očitno bijektivna za vsak $a \in G$, saj je preslikava $\psi_{a^{-1}}$ njen inverz. Pokazali bomo, da je za vsak $a \in G$ preslikava $\psi_a$ odprta, od koder bo sledilo, da je preslikava $\psi_{a^{-1}}$ zvezna. Ker je $\psi_{a^{-1}}$ odprta preslikava, je tudi $\psi_a$ zvezna preslikava. Torej je $\psi_a$ homeomorfizem.
 
-Vzemimo odprto podmnožico $\lbrace uH ; u \in U \rbrace$ prostora $G/H$, kjer je $U \subset G$ odprta množica. Potem velja, da je
+Vzemimo odprto podmnožico $\lbrace uH ; u \in U \rbrace$ prostora $G/H$, kjer je $U \subseteq G$ odprta množica. 
+Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je tudi množica $aU$ odprta v $G$ in velja, da je
 \[ \psi_a(\lbrace uH ; u \in U \rbrace) = \lbrace auH ; u \in U \rbrace = \lbrace vH ; v \in aU \rbrace \]
-odprta množica, saj je množica $aU$ odprta v $G$, ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem. Preslikava $\psi_a$ je torej odprta.
+odprta množica, zato je preslikava $\psi_a$ odprta.
 \end{dokaz}
 
 \begin{trditev}\label{trd:kvockompakt}
@@ -540,9 +553,9 @@ odprta množica, saj je množica $aU$ odprta v $G$, ker je po trditvi \ref{trd:t
 \end{trditev}
 
 \begin{dokaz}
-Če je $G$ kompaktna topološka grupa, je tudi $G/H$ kompakten prostor, saj je prostor $G/H$ slika množice $G$ z naravno preslikavo, ki je po izreku \ref{izr:topkvocienta} zvezna.
+Po izreku \ref{izr:topkvocienta} je naravna preslikava zvezna. Če je $G$ kompaktna topološka grupa, je tudi $\varphi(G) = G/H$ kompakten topološki prostor.
 
-Naj bo topološka grupa $G$ lokalno kompaktna in naj bo množica $K$ kompaktna okolica poljubnega elementa $a \in G$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je množica $a^{-1}K$ kompaktna okolica enote $e$. Ker je po izreku \ref{izr:topkvocienta} naravna preslikava zvezna, je množica $\varphi(a^{-1}K)$ kompaktna okolica enote $H$ v prostoru $G/H$. Po trditvi \ref{trd:homogenkvoc} je potem $\psi_a(\varphi(a^{-1}K))$ kompaktna okolica elementa $aH$. Kvocientni prostor $G/H$ je torej lokalno kompakten.
+Naj bo topološka grupa $G$ lokalno kompaktna in naj bo množica $K$ kompaktna okolica poljubnega elementa $a \in G$. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je množica $a^{-1}K$ kompaktna okolica enote $e$. Ker je po izreku \ref{izr:topkvocienta} naravna preslikava zvezna, je množica $\varphi(a^{-1}K)$ kompaktna okolica enote $H$ v prostoru $G/H$. Po trditvi \ref{trd:homogenkvoc} je potem $\psi_a(\varphi(a^{-1}K))$ kompaktna okolica elementa $aH$, zato je kvocientni prostor $G/H$ lokalno kompakten.
 \end{dokaz}
 
 \begin{opomba}
@@ -554,9 +567,9 @@ Lokalno števno kompakten, regularen topološki prostor $X$ ni unija števno zap
 \end{trditev}
 
 \begin{dokaz}
-Trditev bomo dokazali s protislovjem. Naj bo topološki prostor $X$ enak uniji zaprtih množic s prazno notranjostjo, torej $X = \bigcup_{n=1}^\infty A_n$, kjer je za vsak $n \in \N$ množica $A_n$ zaprta in velja $\interior{A} = \emptyset$. Za vsak $n \in \N$ definiramo $D_n = X \setminus A_n$. Očitno je za vsak $n \in \N$ množica $D_n$ odprta. Ker ima za vsak $n \in \N$ množica $A_n$ prazno notranjost, torej ne vsebuje nobene neprazne odprte množice, vsaka odprta množica v topološkem prostoru $X$ seka množico $D_n$. Množica $D_n$ je torej gosta v prostoru $X$. Pokazali bomo, da velja $\bigcap_{n=1}^\infty D_n \neq \emptyset$, kar pomeni, da obstaja nek element prostora $X$, ki ni v nobeni množici $A_n$, torej topološki prostor $X$ ne more biti unija množic $A_n$.
+Trditev bomo dokazali s protislovjem. Naj bo topološki prostor $X$ enak uniji zaprtih množic s prazno notranjostjo, torej $X = \bigcup_{n=1}^\infty A_n$, kjer je za vsak $n \in \N$ množica $A_n$ zaprta in velja $\interior{A} = \emptyset$. Za vsak $n \in \N$ definiramo $D_n = X \setminus A_n$. Očitno je za vsak $n \in \N$ množica $D_n$ odprta. Ker ima za vsak $n \in \N$ množica $A_n$ prazno notranjost, torej ne vsebuje nobene neprazne odprte množice, vsaka odprta množica v topološkem prostoru $X$ seka množico $D_n$, iz česar sledi, da je množica $D_n$ gosta v prostoru $X$. Pokazali bomo, da velja $\bigcap_{n=1}^\infty D_n \neq \emptyset$, kar pomeni, da obstaja nek element prostora $X$, ki ni v nobeni množici $A_n$, torej topološki prostor $X$ ne more biti unija množic $A_n$.
 
-Vzemimo poljuben element $x_0 \in X$. Naj bo množica $K$ njegova števno kompaktna okolica. Ker je prostor $X$ regularen, obstaja takšna odprta okolica $U_0$ elementa $x_0$, da je $U_0 \subset \closure{U_0} \subset K$. Tudi množica $\closure{U_0}$ je števno kompaktna. Ker je množica $D_1$ gosta v regularnem topološkem prostoru $X$, ima z vsako odprto množico neprazen presek, torej obstaja takšna neprazna odprta množica $U_1$, da je $U_1 \subset \closure{U_1} \subset U_0 \cap D_1$. Induktivno za vsak $n \in \N$ definiramo množico $U_n$ na naslednji način. Če smo že definirali množice $U_i$ za $i = 1,\dots,n-1$, naj bo množica $U_n$ takšna neprazna odprta množica, da velja $U_n \subset \closure{U_n} \subset U_{n-1} \cap D_n$. Tako kot pri definiciji množice $U_1$ upoštevamo, da je množica $D_n$ gosta za vsak $n \in \N$ in da je topološki prostor $X$ regularen.
+Vzemimo poljuben element $x_0 \in X$ in naj bo množica $K$ njegova števno kompaktna okolica. Ker je prostor $X$ regularen, obstaja takšna odprta okolica $U_0$ elementa $x_0$, da je $U_0 \subset \closure{U_0} \subset K$, kjer je tudi množica $\closure{U_0}$ števno kompaktna. Ker je množica $D_1$ gosta v regularnem topološkem prostoru $X$, ima z vsako neprazno odprto množico neprazen presek, torej obstaja takšna neprazna odprta množica $U_1$, da je $U_1 \subset \closure{U_1} \subset U_0 \cap D_1$. Induktivno za vsak $n \in \N$ definiramo množico $U_n$ na naslednji način. Če smo že definirali množice $U_i$ za $i = 1,\dots,n-1$, naj bo množica $U_n$ takšna neprazna odprta množica, da velja $U_n \subset \closure{U_n} \subset U_{n-1} \cap D_n$. Tako kot pri definiciji množice $U_1$ upoštevamo, da je množica $D_n$ gosta za vsak $n \in \N$ in da je topološki prostor $X$ regularen.
 Ker je množica $\closure{U_0}$ števno kompaktna in je za vsak $n \in \N$ množica $\closure{U_n}$ neprazna, je tudi presek $\bigcap_{n=0}^\infty \closure{U_n}$ neprazen. Elementi tega preseka morajo po zgornji konstrukciji ležati v preseku $\bigcap_{n=1}^\infty D_n$, torej res velja $\bigcap_{n=1}^\infty D_n \neq \emptyset$.
 \end{dokaz}
 
@@ -569,16 +582,16 @@ Naj bo $G$ lokalno kompaktna, $\sigma$-kompaktna topološka grupa in naj bo $f\c
 \end{trditev}
 
 \begin{dokaz}
-Pišimo $G = \bigcup_{n=1}^\infty A_n$, kjer je $A_n$ kompaktna množica za vsak $n \in \N$. Naj bo $\Ucurl$ družina vseh simetričnih okolic enote $e$ topološke grupe $G$ in naj bo $\widetilde{\Ucurl}$ družina vseh okolic enote $\tilde{e}$ topološke grupe $\widetilde{G}$. Dokazali bomo, da za vsako okolico $U \in \Ucurl$ obstaja okolica $\widetilde{U} \in \widetilde{\Ucurl}$, da velja $\widetilde{\Ucurl} \subset f(U)$. Potem lahko vzamemo poljubno odprto podmnožico $B \subset G$. Za vsak $x \in B$ obstaja taka okolica $U \in \Ucurl$, da je $xU$ okolica elementa $x$ in velja $xU \subset B$. Ker obstaja $\widetilde{U} \in \widetilde{\Ucurl}$, da velja $\widetilde{\Ucurl} \subset f(U)$, imamo
+Pišimo $G = \bigcup_{n=1}^\infty A_n$, kjer je $A_n$ kompaktna množica za vsak $n \in \N$. Naj bo $\Ucurl$ družina vseh simetričnih okolic enote $e$ topološke grupe $G$ in naj bo $\widetilde{\Ucurl}$ družina vseh okolic enote $\tilde{e}$ topološke grupe $\widetilde{G}$. Dokazali bomo, da za vsako okolico $U \in \Ucurl$ obstaja okolica $\widetilde{U} \in \widetilde{\Ucurl}$, da velja $\widetilde{U} \subset f(U)$. Potem lahko vzamemo poljubno odprto podmnožico $B \subset G$. Za vsak $x \in B$ obstaja taka okolica $U \in \Ucurl$, da je $xU$ okolica elementa $x$ in velja $xU \subset B$. Ker obstaja $\widetilde{U} \in \widetilde{\Ucurl}$, da velja $\widetilde{U} \subset f(U)$, imamo
 \[ f(x) \in f(x)\widetilde{U} \subset f(x)f(U) = f(xU) \subset f(B), \]
 torej je množica $f(B)$ okolica za vsako svojo točko in po definiciji odprta v topološki grupi $\widetilde{G}$. Ker je množica $B$ poljubna, je $f$ odprta preslikava.
 
-Dokažimo torej, da za vsako okolico $U \in \Ucurl$ obstaja okolica $\widetilde{U} \in \widetilde{\Ucurl}$, da velja $\widetilde{\Ucurl} \subset f(U)$. Vzemimo poljubno okolico $U \in \Ucurl$. Po trditvi \ref{trd:okolice} obstaja takšna množica $V_1 \in \Ucurl$, da velja $V_1^2 \subset U$. Po posledici \ref{pos:sim} obstaja takšna množica $V \in \Ucurl$, da velja $\closure{V} \subset V_1$. Upoštevamo še trditev \ref{trd:zaprtost} in dobimo
-\[ U \supset V_1^2 \supset \closure{V}\closure{V} = \closure{V^{-1}}\closure{V} = \closure{V}^{-1}\closure{V}. \]
+Dokažimo torej, da za vsako okolico $U \in \Ucurl$ obstaja okolica $\widetilde{U} \in \widetilde{\Ucurl}$, da velja $\widetilde{U} \subset f(U)$. Vzemimo poljubno okolico $U \in \Ucurl$, po trditvi \ref{trd:okolice} obstaja takšna množica $V_1 \in \Ucurl$, da velja $V_1^2 \subset U$. Po posledici \ref{pos:sim} obstaja takšna množica $V \in \Ucurl$, da velja $\closure{V} \subset V_1$. Upoštevamo še trditev \ref{trd:zaprtost} in dobimo
+\[ U \supset V_1^2 \supset \closure{V}\;\closure{V} = \closure{V^{-1}}\;\closure{V} = \closure{V}^{-1}\closure{V}. \]
 Ker je topološka grupa $G$ lokalno kompaktna, lahko vzamemo tako množico $V$, da je množica $\closure{V}$ kompaktna.
-Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je družina množic $\lbrace xV ; x \in G \rbrace$ odprto pokritje topološke grupe $G$ in zato tudi množice $A_n$ za vsak $n \in \N$. Ker je množica $A_n$ za vsak $n \in \N$ kompaktna, jo pokrije le končno množic oblike $xV$, kjer je $x \in G$. Množic $A_n$ je števno, torej topološko grupo $G$ pokrije števno množic oblike $xV$, kjer je $x \in G$. Naj bo to števno pokritje družina $\lbrace x_nV \rbrace_{n=1}^\infty$. Potem velja $G = \bigcup_{n=1}^\infty x_nV = \bigcup_{n=1}^\infty x_n\closure{V}$. Ker je preslikava $f$ surjektivna, velja tudi $\widetilde{G} = \bigcup_{n=1}^\infty f(x_n\closure{V}) = \bigcup_{n=1}^\infty f(x_n)f(\closure{V})$.
+Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je družina množic $\lbrace xV ; x \in G \rbrace$ odprto pokritje topološke grupe $G$ in zato tudi množice $A_n$ za vsak $n \in \N$. Ker je množica $A_n$ za vsak $n \in \N$ kompaktna, jo pokrije le končno množic oblike $xV$, kjer je $x \in G$. Množic $A_n$ je števno, torej topološko grupo $G$ pokrije števno množic oblike $xV$, kjer je $x \in G$. Naj bo to števno pokritje družina $\lbrace x_nV \rbrace_{n=1}^\infty$. Potem velja $G = \bigcup_{n=1}^\infty x_nV = \bigcup_{n=1}^\infty x_n\closure{V}$ in ker je preslikava $f$ surjektivna, velja tudi $\widetilde{G} = \bigcup_{n=1}^\infty f(x_n\closure{V}) = \bigcup_{n=1}^\infty f(x_n)f(\closure{V})$.
 
-Pokažimo, da ima množica $f(\closure{V})$ neprazno notranjost. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je za vsak $n \in \N$ množica $x_nV$ kompaktna v topološki grupi $G$. Ker je preslikava $f$ zvezna, je množica $f(x_n)f(\closure{V})$ kompaktna v topološki grupi $\widetilde{G}$ za vsak $n \in \N$. Topološka grupa $\widetilde{G}$ zadošča separacijskemu aksiomu $T_0$, zato je po trditvi \ref{trd:t0haus} Hausdorffova, torej so vse kompaktne množice $f(x_n)f(\closure{V})$ zaprte v $\widetilde{G}$. Če predpostavimo, da ima množica $f(\closure{V})$ prazno notranjost, imajo tudi množice $f(x_n)f(\closure{V})$ prazno notranjost za vsak $n \in \N$, saj je leva translacija po trditvi \ref{trd:trans} homeomorfizem. Potem je topološka grupa $\widetilde{G} = \bigcup_{n=1}^\infty f(x_n)f(\closure{V})$ unija števno zaprtih množic s prazno notranjostjo. Po drugi strani je topološka grupa $\widetilde{G}$ lokalno števno kompakten topološki prostor, ki zadošča separacijskemu aksiomu $T_0$ in je zato po izreku \ref{izr:t3} regularen. Po trditvi \ref{trd:kompni} je to nemogoče, zato ima množica $f(\closure{V})$ neprazno notranjost, torej vsebuje neko neprazno odprto množico $\widetilde{V} \subset G$.
+Pokažimo, da ima množica $f(\closure{V})$ neprazno notranjost. Ker je po trditvi \ref{trd:trans} leva translacija homeomorfizem, je za vsak $n \in \N$ množica $x_nV$ kompaktna v topološki grupi $G$. Ker je preslikava $f$ zvezna, je množica $f(x_n)f(\closure{V})$ kompaktna v topološki grupi $\widetilde{G}$ za vsak $n \in \N$. Topološka grupa $\widetilde{G}$ zadošča separacijskemu aksiomu $T_0$, zato je po trditvi \ref{trd:t0haus} Hausdorffova, torej so vse kompaktne množice $f(x_n)f(\closure{V})$ zaprte v $\widetilde{G}$. Če predpostavimo, da ima množica $f(\closure{V})$ prazno notranjost, imajo tudi množice $f(x_n)f(\closure{V})$ prazno notranjost za vsak $n \in \N$, saj je leva translacija po trditvi \ref{trd:trans} homeomorfizem. Potem je topološka grupa $\widetilde{G} = \bigcup_{n=1}^\infty f(x_n)f(\closure{V})$ unija števno zaprtih množic s prazno notranjostjo. Po drugi strani je topološka grupa $\widetilde{G}$ lokalno števno kompakten topološki prostor, ki zadošča separacijskemu aksiomu $T_0$ in je zato po izreku \ref{izr:t3} regularen. Po trditvi \ref{trd:kompni} je to nemogoče, zato ima množica $f(\closure{V})$ neprazno notranjost, torej vsebuje neko neprazno odprto množico $\widetilde{V} \subset \widetilde{G}$.
 
 Izberimo poljubni točki $\tilde{x} \in \widetilde{V}$ in $x \in f^{-1}(\tilde{x})\cap\closure{V}$.
 Po konstrukciji množice $V$ potem velja $x^{-1}\closure{V} \subset U$. Ker je $f$ zvezna preslikava, dobimo
@@ -592,7 +605,8 @@ Naj bosta $G$ in $\widetilde{G}$ topološki grupi. Naj bo $f\colon G \to \wideti
 \end{izrek}
 
 \begin{dokaz}
-Upoštevajoč prvi izrek o izomorfizmih moramo pokazati le, da je preslikava $\Phi$ homeomorfizem. Vzemimo odprto podmnožico $\widetilde{U} \subset \widetilde{G}$. Množica $\Phi(\widetilde{U}) = \lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace$ je potem odprta v $G/H$, saj je množica $\cup\lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace = f^{-1}(\widetilde{U})$ odprta v $G$, ker je preslikava $f$ zvezna. Torej je preslikava $\Phi$ odprta, od koder sledi, da je $\Phi^{-1}$ zvezna preslikava.
+Upoštevajoč prvi izrek o izomorfizmih moramo pokazati le, da je preslikava $\Phi$ homeomorfizem. Vzemimo odprto podmnožico $\widetilde{U} \subset \widetilde{G}$.
+Ker je preslikava $f$ zvezna, je množica $\cup\lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace = f^{-1}(\widetilde{U})$ odprta v $G$, torej je množica $\Phi(\widetilde{U}) = \lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace$ odprta v $G/H$. Od tod sledi, da je preslikava $\Phi$ odprta, torej je je $\Phi^{-1}$ zvezna preslikava.
 
 Vzemimo $\lbrace uH ; u \in U \rbrace$ odprto množico v $G/H$, kjer je množica $U \subset G$ odprta. Potem velja
 \begin{align*}
@@ -612,13 +626,13 @@ Naj bo $G$ topološka grupa, $A$ njena podgrupa in $H$ podgrupa edinka grupe $G$
 \end{izrek}
 
 \begin{dokaz}
-Najprej dokažimo \ref{podtrd:ioi2-1}.
-Odprta množica v prostoru $(AH)/H$ je množica $\lbrace xH ; \break x\in X \rbrace$, kjer je $X \subset A$ taka množica, da je $XH$ odprta v podprostoru $AH$ topološke grupe $G$. Ker je $\tau(\lbrace xH ; x \in X \rbrace) = \lbrace x(A \cap H) ; x \in X \rbrace$ in velja $X(A \cap H) = (XH)\cap A$, sledi, da je množica $X(A \cap H)$ odprta v podprostoru $A$ topološke grupe $G$. Zato je po definiciji kvocientne topologije je množica $\lbrace x(A\cap H) ; x \in X \rbrace$ odprta v prostoru $A/(A \cap H)$.
+Najprej dokažimo (\ref{podtrd:ioi2-1}).
+Odprta množica v prostoru $(AH)/H$ je množica $\lbrace xH ; \break x\in X \rbrace$, kjer je $X \subset A$ taka množica, da je $XH$ odprta v podprostoru $AH$ topološke grupe $G$. Ker je $\tau(\lbrace xH ; x \in X \rbrace) = \lbrace x(A \cap H) ; x \in X \rbrace$ in velja $X(A \cap H) = (XH)\cap A$, sledi, da je množica $X(A \cap H)$ odprta v podprostoru $A$ topološke grupe $G$. Zato je po definiciji kvocientne topologije množica $\lbrace x(A\cap H) ; x \in X \rbrace$ odprta v prostoru $A/(A \cap H)$.
 
-Za dokaz \ref{podtrd:ioi2-2} moreamo upoštevajoč izrek (drugi izrek o izomorfizmih) in točko \ref{podtrd:ioi2-1} tega izreka dokazati le, da je tudi preslikava $\tau^{-1}$ odprta.
+Za dokaz (\ref{podtrd:ioi2-2}) moramo upoštevajoč izrek (drugi izrek o izomorfizmih) in točko (\ref{podtrd:ioi2-1}) dokazati le, da je tudi preslikava $\tau^{-1}$ odprta.
 Oglejmo si naravno preslikavo $\varphi\colon G \to G/H$. Za njeno zožitev na podgrupo $A$ velja, da preslika podgrupo $A$ surjektivno v podgrupo $(AH)/H$ topološke grupe $G/H$. Ker je po predpostavki množica $AH$ lokalno kompaktna in podgrupa edinka $H$ zaprta v $G$, je po trditvi \ref{trd:kvockompakt} $(AH)/H$ lokalno kompaktna in po izreku \ref{izr:kvocreg} zadošča separacijskemu aksiomu $T_0$. Preslikava $\varphi|_A$ je torej surjektiven in odprt homomorfizem iz lokalno kompaktne, $\sigma$-kompaktne grupe $A$ v lokalno kompaktno grupo $(AH)/H$, ki zadošča separacijskemu aksiomu $T_0$. Po trditvi \ref{trd:kompodp} je $\varphi|_A$ odprta preslikava.
 
-Vzemimo odprto podmnožico $\lbrace y(A \cap H) ; y \in Y \rbrace \subset A/(A \cap H)$, kjer je $Y \subset A$, tj. množica $Y(A \cap H)$ je odprta v $A$. Velja $\varphi(Y(A \cap H)) = \lbrace yH ; y \in Y \rbrace \subset (AH)/H$. Ker je $\varphi|_A$ odprta preslikava, je množica $\lbrace yH ; y \in Y \rbrace$ odprta v $(AH)/H$. Po definiciji preslikave $\tau$ velja $\lbrace yH ; y \in Y \rbrace = \tau^{-1}(\lbrace y(A \cap H) ; y \in Y \rbrace)$. Od tod sledi, da je preslikava $\tau^{-1}$ odprta.
+Vzemimo odprto podmnožico $\lbrace y(A \cap H) ; y \in Y \rbrace \subset A/(A \cap H)$, kjer je $Y \subset A$, tj. množica $Y(A \cap H)$ je odprta v $A$. Ker je $\varphi|_A$ odprta preslikava, je množica $\varphi(Y(A \cap H)) = \lbrace yH ; y \in Y \rbrace$ odprta v $(AH)/H$. Po definiciji preslikave $\tau$ velja $\lbrace yH ; y \in Y \rbrace = \tau^{-1}(\lbrace y(A \cap H) ; y \in Y \rbrace)$, iz česar sledi, da je preslikava $\tau^{-1}$ odprta.
 \end{dokaz}
 
 
@@ -628,7 +642,7 @@ Vzemimo odprto podmnožico $\lbrace y(A \cap H) ; y \in Y \rbrace \subset A/(A \
 \end{trditev}
 
 \begin{dokaz}
-Naj bo $\tilde{\varphi}\colon \widetilde{G} \to \widetilde{G}/\widetilde{H}$ naravna preslikava. Po izreku \ref{izr:kvocpovzetek} je $\tilde{\varphi}$ odprt in zvezen homomorfizem. Ker je preslikava $f$ odprt in zvezen homomorfizem, je zato preslikava $\tilde{\varphi}\circ f\colon G \to \widetilde{G}/\widetilde{H}$ odprt in zvezen homomorfizem z jedrom $H = f^{-1}(\widetilde{H})$. Po izreku \ref{izr:prvitopizrek} sta topološki grupi $G/H$ in $\widetilde{G}/\widetilde{H}$ topološko izomorfni. Naj bo $N = \ker f$. Ker je po izreku \ref{izr:prvitopizrek} preslikava $f^{-1}\colon \widetilde{G} \to G/N$, $\tilde{x} \mapsto f^{-1}(\tilde{x})$, topološki izomorfizem in je slika podgrupe $\widetilde{H}$ so to preslikavo enaka $H/N$, je topološka grupa $\widetilde{G}/\widetilde{H}$ topološko izomorfna $(G/N)/(H/N)$.
+Po izreku \ref{izr:kvocpovzetek} je naravna preslikava $\tilde{\varphi}\colon \widetilde{G} \to \widetilde{G}/\widetilde{H}$ odprt in zvezen homomorfizem. Ker je preslikava $f$ odprt in zvezen homomorfizem, je preslikava $\tilde{\varphi}\circ f\colon G \to \widetilde{G}/\widetilde{H}$ odprt in zvezen homomorfizem z jedrom $H = f^{-1}(\widetilde{H})$. Po izreku \ref{izr:prvitopizrek} sta topološki grupi $G/H$ in $\widetilde{G}/\widetilde{H}$ topološko izomorfni. Naj bo $N = \ker f$. Ker je po izreku \ref{izr:prvitopizrek} preslikava $f^{-1}\colon \widetilde{G} \to G/N$ topološki izomorfizem in je $f^{-1}(\widetilde{H}) = H/N$, je topološka grupa $\widetilde{G}/\widetilde{H}$ topološko izomorfna $(G/N)/(H/N)$.
 \end{dokaz}
 
 Izrek lahko preoblikujemo v obliko, ki je bolj podobna algebraični različici in ne vsebuje pomožne topološke grupe $\widetilde{G}$.
@@ -637,6 +651,8 @@ Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta 
 \end{izrek}
 
 \section{Izreki tipa ``2 od 3''}
+
+V tem podrazdelku si bomo ogledali tako imenovane izreke tipa 2 od 3, ki so izreki naslednje oblike. Vzeli bomo podgrupo $H$ topološke grupe $G$ in pripadajoč kvocientni topološki prostor $G/H$ ter topološko lastnost $L$. Zanimalo nas bo, za katere topološke lastnosti $L$ velja naslednja implikacija: če imata $H$ in $G/H$ lastnost $L$, jo ima tudi $G$.
 
 \section{Metrizabilnost in povsem regularnost}
 
@@ -921,20 +937,22 @@ Vzemimo element $x \in F$. Ker po konstrukciji množice $U_1$ velja $a^{-1}x \no
 Topološka grupa $G$ zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$. Ker zadošča tudi separacijskemu aksiomu $T_0$, je po trditvi \ref{trd:t0haus} Hausdorffova in zato povsem regularna.
 \end{dokaz}
 
-\subsection{Separacijski aksiom $T_4$}
+ \subsection{Separacijski aksiom $T_4$}
 Za dokaz izreka o obstoju povsem regularne topološke grupe, ki ni normalna, potrebujemo pojem \emph{proste grupe}. Vzemimo neprazno množico $X$. \emph{Beseda} je bodisi prazna (pišemo $e$) bodisi končni formalni produkt $x_1^{\delta_1}\cdots x_n^{\delta_n}$ elementov iz $X$, kjer je $\delta_k \in \lbrace -1, 1\rbrace$ za $k = 1,\dots,n$ in $n \in \N$. Beseda je \emph{reducirana}, če je prazna ali pa je $\delta_k = \delta_{k+1}$, kadar je $x_k = x_{k+1}$. Naj bo $F$ množica vseh reduciranih besed nad množico $X$. Na množici $F$ definiramo operacijo na naslednji način: produkt besed $x$ in $y$ je beseda, ki jo dobimo, če besedi $x$ in $y$ najprej staknemo, nato pa rekurzivno okrajšamo vse pare $x_k$, $y_1$, za katere velja $x_n = y_1$ in $\delta_n^x \neq \delta_1^y$, dokler ne dobimo okrajšane besede. Trdimo, da je množica $F$ s tako definirano operacijo grupa. Res, če za enoto $e$ vzamemo prazno besedo, inverz pa definiramo kot $(x_1^{\delta_1}\cdots x_n^{\delta_n})^{-1} = x_n^{-\delta_n}\cdots x_1^{-\delta_1}$, dobimo grupno strukturo.
 
 \begin{izrek}\label{izr:prostatopgrupa}
 Za vsak povsem regularen topološki prostor $X$ obstaja taka topološka grupa $F_X$, da velja:
 \begin{enumerate}
-	\item topološka grupa $F_X$ je prosta grupa nad prostorom $X$,
-	\item topološki prostor $X$ je zaprt podprostor v $F_X$,
-	\item za vsako zvezno preslikavo $\varphi\colon X \to G$, kjer je $G$ poljubna topološka grupa, obstaja zvezen homomorfizem $\Phi\colon F_X \to G$, da je $\Phi(x) = \varphi(x)$ za vsak $x \in X$.
+	\item topološka grupa $F_X$ je prosta grupa nad prostorom $X$,\label{podtrd:prosta1}
+	\item topološki prostor $X$ je zaprt podprostor v $F_X$,\label{podtrd:prosta2}
+	\item za vsako zvezno preslikavo $\varphi\colon X \to G$, kjer je $G$ poljubna topološka grupa, obstaja zvezen homomorfizem $\Phi\colon F_X \to G$, da je $\Phi(x) = \varphi(x)$ za vsak $x \in X$.\label{podtrd:prosta3}
 \end{enumerate}
 \end{izrek}
 
 \begin{dokaz}
-Naj $\mathbf{c}$ označuje kontinuum, torej $\mathbf{c} = |\R|$. Vzemimo povsem regularen topološki prostor $X$. Naj bo $\mathcal{G}$ družina vseh topoloških grup, za katero velja:
+Popoln dokaz izreka je izredno dolg in obsežen, zato ga tukaj izpustimo. Dokaz se nahaja v \cite[(8.8)]{bib:aha1}, navedli pa bomo le idejo dokaza.
+
+Naj $\mathbf{c}$ označuje kontinuum, torej $\mathbf{c} = |\R|$. Vzemimo povsem regularen topološki prostor $X$. Naj bo $\mathcal{G}$ družina vseh topoloških grup, za katere velja:
 \begin{enumerate}
 \item za vsako topološko grupo $G \in \mathcal{G}$ je $|G| \leq \max\lbrace |X|, \mathbf{c}\rbrace$,
 \item za vsako topološko grupo $H$, za katero je $|H| \leq \max\lbrace |X|, \mathbf{c}\rbrace$, obstaja taka topološka grupa $G \in \mathcal{G}$, da sta $G$ in $H$ topološko izomorfni.
@@ -942,31 +960,48 @@ Naj $\mathbf{c}$ označuje kontinuum, torej $\mathbf{c} = |\R|$. Vzemimo povsem 
 Definiramo množico $\lbrace (G_\iota, \varphi_\iota)\rbrace_{\iota \in I}$ vseh parov $(G_\iota, \varphi_\iota)$, kjer je $G_\iota \in \mathcal{G}$ in je $\varphi_\iota\colon X \to G_\iota$ zvezna preslikava. Po definiciji družine $\mathcal{G}$ za vsako topološko grupo $H$ in zvezno preslikavo $\varphi\colon X \to H$, kjer velja $|H| \leq \max\lbrace |X|,  \mathbf{c}\rbrace$, obstaja tak indeks $\iota_0$, da sta topološki grupi $G_{\iota_0}$ in $H$ topološko izomorfni s topološkim izomorfizmom $\tau$ in velja $\tau\circ\varphi_{\iota_0} = \varphi$.
 V tem primeru identificiramo par $(H, \varphi)$ s parom $(G_{\iota_0}, \varphi_{\iota_0})$.
 
-Definiramo kartezični produkt $G_0 = \Pi_{\iota \in I}G_\iota$ in označimo enoto grupe $G_0$ z $e$. Za vsak $x \in X$ po komponentah definiramo $\nu(x) \in G_0$ tako: $\nu(x)_\iota = \varphi_\iota(x)$. Pokažimo, da je Preslikava $\nu\colon X \to \nu(X)$ homeomorfizem. Preslikava $\nu$ je zvezna, saj so vse funkcije $\varphi_\iota$ zvezne. Preslikava $\nu$ je injektivna, saj vse topološko izomorfne topološke grupe med sabo identificiramo, torej je bijektivna na svojo sliko. Za dokaz odprtosti preslikave $\nu$ vzemimo poljubno neprazno odprto množico $U \subset X$. Ker je $X$ povsem regularen topološki prostor, za vsak $a \in U$ obstaja zvezna preslikava $\psi_a\colon X \to [0,1]$, za katero velja $\psi_a(a) = 0$ in $\phi_a(X\setminus U) \equiv 1$. Množici $\nu(U)$ in $\nu(X\setminus U)$ sta disjunktni v $G_0$, ker je preslikava $\nu$ bijektivna. Potem je množica $\nu(\psi_a^{-1}([0,\frac{1}{2}))$ odprta okolica elementa $\nu(a) \in \nu(\psi_a^{-1}([0,\frac{1}{2})) \subset \nu(U)$ za vsak $a \in U$. Torej je množica $\nu(U)$ odprta in $\nu$ je odprta preslikava in s tem homeomorfizem.
+Definiramo kartezični produkt $G_0 = \Pi_{\iota \in I}G_\iota$ in označimo enoto grupe $G_0$ z $e$. Za vsak $x \in X$ po komponentah definiramo $\nu(x) \in G_0$ tako: $\nu(x)_\iota = \varphi_\iota(x)$. Pokažemo, da je preslikava $\nu\colon X \to \nu(X)$ homeomorfizem.
 Od tukaj naprej lahko torej identificiramo prostor $X$ s podmnožico $\nu(X) \subset G_0$ in pojmujemo $X \subset G_0$.
-Naj bo potem podgrupa $F \leq G$ tista podgrupa, ki je generirana z množico $X$.
+Naj bo potem podgrupa $F_X \leq G$ tista podgrupa, ki je generirana z množico $X$.
 
+Naj $\mathfrak{S}_n$ označuje grupo vseh permutacij množice z $n$ elementi in naj $\mathfrak{U}(n)$ označuje grupo vseh unitarnih matrik velikost $n\times n$. Izberemo si poljubno število $l \in \N$. Potem naj bo za vsako permutacijo $P \in \mathfrak{S}_l$ matrika $U_P \in \mathfrak{U}(l)$ permutacijska matrika, torej je $u_{jk} = 1$, če je $j = P(k)$ in $u_{jk} = 0$ sicer. Preslikava, definirana s predpisom je $P \mapsto U_P$ je izomorfizem iz $\mathfrak{S}_l$ v $\mathfrak{U}(l)$.
 
+Da preverimo točko (\ref{podtrd:prosta2}), vzamemo poljubno reducirano besedo dolžine $n$ $x_1^{\delta_1}\cdots x_n^{\delta_n}$, sestavljeno iz elementov prostora $X$.
+Obstaja preslikava $A\colon\lbrace x_1, \dots,x_n\rbrace \to \mathfrak{U}(l)$, kjer je $l = n + 1$ ali $l = n + 2$, da velja $A(x_1)^{\delta_1}\cdots A(x_n)^{\delta_n} \neq I_l$, kjer $I_l$ označuje identično matriko velikosti $l \times l$. Ker je topološka grupa $\mathfrak{U}(l)$ povezana s potmi, obstaja zvezna preslikava $\varphi\colon X \to \mathfrak{U}$, da velja $\varphi(x_k) = A(x_k)$ za vsak $k = 1,\dots,n$. Za nek indeks $\iota_0 \in I$ mora biti par $(\mathfrak{U}(l), \varphi)$ enak ali identificiran s parom $(G_{\iota_0}, \varphi_{\iota_0})$, iz česar sledi
+\[ (x_1^{\delta_1}\cdots x_n^{\delta_n})_{\iota_0} = A(x_1)^{\delta_1}\cdots A(x_n)^{\delta_n} \neq I_l, \]
+torej velja $x_1^{\delta_1}\cdots x_n^{\delta_n} \neq e$. Z drugimi besedami, $F_X$ je prosta grupa, generirana z elementi iz prostora $X$.
+
+Da dokažemo točko (\ref{podtrd:prosta1}) vzemimo poljuben element množice $F_X\setminus X$. Zapišemo ga lahko kot besedo $x_1^{\delta_1}\cdots x_n^{\delta_n}$, kjer je $n > 1$ ali pa je $n = 1$ in je $\delta_1 = -1$. Z uporabo izomorfizma iz dveh odstavkov nazaj z upoštevanjem, da je $l = n + 1$ ali $l = n + 2$, dobimo take matrike $A(x_1),\dots,A(x_n) \in \mathfrak{U}(l)$, da je matrika $B = A(x_1)^{\delta_1}\cdots A(x_n)^{\delta_n}$ različna od vsake matrike $A(x_k)$ za $k = 1,\dots,n$. Ker je topološka grupa $\mathfrak{U}(l)$ lokalno evklidska, lahko dobimo okolico $\mathcal{B}$ matrike $B$, da je množica $\closure{\mathcal{B}}\cap (\mathfrak{U}(l)\setminus \mathcal{B})$ homeomorfna sferi $\mathcal{S}_{l^2 - 1}$ in da so $A(x_1),\dots,A(x_n) \in \closure{\mathcal{B}}$. Ker je $\mathcal{B}$ povezana s potmi, lahko najdemo takšno zvezno preslikavo $\psi\colon X \to \mathcal{B}$, da je $\psi(x_k) = A(x_k)$ za vsak $k = 1,\dots,n$. Potem je par $(\mathfrak{U}(l), \psi)$ enak ali identificiran s parom $(G_{\iota_0}, \varphi_{\iota_0})$. Okolica elementa $x_1^{\delta_1}\cdots x_n^{\delta_n}$ v $F_X$ je sestavljena iz vseh $(y_\iota) \in F_X$, za katere $y_{\iota_0}\in\mathcal{B}$ ne fiksira nobene točke iz prostora $X$. Od tod sledi, da je $F_X \setminus X$ odprta množica, torej je $X$ zaprt podprostor v $F_X$.
+
+Da dokažemo točko (\ref{podtrd:prosta3}) le vzamemo zvezno preslikavo $\varphi\colon X \to H$, kjer je $H$ poljubno izbrana topološka grupa, da velja, da je $\varphi(X) \subseteq J$, kjer je $J$ podgrupa topološke grupe $H$ in $|J| \leq \max\lbrace |X|, \mathbf{c}\rbrace$. Potem je par $(J, \varphi)$ enak ali identificiran s parom $(G_{\iota_0}, \varphi_{\iota_0})$. Preslikava $\varphi$ je le projekcija na $\iota_0$-to komponento v $F \subset \Pi_{\iota \in I}G_\iota$ in jo lahko razširimo do zveznega homomorfizma iz $F$ v $J \subseteq H$.
 \end{dokaz}
 
 \begin{izrek}\label{izr:prostaizo}
 Naj bo $X$ povsem regularen topološki prostor, $F_X$ prosta topološka grupa nad $X$ in naj bo $\widetilde{F}$ taka topološka grupa, da zanjo velja:
 \begin{enumerate}
-	\item topološki prostor $X$ je topološki podprostor v $\widetilde{F}$,
-	\item topološka grupa $\widetilde{F}$ je najmanjša zaprta podgrupa v $\widetilde{F}$, ki vsebuje $X$,
-	\item za vsako zvezno preslikavo $\varphi\colon X \to G$, kjer je $G$ poljubna topološka grupa, obstaja zvezen homomorfizem $\Phi\colon \widetilde{F} \to G$, da je $\Phi(x) = \varphi(x)$ za vsak $x \in X$.
+	\item topološki prostor $X$ je topološki podprostor v $\widetilde{F}$,\label{last:prosta1}
+	\item topološka grupa $\widetilde{F}$ je najmanjša zaprta podgrupa v $\widetilde{F}$, ki vsebuje $X$,\label{last:prosta2}
+	\item za vsako zvezno preslikavo $\varphi\colon X \to G$, kjer je $G$ poljubna topološka grupa, obstaja zvezen homomorfizem $\Phi\colon \widetilde{F} \to G$, da je $\Phi(x) = \varphi(x)$ za vsak $x \in X$.\label{last:prosta3}
 \end{enumerate}
 Tedaj obstaja topološki izomorfizem $\tau\colon F \to \widetilde{F}$, da je $\tau(x) = x$ za vsak $x \in X$.
 \end{izrek}
+
+\begin{dokaz}
+Iz točke (\ref{podtrd:prosta3}) izreka \ref{izr:prostatopgrupa} in lastnosti (\ref{last:prosta3}) sledi, da obstajata zvezen homomorfizem $\Phi\colon F_X \to \widetilde{F}$ in zvezen homomorfizem $\widetilde{\Phi}\colon \widetilde{F} \to F_X$, da velja $\Phi(x) = \widetilde{\Phi}(x) = x$ za vsak $x \in X$. Kompozitum $\widetilde{\Phi}\circ\Phi\colon F_X \to F_X$ ze zvezen homomorfizem, ki je identična preslikava na prostoru $X$. Ker je $F_X$ po točki (\ref{podtrd:prosta2}) prosta grupa nad $X$, je kompozitum $\widetilde{\Phi}\circ\Phi\colon F_X \to F_X$ identična preslikava na $F_X$. Kompozitum $\Phi\circ\widetilde{\Phi}$ je identična preslikava na podgrupi topološke grupe $\widetilde{F}$, ki je generirana z $X$. Ker je ta podgrupa po lastnosti (\ref{last:prosta2}) gosta v topološki grupi $\widetilde{F}$ in ker je $\Phi\circ\widetilde{\Phi}$ zvezna preslikava, je kompozitum $\Phi\circ\widetilde{\Phi}$ identična preslikava na $\widetilde{F}$. Od tod sledi, da je $\widetilde{\Phi} = \Phi^{-1}$, torej lahko vzamemo $\tau = \Phi$.
+\end{dokaz}
 
 \begin{izrek}
 Obstaja povsem regularna topološka grupa, ki ni normalna.
 \end{izrek}
 
+\begin{dokaz}
+Naj bo $X$ poljuben povsem regularen topološki prostor, ki ni normalen. Po izreku \ref{izr:prostatopgrupa} je $X$ zaprt v prosti topološki grupi $F_X$. Ker je vsak zaprt topološki podprostor normalnega prostora normalen, $F_X$ ne more biti normalen topološki prostor.
+\end{dokaz}
+
 Oglejmo si še konkreten primer topološke grupe, ki je povsem regularna, vendar ni normalna.
 
 \begin{izrek}\label{izr:t4protiprimer}
-	Če je $m$ neštevno kardinalno število, potem je $\Z^{m}$ povsem regularna topološka grupa, ki ni normalna.
+Če je $m$ neštevno kardinalno število, potem je $\Z^{m}$ povsem regularna topološka grupa, ki ni normalna.
 \end{izrek}
 
 \begin{dokaz}
@@ -1009,12 +1044,13 @@ Potem je $(z_\lambda) \in \lbrace (x_\lambda) \in \Z^m ; x_\lambda = y_\lambda \
 Od tod sledi, da $U \cap V \neq \emptyset$.
 \end{dokaz}
 
-V nadaljevanju bomo dokazali, da je ključni pogoj, ki topološki grupi, ki zadočša $T_0$, manjka do normalnosti, lokalna kompaktnost.
+V nadaljevanju bomo dokazali, da je ključni pogoj, ki regularni topološki grupi manjka do normalnosti, lokalna kompaktnost.
 
 \begin{definicija}\label{def:parakompakt}
 	\begin{enumerate}
 		\item Naj bosta $\mathcal{U}$ in $\mathcal{V}$ družini podmnožic topološkega prostora $X$. Družina $\mathcal{V}$ je \emph{pofinitev} družine $\mathcal{U}$, če za vsako množico $V \in \mathcal{V}$ obstaja takšna množica $U \in \mathcal{U}$, da je $V \subset U$.
 		\item Družina podmnožic $\mathcal{U}$ topološkega prostora $X$ je \emph{lokalno končna}, če ima vsaka točka $x \in X$ okolico, ki seka samo končno mnogo množic iz družine $\mathcal{U}$.
+		\item Družina podmnožic je \emph{$\sigma$-lokalno končna}, če je števna unija lokalno končnih družin podmnožic.
 		\item Topološki prostor $X$ je \emph{parakompakten}, če ima vsako njegovo odprto pokritje kakšno pofinitev, ki je lokalno končno odprto pokritje prostora $X$.
 	\end{enumerate}
 \end{definicija}
@@ -1023,6 +1059,59 @@ V nadaljevanju bomo dokazali, da je ključni pogoj, ki topološki grupi, ki zado
 Iz splošne topologije vemo, da za lokalno končno družino $\lbrace C_\lambda \rbrace_{\lambda \in \Lambda}$ velja
 \[ \closure{\bigcup_{\lambda \in \Lambda} C_\lambda} = \bigcup_{\lambda \in \Lambda} \closure{C_\lambda}. \]
 \end{opomba}
+
+\begin{trditev}\label{trd:lokkonzap}
+Za lokalno končno družino $\lbrace U_\lambda ; \lambda \in \Lambda \rbrace$ podmnožic topološkega prostora $X$ veljajo naslednje trditve:
+\begin{enumerate} 
+\item Lokalno končna je tudi družina $\lbrace \closure{U_\lambda} ; \lambda \in \Lambda \rbrace$.\label{podtrd:lokkonzap1}
+\item Za vsako podmnožico indeksov $I \subseteq \Lambda$ je unija $\bigcup\lbrace \closure{U_\lambda} ; \lambda \in I \rbrace$ zaprta v $X$.\label{podtrd:lokkonzap2}
+\end{enumerate}
+\end{trditev}
+
+\begin{dokaz}
+Za dokaz točke (\ref{podtrd:lokkonzap1}) naj bo za poljuben $x \in X$ okolica $V_x$ takšna okolica točke $x$, da velja $U_\lambda \cap V_x = \emptyset$ za vse, razen za končno indeksov $\lambda \in \Lambda$. Ker je množica $X \setminus V_x$ zaprta, velja
+\[ U_\lambda \cap V_x = \emptyset \implies U_\lambda \subseteq X \setminus V_x \implies \closure{U_\lambda} \subseteq X \setminus V_x \implies \closure{U_\lambda} \cap V_x = \emptyset \]
+za vse, razen za končno indeksov $\lambda \in \Lambda$, od koder sledi, da je tudi $\lbrace \closure{U_\lambda} ; \lambda \in \Lambda \rbrace$ lokalno končna družina.
+Za dokaz trditve (\ref{podtrd:lokkonzap2}) vzemimo podmnožico indeksov $I \subseteq \Lambda$ in definiramo množico $B = \bigcup_{\lambda \in I}\closure{U_\lambda}$. Po točki (\ref{podtrd:lokkonzap1}) obstaja za poljuben $x \in X \setminus B$ okolica $V_x$, da ima z največ končno množicami $\closure{U_\lambda}$, $\lambda \in I$, neprazen presek. Naj bodo te množice $\closure{U_{\lambda_1}},\dots,\closure{U_{\lambda_n}}$. Potem je množica $V_x \cap (\bigcap_{k=1}^n(X \setminus \closure{U_{\lambda_k}}))$ okolica točke $x$ ki ne seka množice $B$. Ker je $x \in X \setminus B$ poljubno izbran, je množica $X \setminus B$ odprta, zato je $B$ zaprta v $X$.
+\end{dokaz}
+
+\begin{trditev}\label{trd:lokkonvlozitev}
+Naj bo $\lbrace E_\alpha ; \alpha \in \mathcal{A} \rbrace$ družina podmnožic topološkega prostora $X$ in naj bo $B_\beta ; \beta \in \mathcal{B} \rbrace$ lokalno končno pokritje prostora $X$ iz zaprtih množic, kjer velja, da za vsak $\beta \in \mathcal{B}$ množica $B_\beta$ seka kvečjemu končno množic $E_\alpha$. Tedaj lahko vsako množico $E_\alpha$ vložimo v tako odprto množico $U_\alpha$, da je družina množic $\lbrace U_\alpha ; \alpha \in \mathcal{A} \rbrace$ lokalno končna.
+\end{trditev}
+
+\begin{dokaz}
+Za vsak $\alpha \in \mathcal{A}$ definiramo množico
+\[ U_\alpha = X \setminus \bigcup\lbrace B_\beta ; B_\beta \cap E_\alpha = \emptyset\rbrace. \]
+Po trditvi \ref{trd:lokkonzap} je za vsak $\alpha \in \mathcal{A}$ množica $U_\alpha$ odprta. Preverimo, da je družina množic $\lbrace U_\alpha ; \alpha \in \mathcal{A} \rbrace$ lokalno končna. Vsak $x \in X$ ima okolico $V_x$, ki leži v končni uniji $\bigcup_{i = 1}^n B_{\beta_i}$. Ker $B_\beta \cap U_\alpha \neq \emptyset$ natanko tedaj, kadar $B_\beta \cap E_\alpha \neq \emptyset$, in ker po predpostavki vsak $B_{\beta_i}$ seka kvečjemu končno množic $E_\alpha$, unija $\bigcup_{i = 1}^n B_{\beta_i}$ seka kvečjemu končno množic $U_\alpha$, zato tudi $V_x$ seka kvečjemu končno množic $E_\alpha$. Očitno je $E_\alpha \subseteq U_alpha$.
+\end{dokaz}
+
+Definicija \ref{def:parakompakt} parakompaktnega topološkega prostora $X$ je splošna, v naslednji trditvi pa si bomo ogledali še nekaj alternativnih definicij, če je topološki prostor $X$ regularen.
+
+\begin{trditev}\label{trd:parakompkar}
+Za regularen topološki prostor $X$ so naslednje trditve ekvivalentna:
+\begin{enumerate}
+\item Topološki prostor $X$ je parakompakten.\label{podtrd:parakompkar1}
+\item Za vsako odprto pokritje $\mathcal{U}$ topološkega prostora $X$ obstaja $\sigma$-lokalno končna pofinitev pokritja $\mathcal{U}$ iz odprtih množic, ki je tudi sama pokritje prostora $X$.\label{podtrd:parakompkar2}
+\item Za vsako odprto pokritje $\mathcal{U}$ topološkega prostora $X$ obstaja lokalno končna pofinitev pokritja $\mathcal{U}$, ki je tudi sama pokritje prostora $X$.\label{podtrd:parakompkar3}
+\item Za vsako odprto pokritje $\mathcal{U}$ obstaja lokalno končna pofinitev pokritja $\mathcal{U}$ iz zaprtih množic, ki je tudi sama pokritje prostora $X$.\label{podtrd:parakompkar4}
+\end{enumerate}
+\end{trditev}
+
+\begin{dokaz}
+(\ref{podtrd:parakompkar1}) $\Rightarrow$ (\ref{podtrd:parakompkar2}):
+Ker je vsaka lokalno končna družina podmnožic tudi $\sigma$-lokalno končna, ta implikacija očitno drži.
+
+(\ref{podtrd:parakompkar2}) $\Rightarrow$ (\ref{podtrd:parakompkar3}):
+Vzemimo poljubno odprto pokritje $\Ucurl$ topološkega prostora $X$. Po točki (\ref{podtrd:parakompkar2}) obstaja pofinitev iz odprtih množic $\mathcal{V} = \lbrace V_{n,\lambda} ; (n, \lambda) \in \N \times \Lambda \rbrace$, kjer je za vsak $n_0 \in \N$ družina $\lbrace V_{n_0}, \lambda ; \lambda \in \Lambda\rbrace$ lokalno končna (ne pa tudi sama pokritje). Za vsak $n \in \N$ definirajmo $W_n = \bigcup_{\lambda \in \Lambda} V_{n, \lambda}$, potem je družina $\lbrace W_n ; n \in \N \rbrace$ odprto pokritje prostora $X$. Sedaj za vsak $i \in \N$ definiramo množico $A_i = W_i \setminus (\bigcup_{j<i}W_j)$, kjer je $j \in \N$. Ker je $A_i \subseteq W_i$ za vsak $i \in \N$, je družina $\lbrace A_i ; i \in \N \rbrace$ pofinitev pokritja $\lbrace W_n ; n \in \N \rbrace$. Opazimo tudi, da je družina $\lbrace A_i ; i \in \N \rbrace$ pokritje prostora $X$. Res, za vsak $x \in X$ velja, da je $x \in A_{n(x)}$, kjer je $n(x) \in \N$ najmanjše naravno število, da je $x \in W_{n(x)}$. Ker okolica $W_{n(x)}$ točke $x$ po konstrukciji množic $\lbrace A_i \rbrace$ ne seka nobene množice $A_i$ za $i > n(x)$, je družina $\lbrace A_i ; i \in \N \rbrace$ lokalno končna.
+
+Trdimo, da je družina množic $\lbrace A_n \cap V_{n, \lambda}\rbrace$ iskano pokritje. Ker je podpokritje $\mathcal{V}$ pofinitev pokritja $\Ucurl$, je tudi $\lbrace A_n \cap V_{n, \lambda}\rbrace$ pofinitev pokritja $\Ucurl$. Vzemimo poljuben $x \in X$. Ker ima po zgoraj dokazanem točka $x$ okolico, ki seka kvečjemu končno množic $A_n$, in ker je za vsak $n_0 \in \N$ družina $\lbrace V_{n_0}, \lambda ; \lambda \in \Lambda \rbrace$ lokalno končna, je tudi $\lbrace A_n \cap V_{n, \lambda}\rbrace$ lokalno končna družina množic.
+
+(\ref{podtrd:parakompkar3}) $\Rightarrow$ (\ref{podtrd:parakompkar4}):
+Vzemimo poljubno odprto pokritje $\Ucurl$ topološkega prostora $X$. Za vsak $x \in X$ izberemo množico $U_x \in \Ucurl$, da je $x \in U_x$. Ker je $X$ regularen topološki prostor, obstaja odprta okolica $V_x$, da velja $x \in V_x \subseteq \closure{V_x} \subseteq U_x$. Družina množic $\mathcal{V} = \lbrace V_x ; x \in X \rbrace$ je odprto pokritje prostora $X$, zato po točki (\ref{podtrd:parakompkar3}) obstaja lokalno končna pofinitev $\lbrace A_x ; x \in X \rbrace$ pokritja $\mathcal{V}$, ki je tudi sama pokritje prostora $X$. Po trditvi \ref{trd:lokkonzap} je tudi družina $\lbrace \closure{A_x} ; x \in X \rbrace$ lokalno končna. Ker za vsak $x \in X$ velja $\closure{A_x} \subseteq \closure{V_x} \subseteq U_x$, je družina množic $\lbrace \closure{A_x} ; x \in X \rbrace$ iskana pofinitev iz zaprtih množic.
+
+(\ref{podtrd:parakompkar4}) $\Rightarrow$ (\ref{podtrd:parakompkar1}):
+Vzemimo poljubno odprto pokritje $\Ucurl$ topološkega prostora $X$. Po točki (\ref{podtrd:parakompkar4}) obstaja lokalno končna pofinitev $\mathcal{E}$ pokritja $\Ucurl$ iz zaprtih množic, ki je tudi sama pokritje za prostor $X$. Potem ima vsak $x \in X$ okolico $V_x$, ki seka kvečjemu končno množic iz $\mathcal{E}$. Po točki (\ref{podtrd:parakompkar4}) obstaja lokalno končna pofinitev $\mathcal{B} = \lbrace B \rbrace$ pokritja $\lbrace V_x ; x \in X \rbrace$ iz zaprtih množic. Ker vsaka množica iz $\mathcal{B}$ seka kvečjemu končno množic iz $\mathcal{E}$, po trditvi \ref{trd:lokkonvlozitev} za vsako množico $E \in \mathcal{E}$ obstaja odprta množica $G_E$, ki vsebuje množico $E$, da je družina $\lbrace G_E \rbrace$ lokalno končna. Ker je $\mathcal{E}$ pofinitev pokritja $\Ucurl$, naj bo za vsako množico $E \in \mathcal{E}$ množica $U_E \in \Ucurl$ neka množica, ki vsebuje $E$. Ker so vse množice $G_E$ in $U_E$ odprte in ker je družina množic $\mathcal{E}$ pokritje prostora $X$, je družina $\lbrace G_E \cap U_E ; E \in \mathcal{E} \rbrace$ lokalno končna pofinitev pokritja $\Ucurl$ iz odprtih množic, ki je tudi sama pokritje prostora $X$.
+\end{dokaz}
 
 \begin{definicija}
 Topološki prostor ima Lindel\"ofovo lastnost, če vsako njegovo odprto pokritje vsebuje kakšno števno podpokritje.
@@ -1066,13 +1155,16 @@ Vzemimo poljubno odprto pokritje $\mathcal{V}$ topološke grupe $G$ in točko $x
 Ker je $\mathcal{V}$ pokritje tudi za levi odsek $xL \subseteq G$, obstaja števna poddružina $\lbrace V_{xL}^{(n)} \rbrace_{n = 1}^{\infty}$ pokritja $\mathcal{V}$, da je $xL \subseteq \bigcup_{n=1}^{\infty}V_{xL}^{(n)}$. Za vsak $n \in \N$ definirajmo družino množic $\mathcal{W}_n = \lbrace V_{xL}^{(n)} \cap (xL) ; xL \in G/L \rbrace$.
 Trdimo, da je družina množic $\mathcal{W} = \bigcup_{n=1}^{\infty}\mathcal{W}_n$ pofinitev pokritja $\mathcal{V}$. Res, za vsako množico $(V_{xL}^{(n)} \cap (xL)) \in \mathcal{W}$, kjer je $x \in G$ in $n \in \N$, velja
 \[ V_{xL}^{(n)} \cap (xL) \subseteq V_{xL}^{(n)} \in \mathcal{V}. \]
-
-
+Ker je podgrupa $L$ odprta in zaprta, je komponenta za povezanost, ki očitno vsebuje enoto $e$. Po trditvi \ref{trd:povedinka} je $L$ podgrupa edinka, torej je vsak $x \in G$ vsebovan v natanko enem odseku $xL \subseteq G$. Od tod sledi, da je družina množic $\mathcal{W}_n$ lokalno končna, torej je $\mathcal{W}$ $\sigma$-lokalno končna pofinitev pokritja $\mathcal{V}$, ki je tudi sama pokritje topološke grupe $G$. Ker je $G$ po posledici \ref{izr:t3} regularna topološka grupa, je po trditvi \ref{trd:parakompkar} topološka grupa $G$ parakompaktna.
 \end{dokaz}
 
 \begin{posledica}
 Vsaka lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je normalen topološki prostor.
 \end{posledica}
+
+\begin{dokaz}
+Naj bo $G$ lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Po trditvi \ref{trd:t0haus} je $G$ Hausdorffova, po izreku \ref{izr:t4} pa je $G$ parakompaktna. Ker je po trditvi \ref{trd:parkompnorm} vsak parakompakten Hausdorffov topološki prostor normalen, je $G$ normalna topološka grupa.
+\end{dokaz}
 
 \section*{Slovar strokovnih izrazov}
 
