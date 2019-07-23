@@ -650,10 +650,6 @@ Izrek lahko preoblikujemo v obliko, ki je bolj podobna algebraični različici i
 Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta kvocientni topološki grupi $G/H$ in $(G/N)/(H/N)$ topološko izomorfni.
 \end{izrek}
 
-\section{Izreki tipa ``2 od 3''}
-
-V tem podrazdelku si bomo ogledali tako imenovane izreke tipa 2 od 3, ki so izreki naslednje oblike. Vzeli bomo podgrupo $H$ topološke grupe $G$ in pripadajoč kvocientni topološki prostor $G/H$ ter topološko lastnost $L$. Zanimalo nas bo, za katere topološke lastnosti $L$ velja naslednja implikacija: če imata $H$ in $G/H$ lastnost $L$, jo ima tudi $G$.
-
 \section{Metrizabilnost in povsem regularnost}
 
 \subsection{Uniformni prostori}
@@ -937,7 +933,9 @@ Vzemimo element $x \in F$. Ker po konstrukciji množice $U_1$ velja $a^{-1}x \no
 Topološka grupa $G$ zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$. Ker zadošča tudi separacijskemu aksiomu $T_0$, je po trditvi \ref{trd:t0haus} Hausdorffova in zato povsem regularna.
 \end{dokaz}
 
- \subsection{Separacijski aksiom $T_4$}
+\section{Separacijski aksiom $T_4$}
+
+\subsection{Proste topološke grupe} 
 Za dokaz izreka o obstoju povsem regularne topološke grupe, ki ni normalna, potrebujemo pojem \emph{proste grupe}. Vzemimo neprazno množico $X$. \emph{Beseda} je bodisi prazna (pišemo $e$) bodisi končni formalni produkt $x_1^{\delta_1}\cdots x_n^{\delta_n}$ elementov iz $X$, kjer je $\delta_k \in \lbrace -1, 1\rbrace$ za $k = 1,\dots,n$ in $n \in \N$. Beseda je \emph{reducirana}, če je prazna ali pa je $\delta_k = \delta_{k+1}$, kadar je $x_k = x_{k+1}$. Naj bo $F$ množica vseh reduciranih besed nad množico $X$. Na množici $F$ definiramo operacijo na naslednji način: produkt besed $x$ in $y$ je beseda, ki jo dobimo, če besedi $x$ in $y$ najprej staknemo, nato pa rekurzivno okrajšamo vse pare $x_k$, $y_1$, za katere velja $x_n = y_1$ in $\delta_n^x \neq \delta_1^y$, dokler ne dobimo okrajšane besede. Trdimo, da je množica $F$ s tako definirano operacijo grupa. Res, če za enoto $e$ vzamemo prazno besedo, inverz pa definiramo kot $(x_1^{\delta_1}\cdots x_n^{\delta_n})^{-1} = x_n^{-\delta_n}\cdots x_1^{-\delta_1}$, dobimo grupno strukturo.
 
 \begin{izrek}\label{izr:prostatopgrupa}
@@ -1044,6 +1042,7 @@ Potem je $(z_\lambda) \in \lbrace (x_\lambda) \in \Z^m ; x_\lambda = y_\lambda \
 Od tod sledi, da $U \cap V \neq \emptyset$.
 \end{dokaz}
 
+\subsection{Parakompaktni topološki prostori}
 V nadaljevanju bomo dokazali, da je ključni pogoj, ki regularni topološki grupi manjka do normalnosti, lokalna kompaktnost.
 
 \begin{definicija}\label{def:parakompakt}
