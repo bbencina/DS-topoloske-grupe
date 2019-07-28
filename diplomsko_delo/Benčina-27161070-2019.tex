@@ -532,7 +532,7 @@ Ker topološka grupa $G$ zadošča separacijskemu aksiomu $T_0$, je po trditvi p
 \end{dokaz}
 
 \section{Izreki o izomorfizmih}
-V tem razdelku bomo pokazali, da za topološke grupe z morebitnimi dodatnimi predpostavkami veljajo trije izreki, ki so analogni trem algebraičnim izrekom o izomorfizmih. Najprej pa dokažimo nekaj pomožnih trditvev.
+V tem razdelku bomo pokazali, da za topološke grupe z dodatnimi topološkimi predpostavkami veljajo trije izreki o izomorfizmih za topološke grupe, ki so analogni trem algebraičnim izrekom o izomorfizmih za grupe. Najprej pa dokažimo nekaj pomožnih trditvev.
 
 \begin{trditev}\label{trd:homogenkvoc}
 	Naj bo $G$ topološka grupa in $H$ njena podgrupa. Naj bo za vsak element $a \in G$ na kvocientnem topološkem prostoru $G/H$ definirana preslikava $\psi_a$ s predpisom $\psi_a(xH) = (ax)H$.
@@ -601,6 +601,7 @@ Množica $\tilde{x}^{-1}\widetilde{V}$ je okolica enote $\tilde{e}$ in je zato v
 \end{dokaz}
 
 \subsection{Prvi izrek o izomorfizmih}
+Vzemimo grupi $G$ in $\widetilde{G}$ ter surjektiven homomorfizem $f\colon G \to \widetilde{G}$. Prvi izrek o izomorfizmih za grupe pravi, da je $H = \ker f$ podgrupa edinka grupe $G$ in da sta $G/H$ in $\widetilde{G}$ izomorfni grupi. Naslenji izrek pravi, da ob dodatnih predpostavkah odprtosti in zveznosti homomorfizma $f$ izrek velja tudi za topološke grupe.
 \begin{izrek}[Prvi izrek o izomorfizmih za topološke grupe]\label{izr:prvitopizrek}
 Naj bosta $G$ in $\widetilde{G}$ topološki grupi. Naj bo $f\colon G \to \widetilde{G}$ odprt, zvezen in surjektiven homomorfizem. Preslikava $\Phi\colon\widetilde{G} \to G/\ker f$, definirana s predpisom $\tilde{x} \mapsto f^{-1}(\tilde{x})$, je topološki izomorfizem.
 \end{izrek}
@@ -618,6 +619,7 @@ Ker je preslikava $f$ po predpostavki odprta, je $f(U)$ odprta množica v $\wide
 \end{dokaz}
 
 \subsection{Drugi izrek o izomorfizmih}
+Vzemimo grupo $G$, njeno podgrupo $A$ in podgrupo edinko $H$. Drugi izrek o izomorfizmih za grupe pravi, da je produkt podgrup $AH$ tudi podgrupa grupe $G$, da je presek podgrup $(A \cap H)$ podgrupa edinka podgrupe $A$ in da sta kvocientni grupi $(AH)/H$ in $A/(A \cap H)$ izomorfni grupi z izomorfizmom $\tau\colon (AH)/H \to A/(A \cap H)$, definiranim s predpisom $aH \mapsto (aH)\cap A = a(H \cap A)$, kjer je $a \in A$. Drugi izrek o izomorfizmih za topološke grupe zahteva največ dodatnih predpostavk.
 \begin{izrek}[Drugi izrek o izomorfizmih za topološke grupe]\label{izr:drugitopizrek}
 Naj bo $G$ topološka grupa, $A$ njena podgrupa in $H$ podgrupa edinka grupe $G$. Naj bo $\tau\colon (AH)/H \to A/(A \cap H)$ izomorfizem s predpisom $\tau (aH) = a(A \cap H)$, kjer je $a \in A$.
 \begin{enumerate}
@@ -642,14 +644,14 @@ Vzemimo odprto podmnožico $\lbrace y(A \cap H) ; y \in Y \rbrace \subset A/(A \
 
 
 \subsection{Tretji izrek o izomorfizmih}
+Za tretji izrek o izomorfizmih za grupe potrebujemo grupo $G$ in njeno podgrupo edinko $N$. Če je $H$ taka podgrupa grupe $G$, da je $N \subseteq H$, potem je $H/N$ podgrupa grupe $G/N$. Še več, vsaka podgrupa grupe $G/N$ je oblike $H/N$ za neko podgrupo $H$ grupe $G$, kjer je $N \subseteq H$. Če je $H$ podgrupa edinka grupe $G$, potem je $H/N$ podgrupa edinka grupe $G/N$. Še več, vsaka podgrupa edinka grupe $G/N$ je oblike $H/N$ za neko podgrupo edinko $H$ grupe $G$. Potem velja, da sta grupi $(G/N)/(H/N)$ in $G/H$ izomorfni. Pri dokazu tretjega izreka o izomorfizmih za topološke grupe si bomo v naslednji trditvi najprej pomagali s pomožno topološko grupo $\widetilde{G}$.
 \begin{trditev}\label{trd:predtretji}
-	Naj bo $f\colon G \to \widetilde{G}$ odprt, surjektiven in zvezen homomorfizem topoloških grup in naj bo $\widetilde{H}$ podgrupa edinka v $\widetilde{G}$. Potem so grupe $(G/\ker f)/(f^{-1}(\widetilde{H})/\ker f)$, $G/f^{-1}(\widetilde{H})$ in $\widetilde{G}/\widetilde{H}$ topološko izomorfne.
+	Naj bo $f\colon G \to \widetilde{G}$ odprt, surjektiven in zvezen homomorfizem topoloških grup in naj bo $\widetilde{H}$ podgrupa edinka v $\widetilde{G}$. Označimo $N = \ker f$ in $H = f^{-1}(\widetilde{H})$. Potem so grupe $(G/N)/(H/N)$, $G/H$ in $\widetilde{G}/\widetilde{H}$ topološko izomorfne.
 \end{trditev}
 
 \begin{dokaz}
-Po izreku \ref{izr:kvocpovzetek} je naravna preslikava $\tilde{\varphi}\colon \widetilde{G} \to \widetilde{G}/\widetilde{H}$ odprt in zvezen homomorfizem. Ker je preslikava $f$ odprt in zvezen homomorfizem, je preslikava $\tilde{\varphi}\circ f\colon G \to \widetilde{G}/\widetilde{H}$ odprt in zvezen homomorfizem z jedrom $H = f^{-1}(\widetilde{H})$. Po izreku \ref{izr:prvitopizrek} sta topološki grupi $G/H$ in $\widetilde{G}/\widetilde{H}$ topološko izomorfni. Naj bo $N = \ker f$. Ker je po izreku \ref{izr:prvitopizrek} preslikava $f^{-1}\colon \widetilde{G} \to G/N$ topološki izomorfizem in ker je $f^{-1}(\widetilde{H}) = H/N$, je topološka grupa $\widetilde{G}/\widetilde{H}$ topološko izomorfna $(G/N)/(H/N)$.
+Po izreku \ref{izr:kvocpovzetek} je naravna preslikava $\tilde{\varphi}\colon \widetilde{G} \to \widetilde{G}/\widetilde{H}$ odprt in zvezen homomorfizem. Ker je preslikava $f$ odprt in zvezen homomorfizem, je preslikava $\tilde{\varphi}\circ f\colon G \to \widetilde{G}/\widetilde{H}$ odprt in zvezen homomorfizem z jedrom $H$. Po izreku \ref{izr:prvitopizrek} sta topološki grupi $G/H$ in $\widetilde{G}/\widetilde{H}$ topološko izomorfni. Ker je po izreku \ref{izr:prvitopizrek} preslikava $f^{-1}\colon \widetilde{G} \to G/N$ topološki izomorfizem in ker je $f^{-1}(\widetilde{H}) = H/N$, je topološka grupa $\widetilde{G}/\widetilde{H}$ topološko izomorfna $(G/N)/(H/N)$.
 \end{dokaz}
-
 Izrek lahko preoblikujemo v obliko, ki je bolj podobna algebraični različici in ne vsebuje pomožne topološke grupe $\widetilde{G}$.
 \begin{izrek}[Tretji izrek o izomorfizmih za topološke grupe]\label{izr:tretjitopizrek}
 Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta kvocientni topološki grupi $G/H$ in $(G/N)/(H/N)$ topološko izomorfni.
