@@ -392,7 +392,7 @@ Iz splošne topologije vemo, da je to najšibkejša topologija na $G$, da topolo
 \section{Topološke podgrupe in kvocientne grupe}
 
 \subsection{Topološke podgrupe}
-
+V tem podrazdelku si bomo ogledali podgrupe topoloških grup. Najprej bomo pokazali, da je podgrupa topološke grupe tudi topološka grupa in ji rečemo topološka podgrupa, nato pa si bomo ogledali nekaj njenih zanimivih lastnosti.
 \begin{trditev}\label{trd:toppodgrupa}
 Naj bo $G$ topološka grupa in $H$ njena podgrupa. Če $H$ opremimo z relativno topologijo, potem je tudi $H$ topološka grupa.
 \end{trditev}
@@ -422,6 +422,14 @@ Naj bo $U$ simetrična okolica enote $e$ v topološki grupi $G$. Potem je $L = \
 Ker za $x \in U^k$ in $y \in U^l$ velja $xy \in U^kU^l \subseteq U^{k+l}$, je $L$ zaprta za množenje. Ker je $U$ simetrična, velja tudi $x^{-1} \in (U^{-1})^k = U^k$, torej je $L$ zaprta za invertiranje. Sledi, da je $L$ podgrupa topološke grupe $G$. V njeni notranjosti je zagotovo vsaj enota $e$, saj je $U$ okolica za $e$. Po trditvi \ref{trd:odpzap} je $L$ odprta in zaprta podgrupa topološke grupe $G$.
 \end{dokaz}
 
+\begin{posledica}
+Naj bo $U$ simetrična okolica enote $e$ v povezani topološki grupi $G$. Potem je $G = \bigcup_{n=1}^{\infty} U^n$.
+\end{posledica}
+
+\begin{dokaz}
+Po trditvi \ref{trd:podgrupaunija} je podgrupa $L = \bigcup_{n=1}^{\infty} U^n$ odprta in zaprta v $G$. Ker je $G$ povezana in je $L$ neprazna, je $G = L$.
+\end{dokaz}
+
 \begin{trditev}\label{trd:povedinka}
 Naj bo $C$ komponenta za povezanost topološke grupe $G$, ki vsebuje enoto $e$. Potem je $C$ zaprta podgrupa edinka topološke grupe $G$.
 \end{trditev}
@@ -431,7 +439,7 @@ Ker je po trditvi \ref{trd:trans} invertiranje homeomorfizem, je $C^{-1}$ poveza
 \end{dokaz}
 
 \subsection{Kvocienti topoloških grup}
-V tem podrazdelku bomo na kvocientni množici $G/H$ vpeljali kvocientno topologijo in pokazali nekaj njenih lastnosti. S pomočjo kvocientnih prostorov bomo nato pokazali, da sta za topološko grupo separacijski aksiom $T_0$ in regularnost ekvivalentna pojma.
+V tem podrazdelku bomo na kvocientni množici $G/H$ vpeljali kvocientno topologijo in pokazali nekaj njenih lastnosti. Pokazali bomo, da je v primeru, ko je $H$ podgrupa edinka topološke grupe $G$, tudi $G/H$ topološka grupa. S pomočjo kvocientnih prostorov bomo nato pokazali, da sta za topološko grupo separacijski aksiom $T_0$ in regularnost ekvivalentna pojma.
 
 \begin{izrek}\label{izr:topkvocienta}
 Naj bo $G$ topološka grupa, $H$ njena podgrupa in $\varphi\colon G \to G/H$ naravna preslikava. Za družino \[\theta(G/H) = \lbrace U ; \varphi^{-1}(U) \text{ odprta v } G \rbrace\]
@@ -531,6 +539,33 @@ S pomočjo zgornjega izreka lahko pokažemo, da sta separacijski aksiom $T_0$ in
 Ker topološka grupa $G$ zadošča separacijskemu aksiomu $T_0$, je po trditvi podgrupa edinka $H = \lbrace e \rbrace$ zaprta v $G$. Po izreku \ref{izr:kvocpovzetek} je $G/H = G$ regularen topološki prostor.
 \end{dokaz}
 
+Končno lahko dokažemo še en izrek, povezan s topološkimi podgrupami.
+
+\begin{definicija}
+	Topološki prostor je $\sigma$-kompakten, če ge je možno zapisati kot števno unijo kompaktnih topoloških prostorov.
+\end{definicija}
+
+\begin{izrek}\label{izr:odpzapsigma}
+	Naj bo $G$ lokalno kompaktna Hausdorffova topološka grupa. Tedaj v $G$ obstaja odprta, zaprta in $\sigma$-kompaktna podgrupa.
+\end{izrek}
+
+\begin{dokaz}
+	Ker je $G$ lokalno kompaktna, obstaja kompaktna okolica $K$ enote $e$. Po posledici \ref{pos:sim} obstaja takšna simetrična okolica $U$ enote $e$, da je $\closure{U} \subset K$. Ker so zaprte podmnožice kompaktnih prostorov kompaktne, je tudi $\closure{U}$ kompaktna okolica enote $e$.
+	
+	Naj bo $L = \bigcup_{n=1}^\infty U^n$. Množica $L$ je po trditvi \ref{trd:podgrupaunija} odprta in zaprta podgrupa topološke grupe $G$.
+	Preverimo, da je $\closure{U} \subseteq U^2$. Vzemimo $x \in \closure{U}$. Množica $xU$ je odprta okolica za $x$ in velja $xU \cap U \neq \emptyset$, iz česar sledi, da obstajata elementa $u_1,u_2 \in U$, da je $xu_1 = u_2$. Od tod dobimo
+	\[ x = u_2u_1^{-1} \in UU^{-1} = U^2. \]
+	S preprosto uporabo matematične indukcije lahko pokažemo, da za $n \in \N$ velja $\closure{U}^n \subseteq U^{2n}$, zato je $L = \bigcup_{n=1}^\infty \closure{U}^n$. Po trditvi \ref{trd:prodkomp} je za vsak $n \in \N$ množica $\closure{U}^n$ kompaktna, zato je podgrupa $L$ enaka števni uniji kompaktnih množic, torej $\sigma$-kompaktna.
+\end{dokaz}
+
+\begin{posledica}
+	Vsaka povezana, lokalno kompaktna Hausdorffova topološka grupa je $\sigma$-kompaktna.
+\end{posledica}
+
+\begin{dokaz}
+	Naj bo $G$ povezana, lokalno kompaktna Hausdorffova topološka grupa. Po izreku \ref{izr:odpzapsigma} v $G$ obstaja odprta, zaprta in $\sigma$-kompaktna podgrupa $H$. Ker je $H$ podgrupa, gotovo vsebuje vsaj enoto, torej je neprazna. Ker je $G$ povezana in je $H$ odprta in zaprta, je $G = H$. Torej je $G$ $\sigma$-kompaktna topološka grupa. 
+\end{dokaz}
+
 \section{Izreki o izomorfizmih}
 V tem razdelku bomo pokazali, da za topološke grupe z dodatnimi topološkimi predpostavkami veljajo trije izreki o izomorfizmih za topološke grupe, ki so analogni trem algebraičnim izrekom o izomorfizmih za grupe. Najprej pa dokažimo nekaj pomožnih trditvev.
 
@@ -573,10 +608,6 @@ Trditev bomo dokazali s protislovjem. Naj bo topološki prostor $X$ enak uniji z
 Vzemimo poljuben element $x_0 \in X$ in naj bo množica $K$ njegova števno kompaktna okolica. Ker je prostor $X$ regularen, obstaja takšna odprta okolica $U_0$ elementa $x_0$, da je $U_0 \subset \closure{U_0} \subset K$, kjer je tudi množica $\closure{U_0}$ števno kompaktna. Ker je množica $D_1$ gosta v regularnem topološkem prostoru $X$, ima z vsako neprazno odprto množico neprazen presek, torej obstaja takšna neprazna odprta množica $U_1$, da je $U_1 \subset \closure{U_1} \subset U_0 \cap D_1$. Induktivno za vsak $n \in \N$ definiramo množico $U_n$ na naslednji način. Če smo že definirali množice $U_i$ za $i = 1,\dots,n-1$, naj bo množica $U_n$ takšna neprazna odprta množica, da velja $U_n \subset \closure{U_n} \subset U_{n-1} \cap D_n$. Tako kot pri definiciji množice $U_1$ upoštevamo, da je množica $D_n$ gosta za vsak $n \in \N$ in da je topološki prostor $X$ regularen.
 Ker je množica $\closure{U_0}$ števno kompaktna in je za vsak $n \in \N$ množica $\closure{U_n}$ neprazna, je tudi presek $\bigcap_{n=0}^\infty \closure{U_n}$ neprazen. Elementi tega preseka morajo po zgornji konstrukciji ležati v preseku $\bigcap_{n=1}^\infty D_n$, torej res velja $\bigcap_{n=1}^\infty D_n \neq \emptyset$.
 \end{dokaz}
-
-\begin{definicija}
-Topološki prostor je $\sigma$-kompakten, če ge je možno zapisati kot števno unijo kompaktnih topoloških prostorov.
-\end{definicija}
 
 \begin{trditev}\label{trd:kompodp}
 Naj bo $G$ lokalno kompaktna, $\sigma$-kompaktna topološka grupa in naj bo $f\colon G \to \widetilde{G}$ zvezen in surjektiven homomorfizem v lokalno števno kompaktno topološko grupo $\widetilde{G}$, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je $f$ odprta preslikava.
@@ -1130,7 +1161,7 @@ Topološki prostor ima Lindel\"ofovo lastnost, če vsako njegovo odprto pokritje
 \end{definicija}
 
 Očitno ima vsak kompakten prostor Lindel\"ofovo lastnost, saj vsako odprto pokritje vsebuje končno podpokritje, ki je očitno števno. Velja pa tudi naslednje.
-\begin{trditev}
+\begin{trditev}\label{trd:lindel}
 Vsak $\sigma$-kompakten prostor ima Lindel\"ofovo lastnost.
 \end{trditev}
 \begin{dokaz}
@@ -1162,12 +1193,7 @@ Množica $X \setminus \closure{V}$ je torej odprta okolica množice $A$, ki je d
 \end{izrek}
 
 \begin{dokaz}
-Ker je $G$ lokalno kompaktna, obstaja kompaktna okolica $K$ enote $e$. Po posledici \ref{pos:sim} obstaja takšna simetrična okolica $U$ enote $e$, da je $\closure{U} \subset K$. Ker so zaprte podmnožice kompaktnih prostorov kompaktne, je tudi $\closure{U}$ kompaktna okolica enote $e$.
-
-Naj bo $L = \bigcup_{n=1}^\infty U^n$. Množica $L$ je po trditvi \ref{trd:podgrupaunija} odprta in zaprta podgrupa topološke grupe $G$.
-Preverimo, da je $\closure{U} \subseteq U^2$. Vzemimo $x \in \closure{U}$. Množica $xU$ je odprta okolica za $x$ in velja $xU \cap U \neq \emptyset$, iz česar sledi, da obstajata elementa $u_1,u_2 \in U$, da je $xu_1 = u_2$. Od tod dobimo
-\[ x = u_2u_1^{-1} \in UU^{-1} = U^2. \]
-Sledi, da za vsak $n \in \N$ velja $\closure{U^n} \subseteq U^{2n}$, zato je $L = \bigcup_{n=1}^\infty \closure{U}^n$. Po trditvi \ref{trd:prodkomp} je za vsak $n \in \N$ množica $\closure{U}^n$ kompaktna, zato je podgrupa $L$ enaka števni uniji kompaktnih množic, torej $\sigma$-kompaktna in ima posledično Lindel\"ofovo lastnost. Ker je leva translacija po trditvi \ref{trd:trans} homeomorfizem, ima za vsak $x \in G$ tudi levi odsek $xL$ Lindel\"ofovo lastnost.
+V dokazu izreka \ref{izr:odpzapsigma} smo videli, da je podgrupa $L = \bigcup_{n = 1}^\infty U^n = \bigcup_{n = 1}^\infty \closure{U}^n$ $\sigma$-kompaktna in ima po trditvi \ref{trd:lindel} Lindel\"ofovo lastnost. Ker je leva translacija po trditvi \ref{trd:trans} homeomorfizem, ima za vsak $x \in G$ tudi levi odsek $xL$ Lindel\"ofovo lastnost.
 
 Vzemimo poljubno odprto pokritje $\mathcal{V}$ topološke grupe $G$ in točko $x \in G$.
 Ker je $\mathcal{V}$ pokritje tudi za levi odsek $xL \subseteq G$, obstaja števna poddružina $\lbrace V_{xL}^{(n)} \rbrace_{n = 1}^{\infty}$ pokritja $\mathcal{V}$, da je $xL \subseteq \bigcup_{n=1}^{\infty}V_{xL}^{(n)}$. Za vsak $n \in \N$ definirajmo družino množic $\mathcal{W}_n = \lbrace V_{xL}^{(n)} \cap (xL) ; xL \in G/L \rbrace$.
