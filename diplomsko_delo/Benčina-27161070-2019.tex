@@ -25,10 +25,14 @@
 
 %  V povzetku na kratko opišite vsebinske rezultate dela. Sem ne sodi razlaga organizacije dela --
 %  v katerem poglavju/razdelku je kaj, pač pa le opis vsebine.
-\povzetek{povzetek HERE}
+\povzetek{
+Namen tega diplomskega dela je predstaviti pojem topološke grupe in dokazati nekaj temeljnih izrekov iz študija topoloških grup. Definirana je topološka grupa in opisane so njene osnovne lastnosti. Obravnavane so topološke podgrupe in kvocientni topološki prostori topoloških grup. Pokazano je, da za topološke grupe veljajo podobni trije izreki o izomorfizmih kot za grupe. Na topološko grupo sta vpeljani leva in desna uniformna struktura, glede na kateri je vsaka topološka grupa uniformni prostor. Na topološki grupi je nato skonstruirana levoinvariantna psevdometrika. Karakterizirana je metrizabilnost za Hausdorffove topološke grupe in dokazano je, da sta za topološke grupe povsem regularnost in separacijski aksiom $T_0$ ekvivalentna. Skonstruiran je primer povsem regularne topološke grupe, ki ni normalna. Za regularne topološke prostore so navedene karakterizacije parakompaktnosti. Dokazano je, da je vsaka lokalno kompaktna Hausdorffova topološka grupa parakompaktna in posledično normalna.
+}
 
 %  Prevod slovenskega povzetka v angleščino.
-\abstract{ABSTRACT HERE}
+\abstract{
+The topic of this work is to present the concept of a topological group and to prove some fundamental theorems from the study of topological groups. We define a topological group and describe its basic properties. We look at topological subgroups and quotient topological spaces of topological groups. We show that for topological groups three isomorphism theorems hold, which are similar to those for groups. We introduce left and right uniform structures on a topological group and then show that every topological space is also a uniform space. We then construct a left invariant pseudo-metric on a topological group. We characterize metrizability for Hausdorff topological groups and we prove that complete regularity and the $T_0$ separation axiom are equivalent for topological groups. We construct an example of a completely regular topological group, which is not a normal topological space. For regular topological spaces we list different characterizations of paracompactness. We then prove that every locally compact Hausdorff topological group is paracompact and hence a normal topological space.
+}
 
 % navedite vsaj eno klasifikacijsko oznako --
 % dostopne so na www.ams.org/mathscinet/msc/msc2010.html
@@ -73,19 +77,22 @@
 \begin{document}
 
 \section{Uvod}
+Topološke grupe so relativno novo, a bogato področje matematike. Od razvoja pojma grupe iz Galoisovega preučevanja polinomskih enačb v prvi polovici 19. stoletja in prve formalizacije topološkega prostora v samem začetku 20. stoletja ni trajalo dolgo, da sta se pojma združila v skupno strukturo. Struktura topoloških grup je bila obsežno preučevana v letih med $1925$ in $1940$ in je še danes plodovito področje. Topološke grupe se pojavljajo na mnogih področjih, najbolj znana so teorija Lievih grup, algebraična topologija in predvsem harmonična analiza.
+
+Vendar pa namen tega diplomskega dela ni uporaba topoloških grup, temveč predstavitev pojma kot takega. Najprej bomo v kratkem poglavju ponovili osnove teorije grup in splošne topologije. Nato bomo definirali topološko grupo, si ogledali njene podstrukture in dokazali nekaj osnovnih izrekov o topoloških grupah. Najbolj pomembna za nas bo ugotovitev, da sta za topološko grupo regularnosti in separacijski aksiom $T_0$ ekvivalentna. V naslednjem razdelku bomo pokazali, da tako kot za grupe tudi za topološke grupe ob dodatnih topoloških predpostavkah veljajo trije izreki o izomorfizmih. Zadnja dva razdelka sta namenjena metrizabilnosti in višjim separacijskim aksiomom. Najprej bomo pokazali, kdaj natanko je Hausdorffova topološka grupa metrizabilna, nato bomo definirali pojem povsem regularnosti in dokazali še, da sta za topološko grupo tudi regularnost in povsem regularnost ekvivalentna pojma. V zadnjem poglavju bomo navedli primer povsem regularne topološke grupe, ki ni normalna, potem pa bomo definirali pojem parakompaktnosti in s z njim pomagali do zadnje ugotovitve, da so lokalno kompaktne Hausdorffove topološke grupe normalni topološki prostori.
 
 \section{Preliminarna poglavja}
-V tem poglavju bomo ponovili že znane pojme iz algebre in splošne topologije, ki nam bodo kasneje prišli prav. Dogovorili se bomo tudi o zapisu operacij na množicah. Navedli bomo nekaj definicij in trditev, za katere privzemamo, da so bralcu že poznane.
+V tem razdelku bomo ponovili že znane pojme iz algebre in splošne topologije, ki nam bodo kasneje prišli prav. Dogovorili se bomo tudi o zapisu operacij na množicah. Navedli bomo nekaj definicij in trditev, za katere privzemamo, da so bralcu že poznane.
 
 \subsection{Operacije na množicah}\label{sec:opnamnozicah}
-Vse operacije na množicah, če ne bo drugače za\-zna\-mo\-va\-no, delujejo na elementih. Tako je na primer produkt množic $U$ in $V$ enak \[U \cdot V = \lbrace u \cdot v ; u \in U, v \in V \rbrace, \] inverz množice $U$ pa je \[ U^{-1} = \lbrace u^{-1} ; u \in G \rbrace. \] Tukaj se v obeh primerih predpostavlja, da so množice vložene v neki grupi, kjer so operacije na elementih smiselno definirane. Grupno strukturo bomo bolj podrobno opisali v naslednjem podrazdelku.
+Vse operacije na množicah, če ne bo drugače za\-zna\-mo\-va\-no, delujejo na elementih. Tako je na primer produkt množic $U$ in $V$ enak \[U \cdot V = \lbrace u \cdot v ; u \in U, v \in V \rbrace, \] inverz množice $U$ pa je \[ U^{-1} = \lbrace u^{-1} ; u \in G \rbrace. \] Tukaj v obeh primerih predpostavimo, da so množice vložene v neki grupi, kjer so operacije na elementih smiselno definirane. Grupno strukturo bomo bolj podrobno opisali v naslednjem podrazdelku.
 
 Pomembnejša izjema temu pravilu so operacije na množicah v smislu relacij. Predpostavimo torej, da imamo množico $X$ in nas zanimajo podmnožice kartezičnega produkta $X \times X$. Inverz take množice $U$ je definiran kot \[ U^{-1} = \lbrace (y, x) ; (x, y) \in U \rbrace, \]
 analogna operacija množenju pa je kompozitum množic \[ V \circ U = \lbrace (x, z) ; \text{ obstaja tak element } y \in X, \text{ da je } (x, y) \in V \text{ in } (y, z) \in U \rbrace. \]
 Takšni notaciji operacij bosta vedno posebej označeni.
 
 \subsection{Teorija grup}
-V tem podpoglavju bomo ponovili nekaj osnovnih algebraičnih pojmov, predvsem iz teorije grup.
+V tem podrazdelku bomo ponovili nekaj osnovnih algebraičnih pojmov, predvsem iz teorije grup.
 
 Neprazna množica $G$ z binarno operacijo $*$ je \emph{grupa}, če:
 \begin{enumerate}
@@ -111,7 +118,7 @@ Kvocientna množica v splošnem ni grupa, razen v primeru, ko je $H$ podgrupa ed
 Če je $N$ podgrupa edinka grupe $G$, je kvocientna množica $G/N$ grupa za operacijo $*$, kjer je $aH*bH = (a\cdot b)H$, naravna preslikava $\varphi$ pa je homomorfizem grup, ki ji rečemo \emph{naravni homomorfizem}.
 
 \subsection{Topološki prostori}
-V tem podpoglavju bomo ponovili nekaj pojmov iz splo\-šne topologije, ki jih bomo kasneje podrobneje obravnavali na topoloških grupah.
+V tem podrazdelku bomo ponovili nekaj pojmov iz splo\-šne topologije, ki jih bomo kasneje podrobneje obravnavali na topoloških grupah.
 
 \emph{Topologija} na neprazni množici $X$ je neprazna družina podmnožic $\tau \subseteq 2^X$ z lastnostmi:
 \begin{enumerate}
@@ -166,7 +173,7 @@ topološkemu prostoru, ki zadošča $T_1$ in $T_4$, pa \emph{normalen} topološk
 Separacijske aksiome v povezavi z metrizabilnostjo na topoloških grupah si bomo podrobneje ogledali v kasnejših poglavjih.
 
 \section{Kaj je topološka grupa}
-V tem poglavju bomo združili pojem topološkega prostora s pojmom grupe in ju povezali v pojem topološke grupe. Ogledali si bomo nekaj primerov in temeljnih lastnosti.
+V tem razdelku bomo združili pojem topološkega prostora s pojmom grupe in ju povezali v pojem topološke grupe. Ogledali si bomo nekaj primerov in temeljnih lastnosti topološke grupe.
 
 \subsection{Definicija topološke grupe}
 Iz definicije grupe je razvidno, da nam grupna struktura na množici porodi dve strukturni preslikavi:
@@ -187,7 +194,7 @@ Preslikava med dvema topološkima grupama je \emph{to\-po\-loš\-ki izo\-mor\-fi
 
 
 \subsection{Primeri topoloških grup}
-
+Oglejmo si nekaj osnovnih primerov topoloških grup.
 \begin{primer}
 	Vsaka grupa $G$ je za diskretno topologijo $\tau_d = 2^G$ in trivialno topologijo $\tau_t = \lbrace \emptyset, G \rbrace$ topološka grupa, saj je glede na njiju zvezna vsaka preslikava na $G$ ali $G \times G$.
 \end{primer}
@@ -324,8 +331,9 @@ Vsaka topološka grupa ima bazo $\Ucurl$ odprtih in simetričnih okolic enote.
 Naj bo $\mathcal{V}$ neka baza odprtih okolic enote. Za vsako okolico $V \in \mathcal{V}$ definiramo množico $U = V \cap V^{-1}$. Kot presek dveh odprtih množic je $U$ odprta. Ker je $e \in V$ in $e \in V^{-1}$, je $U$ odprta okolica enote, ki je po konstrukciji simetrična. Ker po definiciji preseka velja še $U \subseteq V$, je družina $\Ucurl = \lbrace V \cap V^{-1}; V \in \mathcal{V} \rbrace$ res baza odprtih in simetričnih okolic enote $e$.
 \end{dokaz}
 
+Zlahka vidimo, da sta za topološko grupo separacijska aksioma $T_0$ in $T_2$ ekvivalentna, kakor pravi naslednja trditev. Regularnosti in višjim separacijskim aksiomom se bomo posvetili kasneje.
 \begin{trditev}\label{trd:t0haus}
-Za topološko grupo $G$ so naslednje trditve ekvivalentne:
+Za topološko grupo $G$ so naslednje trditve ekvivalentne.
 \begin{enumerate}
 	\item Topološka grupa $G$ zadošča separacijskemu aksiomu $T_0$.\label{podtrd:h1}
 	\item Množica $\lbrace e \rbrace$ je zaprta v $G$.\label{podtrd:h2}
@@ -348,7 +356,7 @@ Za topološko grupo $G$ so naslednje trditve ekvivalentne:
 	Sledi iz definicije separacijskega aksioma $T_2$.
 \end{dokaz}
 
-
+Z naslednjo trditvijo si oglejmo še lastnosti operatorja zaprtja na podmnožicah topološke grupe.
 \begin{trditev}\label{trd:zaprtost}
 	Za podmnožici $A$ in $B$ topološke grupe $G$ veljajo naslednje trditve:
 	\begin{enumerate}
@@ -390,7 +398,6 @@ Iz splošne topologije vemo, da je to najšibkejša topologija na $G$, da topolo
 \end{primer}
 
 \section{Topološke podgrupe in kvocientne grupe}
-
 \subsection{Topološke podgrupe}
 V tem podrazdelku si bomo ogledali podgrupe topoloških grup. Najprej bomo pokazali, da je podgrupa topološke grupe tudi topološka grupa in ji rečemo topološka podgrupa, nato pa si bomo ogledali nekaj njenih zanimivih lastnosti.
 \begin{trditev}\label{trd:toppodgrupa}
@@ -400,7 +407,6 @@ Naj bo $G$ topološka grupa in $H$ njena podgrupa. Če $H$ opremimo z relativno 
 \begin{dokaz}
 Preslikavi $\mu|_{H \times H}$ in $\iota|_H$ sta zvezni glede na relativno topologijo na $H$ kot zožitvi zveznih preslikav na topološki podprostor $H$. Zato je $H$ topološka grupa.
 \end{dokaz}
-
 
 \begin{trditev}\label{trd:odpzap}
 Podgrupa $H$ topološke grupe $G$ je odprta natanko tedaj, ko ima ne\-praz\-no not\-ran\-jost. Vsaka odprta podgrupa $H$ topološke grupe $G$ je tudi zaprta.
@@ -461,7 +467,6 @@ Za dokaz odprtosti naravne preslikave vzemimo odprto množico $U \in G$. Po trdi
 
 Topologiji $\theta(G/H)$ pravimo \emph{kvocientna topologija}, topološkemu prostoru $G/H$ pa \emph{kvocientni prostor}. Od tukaj naprej bo kvocientni topološki prostor vedno opremljen s kvocientno topologijo.
 
-
 \begin{trditev}\label{trd:okolicevkvoc}
 Naj bo $G$ topološka grupa, $H$ njena podgrupa in $U, V$ taki okolici enote $e$ v $G$, da velja $V^{-1}V \subset U$. Naj bo $\varphi: G \to G/H$ naravna preslikava. Potem velja $\closure{\varphi(V)} \subset \varphi(U)$.
 \end{trditev}
@@ -500,6 +505,7 @@ Ker je leva translacija homeomorfizem, to velja za vsako točko $\lbrace aH \rbr
 Za dokaz točke (\ref{podtrd:kvocreg3}) privzemimo, da $G/H$ zadošča separacijskemu aksiomu $T_0$. Po izreku \ref{trd:t0haus} je točka $\lbrace H \rbrace$ zaprta. Po definiciji kvocientne topologije je $\lbrace H \rbrace$ zaprta v $G/H$ natanko tedaj, ko je $\varphi^{-1}(\lbrace H \rbrace) = H$ zaprta v $G$. Po točki (\ref{podtrd:kvocreg2}) je $G/H$ regularen topološki prostor.
 \end{dokaz}
 
+V naslednjem izreku bomo končno dokazali, da je v primeru, ko je $H$ podgrupa edinka topološke grupe $G$, tudi $G/H$ topološka grupa. Hkrati bomo povzeli glavne lastnosti kvocientnih topoloških grup, ki smo jih že dokazali v tem podrazdelku.
 \begin{izrek}\label{izr:kvocpovzetek}
 Naj bo $H$ podgrupa edinka topološke grupe $G$ in naj bo $G/H$ kvocientni topološki prostor. Veljajo naslednje trditve:
 \begin{enumerate}
@@ -529,7 +535,7 @@ Točka (\ref{podtrd:kvoc2}) sledi direktno iz izreka \ref{izr:topkvocienta}.
 Točka (\ref{podtrd:kvoc3}) sledi direktno iz točke (\ref{podtrd:kvocreg1}) izreka \ref{izr:kvocreg}, točka (\ref{podtrd:kvoc4}) pa iz točk (\ref{podtrd:kvocreg2}) in (\ref{podtrd:kvocreg3}) izreka \ref{izr:kvocreg}.
 \end{dokaz}
 
-S pomočjo zgornjega izreka lahko pokažemo, da sta separacijski aksiom $T_0$ in regularnost za topološke grupe ekvivalentna pojma. Kasneje bomo pokazali, da iz separacijskega aksioma $T_0$ sledi še več, in sicer povsem regularnost.
+S pomočjo zgornjega izreka lahko sedaj pokažemo, da sta separacijski aksiom $T_0$ in regularnost za topološke grupe ekvivalentna pojma. Kasneje bomo pokazali, da iz separacijskega aksioma $T_0$ sledi še več, in sicer povsem regularnost.
 
 \begin{posledica}\label{izr:t3}
 	Vsaka topološka grupa $G$, ki zadošča separacijskemu aksiomu $T_0$, je regularen topološki prostor.
@@ -539,7 +545,7 @@ S pomočjo zgornjega izreka lahko pokažemo, da sta separacijski aksiom $T_0$ in
 Ker topološka grupa $G$ zadošča separacijskemu aksiomu $T_0$, je po trditvi podgrupa edinka $H = \lbrace e \rbrace$ zaprta v $G$. Po izreku \ref{izr:kvocpovzetek} je $G/H = G$ regularen topološki prostor.
 \end{dokaz}
 
-Končno lahko dokažemo še en izrek, povezan s topološkimi podgrupami.
+Končno lahko dokažemo še en izrek, povezan s topološkimi podgrupami, ki ga bomo potrebovali kasneje, uporaben pa je tudi drugje.
 
 \begin{definicija}
 	Topološki prostor je $\sigma$-kompakten, če ge je možno zapisati kot števno unijo kompaktnih topoloških prostorov.
@@ -555,7 +561,7 @@ Končno lahko dokažemo še en izrek, povezan s topološkimi podgrupami.
 	Naj bo $L = \bigcup_{n=1}^\infty U^n$. Množica $L$ je po trditvi \ref{trd:podgrupaunija} odprta in zaprta podgrupa topološke grupe $G$.
 	Preverimo, da je $\closure{U} \subseteq U^2$. Vzemimo $x \in \closure{U}$. Množica $xU$ je odprta okolica za $x$ in velja $xU \cap U \neq \emptyset$, iz česar sledi, da obstajata elementa $u_1,u_2 \in U$, da je $xu_1 = u_2$. Od tod dobimo
 	\[ x = u_2u_1^{-1} \in UU^{-1} = U^2. \]
-	S preprosto uporabo matematične indukcije lahko pokažemo, da za $n \in \N$ velja $\closure{U}^n \subseteq U^{2n}$, zato je $L = \bigcup_{n=1}^\infty \closure{U}^n$. Po trditvi \ref{trd:prodkomp} je za vsak $n \in \N$ množica $\closure{U}^n$ kompaktna, zato je podgrupa $L$ enaka števni uniji kompaktnih množic, torej $\sigma$-kompaktna.
+	S preprosto uporabo matematične indukcije lahko pokažemo, da za $n \in \N$ velja $\closure{U}^n \subseteq U^{2n}$, zato je $L = \bigcup_{n=1}^\infty \closure{U}^n$. Po trditvi \ref{trd:prodkomp} je za vsak $n \in \N$ množica $\closure{U}^n$ kompaktna, zato je podgrupa $L$ enaka števni uniji kompaktnih množic, torej je $\sigma$-kompaktna.
 \end{dokaz}
 
 \begin{posledica}
@@ -689,9 +695,8 @@ Naj bo $G$ topološka grupa in $N \subseteq H$ njeni podgrupi edinki. Potem sta 
 \end{izrek}
 
 \section{Metrizabilnost in povsem regularnost}
-
 \subsection{Uniformni prostori}
-
+Preden si ogledamo metrizabilnost na Hausdorffovih topoloških grupah, najprej potrebujemo pojem enakomerne zveznosti. Čeprav lahko enakomerno zveznost na topoloških grupah brez vpeljave uniformnih prostorov, s tem izgubimo del teorije. Zato bomo v tem kratkem podrazdelku vpeljali pojem uniformnega prostora in splošno definirali enakomerno zveznost. Nato bomo na topološki grupi definirali levo in desno uniformno strukturo in pokazali, da je vsaka topološka grupa uniformni prostor. Omenimo še, da teorija uniformnih prostorov obstaja samostojno, tako kot teorija metričnih in topoloških prostorov.
 \begin{definicija}\label{def:uniform}
 Naj bo $X$ neprazna množica. Neprazna poddružina $\mathcal{F} \subset \mathcal{P}(X)$ je \emph{filter} na množici $X$, če ima naslednje lastnosti:
 \begin{enumerate}
@@ -794,8 +799,9 @@ Baza topologije metrizabilnega topološkega prostora $X$ je družina odprtih kro
 Psevdometrika na grupi $G$ je \emph{levoinvariantna}, če za vsaki dve točki $x, y \in G$ in za vsak element $a \in G$ velja $\rho(ax, ay) = \rho(x, y)$.
 \end{definicija}
 
+Naslednji izrek bo ključen tako pri obravnavi metrizabilnosti kot kasneje pri obravnavi povsem regularnosti Hausdorffovih topoloških grup.
 V dokazu spodnjega izreka bomo potrebovali pojem \emph{diadičnega} racionalnega števila, tj. racionalno število z imenovalcem v okrajšani obliki enakim $2^n$, kjer je $n \in \N$. Vsota in produkt dveh diadičnih števil je prav tako diadično število. Trdimo, da lahko s končno vsoto števil oblike $2^{-n_i}$, kjer je $n_i \in \N$ in $n_i \neq n_j$ za $i \neq j$, dobimo vsako diadično število med $0$ in $1$.
-Vzemimo poljubno diadično število $d = \frac{b}{2^n}$, kjer je $n \in \N$ in $b < 2^n$. Sedaj zapišimo število $d$ v binarnem zapisu. Ker je imenovalec števila $d$ potenca števila $2$, je ta binarni zapis končen. Sedaj vidimo, da je $d = \Sigma_{i=1}^n k_i2^{-i}$, kjer je $k_i$ enak $1$, če je v binarnem zapisu števila $d$ na $i$-tem mestu števka $1$, in $0$ sicer. 
+Vzemimo poljubno diadično število $d = \frac{b}{2^n}$, kjer je $n \in \N$ in $b < 2^n$. Sedaj zapišimo število $d$ v binarnem zapisu. Ker je imenovalec števila $d$ potenca števila $2$, je ta binarni zapis končen. Sedaj vidimo, da je $d = \Sigma_{i=1}^n k_i2^{-i}$, kjer je $k_i$ enak $1$, če je v binarnem zapisu števila $d$ na $i$-tem mestu za vejico števka $1$, in $0$ sicer. 
 
 \begin{izrek}\label{izr:pseudometrika}
 	Naj bo $\lbrace U_k \rbrace_{k = 1}^{\infty}$ tako zaporedje simetričnih okolic enote $e$ v topološki grupi $G$, da za vsak $k \in \N$ velja $U_{k+1}^2 \subset U_k$. Potem obstaja taka levoinvariantna psevdometrika $\sigma$ na $G$ z naslednjimi lastnostmi:
@@ -890,7 +896,7 @@ Lastnost (\ref{last:psevdo5}) sledi iz levo in desnoinvariantnosti psevdometrike
 \[ \sigma(x^{-1}, y^{-1}) = \sigma(e, y^{-1}x) = \sigma(y, x) ) = \sigma(x, y). \qedhere\]
 \end{dokaz}
 
-V dokazu izreka o metrizabilnosti topološke grupe, ki zadošča $T_0$, si bomo pomagali z novo karakterizacijo separacijskega aksioma $T_2$.
+V dokazu izreka o metrizabilnosti topološke grupe, ki zadošča separacijskemu aksiomu $T_0$, si bomo pomagali z novo karakterizacijo separacijskega aksioma $T_2$.
 \begin{trditev}\label{trd:hauskar}
 Topološki prostor $X$ je Hausdorffov natanko tedaj, ko za vsak $x \in X$ velja
 \[ \bigcap\lbrace \closure{U} ; U \text{ okolica za } x \rbrace = \lbrace x \rbrace. \]
@@ -930,7 +936,7 @@ Po trditvi \ref{izr:bazaokolice} sta topologiji $\tau$ in $\tau_\sigma$  ekvival
 
 
 \subsection{Separacijski aksiom $T_{3 \frac{1}{2}}$}
-
+V tem podrazdelku bomo definirali separacijski aksiom $T_{3 \frac{1}{2}}$ in pojem povsem regularnosti. Separacijski aksiom $T_{3 \frac{1}{2}}$ bomo uvrstili med že znane separacijske aksiome iz splošne topologije in pokazali, da sta za topološke grupe separacijska aksioma $T_0$ in $T_{3 \frac{1}{2}}$ ekvivalentna.
 \begin{definicija}
 	Topološki prostor $X$ zadošča separacijskemu aksiomu $T_{3 \frac{1}{2}}$, če za poljubno zaprto množico $A \subseteq X$ in poljubno točko $b \in X\backslash A$ obstaja taka zvezna funkcija $\psi\colon G \to [0, 1]$, da je $\psi (b) = 1$ in $\psi (x) = 0$ za vsak $x \in A$.
 \end{definicija}
@@ -938,7 +944,6 @@ Po trditvi \ref{izr:bazaokolice} sta topologiji $\tau$ in $\tau_\sigma$  ekvival
 \begin{definicija}
 	Topološku prostoru, ki zadošča $T_1$ in $T_{3 \frac{1}{2}}$, pravimo \emph{povsem regularen} topološki prostor.
 \end{definicija}
-
 
 \begin{trditev}\label{pos:reghaus}
 Naj bo $X$ topološki prostor.
@@ -959,6 +964,7 @@ Ker je prostor $X$ normalen, je množica $\lbrace b \rbrace$ zaprta,
 zato po Urysohnovi karakterizaciji separacijskega aksioma $T_4$ (glej \cite{bib:top}) obstaja zvezna funkcija $\psi\colon X \to [0, 1]$, da je $\psi(b) = 1$ in $\psi(A) \equiv 0$.
 \end{dokaz}
 
+Kot smo dokazali v trditvi \ref{trd:t0haus} in posledici \ref{izr:t3}, hitro vidimo, da sta za topološke grupe regularnosti in separacijski aksiom $T_0$ ekvivalentna. Že pri teoriji topoloških prostorov pa težko najdemo primer prostora, ki je regularen, ni pa povsem regularen. Tukaj primera ne bomo eksplicitno navajali, saj so vsi primeri izrazito težko razumljivi. Nekaj se jih nahaja v \cite{bib:counterexamples}, posebej pa je potrebno omeniti članek \cite{bib:clanekt3pol}. V njem A.~Mysior namreč poda prvi relativno preprost način konstrukcije regularnega, ne pa povsem regularnega, topološkega prostora. Ta konstrukcija je bila kasneje uporabljena v mnogih knjižnih in internetnih publikacijah.
 \begin{izrek}\label{izr:t3pol}
 	Topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je povsem regularen topološki prostor.
 \end{izrek}
@@ -1085,7 +1091,7 @@ Od tod sledi, da $U \cap V \neq \emptyset$.
 \end{dokaz}
 
 \subsection{Parakompaktni topološki prostori}
-V nadaljevanju bomo dokazali, da je ključni pogoj, ki regularni topološki grupi manjka do normalnosti, lokalna kompaktnost.
+V tem podrazdelku bomo dokazali, da je ključni pogoj, ki regularni topološki grupi manjka do normalnosti, lokalna kompaktnost. Najprej bomo vpeljali pojem parakompaktnega topološkega prostora. Za regularne topološke prostore bomo navedli in dokazali alternativne definicije parakompaktnosti, nato pa bomo pokazali, da je vsak parakompaktne Hausdorffov topološki prostor normalen. Nazadnje bomo dokazali, da je vsaka lokalno kompaktna Hausdorffova topološka grupa parakompaktna, torej normalen topološki prostor.
 
 \begin{definicija}\label{def:parakompakt}
 	\begin{enumerate}
@@ -1239,6 +1245,10 @@ J.~Dugundji, \emph{Topology}, Allyn and Bacon series in advanced mathematics, Al
 E.~Hewitt in K.~A.~Ross, \emph{Abstact Harmonic Analysis I}, Springer-Verlag, New York, 1979.
 \bibitem{bib:top}
 J.~Mrčun, \emph{Topologija}, Izbrana poglavja iz matematike in računalništva \textbf{44} DMFA-založništvo, Ljubljana, 2008.
+\bibitem{bib:clanekt3pol}
+A.~Mysior, \emph{A Regular Space which is not Completely Regular}, Proceedings of The American Mathematical Society, letnik \textbf{81}, številka \textbf{4} ( april 1981)
+\bibitem{bib:counterexamples}
+J.~A.~Seebach, Jr. in L.~A.~Steen, \emph{Counterexamples in Topology, Second Edition}, Springer-Verlag, New York, 1978
 
 \end{thebibliography}
 
