@@ -115,7 +115,7 @@ Podgrupi $H$ grupe $G$ rečemo podgrupa \emph{edinka}, če za vsak element $a \i
 Množici $G/H = \lbrace aH ; a \in G \rbrace$ rečemo \emph{kvocientna množica} grupe $G$ po podgrupi $H$.
 \emph{Naravna preslikava} na kvocientno množico $G/H$ je preslikava $\varphi\colon G \to G/H$, definirana s predpisom $a \mapsto aH$.
 Kvocientna množica v splošnem ni grupa, razen v primeru, ko je $H$ podgrupa edinka.
-Če je $N$ podgrupa edinka grupe $G$, je kvocientna množica $G/N$ grupa za operacijo $*$, kjer je $aH*bH = (a\cdot b)H$, naravna preslikava $\varphi$ pa je homomorfizem grup, ki ji rečemo \emph{naravni homomorfizem}.
+Če je $N$ podgrupa edinka grupe $G$, je kvocientna množica $G/N$ grupa za operacijo $*$, kjer je $aN*bN = (a\cdot b)N$, naravna preslikava $\varphi$ pa je homomorfizem grup, ki ji rečemo \emph{naravni homomorfizem}.
 
 \subsection{Topološki prostori}
 V tem podrazdelku bomo ponovili nekaj pojmov iz splo\-šne topologije, ki jih bomo kasneje podrobneje obravnavali na topoloških grupah.
@@ -152,7 +152,7 @@ Oglejmo si še produkt topoloških prostorov.
 Naj bosta $X$ in $Y$ topološka prostora s topologijama $\tau_1$ in $\tau_2$. \emph{Produktna topologija} na kartezičnemu produktu $X \times Y$ je topologija, generirana z bazo $\lbrace U \times V ; U \in \tau_1, V \in \tau_2 \rbrace$. \emph{Produkt} topoloških prostorov $X$ in $Y$ je topološki prostor $X \times Y$, opremljen s produktno topologijo. Na produktu topoloških prostorov lahko definiramo projekcijski preslikavi $\pr_x\colon X \times Y \to X$, $\pr_x(x, y) = x$ in $\pr_y\colon X \times Y \to Y$, $\pr_y(x, y) = y$, ki sta zvezni in odprti preslikavi glede na primerne topologije.
 
 V nadaljevanju si bomo ogledali nekaj pojmov povezanih s kompaktnostjo to\-po\-loš\-kih prostorov, ki si jih bomo kasneje ogledali v kontekstu topoloških grup, definirali pa bomo tudi nove.
-Družini $\mathcal{A}$ množic rečemo \emph{pokritje} topološkega prostora $X$, če je $X = \bigcup \mathcal{A}$, družini $\mathcal{B} \subseteq \mathcal{A}$ pa rečemo \emph{podpokritje} topološkega prostora $X$, če je $\mathcal{B}$ tudi sama pokritje za $X$.
+Družini množic $\mathcal{A}$ rečemo \emph{pokritje} topološkega prostora $X$, če je $X = \bigcup \mathcal{A}$, družini $\mathcal{B} \subseteq \mathcal{A}$ pa rečemo \emph{podpokritje} topološkega prostora $X$, če je $\mathcal{B}$ tudi sama pokritje za $X$.
 Topološki prostor je \emph{kompakten}, če vsako njegovo odprto pokritje, tj. pokritje z odprtimi množicami, vsebuje kakšno končno podpokritje.
 Topološki prostor je \emph{lokalno kompakten}, če ima vsaka točka $x \in X$ kakšno kompaktno okolico.
 
@@ -184,7 +184,7 @@ Iz definicije grupe je razvidno, da nam grupna struktura na množici porodi dve 
 
 S pomočjo strukturnih preslikav bomo sedaj definirali topološko grupo.
 \begin{definicija}\label{def:topgrupa}
-\emph{Topološka grupa} je grupa $G$ opremljena s takšno topologijo $\tau$, da sta glede na $\tau$ strukturni operaciji množenja in invertiranja zvezni. 
+\emph{Topološka grupa} je grupa $G$ opremljena s takšno topologijo $\tau$, da sta glede na $\tau$ strukturni preslikavi množenja in invertiranja zvezni. 
 \end{definicija}
 
 Potrebujemo še tip preslikave med topološkimi grupami, ki bo ohranjal tako algebraično kot topološko strukturo.
@@ -202,7 +202,7 @@ Oglejmo si nekaj osnovnih primerov topoloških grup.
 \begin{primer}
 	Realna števila za operacijo $+$ so topološka grupa z evklidsko topologijo.
 	
-	Preverimo, da sta strukturni operaciji $\mu(x, y) = x + y$ in $\iota(x) = -x$ zvezni.
+	Preverimo, da sta strukturni preslikavi $\mu(x, y) = x + y$ in $\iota(x) = -x$ zvezni.
 	Po definiciji produktne topologije sta projekcijski preslikavi zvezni. Strukturna preslikava seštevanja $\mu = \pr_x + \pr_y$ je zvezna kot vsota zveznih preslikav.
 	
 	Zveznost invertiranja je dovolj preveriti na baznih množicah evklidske topologije. Vzemimo interval $(a, b)$. Tudi $\iota^{-1}((a, b)) = \iota((a, b)) = (-b, -a)$ je bazična množica in zato odprta. Torej je invertiranje zvezna preslikava.
@@ -214,7 +214,7 @@ Oglejmo si nekaj osnovnih primerov topoloških grup.
 \end{primer}
 
 \begin{primer}\label{pri:haus}
-	Realna števila za operacijo $+$ niso topološka grupa s topologijo $\tau = \lbrace (a, \infty) ; a \in \R \rbrace$. Vzemimo odprto množico $(a, \infty)$ in si oglejmo njeno prasliko glede na preslikavo invertiranja. Ker $\iota((a, \infty)) = (-\infty, -a)$ ni odprta množica v topologiji $\tau$, prostor $(\R, \tau)$ ni topološka grupa. Kasneje bomo pokazali, da realna števila s to topologijo niso topološka grupa za nobeno operacijo.
+	Realna števila za operacijo $+$ niso topološka grupa s topologijo $\tau = \lbrace (a, \infty) ; a \in \R \rbrace$. Vzemimo odprto množico $(a, \infty)$ in si oglejmo njeno prasliko glede na preslikavo invertiranja. Ker $\iota^{-1}((a, \infty)) = (-\infty, -a)$ ni odprta množica v topologiji $\tau$, prostor $(\R, \tau)$ ni topološka grupa. Kasneje bomo pokazali, da realna števila s to topologijo niso topološka grupa za nobeno operacijo.
 \end{primer}
 
 \subsection{Osnovne lastnosti topoloških grup}
@@ -309,7 +309,7 @@ Ker velja \[x\left(\bigcap_{k=1}^n V_k\right) = \bigcap_{k=1}^n (xV_k)\]
 in \[ x\left(\bigcap_{k=1}^n V_k\right)x^{-1} = \bigcap_{k=1}^n (xV_kx^{-1}), \]
 za družino $\widetilde{\Ucurl}$ veljata tudi lastnosti (\ref{last:oko3}) in (\ref{last:oko4}) trditve \ref{trd:okolice}.
 
-Po definiciji podbaze vse neprazne množice oblike $\bigcap_{k=1}^n(x_kU_k)$, kjer je $x_k \in G$ in $U_k \in \Ucurl$, tvorijo bazo za neko topologijo na prostoru $G$. Vzemimo nek element $y \in \bigcap_{k=1}^n (x_kU_k)$. Naj bo $V_k \in \Ucurl$ tista množica, ki zadošča lastnosti (\ref{last:oko3}) za element $x_k^{-1}y$, torej da velja $x_k^{-1}yV_k \subset U_k$. Potem velja
+Po definiciji podbaze vse neprazne množice oblike $\bigcap_{k=1}^n(x_kU_k)$, kjer je $x_k \in G$ in $U_k \in \Ucurl$, tvorijo bazo za neko topologijo na prostoru $G$. Vzemimo nek element $y \in \bigcap_{k=1}^n (x_kU_k)$. Naj bo $V_k \in \Ucurl$ takšna množica, ki zadošča lastnosti (\ref{last:oko3}) za element $x_k^{-1}y$, torej da velja $x_k^{-1}yV_k \subset U_k$. Potem velja
 \[ y\left(\bigcap_{k=1}^nV_k\right) = \bigcap_{k=1}^n(yV_k) \subset \bigcap_{k=1}^n(x_kU_k). \]
 Torej množice oblike $y\widetilde{U}$, kjer je $\widetilde{U} \in \widetilde{\Ucurl}$ tvorijo odprto bazo za element $y$ za vsak element $y \in G$.
 
@@ -542,7 +542,7 @@ S pomočjo zgornjega izreka lahko sedaj pokažemo, da sta separacijski aksiom $T
 \end{posledica}
 
 \begin{dokaz}
-Ker topološka grupa $G$ zadošča separacijskemu aksiomu $T_0$, je po trditvi podgrupa edinka $H = \lbrace e \rbrace$ zaprta v $G$. Po izreku \ref{izr:kvocpovzetek} je $G/H = G$ regularen topološki prostor.
+Ker topološka grupa $G$ zadošča separacijskemu aksiomu $T_0$, je po trditvi \ref{trd:t0haus} podgrupa edinka $H = \lbrace e \rbrace$ zaprta v $G$. Po izreku \ref{izr:kvocpovzetek} je $G/H = G$ regularen topološki prostor.
 \end{dokaz}
 
 Končno lahko dokažemo še en izrek, povezan s topološkimi podgrupami, ki ga bomo potrebovali kasneje, uporaben pa je tudi drugje.
@@ -645,7 +645,7 @@ Naj bosta $G$ in $\widetilde{G}$ topološki grupi. Naj bo $f\colon G \to \wideti
 
 \begin{dokaz}
 Upoštevajoč prvi izrek o izomorfizmih moramo pokazati le, da je preslikava $\Phi$ homeomorfizem. Vzemimo odprto podmnožico $\widetilde{U} \subset \widetilde{G}$. Zaradi lažje berljivosti pišimo $H = \ker f$.
-Ker je preslikava $f$ zvezna, je množica $\bigcup\lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace = f^{-1}(\widetilde{U})$ odprta v $G$. Ker je množica $\varphi^{-1}(\Phi(\widetilde{U})) = \widetilde{U}HH = \widetilde{U}H$ odprta v $G$, je množica $\Phi(\widetilde{U}) = \lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace$ odprta v $G/H$. Od tod sledi, da je preslikava $\Phi$ odprta, torej je $\Phi^{-1}$ zvezna preslikava.
+Ker je preslikava $f$ zvezna, je množica $\bigcup\lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace = f^{-1}(\widetilde{U})$ odprta v $G$. Ker je množica $\varphi^{-1}(\Phi(\widetilde{U})) = \widetilde{U}HH = \widetilde{U}H$ po trditvi \ref{trd:prododp} odprta v $G$, je množica $\Phi(\widetilde{U}) = \lbrace f^{-1}(\tilde{x}) ; \tilde{x} \in \widetilde{U} \rbrace$ odprta v $G/H$. Od tod sledi, da je preslikava $\Phi$ odprta, torej je $\Phi^{-1}$ zvezna preslikava.
 
 Vzemimo odprto množico $\lbrace uH ; u \in U \rbrace$ v $G/H$, kjer je množica $U \subset G$ odprta. Potem velja
 \begin{align*}
@@ -760,7 +760,7 @@ Topologiji, definirani v trditvi \ref{trd:uniinduciranatopo}, pravimo topologija
 \end{dokaz}
 
 \begin{definicija}\label{def:levadesnauni}
-	Naj bo $\Ucurl$ baza odprtih okolic enote $e$ topološke grupe $G$. Za vsako okolico $U \in \Ucurl$ definiramo \[L_U = \lbrace (x, y) \in G \times G ; x^{-1}y \in U \rbrace\] in analogno \[R_U = \lbrace (x, y) \in G \times G ; yx^{-1} \in U \rbrace.\] Družinama $\mathcal{L}(G) = \lbrace L_U \rbrace_{U \in \Ucurl}$ in $\mathcal{R}(G) = \lbrace R_U \rbrace_{U \in \Ucurl}$ zaporedoma pravimo \emph{leva} in \emph{desna uniformna struktura} na $G$.
+	Naj bo $\Ucurl$ baza odprtih okolic enote $e$ topološke grupe $G$. Za vsako okolico $U \in \Ucurl$ definiramo \[L_U = \lbrace (x, y) \in G \times G ; x^{-1}y \in U \rbrace\] in analogno \[R_U = \lbrace (x, y) \in G \times G ; yx^{-1} \in U \rbrace.\] Družinama $\mathcal{L}(G) = \lbrace L_U ; U \in \Ucurl\rbrace$ in $\mathcal{R}(G) = \lbrace R_U ; U \in \Ucurl\rbrace$ zaporedoma pravimo \emph{leva} in \emph{desna uniformna struktura} na $G$.
 \end{definicija}
 
 \begin{trditev}\label{trd:topguniform}
@@ -973,7 +973,7 @@ Kot smo dokazali v trditvi \ref{trd:t0haus} in posledici \ref{izr:t3}, hitro vid
 
 \begin{dokaz}
 Za dano zaprto množico $F$ vzemimo poljuben element $a \in G\setminus F$.
-Naj bo $\Ucurl$ baza simetričnih okolic enote $e$ in naj bo $U$ taka odprta okolica elementa $a$, da je $U \cap F = \emptyset$. Potem je $a^{-1}U$ okolica enote $e$ in, ker je leva translacija po trditvi \ref{trd:trans} homeomorfizem, velja $a^{-1}U \cap a^{-1}F = \emptyset$. Vzemimo tak $U_1 \in \Ucurl$, da je $U_1 \subseteq a^{-1}U$. Ker je leva translacija homeomorfizem, je množica $aU_1$ odprta okolica elementa $a$ in $aU_1 \cap F = \emptyset$. Po trditvi \ref{trd:okolice} lahko potem induktivno izberemo take okolice $U_2, U_3,... \in \Ucurl$, da velja $U_{k+1}^2 \subset U_k$ za vsak $k \in \Z$. S tem smo zadostili predpostavkam izreka \ref{izr:pseudometrika}, zato obstaja na $G$ psevdometrika $\sigma$ z lastnostmi (\ref{last:psevdo1})-(\ref{last:psevdo4}). Definiramo funkcijo $\psi\colon G \to [0, \infty)$ s predpisom
+Naj bo $\Ucurl$ baza simetričnih okolic enote $e$ in naj bo $U$ taka odprta okolica elementa $a$, da je $U \cap F = \emptyset$. Potem je $a^{-1}U$ okolica enote $e$ in, ker je leva translacija po trditvi \ref{trd:trans} homeomorfizem, velja $a^{-1}U \cap a^{-1}F = \emptyset$. Vzemimo tak $U_1 \in \Ucurl$, da je $U_1 \subseteq a^{-1}U$. Ker je leva translacija homeomorfizem, je množica $aU_1$ odprta okolica elementa $a$ in $aU_1 \cap F = \emptyset$. Po trditvi \ref{trd:okolice} lahko potem induktivno izberemo take okolice $U_2, U_3,... \in \Ucurl$, da velja $U_{k+1}^2 \subset U_k$ za vsak $k \in \N$. S tem smo zadostili predpostavkam izreka \ref{izr:pseudometrika}, zato obstaja na $G$ psevdometrika $\sigma$ z lastnostmi (\ref{last:psevdo1})-(\ref{last:psevdo4}). Definiramo funkcijo $\psi\colon G \to [0, \infty)$ s predpisom
 \[ \psi(x) = 1 - \min\lbrace 1, 2\sigma(x, a)\rbrace. \]
 Ker je psevdometrika $\sigma$ po lastnosti (\ref{last:psevdo1}) v izreku \ref{izr:pseudometrika} enakomerno zvezna glede na levo uniformno strukturo na $G$, je po trditvi \ref{trd:enakzveznazvezna} zvezna, iz česar sledi, da je $\psi$ zvezna funkcija.
 
