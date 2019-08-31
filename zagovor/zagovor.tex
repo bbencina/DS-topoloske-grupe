@@ -43,10 +43,10 @@
 \begin{frame}
 \frametitle{Vsebina}
 \begin{itemize}[label = \ding{227}]
-	\item Definicija topološke grupe,
-	\item primeri,
-	\item s čim sem se ukvarjal,
-	\item metrizabilnost in višji separacijski aksiomi.
+	\item definicija topološke grupe
+	\item primeri
+	\item s čim sem se ukvarjal
+	\item metrizabilnost in višji separacijski aksiomi
 \end{itemize}
 \end{frame}
 
@@ -57,7 +57,7 @@
 \end{matematika}
 \newline
 \newline
-Strukturni operaciji:
+Strukturni preslikavi:
 \begin{itemize}[label=\ding{227}]
 	\item Množenje: $\mu : G \times G \to G$, $(x, y) \mapsto xy$.
 	\item Invertiranje: $\iota : G \to G$, $x \mapsto x^{-1}$.
@@ -67,7 +67,7 @@ Strukturni operaciji:
 \begin{frame}
 \frametitle{Primeri}
 \begin{matematika}{Primer}
-Unitarna grupa $\mathfrak{U}(n)$ je topološka grupa za vsak $n \in \mathbb{N}$.\newline\newline
+Grupa $\mathbb{R}^n$ je topološka grupa za vsak $n \in \mathbb{N}$.\newline\newline
 \end{matematika}
 \begin{matematika}{Primer}
 Naj bo $G$ poljubna neskončna grupa in naj bo $\tau$ topologija končnih komplementov na $G$. Topološki prostor $(G, \tau)$ ni topološka grupa za nobeno operacijo.
@@ -77,18 +77,58 @@ Naj bo $G$ poljubna neskončna grupa in naj bo $\tau$ topologija končnih komple
 \begin{frame}
 \frametitle{Teme}
 \begin{itemize}[label = \ding{227}]
-	\item Osnovne lastnost,
-	\item kvocientni prostori topoloških grup,
-	\item trije izreki o topoloških izomorfizmih,
-	\item metrizabilnost in
-	\item višji separacijski aksiomi.
+	\item osnovne lastnost
+	\item kvocientni prostori topoloških grup
+	\item trije izreki o topoloških izomorfizmih
+	\item metrizabilnost
+	\item višji separacijski aksiomi
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Okolice}
+\begin{matematika}{Trditev}
+Za topološko grupo $G$ in bazo $\mathcal{U}$ odprtih okolic enote $e$ veljajo naslednje trditve:
+\begin{itemize}
+	\item (1) za vsako $U \in \mathcal{U}$ obstaja taka $V \in \mathcal{U}$, da je $V^2 \subset U$,
+	\item (2) za vsako $U \in \mathcal{U}$ obstaja taka $V \in \mathcal{U}$, da je $V^{-1} \subset U$,
+	\item (3) za vsako $U \in \mathcal{U}$ in vsak $x \in U$ obstaja taka $V \in \mathcal{U}$, da je $xV \subset U$,
+	\item (4) za vsako $U \in \mathcal{U}$ in vsak $x \in U$ obstaja taka $V \in \mathcal{U}$, da je $xVx^{1} \subset U$.
+\end{itemize}
+\end{matematika}
+\end{frame}
+
+\begin{frame}
+\frametitle{Okolice}
+\begin{matematika}{Izrek}
+Naj bo $G$ grupa in $\mathcal{U}$ družina podmnožic grupe $G$, za katero veljajo lastnosti (1)-(4). Naj bodo poljubni končni preseki množic iz $\mathcal{U}$ neprazni. Tedaj je družina $\lbrace xU ;\; x \in G,\; U \in \mathcal{U} \rbrace$ odprta podbaza za neko topologijo na $G$. S to topologijo je $G$ topološka grupa. Družina $\lbrace Ux ;\; x \in G,\; U \in \mathcal{U} \rbrace$ je podbaza za isto topologijo.
+
+Če velja še, da za vsaki množici $U, V \in \mathcal{U}$ obstaja taka množica $W \in \mathcal{U}$, da je $W \subset U \cap V$, potem sta družini $\lbrace xU ;\; x \in G,\; U \in \mathcal{U} \rbrace$ in $\lbrace Ux ;\; x \in G,\; U \in \mathcal{U} \rbrace$ tudi bazi za to topologijo.
+\end{matematika}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kvocientni prostori topoloških grup}
+\begin{itemize}[label = \ding{227}]
+	\item kvocientna topologija
+	\item lastnosti kvocientnega prostora topoloških grup
+	\item kvocientna topološka grupa
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Izreki o topoloških izomorfizmih}
+\begin{itemize}[label = \ding{227}]
+	\item topološki izomorfizem
+	\item trije izreki o izomorfizmih
+	\item dodatne topološke predpostavke na preslikave in podgrupe
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Izrek o psevdometriki}
 \begin{matematika}{Izrek}
-	Naj bo $\{ U_k \}_{k=1}^{\infty}$ družina simetričnih okolic enote $e$ topo\-loš\-ke grupe $G$ z lastnostjo $U_{k+1}^2 \subset U_k$ za vsak $k\in\mathbb{N}$. Potem obstaja taka levoinvariantna pseudometrika $\sigma$, da velja:
+	Naj bo $\{ U_k \}_{k=1}^{\infty}$ družina simetričnih okolic enote $e$ topo\-loš\-ke grupe $G$ z lastnostjo $U_{k+1}^2 \subset U_k$ za vsak $k\in\mathbb{N}$. Potem obstaja taka levoinvariantna psevdometrika $\sigma$, da velja:
 	\begin{itemize}[label=\ding{227}]
 		\item $\sigma$ je enakomerno zvezna na levi uniformni strukturi na $G \times G$,
 		\item $\sigma (x, y) = 0 \iff y^{-1}x \in \bigcap_{k=1}^{\infty}U_k$,
@@ -112,7 +152,7 @@ Naj bo $G$ topološka grupa, ki zadošča separacijskemu aksiomu $T_0$. Tedaj je
 \begin{frame}
 \frametitle{Povsem regularnost}
 \begin{matematika}{Definicija}
-Topološki prostor $X$ zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$, če za vsako zaprto množico $F \subset X$ in točko $a \in X \setminus F$ obstaja zvezna funkcija $\psi: X \to \mathbb{R}$, da je $\psi(a) = 1$ in $\psi|_F = 0$.
+Topološki prostor $X$ zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$, če za vsako zaprto množico $F \subset X$ in točko $a \in X \setminus F$ obstaja zvezna funkcija $\psi: X \to [0,1]$, da je $\psi(a) = 1$ in $\psi|_F = 0$.
 \end{matematika}\newline
 
 Topološki prostor je \emph{povsem regularen}, če zadošča separacijskima aksiomoma $T_1$ in $T_{3\frac{1}{2}}$. \newline
@@ -146,6 +186,11 @@ Vsaka lokalno kompaktna topološka grupa $G$, ki zadošča separacijskemu aksiom
 \begin{matematika}{Posledica}
 Vsaka lokalno kompaktna topološka grupa, ki zadošča separacijskemu aksiomu $T_0$, je normalna.
 \end{matematika}
+\end{frame}
+
+\begin{frame}
+\centering
+Hvala za vašo pozornost!
 \end{frame}
 
 \end{document}
