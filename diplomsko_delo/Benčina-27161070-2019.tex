@@ -301,6 +301,7 @@ Za vsako množico $U \in \Ucurl$ obstaja taka množica $V \in \Ucurl$, da velja 
 Vsaka množica $U \in \Ucurl$ torej vsebuje enoto $e$.
 Družina $\lbrace xU ;\; x \in G, U \in \Ucurl \rbrace$ je torej res podbaza neke topologije na $G$, saj je pokritje za $G$.
 
+Naj bo $\widetilde{\Ucurl}$ družina vseh končnih presekov množic iz družine $\lbrace xU ;\; x \in G, U \in \Ucurl \rbrace$.
 Za vsako izbiro množic $U_1,\dots,U_n \in \Ucurl$ obstajajo take množice $V_1,\dots,V_n \in \Ucurl$, da velja $V_k^2 \subset U_k$ za $k = 1,\dots,n$. Potem velja
 \[ \left( \bigcap_{k=1}^n V_k \right)^2 \subseteq \bigcap_{k=1}^n V_k^2 \subset \bigcap_{k=1}^n U_k. \]
 Za družino $\widetilde{\Ucurl}$ torej velja lastnost (\ref{last:oko1}) trditve \ref{trd:okolice}.
@@ -652,7 +653,7 @@ Vzemimo odprto množico $\lbrace uH ;\; u \in U \rbrace$ v $G/H$, kjer je množi
 \Phi^{-1}(\lbrace uH ;\; u \in U \rbrace) &= \lbrace \tilde{x} \in \widetilde{G} ;\; f^{-1}(\tilde{x}) = uH \text{ za nek element } u \in U \rbrace \\
 &= \lbrace f(u) ;\; u \in U \rbrace = f(U).
 \end{align*}
-Ker je preslikava $f$ po predpostavki odprta, je $f(U)$ odprta množica v $\widetilde{G}$. Torej je preslikava $\Phi^{-1}$ odprta, od koder sledi, da je $\Phi$ zvezna preslikava. Sledi, da je $\Phi$ homeomorfizem.
+Ker je preslikava $f$ po predpostavki odprta, je $f(U)$ odprta množica v $\widetilde{G}$. Torej je preslikava $\Phi^{-1}$ odprta, iz česar sledi, da je $\Phi$ zvezna preslikava. Sledi, da je $\Phi$ homeomorfizem.
 \end{dokaz}
 
 \subsection{Drugi izrek o izomorfizmih}
@@ -827,7 +828,7 @@ potem definiramo
 \[ V_r = V_{2^{-l_1}}\cdots V_{2^{-l_n}}. \]
 Za vsa diadična racionalna števila $r \geq 1$ definiramo množico $V_r = G$.
 
-Pokažimo najprej, da iz $r < s$ sledi $V_r \subset V_s$. Ker za $s \geq 1$ velja $v_r \subseteq G = V_s$, lahko privzamemo, da je $s < 1$.
+Pokažimo najprej, da iz $r < s$ sledi $V_r \subset V_s$. Ker za $s \geq 1$ velja $V_r \subseteq G = V_s$, lahko privzamemo, da je $s < 1$.
 Naj bo število $r$ definirano kot zgoraj in naj bo
 \[ s = 2^{-m_1} + \cdots + 2^{-m_p}, 0 < m_1 < \cdots < m_p. \]
 Ker je $r < s$, obstaja enolično določeno število $k \in \N$, da je $l_j = m_j$ za vsak $j < k$ in $l_k > m_k$. Naj bo $W = V_{2^{-l_1}}\cdots V_{2^{-l_{k-1}}}$.
@@ -843,7 +844,7 @@ V_r &= WV_{2^{-l_k}}V_{2^{-l_{k+1}}}V_{2^{-l_{k+2}}}\cdots V_{2^{-l_n}} \\
 
 Pokažimo še, da za vsak zgoraj definirani $r$ in vsak $l \in \N$ velja $V_rV_{2^{-l}} \subset V_{r + 2^{-l+2}}$. Ker za $r + 2^{-l+2} \geq 1$ velja $V_{r + 2^{-l+2}} = G$, lahko privzamemo, da je  $r + 2^{-l+2} < 1$.
 Če je $l > l_n$, je po konstrukciji množic $V_rV_{2^{-l}} = V_{r + 2^{-l}} \subset V_{r + 2^{-l+2}}$. Če je $l \leq l_n$, naj bo $k \in \N$ tako število, da je $l_{k-1} < l \leq l_k$, kjer označimo $l_0 = 0$. Definiramo $r_1 = 2^{-l+1} - 2^{-l_k} - 2^{-l_{k+1}} - \cdots - 2^{-l_n}$ in $r_2 = r + r_1$. Ker je $r < r_2 < r + 2^{-l+1}$, velja
-\[ V_rV_{2^{l}} \subset V_{r_2}V_{2^{-l}} = V_{r_2 + 2^{-l}} \subset V_{r + 2^{-l+1} + 2^{-l}} \subset V_{r + 2^{-l+2}}. \]
+\[ V_rV_{2^{-l}} \subset V_{r_2}V_{2^{-l}} = V_{r_2 + 2^{-l}} \subset V_{r + 2^{-l+1} + 2^{-l}} \subset V_{r + 2^{-l+2}}. \]
 
 Na topološki grupi $G$ bomo sedaj konstruirali psevdometriko. Za vsak $x \in G$ naj bo \[\varphi(x) = \inf\lbrace r ;\; x \in V_r \rbrace.\]
 Očitno je $\varphi(x) = 0$ natanko tedaj, ko je $x \in H = \bigcap_{k=1}^{\infty} U_k = \bigcap_{k=1}^{\infty} V_{2^{-k}}$.
@@ -977,7 +978,7 @@ Naj bo $\Ucurl$ baza simetričnih okolic enote $e$ in naj bo $U$ taka odprta oko
 \[ \psi(x) = 1 - \min\lbrace 1, 2\sigma(x, a)\rbrace. \]
 Ker je psevdometrika $\sigma$ po lastnosti (\ref{last:psevdo1}) v izreku \ref{izr:pseudometrika} enakomerno zvezna glede na levo uniformno strukturo na $G$, je po trditvi \ref{trd:enakzveznazvezna} zvezna, iz česar sledi, da je $\psi$ zvezna funkcija.
 
-Ker je po definiciji prevdometrike $\sigma(a, a) = 0$, je $\psi(a) = 1$.
+Ker je po definiciji psevdometrike $\sigma(a, a) = 0$, je $\psi(a) = 1$.
 Vzemimo element $x \in F$. Ker po konstrukciji množice $U_1$ velja $a^{-1}x \notin U_1$, po lastnosti (\ref{last:psevdo4}) v izreku \ref{izr:pseudometrika}, $\sigma(x, a) \geq 2^{-1} = \frac{1}{2}$, sledi $\psi(x) = 0$ za vsak element $x \in F$.
 
 Topološka grupa $G$ zadošča separacijskemu aksiomu $T_{3\frac{1}{2}}$. Ker zadošča tudi separacijskemu aksiomu $T_0$, je po trditvi \ref{trd:t0haus} Hausdorffova in zato povsem regularna.
@@ -1014,12 +1015,12 @@ Naj bo potem podgrupa $F_X \leq G$ tista podgrupa, ki je generirana z množico $
 
 Naj $\mathfrak{S}_n$ označuje grupo vseh permutacij množice z $n$ elementi in naj $\mathfrak{U}(n)$ označuje grupo vseh unitarnih matrik velikost $n\times n$. Izberemo si poljubno število $l \in \N$. Potem naj bo za vsako permutacijo $P \in \mathfrak{S}_l$ matrika $U_P \in \mathfrak{U}(l)$ permutacijska matrika, torej je $u_{jk} = 1$, če je $j = P(k)$ in $u_{jk} = 0$ sicer. Preslikava, definirana s predpisom $P \mapsto U_P$, je izomorfizem iz $\mathfrak{S}_l$ v $\mathfrak{U}(l)$.
 
-Da preverimo točko (\ref{podtrd:prosta2}), vzamemo poljubno reducirano besedo $x_1^{\delta_1}\cdots x_n^{\delta_n}$ dolžine $n$, sestavljeno iz elementov prostora $X$.
+Da preverimo točko (\ref{podtrd:prosta1}), vzamemo poljubno reducirano besedo $x_1^{\delta_1}\cdots x_n^{\delta_n}$ dolžine $n$, sestavljeno iz elementov prostora $X$.
 Obstaja preslikava $A\colon\lbrace x_1, \dots,x_n\rbrace \to \mathfrak{U}(l)$, kjer je $l = n + 1$ ali $l = n + 2$, da velja $A(x_1)^{\delta_1}\cdots A(x_n)^{\delta_n} \neq I_l$, kjer $I_l$ označuje identično matriko velikosti $l \times l$. Ker je topološka grupa $\mathfrak{U}(l)$ povezana s potmi in ker je topološki prostor $X$ povsem regularen, obstaja taka zvezna preslikava $\varphi\colon X \to \mathfrak{U}$, da velja $\varphi(x_k) = A(x_k)$ za vsak $k = 1,\dots,n$. Za nek indeks $\iota_0 \in I$ mora biti par $(\mathfrak{U}(l), \varphi)$ enak ali identificiran s parom $(G_{\iota_0}, \varphi_{\iota_0})$, iz česar sledi
 \[ (x_1^{\delta_1}\cdots x_n^{\delta_n})_{\iota_0} = A(x_1)^{\delta_1}\cdots A(x_n)^{\delta_n} \neq I_l, \]
 torej velja $x_1^{\delta_1}\cdots x_n^{\delta_n} \neq e$. Z drugimi besedami, $F_X$ je prosta grupa, generirana z elementi iz prostora $X$.
 
-Da dokažemo točko (\ref{podtrd:prosta1}) vzemimo poljuben element množice $F_X\setminus X$. Zapišemo ga lahko kot besedo $x_1^{\delta_1}\cdots x_n^{\delta_n}$, kjer je $n > 1$ ali pa je $n = 1$ in je $\delta_1 = -1$. Z uporabo izomorfizma iz dveh odstavkov nazaj z upoštevanjem, da je $l = n + 1$ ali $l = n + 2$, dobimo take matrike $A(x_1),\dots,A(x_n) \in \mathfrak{U}(l)$, da je matrika $B = A(x_1)^{\delta_1}\cdots A(x_n)^{\delta_n}$ različna od vsake matrike $A(x_k)$ za $k = 1,\dots,n$. Ker je topološka grupa $\mathfrak{U}(l)$ lokalno evklidska, lahko dobimo okolico $\mathcal{B}$ matrike $B$, da je množica $\closure{\mathcal{B}}\cap (\mathfrak{U}(l)\setminus \mathcal{B})$ homeomorfna sferi $\mathcal{S}_{l^2 - 1}$ in da so $A(x_1),\dots,A(x_n) \in \closure{\mathcal{B}}$. Ker je $\mathfrak{U}\cap\mathcal{B}^{\mathsf{c}}$ povezana s potmi, lahko najdemo takšno zvezno preslikavo $\psi\colon X \to \mathfrak{U}\cap\mathcal{B}^{\mathsf{c}}$, da je $\psi(x_k) = A(x_k)$ za vsak $k = 1,\dots,n$. Potem je par $(\mathfrak{U}(l), \psi)$ enak ali identificiran s parom $(G_{\iota_0}, \varphi_{\iota_0})$. Okolica elementa $x_1^{\delta_1}\cdots x_n^{\delta_n}$ v $F_X$ je sestavljena iz vseh $(y_\iota) \in F_X$, za katere $y_{\iota_0}\in\mathcal{B}$ ne fiksira nobene točke iz prostora $X$. Od tod sledi, da je $F_X \setminus X$ odprta množica, torej je $X$ zaprt podprostor v $F_X$.
+Da dokažemo točko (\ref{podtrd:prosta2}) vzemimo poljuben element množice $F_X\setminus X$. Zapišemo ga lahko kot besedo $x_1^{\delta_1}\cdots x_n^{\delta_n}$, kjer je $n > 1$ ali pa je $n = 1$ in je $\delta_1 = -1$. Z uporabo izomorfizma iz dveh odstavkov nazaj z upoštevanjem, da je $l = n + 1$ ali $l = n + 2$, dobimo take matrike $A(x_1),\dots,A(x_n) \in \mathfrak{U}(l)$, da je matrika $B = A(x_1)^{\delta_1}\cdots A(x_n)^{\delta_n}$ različna od vsake matrike $A(x_k)$ za $k = 1,\dots,n$. Ker je topološka grupa $\mathfrak{U}(l)$ lokalno evklidska, lahko dobimo okolico $\mathcal{B}$ matrike $B$, da je množica $\closure{\mathcal{B}}\cap (\mathfrak{U}(l)\setminus \mathcal{B})$ homeomorfna sferi $\mathcal{S}_{l^2 - 1}$ in da so $A(x_1),\dots,A(x_n) \in \closure{\mathcal{B}}$. Ker je $\mathfrak{U}\cap\mathcal{B}^{\mathsf{c}}$ povezana s potmi, lahko najdemo takšno zvezno preslikavo $\psi\colon X \to \mathfrak{U}\cap\mathcal{B}^{\mathsf{c}}$, da je $\psi(x_k) = A(x_k)$ za vsak $k = 1,\dots,n$. Potem je par $(\mathfrak{U}(l), \psi)$ enak ali identificiran s parom $(G_{\iota_0}, \varphi_{\iota_0})$. Okolica elementa $x_1^{\delta_1}\cdots x_n^{\delta_n}$ v $F_X$ je sestavljena iz vseh $(y_\iota) \in F_X$, za katere $y_{\iota_0}\in\mathcal{B}$ ne fiksira nobene točke iz prostora $X$. Od tod sledi, da je $F_X \setminus X$ odprta množica, torej je $X$ zaprt podprostor v $F_X$.
 
 Da dokažemo točko (\ref{podtrd:prosta3}) le vzamemo zvezno preslikavo $\varphi\colon X \to H$, kjer je $H$ poljubno izbrana topološka grupa, za katero velja $\varphi(X) \subseteq J$, kjer je $J$ podgrupa topološke grupe $H$ in $|J| \leq \max\lbrace |X|, \aleph_1\rbrace$. Potem je par $(J, \varphi)$ enak ali identificiran z nekim parom $(G_{\iota_0}, \varphi_{\iota_0})$. Preslikava $\varphi$ je le projekcija na $\iota_0$-to komponento v $F_X \subset \Pi_{\iota \in I}G_\iota$ in jo lahko razširimo do zveznega homomorfizma iz $F_X$ v $J \subseteq H$.
 \end{dokaz}
@@ -1035,7 +1036,7 @@ Tedaj obstaja topološki izomorfizem $\tau\colon F_X \to \widetilde{F}$, da je $
 \end{izrek}
 
 \begin{dokaz}
-Iz točke (\ref{podtrd:prosta3}) izreka \ref{izr:prostatopgrupa} in lastnosti (\ref{last:prosta3}) sledi, da obstajata zvezen homomorfizem $\Phi\colon F_X \to \widetilde{F}$ in zvezen homomorfizem $\widetilde{\Phi}\colon \widetilde{F} \to F_X$, da velja $\Phi(x) = \widetilde{\Phi}(x) = x$ za vsak $x \in X$. Kompozitum $\widetilde{\Phi}\circ\Phi\colon F_X \to F_X$ je zvezen homomorfizem, ki je identična preslikava na prostoru $X$. Ker je $F_X$ po točki (\ref{podtrd:prosta2}) izreka \ref{izr:prostatopgrupa} prosta grupa nad $X$, je kompozitum $\widetilde{\Phi}\circ\Phi\colon F_X \to F_X$ identična preslikava na $F_X$. Kompozitum $\Phi\circ\widetilde{\Phi}$ je identična preslikava na podgrupi topološke grupe $\widetilde{F}$, ki je generirana z $X$. Ker je ta podgrupa po lastnosti (\ref{last:prosta2}) gosta v topološki grupi $\widetilde{F}$ in ker je $\Phi\circ\widetilde{\Phi}$ zvezna preslikava, je kompozitum $\Phi\circ\widetilde{\Phi}$ identična preslikava na $\widetilde{F}$. Od tod sledi, da je $\widetilde{\Phi} = \Phi^{-1}$, torej lahko vzamemo $\tau = \Phi$.
+Iz točke (\ref{podtrd:prosta3}) izreka \ref{izr:prostatopgrupa} in lastnosti (\ref{last:prosta3}) sledi, da obstajata zvezen homomorfizem $\Phi\colon F_X \to \widetilde{F}$ in zvezen homomorfizem $\widetilde{\Phi}\colon \widetilde{F} \to F_X$, da velja $\Phi(x) = \widetilde{\Phi}(x) = x$ za vsak $x \in X$. Kompozitum $\widetilde{\Phi}\circ\Phi\colon F_X \to F_X$ je zvezen homomorfizem, ki je identična preslikava na prostoru $X$. Ker je $F_X$ po točki (\ref{podtrd:prosta1}) izreka \ref{izr:prostatopgrupa} prosta grupa nad $X$, je kompozitum $\widetilde{\Phi}\circ\Phi\colon F_X \to F_X$ identična preslikava na $F_X$. Kompozitum $\Phi\circ\widetilde{\Phi}$ je identična preslikava na podgrupi topološke grupe $\widetilde{F}$, ki je generirana z $X$. Ker je ta podgrupa po lastnosti (\ref{last:prosta2}) gosta v topološki grupi $\widetilde{F}$ in ker je $\Phi\circ\widetilde{\Phi}$ zvezna preslikava, je kompozitum $\Phi\circ\widetilde{\Phi}$ identična preslikava na $\widetilde{F}$. Od tod sledi, da je $\widetilde{\Phi} = \Phi^{-1}$, torej lahko vzamemo $\tau = \Phi$.
 \end{dokaz}
 
 \begin{izrek}
@@ -1074,7 +1075,7 @@ Tako nadaljujemo in induktivno definiramo zaporedje $\lbrace (x_\lambda^{(n)}) \
 & x_{\lambda_k} = 0 \text{ za } k = m_{n-1}+1,\dots, m_n\rbrace \subset U.
 \end{align*}
 
-Definirajmo še $(y_\lambda) \in \Z^m$. Naj bo $(y_\lambda) = k$, če je $\lambda = \lambda_k$ za vsak $k \in \N$ in naj bo $y_\lambda = 1$ drugod. Očitno je $(y_\lambda) \in B$, zato za neko končno podmnožico $K \subset \Lambda$ velja
+Definirajmo še $(y_\lambda) \in \Z^m$. Naj bo $y_\lambda = k$, če je $\lambda = \lambda_k$ za vsak $k \in \N$ in naj bo $y_\lambda = 1$ drugod. Očitno je $(y_\lambda) \in B$, zato za neko končno podmnožico $K \subset \Lambda$ velja
 \[ \lbrace (x_\lambda) \in \Z^m ;\; x_\lambda = y_\lambda \text{ za vse } \lambda \in K \rbrace \subset V. \]
 Ker je množica $K$ končna, obstaja tak $n_0 \in \N$, da $\lambda_k \notin K$ za vse $k > m_{n_0}$.
 
