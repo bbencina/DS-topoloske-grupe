@@ -101,7 +101,7 @@ Neprazna množica $G$ z binarno operacijo $*$ je \emph{grupa}, če:
 \item v $G$ obstaja tak element $e$ (imenujemo ga \emph{enota}), da za vsak element $x$ množice $G$ velja \[ x*e = e*x = x, \]
 \item za vsak element $x$ množice $G$ obstaja tak element $y \in G$, da velja \[ x*y = y*x = e. \]
 \end{enumerate}
-Oznaka za grupo je ($G$, $*$) ali samo $G$, če je operacija znana ali drugače očitna. Od tukaj naprej bo zapis operacije vedno multiplikativen, razen če bo drugače povdarjeno. To pomeni, da bo grupna operacija označena s $\cdot$ ali pa bo izpuščena.
+Oznaka za grupo je ($G$, $*$) ali samo $G$, če je operacija znana ali drugače očitna. Od tukaj naprej bo zapis operacije vedno multiplikativen, razen če bo drugače poudarjeno. To pomeni, da bo grupna operacija označena s $\cdot$ ali pa bo izpuščena.
 
 Med grupami lahko definiramo nekaj tipov preslikav. Našteli bomo dva, ki ju bomo v nadaljevanju najbolj potrebovali.
 Preslikava $f\colon G \to \widetilde{G}$ je \emph{homomorfizem} grup, če za vsaka dva elementa $a, b \in G$ velja $f(a\cdot b) = f(a)\cdot f(b)$.
@@ -184,7 +184,7 @@ Iz definicije grupe je razvidno, da nam grupna struktura na množici porodi dve 
 
 S pomočjo strukturnih preslikav bomo sedaj definirali topološko grupo.
 \begin{definicija}\label{def:topgrupa}
-\emph{Topološka grupa} je grupa $G$ opremljena s takšno topologijo $\tau$, da sta glede na $\tau$ strukturni preslikavi množenja in invertiranja zvezni. 
+\emph{Topološka grupa} je grupa $G$, opremljena s takšno topologijo $\tau$, da sta glede na $\tau$ strukturni preslikavi množenja in invertiranja zvezni. 
 \end{definicija}
 
 Potrebujemo še tip preslikave med topološkimi grupami, ki bo ohranjal tako algebraično kot topološko strukturo.
@@ -548,7 +548,7 @@ Ker topološka grupa $G$ zadošča separacijskemu aksiomu $T_0$, je po trditvi \
 Končno lahko dokažemo še en izrek, povezan s topološkimi podgrupami, ki ga bomo potrebovali kasneje, uporaben pa je tudi drugje.
 
 \begin{definicija}
-	Topološki prostor je $\sigma$-kompakten, če ge je možno zapisati kot števno unijo kompaktnih topoloških podprostorov.
+	Topološki prostor je $\sigma$-kompakten, če ga je možno zapisati kot števno unijo kompaktnih topoloških podprostorov.
 \end{definicija}
 
 \begin{izrek}\label{izr:odpzapsigma}
@@ -609,7 +609,7 @@ Lokalno števno kompakten, regularen topološki prostor $X$ ni unija števno zap
 \end{trditev}
 
 \begin{dokaz}
-Trditev bomo dokazali s protislovjem. Naj bo topološki prostor $X$ enak uniji zaprtih množic s prazno notranjostjo, torej $X = \bigcup_{n=1}^\infty A_n$, kjer je za vsak $n \in \N$ množica $A_n$ zaprta in velja $\interior(A) = \emptyset$. Za vsak $n \in \N$ definiramo $D_n = X \setminus A_n$. Očitno je za vsak $n \in \N$ množica $D_n$ odprta. Ker ima za vsak $n \in \N$ množica $A_n$ prazno notranjost, torej ne vsebuje nobene neprazne odprte množice, vsaka odprta množica v topološkem prostoru $X$ seka množico $D_n$, iz česar sledi, da je množica $D_n$ gosta v prostoru $X$. Pokazali bomo, da velja $\bigcap_{n=1}^\infty D_n \neq \emptyset$, kar pomeni, da obstaja nek element prostora $X$, ki ni v nobeni množici $A_n$, torej topološki prostor $X$ ne more biti unija množic $A_n$.
+Trditev bomo dokazali s protislovjem. Naj bo topološki prostor $X$ enak uniji zaprtih množic s prazno notranjostjo, torej $X = \bigcup_{n=1}^\infty A_n$, kjer je za vsak $n \in \N$ množica $A_n$ zaprta in velja $\interior(A_n) = \emptyset$. Za vsak $n \in \N$ definiramo $D_n = X \setminus A_n$. Očitno je za vsak $n \in \N$ množica $D_n$ odprta. Ker ima za vsak $n \in \N$ množica $A_n$ prazno notranjost, torej ne vsebuje nobene neprazne odprte množice, vsaka odprta množica v topološkem prostoru $X$ seka množico $D_n$, iz česar sledi, da je množica $D_n$ gosta v prostoru $X$. Pokazali bomo, da velja $\bigcap_{n=1}^\infty D_n \neq \emptyset$, kar pomeni, da obstaja nek element prostora $X$, ki ni v nobeni množici $A_n$, torej topološki prostor $X$ ne more biti unija množic $A_n$.
 
 Vzemimo poljuben element $x_0 \in X$ in naj bo množica $K$ njegova števno kompaktna okolica. Ker je prostor $X$ regularen, obstaja takšna odprta okolica $U_0$ elementa $x_0$, da je $U_0 \subset \closure{U_0} \subset K$, kjer je tudi množica $\closure{U_0}$ števno kompaktna. Ker je množica $D_1$ gosta v regularnem topološkem prostoru $X$, ima z vsako neprazno odprto množico neprazen presek, torej obstaja takšna neprazna odprta množica $U_1$, da je $U_1 \subset \closure{U_1} \subset U_0 \cap D_1$. Induktivno za vsak $n \in \N$ definiramo množico $U_n$ na naslednji način. Če smo že definirali množice $U_i$ za $i = 1,\dots,n-1$, naj bo množica $U_n$ takšna neprazna odprta množica, da velja $U_n \subset \closure{U_n} \subset U_{n-1} \cap D_n$. Tako kot pri definiciji množice $U_1$ upoštevamo, da je množica $D_n$ gosta za vsak $n \in \N$ in da je topološki prostor $X$ regularen.
 Ker je množica $\closure{U_0}$ števno kompaktna in je za vsak $n \in \N$ množica $\closure{U_n}$ neprazna, je tudi presek $\bigcap_{n=0}^\infty \closure{U_n}$ neprazen. Elementi tega preseka morajo po zgornji konstrukciji ležati v preseku $\bigcap_{n=1}^\infty D_n$, torej res velja $\bigcap_{n=1}^\infty D_n \neq \emptyset$.
@@ -795,7 +795,7 @@ Topološka grupa je z levo ali desno uniformno strukturo torej res uniformni pro
 \end{enumerate}
 potem ji rečemo \emph{metrika}.
 Topološki prostor $X$ je \emph{metrizabilen}, če njegova topologija $\tau$ izhaja iz kakšne metrike $d$ na množici $X$.
-Baza topologije metrizabilnega topološkega prostora $X$ je družina odprtih krogel $\lbrace K(x, \epsilon);\; x \in X, \epsilon \in \R \rbrace$.
+Baza topologije metrizabilnega topološkega prostora $X$ je družina odprtih krogel $\lbrace K(x, \epsilon);\; x \in X, \epsilon \in \R, \epsilon > 0 \rbrace$.
 
 \begin{definicija}
 Psevdometrika na grupi $G$ je \emph{levoinvariantna}, če za vsaki dve točki $x, y \in G$ in za vsak element $a \in G$ velja $\rho(ax, ay) = \rho(x, y)$.
@@ -821,7 +821,7 @@ Vzemimo poljubno diadično število $d = \frac{b}{2^n}$, kjer je $n \in \N$ in $
 \end{izrek}
 
 \begin{dokaz}
-Najprej preimenujmo družino okolic $\lbrace U_k \rbrace_{k = 1}^\infty$. Najprej za vsak $k \in \N$ definiramo okolic $V_{2^{-k}} = U_k$. Za vsako diadično racionalno število $r \in (0, 1)$ nato definiramo množico $V_r$ na naslednji način. Če je
+Najprej preimenujmo družino okolic $\lbrace U_k \rbrace_{k = 1}^\infty$. Za vsak $k \in \N$ definiramo okolico $V_{2^{-k}} = U_k$. Za vsako diadično racionalno število $r \in (0, 1)$ nato definiramo množico $V_r$ na naslednji način. Če je
 \[ r = 2^{-l_1} + \cdots + 2^{-l_n}, 0 < l_1 < \cdots < l_n, \]
 potem definiramo
 \[ V_r = V_{2^{-l_1}}\cdots V_{2^{-l_n}}. \]
@@ -944,7 +944,7 @@ V tem podrazdelku bomo definirali separacijski aksiom $T_{3 \frac{1}{2}}$ in poj
 \end{definicija}
 
 \begin{definicija}
-	Topološku prostoru, ki zadošča $T_1$ in $T_{3 \frac{1}{2}}$, pravimo \emph{povsem regularen} topološki prostor.
+	Topološkemu prostoru, ki zadošča $T_1$ in $T_{3 \frac{1}{2}}$, pravimo \emph{povsem regularen} topološki prostor.
 \end{definicija}
 
 \begin{trditev}\label{pos:reghaus}
