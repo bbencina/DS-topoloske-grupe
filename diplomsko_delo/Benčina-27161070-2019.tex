@@ -214,7 +214,7 @@ Oglejmo si nekaj osnovnih primerov topoloških grup.
 \end{primer}
 
 \begin{primer}\label{pri:haus}
-	Realna števila za operacijo $+$ niso topološka grupa s topologijo $\tau = \lbrace (a, \infty) ;\; a \in \R \rbrace$. Vzemimo odprto množico $(a, \infty)$ in si oglejmo njeno prasliko glede na preslikavo invertiranja. Ker $\iota^{-1}((a, \infty)) = (-\infty, -a)$ ni odprta množica v topologiji $\tau$, prostor $(\R, \tau)$ ni topološka grupa. Kasneje bomo pokazali, da realna števila s to topologijo niso topološka grupa za nobeno operacijo.
+	Realna števila za operacijo $+$ niso topološka grupa s topologijo $\tau = \lbrace (a, \infty) ;\; a \in \R \rbrace \cup \lbrace \emptyset, \R\rbrace$. Vzemimo odprto množico $(a, \infty)$ in si oglejmo njeno prasliko glede na preslikavo invertiranja. Ker $\iota^{-1}((a, \infty)) = (-\infty, -a)$ ni odprta množica v topologiji $\tau$, prostor $(\R, \tau)$ ni topološka grupa. Kasneje bomo pokazali, da realna števila s to topologijo niso topološka grupa za nobeno operacijo.
 \end{primer}
 
 \subsection{Osnovne lastnosti topoloških grup}
@@ -393,7 +393,7 @@ Z naslednjo trditvijo si oglejmo še lastnosti operatorja zaprtja na podmnožica
 \end{primer}
 
 \begin{primer}
-Naj bo $G$ poljubna neskončna grupa in naj bo topologija $\tau$ topologija končnih komplementov, tj. $\tau = \lbrace U \subseteq G ;\; |G\setminus U| < \infty \rbrace$.
+Naj bo $G$ poljubna neskončna grupa in naj bo topologija $\tau$ topologija končnih komplementov, tj. $\tau = \lbrace U \subseteq G ;\; |G\setminus U| < \infty \rbrace \cup \lbrace \emptyset \rbrace$.
 Iz splošne topologije vemo, da je to najšibkejša topologija na $G$, da topološki prostor $G$ zadošča separacijskemu aksiomu $T_1$, ne pa tudi $T_2$. Od tod po enakem razmisleku kot v primeru \ref{pri:haus2} sledi, da topološki prostor $(G, \tau)$ ni topološka grupa za nobeno operacijo.
 \end{primer}
 
